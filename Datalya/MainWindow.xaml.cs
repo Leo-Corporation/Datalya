@@ -46,6 +46,33 @@ namespace Datalya
 		public MainWindow()
 		{
 			InitializeComponent();
+			InitUI();
+		}
+
+		private void InitUI()
+		{
+			StateChanged += (o, e) => RefreshState();
+		}
+
+		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+		{
+			WindowState = WindowState.Minimized; // Minimize
+		}
+
+		private void CloseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			Environment.Exit(0); // Quit
+		}
+
+		private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
+		{
+			WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; // Set
+			RefreshState();
+		}
+
+		private void RefreshState()
+		{
+			MaximizeBtn.Content = WindowState == WindowState.Maximized ? "\uFBA6" : "\uFA40"; // Set
 		}
 	}
 }
