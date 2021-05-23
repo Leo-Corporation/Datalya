@@ -100,4 +100,10 @@
   <data name="Datalya" xml:space="preserve">
     <value>Datalya</value>
   </data>
+  <data name="Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="Creator" xml:space="preserve">
+    <value>Creator</value>
+  </data>
 </root>

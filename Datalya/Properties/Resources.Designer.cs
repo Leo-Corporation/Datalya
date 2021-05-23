@@ -68,5 +68,27 @@ namespace Datalya.Properties {
                 return ResourceManager.GetString("Datalya", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        public static string Database
+        {
+            get
+            {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        public static string Creator
+        {
+            get
+            {
+                return ResourceManager.GetString("Creator", resourceCulture);
+            }
+        }
     }
 }
