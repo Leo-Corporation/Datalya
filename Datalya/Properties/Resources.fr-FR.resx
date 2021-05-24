@@ -126,4 +126,25 @@
   <data name="Database" xml:space="preserve">
     <value>Base de données</value>
   </data>
+  <data name="File" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edition</value>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>Insertion</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
 </root>
