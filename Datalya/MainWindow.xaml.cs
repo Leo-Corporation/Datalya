@@ -122,5 +122,10 @@ namespace Datalya
 			ResetAllCheckStatus(); // Reset
 			CheckButton(CreatorBtn); // Check
 		}
+
+		private void EditFileNameBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

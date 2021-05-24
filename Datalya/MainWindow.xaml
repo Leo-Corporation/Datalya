@@ -130,8 +130,11 @@
 							</StackPanel>
 						</Button>
 					</StackPanel>
-										
-					<TextBlock Text="{x:Static lang:Resources.Datalya}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+
+					<StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+						<TextBlock Text="{x:Static lang:Resources.Datalya}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+						<Button Style="{DynamicResource RegularButtonStyle}" x:Name="EditFileNameBtn" Click="EditFileNameBtn_Click" FontFamily="\Fonts\#FluentSystemIcons-Regular" BorderThickness="0" Background="Transparent" Foreground="{Binding Source={StaticResource Foreground1}}" Content="&#xF3DE;" Margin="5" Padding="2" Cursor="Hand" WindowChrome.IsHitTestVisibleInChrome="True"/>
+					</StackPanel>
 					<Button Grid.Column="2" FontSize="14" Content="&#xFC75;" FontFamily="/Fonts/#FluentSystemIcons-Regular" Name="MinimizeBtn" Click="MinimizeBtn_Click" RenderOptions.EdgeMode="Aliased" Style="{StaticResource TitleBarButtonStyle}" Background="Transparent" Width="46" Height="32" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 					<Button Grid.Column="3" FontSize="14" Content="&#xFA40;" FontFamily="/Fonts/#FluentSystemIcons-Regular" Name="MaximizeBtn" Click="MaximizeBtn_Click" RenderOptions.EdgeMode="Aliased" Style="{StaticResource TitleBarButtonStyle}" Background="Transparent" Width="46" Height="32" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 					<Button Grid.Column="4" FontSize="14" Content="&#xF36B;" FontFamily="/Fonts/#FluentSystemIcons-Regular" Name="CloseBtn" Click="CloseBtn_Click" RenderOptions.EdgeMode="Aliased" Style="{StaticResource TitleBarCloseButtonStyle}" Background="Transparent" Width="46" Height="32" Foreground="{Binding Source={StaticResource Foreground1}}"/>
