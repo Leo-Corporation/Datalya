@@ -103,7 +103,7 @@
 		<Grid VerticalAlignment="Top">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 
 			<Border Height="Auto" Style="{StaticResource WindowMainPanelStyle}">
@@ -140,6 +140,8 @@
 					<Button Grid.Column="4" FontSize="14" Content="&#xF36B;" FontFamily="/Fonts/#FluentSystemIcons-Regular" Name="CloseBtn" Click="CloseBtn_Click" RenderOptions.EdgeMode="Aliased" Style="{StaticResource TitleBarCloseButtonStyle}" Background="Transparent" Width="46" Height="32" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 				</Grid>
 			</Border>
+
+			<Frame x:Name="WindowContent" NavigationUIVisibility="Hidden" Grid.Row="1"/>
 		</Grid>
 	</Border>
 </Window>
