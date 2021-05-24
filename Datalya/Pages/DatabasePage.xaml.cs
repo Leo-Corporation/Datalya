@@ -43,9 +43,83 @@ namespace Datalya.Pages
 	/// </summary>
 	public partial class DatabasePage : Page
 	{
+		private Button CheckedButton { get; set; }
 		public DatabasePage()
 		{
 			InitializeComponent();
+		}
+
+		private void FileRibBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(FileRibBtn); // Check
+		}
+
+		private void EditRibBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(EditRibBtn); // Check
+		}
+
+		private void InsertRibBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(InsertRibBtn); // Check
+		}
+
+		private void ExportRibBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(ExportRibBtn); // Check
+		}
+
+		private void HelpRibBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(HelpRibBtn); // Check
+		}
+
+		private void TabEnter(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+		}
+
+		private void TabLeave(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			if (button != CheckedButton)
+			{
+				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+			}
+		}
+
+		private void CheckButton(Button button)
+		{
+			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+
+			CheckedButton = button; // Set the "checked" button
+		}
+
+		private void ResetAllCheckStatus()
+		{
+			FileRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			FileRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+
+			EditRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			EditRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the foreground
+			
+			InsertRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			InsertRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the foreground
+			
+			ExportRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+			ExportRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			
+			HelpRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+			HelpRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
 		}
 	}
 }

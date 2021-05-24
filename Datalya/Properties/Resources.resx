@@ -127,4 +127,7 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
 </root>

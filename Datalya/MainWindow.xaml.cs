@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,11 @@ namespace Datalya
 
 		private void InitUI()
 		{
+			// Register events
 			StateChanged += (o, e) => RefreshState();
+
+			// UI
+			WindowContent.Content = Global.DatabasePage; // Set content
 			CheckButton(DatabaseBtn); // Check
 		}
 

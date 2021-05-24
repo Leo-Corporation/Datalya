@@ -4,11 +4,36 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Datalya.Pages"
+	  xmlns:lang="clr-namespace:Datalya.Properties"
+	  FontFamily="..\Fonts\#Montserrat"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DatabasePage">
 
     <Grid>
-        
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Border Grid.Row="0" Margin="20" Background="{Binding Source={StaticResource Background1}}" CornerRadius="5">
+			<Border.Effect>
+				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="10" Opacity="0.4" RenderingBias="Quality"/>
+			</Border.Effect>
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<StackPanel Orientation="Horizontal" Grid.Row="0">
+					<Button x:Name="FileRibBtn" Background="{Binding Source={StaticResource Background1}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.File}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="FileRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+					<Button x:Name="EditRibBtn" Background="{Binding Source={StaticResource Background1}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Edit}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="EditRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+					<Button x:Name="InsertRibBtn" Background="{Binding Source={StaticResource Background1}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Insert}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="InsertRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+					<Button x:Name="ExportRibBtn" Background="{Binding Source={StaticResource Background1}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Edit}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="ExportRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+					<Button x:Name="HelpRibBtn" Background="{Binding Source={StaticResource Background1}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Help}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="HelpRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+				</StackPanel>
+			</Grid>
+		</Border>
     </Grid>
 </Page>
