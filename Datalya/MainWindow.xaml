@@ -117,13 +117,13 @@
 					</Grid.ColumnDefinitions>
 
 					<StackPanel Orientation="Horizontal">
-						<Button x:Name="DatabaseBtn" WindowChrome.IsHitTestVisibleInChrome="True" Cursor="Hand" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Padding="4" Background="{Binding Source={StaticResource AccentColor}}" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0">
+						<Button Style="{DynamicResource TabButtonStyle}" MouseEnter="TabEnter" MouseLeave="TabLeave" Click="DatabaseBtn_Click" x:Name="DatabaseBtn" WindowChrome.IsHitTestVisibleInChrome="True" Cursor="Hand" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Padding="4" Background="{Binding Source={StaticResource AccentColor}}" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0">
 							<StackPanel Orientation="Horizontal">
 								<TextBlock Text="&#xF345;" FontFamily="\Fonts\#FluentSystemicons-Regular" Margin="0 0 10 0"/>
 								<TextBlock FontWeight="Bold" Text="{x:Static lang:Resources.Database}"/>
 							</StackPanel>
 						</Button>
-						<Button x:Name="CreatorBtn" WindowChrome.IsHitTestVisibleInChrome="True" Cursor="Hand" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="4" Background="Transparent" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0">
+						<Button Style="{DynamicResource TabButtonStyle}" MouseEnter="TabEnter" MouseLeave="TabLeave" Click="CreatorBtn_Click" x:Name="CreatorBtn" WindowChrome.IsHitTestVisibleInChrome="True" Cursor="Hand" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="4" Background="Transparent" VerticalAlignment="Center" Margin="10,0,0,0" BorderThickness="0">
 							<StackPanel Orientation="Horizontal">
 								<TextBlock Text="&#xF768;" FontFamily="\Fonts\#FluentSystemicons-Regular" Margin="0 0 10 0"/>
 								<TextBlock FontWeight="Bold" Text="{x:Static lang:Resources.Creator}"/>

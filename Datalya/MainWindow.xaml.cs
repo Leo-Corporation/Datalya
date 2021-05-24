@@ -43,6 +43,7 @@ namespace Datalya
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private Button CheckedButton { get; set; }
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -52,6 +53,7 @@ namespace Datalya
 		private void InitUI()
 		{
 			StateChanged += (o, e) => RefreshState();
+			CheckButton(DatabaseBtn); // Check
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -73,6 +75,52 @@ namespace Datalya
 		private void RefreshState()
 		{
 			MaximizeBtn.Content = WindowState == WindowState.Maximized ? "\uFBA6" : "\uFA40"; // Set
+		}
+
+		private void TabEnter(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+		}
+
+		private void TabLeave(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			if (button != CheckedButton)
+			{
+				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+			}
+		}
+
+		private void CheckButton(Button button)
+		{
+			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+
+			CheckedButton = button; // Set the "checked" button
+		}
+
+		private void ResetAllCheckStatus()
+		{
+			DatabaseBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			DatabaseBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+
+			CreatorBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			CreatorBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+		}
+
+		private void DatabaseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(DatabaseBtn); // Check
+		}
+
+		private void CreatorBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ResetAllCheckStatus(); // Reset
+			CheckButton(CreatorBtn); // Check
 		}
 	}
 }
