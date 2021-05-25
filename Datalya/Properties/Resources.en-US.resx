@@ -150,4 +150,13 @@
   <data name="Export" xml:space="preserve">
     <value>Export</value>
   </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="CloseDataBase" xml:space="preserve">
+    <value>Close database</value>
+  </data>
 </root>

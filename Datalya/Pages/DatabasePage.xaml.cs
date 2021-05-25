@@ -47,6 +47,12 @@ namespace Datalya.Pages
 		public DatabasePage()
 		{
 			InitializeComponent();
+			InitUI(); // Init the UI
+		}
+
+		private void InitUI()
+		{
+			CheckButton(FileRibBtn); // Check
 		}
 
 		private void FileRibBtn_Click(object sender, RoutedEventArgs e)
@@ -120,6 +126,21 @@ namespace Datalya.Pages
 			
 			HelpRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			HelpRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+		}
+
+		private void SaveBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void SaveAsBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void NewDatabaseBtn_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
