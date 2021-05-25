@@ -159,4 +159,10 @@
   <data name="CloseDataBase" xml:space="preserve">
     <value>Fermer la base de données</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="DeleteAll" xml:space="preserve">
+    <value>Supprimer tout</value>
+  </data>
 </root>

@@ -53,36 +53,41 @@ namespace Datalya.Pages
 		private void InitUI()
 		{
 			CheckButton(FileRibBtn); // Check
+			FileTab.Visibility = Visibility.Visible; // Show
 		}
 
 		private void FileRibBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(FileRibBtn); // Check
+
+			HideAllTabs(); // Hide all ribbon tabs
+			FileTab.Visibility = Visibility.Visible; // Show
 		}
 
 		private void EditRibBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(EditRibBtn); // Check
-		}
 
-		private void InsertRibBtn_Click(object sender, RoutedEventArgs e)
-		{
-			ResetAllCheckStatus(); // Reset
-			CheckButton(InsertRibBtn); // Check
+			HideAllTabs(); // Hide all ribbon tabs
+			EditTab.Visibility = Visibility.Visible; // Show
 		}
 
 		private void ExportRibBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(ExportRibBtn); // Check
+
+			HideAllTabs(); // Hide all ribbon tabs
 		}
 
 		private void HelpRibBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(HelpRibBtn); // Check
+
+			HideAllTabs(); // Hide all ribbon tabs
 		}
 
 		private void TabEnter(object sender, MouseEventArgs e)
@@ -117,15 +122,18 @@ namespace Datalya.Pages
 
 			EditRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
 			EditRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the foreground
-			
-			InsertRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
-			InsertRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the foreground
-			
+						
 			ExportRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			ExportRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
 			
 			HelpRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			HelpRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+		}
+
+		internal void HideAllTabs()
+		{
+			FileTab.Visibility = Visibility.Collapsed; // Hide
+			EditTab.Visibility = Visibility.Collapsed; // Hide
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -139,6 +147,31 @@ namespace Datalya.Pages
 		}
 
 		private void NewDatabaseBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void OpenDbBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void InfoBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void CloseDbBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
