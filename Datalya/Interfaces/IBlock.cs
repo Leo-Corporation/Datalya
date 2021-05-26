@@ -41,7 +41,7 @@ namespace Datalya.Interfaces
 		/// <summary>
 		/// The <see cref="Enums.BlockType"/> of the block.
 		/// </summary>
-		public BlockType BlockType { get; set; }
+		public BlockType BlockType { get; }
 
 		/// <summary>
 		/// The value of the block
