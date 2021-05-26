@@ -145,4 +145,7 @@
   <data name="DeleteAll" xml:space="preserve">
     <value>Delete all</value>
   </data>
+  <data name="CreatorDesc" xml:space="preserve">
+    <value>Create your own database by using Blocks.</value>
+  </data>
 </root>

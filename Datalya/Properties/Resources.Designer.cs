@@ -88,6 +88,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create your own database by using Blocks..
+        /// </summary>
+        public static string CreatorDesc {
+            get {
+                return ResourceManager.GetString("CreatorDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database.
         /// </summary>
         public static string Database {
