@@ -47,5 +47,11 @@ namespace Datalya.Interfaces
 		/// The value of the block
 		/// </summary>
 		public object? Value { get; set; }
+
+		/// <summary>
+		/// Changes the name.
+		/// </summary>
+		/// <param name="name">The new name.</param>
+		public void ChangeName(string name);
 	}
 }
