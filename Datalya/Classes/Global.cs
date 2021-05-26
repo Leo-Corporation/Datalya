@@ -41,5 +41,10 @@ namespace Datalya.Classes
 		/// The <see cref="Pages.DatabasePage"/> page.
 		/// </summary>
 		public static DatabasePage DatabasePage { get; set; }
+
+		/// <summary>
+		/// The <see cref="Pages.CreatorPage"/> page.
+		/// </summary>
+		public static CreatorPage CreatorPage { get; set; }
 	}
 }

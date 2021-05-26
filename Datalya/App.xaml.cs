@@ -40,6 +40,7 @@ namespace Datalya
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			Global.DatabasePage = new(); // Create new Database page
+			Global.CreatorPage = new(); // Create new Creator page
 
 			base.OnStartup(e);
 		}

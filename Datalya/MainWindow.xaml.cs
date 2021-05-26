@@ -120,12 +120,14 @@ namespace Datalya
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(DatabaseBtn); // Check
+			WindowContent.Navigate(Global.DatabasePage); // Navigate
 		}
 
 		private void CreatorBtn_Click(object sender, RoutedEventArgs e)
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(CreatorBtn); // Check
+			WindowContent.Navigate(Global.CreatorPage); // Navigate
 		}
 
 		private void EditFileNameBtn_Click(object sender, RoutedEventArgs e)
