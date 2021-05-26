@@ -177,5 +177,15 @@ namespace Datalya.Pages
 		{
 
 		}
+
+		private void EditBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
