@@ -34,7 +34,7 @@ namespace Datalya.Enums
 		/// <summary>
 		/// A text field.
 		/// </summary>
-		Imput,
+		Input,
 
 		/// <summary>
 		/// Choices with checkboxes.
