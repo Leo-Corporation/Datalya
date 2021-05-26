@@ -37,7 +37,7 @@ namespace Datalya.Classes
 
 		public BlockType BlockType => BlockType.SingleChoice;
 
-		public string Value { get; set; }
+		public object Value { get; set; }
 
 		public void ChangeName(string name) => Name = name;
 	}
