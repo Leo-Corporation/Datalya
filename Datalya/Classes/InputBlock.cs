@@ -37,7 +37,7 @@ namespace Datalya.Classes
 
 		public BlockType BlockType => BlockType.Input;
 
-		public object Value { get; set; }
+		public string Value { get; set; }
 
 		public InputBlock(string name)
 		{
