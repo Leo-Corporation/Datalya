@@ -44,14 +44,16 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class InputBlockCreatorUI : UserControl
 	{
+		InputBlockPropertiesUI InputBlockPropertiesUI { get; init; }
 		public InputBlockCreatorUI()
 		{
 			InitializeComponent();
+			InputBlockPropertiesUI = new(); // Create new UI
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			Global.CreatorPage.PropertyDisplayer.Content = InputBlockPropertiesUI; // Set frame's content
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
