@@ -4,13 +4,13 @@
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 	  xmlns:local="clr-namespace:Datalya.Pages"
-				 xmlns:lang="clr-namespace:Datalya.Properties"
-			 FontFamily="..\Fonts\#Montserrat" Foreground="{Binding Source={StaticResource Foreground1}}"
+	  xmlns:lang="clr-namespace:Datalya.Properties"
+	  FontFamily="..\Fonts\#Montserrat" Foreground="{Binding Source={StaticResource Foreground1}}"
 	  mc:Ignorable="d" 
 	  d:DesignHeight="450" d:DesignWidth="800"
 	  Title="CreatorPage">
 
-	<Grid Margin="10,10,0,10">
+	<Grid Margin="10,10,0,0">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 			<ColumnDefinition Width="Auto"/>
@@ -66,7 +66,7 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Border Grid.Column="1" Width="200" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}">
+		<Border Grid.Column="1" Width="300" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}" Margin="10,0,0,0">
 			<Border.Effect>
 				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
 			</Border.Effect>
