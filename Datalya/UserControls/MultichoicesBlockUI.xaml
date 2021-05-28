@@ -10,10 +10,7 @@
              d:DesignHeight="250" d:DesignWidth="300">
 	<Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
 		<StackPanel Orientation="Vertical">
-			<StackPanel Orientation="Horizontal">
-				<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="0,0,10,0" VerticalAlignment="Center"/>
-				<Button x:Name="EditBtn" Click="EditBtn_Click" Cursor="Hand" Content="&#xF3DE;" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="13" VerticalAlignment="Center"/>
-			</StackPanel>
+			<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
 			<!-- Content will be set on start -->
 			<!--<CheckBox Style="{DynamicResource CheckBoxStyle1}" Content="This is a demo" BorderThickness="2"/>
 			<CheckBox Style="{DynamicResource CheckBoxStyle1}" Content="This is a demo" IsChecked="True" BorderThickness="2"/>-->
