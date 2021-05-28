@@ -79,6 +79,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure.
+        /// </summary>
+        public static string Configure {
+            get {
+                return ResourceManager.GetString("Configure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creator.
         /// </summary>
         public static string Creator {

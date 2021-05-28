@@ -166,4 +166,7 @@
   <data name="PropertiesDesc" xml:space="preserve">
     <value>Block properties.</value>
   </data>
+  <data name="Configure" xml:space="preserve">
+    <value>Configure</value>
+  </data>
 </root>
