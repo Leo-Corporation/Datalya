@@ -57,5 +57,10 @@ namespace Datalya.UserControls
 		{
 
 		}
+
+		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
