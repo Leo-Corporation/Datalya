@@ -169,4 +169,10 @@
   <data name="Configure" xml:space="preserve">
     <value>Configure</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Placeholder" xml:space="preserve">
+    <value>Placeholder text</value>
+  </data>
 </root>
