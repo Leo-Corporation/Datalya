@@ -61,7 +61,7 @@
 		</Border>
 
 		<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
-			<StackPanel x:Name="BlockDisplayer" Grid.Row="2">
+			<StackPanel x:Name="BlockDisplayer" x:FieldModifier="public" Grid.Row="2">
 				<!-- Items added by user or on start -->
 			</StackPanel>
 		</ScrollViewer>
