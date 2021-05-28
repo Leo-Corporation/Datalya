@@ -60,7 +60,7 @@
 			</StackPanel>
 		</Border>
 
-		<StackPanel Grid.Row="2">
+		<StackPanel x:Name="BlockDisplayer" Grid.Row="2">
 			<!-- Items added by user or on start -->
 		</StackPanel>
 

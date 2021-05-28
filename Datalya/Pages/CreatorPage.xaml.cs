@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,22 +51,22 @@ namespace Datalya.Pages
 
 		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			BlockDisplayer.Children.Add(new InputBlockCreatorUI()); // Add block
 		}
 
 		private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI()); // Add block
 		}
 
 		private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI()); // Add block
 		}
 
 		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			BlockDisplayer.Children.Add(new SelectorBlockCreatorUI()); // Add block
 		}
 	}
 }
