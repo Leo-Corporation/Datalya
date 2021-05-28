@@ -39,18 +39,13 @@ using System.Windows.Shapes;
 namespace Datalya.UserControls
 {
 	/// <summary>
-	/// Interaction logic for InputBlockCreatorIUI.xaml
+	/// Interaction logic for InputBlockCreatorUI.xaml
 	/// </summary>
-	public partial class InputBlockCreatorIUI : UserControl
+	public partial class InputBlockCreatorUI : UserControl
 	{
-		public InputBlockCreatorIUI()
+		public InputBlockCreatorUI()
 		{
 			InitializeComponent();
-		}
-
-		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
-		{
-
 		}
 	}
 }
