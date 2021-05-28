@@ -178,11 +178,29 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input.
+        /// </summary>
+        public static string Input {
+            get {
+                return ResourceManager.GetString("Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Insert.
         /// </summary>
         public static string Insert {
             get {
                 return ResourceManager.GetString("Insert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multichoices.
+        /// </summary>
+        public static string Multichoices {
+            get {
+                return ResourceManager.GetString("Multichoices", resourceCulture);
             }
         }
         
@@ -210,6 +228,24 @@ namespace Datalya.Properties {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selector.
+        /// </summary>
+        public static string Selector {
+            get {
+                return ResourceManager.GetString("Selector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single choice.
+        /// </summary>
+        public static string SingleChoice {
+            get {
+                return ResourceManager.GetString("SingleChoice", resourceCulture);
             }
         }
     }

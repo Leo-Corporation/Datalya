@@ -47,5 +47,25 @@ namespace Datalya.Pages
 		{
 			InitializeComponent();
 		}
+
+		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

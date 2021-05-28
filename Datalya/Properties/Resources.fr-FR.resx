@@ -168,4 +168,16 @@
   <data name="CreatorDesc" xml:space="preserve">
     <value>Créez votre propre base de données en utilisant les Blocks.</value>
   </data>
+  <data name="Input" xml:space="preserve">
+    <value>Entrée textuelle</value>
+  </data>
+  <data name="Multichoices" xml:space="preserve">
+    <value>Multi-choix</value>
+  </data>
+  <data name="SingleChoice" xml:space="preserve">
+    <value>Choix unique</value>
+  </data>
+  <data name="Selector" xml:space="preserve">
+    <value>Selecteur</value>
+  </data>
 </root>
