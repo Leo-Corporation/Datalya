@@ -47,5 +47,10 @@ namespace Datalya.UserControls
 		{
 			InitializeComponent();
 		}
+
+		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
