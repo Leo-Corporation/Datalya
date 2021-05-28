@@ -60,9 +60,11 @@
 			</StackPanel>
 		</Border>
 
-		<StackPanel x:Name="BlockDisplayer" Grid.Row="2">
-			<!-- Items added by user or on start -->
-		</StackPanel>
+		<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
+			<StackPanel x:Name="BlockDisplayer" Grid.Row="2">
+				<!-- Items added by user or on start -->
+			</StackPanel>
+		</ScrollViewer>
 
 		<Border Grid.Column="1" Width="200" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}">
 			<Border.Effect>
