@@ -7,7 +7,7 @@
 			 xmlns:lang="clr-namespace:Datalya.Properties"
 			 FontFamily="..\Fonts\#Montserrat" Foreground="{Binding Source={StaticResource Foreground1}}"
 			 mc:Ignorable="d" 
-			 d:DesignHeight="125" d:DesignWidth="400">
+			 Height="125" Width="400">
 	<Border CornerRadius="10" Margin="5" Padding="5" Background="{Binding Source={StaticResource Background1}}" VerticalAlignment="Stretch">
 		<StackPanel VerticalAlignment="Center">
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
