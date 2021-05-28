@@ -180,4 +180,10 @@
   <data name="Selector" xml:space="preserve">
     <value>Selecteur</value>
   </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Propriétés</value>
+  </data>
+  <data name="PropertiesDesc" xml:space="preserve">
+    <value>Propriétés du Block.</value>
+  </data>
 </root>

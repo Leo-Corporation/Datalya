@@ -10,7 +10,7 @@
 	  d:DesignHeight="450" d:DesignWidth="800"
 	  Title="CreatorPage">
 
-	<Grid Margin="10">
+	<Grid Margin="10,10,0,10">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 			<ColumnDefinition Width="Auto"/>
@@ -58,6 +58,26 @@
 					</StackPanel>
 				</Button>
 			</StackPanel>
+		</Border>
+
+		<StackPanel Grid.Row="2">
+			<!-- Items added by user or on start -->
+		</StackPanel>
+
+		<Border Grid.Column="1" Width="200" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}">
+			<Border.Effect>
+				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
+			</Border.Effect>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<StackPanel Orientation="Vertical" Grid.Row="0">
+					<TextBlock Text="{x:Static lang:Resources.Properties}" FontWeight="Bold" FontSize="22"/>
+					<TextBlock Text="{x:Static lang:Resources.PropertiesDesc}" TextWrapping="Wrap"/>
+				</StackPanel>
+			</Grid>
 		</Border>
 	</Grid>
 </Page>
