@@ -11,8 +11,8 @@
 	<Border CornerRadius="10" Margin="5" Padding="5" Background="{Binding Source={StaticResource Background1}}" VerticalAlignment="Stretch">
 		<StackPanel VerticalAlignment="Center">
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-				<TextBlock Text="&#xF793;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="28" VerticalAlignment="Center" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-				<TextBlock x:Name="NameTxt" Text="{x:Static lang:Resources.Input}" FontWeight="Normal" VerticalAlignment="Center" FontSize="20"/>
+				<TextBlock Text="&#xF55C;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="28" VerticalAlignment="Center" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+				<TextBlock x:Name="NameTxt" Text="{x:Static lang:Resources.Selector}" FontWeight="Normal" VerticalAlignment="Center" FontSize="20"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
