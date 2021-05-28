@@ -75,10 +75,13 @@
 					<RowDefinition Height="Auto"/>
 					<RowDefinition/>
 				</Grid.RowDefinitions>
+				
 				<StackPanel Orientation="Vertical" Grid.Row="0">
 					<TextBlock Text="{x:Static lang:Resources.Properties}" FontWeight="Bold" FontSize="22"/>
 					<TextBlock Text="{x:Static lang:Resources.PropertiesDesc}" TextWrapping="Wrap"/>
 				</StackPanel>
+
+				<Frame x:Name="PropertyDisplayer" NavigationUIVisibility="Hidden" Grid.Row="1" x:FieldModifier="public"/>
 			</Grid>
 		</Border>
 	</Grid>
