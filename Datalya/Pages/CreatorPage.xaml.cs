@@ -47,6 +47,7 @@ namespace Datalya.Pages
 		public CreatorPage()
 		{
 			InitializeComponent();
+			PropertyDisplayer.Content = new EmptyPropertyUI(); // Set content
 		}
 
 		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
