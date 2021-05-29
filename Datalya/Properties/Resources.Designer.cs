@@ -70,6 +70,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A choice per line..
+        /// </summary>
+        public static string ChoicePerLine {
+            get {
+                return ResourceManager.GetString("ChoicePerLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choices.
+        /// </summary>
+        public static string Choices {
+            get {
+                return ResourceManager.GetString("Choices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close database.
         /// </summary>
         public static string CloseDataBase {

@@ -175,4 +175,10 @@
   <data name="Placeholder" xml:space="preserve">
     <value>Placeholder text</value>
   </data>
+  <data name="Choices" xml:space="preserve">
+    <value>Choices</value>
+  </data>
+  <data name="ChoicePerLine" xml:space="preserve">
+    <value>A choice per line.</value>
+  </data>
 </root>

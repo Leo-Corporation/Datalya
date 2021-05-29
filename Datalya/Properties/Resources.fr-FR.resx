@@ -195,4 +195,10 @@
   <data name="Placeholder" xml:space="preserve">
     <value>Texte placeholder</value>
   </data>
+  <data name="Choices" xml:space="preserve">
+    <value>Choix</value>
+  </data>
+  <data name="ChoicePerLine" xml:space="preserve">
+    <value>Un choix par ligne.</value>
+  </data>
 </root>
