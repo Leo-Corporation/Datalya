@@ -88,7 +88,7 @@ namespace Datalya.UserControls
 					Cursor = Cursors.Hand, // Set cursor
 					Content = "\uF34D", // Set text
 					FontFamily = new(new Uri("pack://application:,,,/"), "./Fonts/#FluentSystemIcons-Regular"),
-					FontSize = 16 // Set font size
+					FontSize = 16, // Set font size
 				}; // Create Delete button
 
 				Grid grid = new();
@@ -100,6 +100,8 @@ namespace Datalya.UserControls
 
 				textBox.SetValue(Grid.ColumnProperty, 0); // Set col
 				button.SetValue(Grid.ColumnProperty, 1); // Set col
+
+				button.Click += (o, e) => TextBoxesDisplayer.Children.Remove(grid); // Remove
 
 				TextBoxesDisplayer.Children.Add(grid); // Add
 			}
