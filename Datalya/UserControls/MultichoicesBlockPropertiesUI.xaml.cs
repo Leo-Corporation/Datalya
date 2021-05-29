@@ -46,6 +46,7 @@ namespace Datalya.UserControls
 		public MultichoicesBlockPropertiesUI()
 		{
 			InitializeComponent();
+			AddCheckBoxItem(); // Add item
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,11 @@ namespace Datalya.UserControls
 		}
 
 		private void AddBtn_Click(object sender, RoutedEventArgs e)
+		{
+			AddCheckBoxItem(); // Add item
+		}
+
+		internal void AddCheckBoxItem()
 		{
 			try
 			{
@@ -66,9 +72,36 @@ namespace Datalya.UserControls
 					Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
 					Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
 					FontWeight = FontWeights.Bold, // Set font to bold
-					TextAlignment = TextAlignment.Left // Left text alignment
-				};
-				TextBoxesDisplayer.Children.Add(textBox); // Add
+					TextAlignment = TextAlignment.Left, // Left text alignment
+					VerticalAlignment = VerticalAlignment.Center // Set vertical alignment
+				}; // Create textbox
+
+				Button button = new()
+				{
+					Style = FindResource("RegularButtonStyle") as Style, // Define style
+					Padding = new(10, 5, 10, 5), // Set padding
+					Margin = new(0, 5, 10, 5), // Set margin
+					BorderThickness = new(0), // Remove border
+					Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
+					HorizontalAlignment = HorizontalAlignment.Center, // Set horizontal alignment
+					VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
+					Cursor = Cursors.Hand, // Set cursor
+					Content = "\uF34D", // Set text
+					FontFamily = new(new Uri("pack://application:,,,/"), "./Fonts/#FluentSystemIcons-Regular"),
+					FontSize = 16 // Set font size
+				}; // Create Delete button
+
+				Grid grid = new();
+				grid.ColumnDefinitions.Add(new()); // Create col definitions
+				grid.ColumnDefinitions.Add(new() { Width = GridLength.Auto }); // Create col definitions
+
+				grid.Children.Add(textBox); // Add control
+				grid.Children.Add(button); // Add control
+
+				textBox.SetValue(Grid.ColumnProperty, 0); // Set col
+				button.SetValue(Grid.ColumnProperty, 1); // Set col
+
+				TextBoxesDisplayer.Children.Add(grid); // Add
 			}
 			catch { }
 		}

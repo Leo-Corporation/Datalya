@@ -27,7 +27,7 @@
 			<ScrollViewer Height="270" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,20,0">
 				<StackPanel>
 					<StackPanel Orientation="Vertical" x:Name="TextBoxesDisplayer">
-						<TextBox Style="{DynamicResource RegularTextBoxStyle}" Padding="7" Margin="10,5,10,5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" d:Text="Placeholder" FontWeight="Bold" TextAlignment="Left"/>
+						
 					</StackPanel>
 
 					<Button x:Name="AddBtn" Grid.Row="1" Click="AddBtn_Click" Padding="5" Margin="10" HorizontalAlignment="Center" Style="{DynamicResource TabButtonStyle}" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" BorderThickness="0" Cursor="Hand">
