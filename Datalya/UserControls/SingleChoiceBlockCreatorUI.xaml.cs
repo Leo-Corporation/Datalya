@@ -44,14 +44,16 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class SingleChoiceBlockCreatorUI : UserControl
 	{
+		SingleChoiceBlockPropertiesUI SingleChoiceBlockPropertiesUI { get; init; }
 		public SingleChoiceBlockCreatorUI()
 		{
 			InitializeComponent();
+			SingleChoiceBlockPropertiesUI = new();
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			Global.CreatorPage.PropertyDisplayer.Content = SingleChoiceBlockPropertiesUI; // Set frame's content
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
