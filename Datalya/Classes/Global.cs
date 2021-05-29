@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Pages;
+using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,5 +47,10 @@ namespace Datalya.Classes
 		/// The <see cref="Pages.CreatorPage"/> page.
 		/// </summary>
 		public static CreatorPage CreatorPage { get; set; }
+
+		/// <summary>
+		/// Placeholder when there is no Block selected.
+		/// </summary>
+		internal static EmptyPropertyUI EmptyPropertyUI { get; set; }
 	}
 }

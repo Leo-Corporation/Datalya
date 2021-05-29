@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
 using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,8 @@ namespace Datalya.Pages
 		public CreatorPage()
 		{
 			InitializeComponent();
-			PropertyDisplayer.Content = new EmptyPropertyUI(); // Set content
+			Global.EmptyPropertyUI = new();
+			PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
 		}
 
 		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)

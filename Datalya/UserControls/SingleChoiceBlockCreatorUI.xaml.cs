@@ -60,6 +60,10 @@ namespace Datalya.UserControls
 		{
 			try
 			{
+				if (Global.CreatorPage.PropertyDisplayer.Content == SingleChoiceBlockPropertiesUI)
+				{
+					Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
+				}
 				Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block
 			}
 			catch { }
