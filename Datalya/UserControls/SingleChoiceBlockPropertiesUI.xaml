@@ -24,7 +24,7 @@
 
 			<TextBlock Text="{x:Static lang:Resources.Choices}" FontWeight="Bold" Margin="10,0,0,0"/>
 
-			<ScrollViewer Height="270" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,20,0">
+			<ScrollViewer Height="270" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,10,0">
 				<StackPanel>
 					<StackPanel Orientation="Vertical" x:Name="TextBoxesDisplayer">
 
