@@ -66,7 +66,7 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Border Grid.Column="1" Width="300" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}" Margin="10,0,0,0">
+		<Border Grid.Column="1" Width="310" Padding="10" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource Background1}}" Margin="10,0,0,0">
 			<Border.Effect>
 				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
 			</Border.Effect>
