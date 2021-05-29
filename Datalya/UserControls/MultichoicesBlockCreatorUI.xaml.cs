@@ -44,14 +44,16 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class MultichoicesBlockCreatorUI : UserControl
 	{
+		MultichoicesBlockPropertiesUI MultichoicesBlockPropertiesUI { get; init; }
 		public MultichoicesBlockCreatorUI()
 		{
 			InitializeComponent();
+			MultichoicesBlockPropertiesUI = new();
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			Global.CreatorPage.PropertyDisplayer.Content = MultichoicesBlockPropertiesUI; // Set frame's content
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
