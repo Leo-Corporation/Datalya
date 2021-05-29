@@ -250,6 +250,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nothing to show.
+        /// </summary>
+        public static string NothingToShow {
+            get {
+                return ResourceManager.GetString("NothingToShow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no informations to show. Please select or create a block to see its informations here..
+        /// </summary>
+        public static string NothingToShowMsg {
+            get {
+                return ResourceManager.GetString("NothingToShowMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         public static string Open {

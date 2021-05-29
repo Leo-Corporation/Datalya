@@ -201,4 +201,10 @@
   <data name="ChoicePerLine" xml:space="preserve">
     <value>Un choix par ligne.</value>
   </data>
+  <data name="NothingToShow" xml:space="preserve">
+    <value>Rien à montrer</value>
+  </data>
+  <data name="NothingToShowMsg" xml:space="preserve">
+    <value>Il n'y a aucune informations à montrer. Veuillez sélectionner ou créer un Block pour voir ses informations ici.</value>
+  </data>
 </root>
