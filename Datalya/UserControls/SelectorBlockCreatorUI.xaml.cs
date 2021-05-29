@@ -44,14 +44,16 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class SelectorBlockCreatorUI : UserControl
 	{
+		SelectorBlockPropertiesUI SelectorBlockPropertiesUI { get; init; }
 		public SelectorBlockCreatorUI()
 		{
 			InitializeComponent();
+			SelectorBlockPropertiesUI = new();
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			Global.CreatorPage.PropertyDisplayer.Content = SelectorBlockPropertiesUI; // Set frame's content
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
