@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using LeoCorpLibrary.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,8 +57,19 @@ namespace Datalya.UserControls
 		{
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
+				// Name
 				CSelectorBlock = new(NameTxt.Text);
 				ParentElement.NameTxt.Text = CSelectorBlock.Name; // Set name 
+
+				// Choices
+				string[] lines = ChoicesTxt.Text.SplitLines(); // Split
+				var filledLines = lines.RemoveItem(string.Empty); // Remove
+				for (int i = 0; i < filledLines.Length; i++)
+				{
+					CSelectorBlock.Choices.Add(filledLines[i]); // Add
+				}
+
+				// Var
 				ParentElement.SelectorBlock = CSelectorBlock; // Set
 			}
 		}
