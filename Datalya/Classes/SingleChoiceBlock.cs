@@ -37,6 +37,11 @@ namespace Datalya.Classes
 
 		public BlockType BlockType => BlockType.SingleChoice;
 
+		/// <summary>
+		/// Possible choices.
+		/// </summary>
+		public List<string> Choices { get; set; }
+
 		public object Value { get; set; }
 
 		public SingleChoiceBlock(string name)
