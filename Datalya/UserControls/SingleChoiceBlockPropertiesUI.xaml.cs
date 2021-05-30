@@ -57,8 +57,18 @@ namespace Datalya.UserControls
 		{
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
+				// Name
 				SingleChoiceBlock = new(NameTxt.Text);
 				ParentElement.NameTxt.Text = SingleChoiceBlock.Name; // Set name 
+
+				// Choices
+				foreach (Grid grid in TextBoxesDisplayer.Children)
+				{
+					TextBox textBox = (TextBox)grid.Children[0];
+					SingleChoiceBlock.Choices.Add(textBox.Text); // Add choice
+				}
+
+				// Var
 				ParentElement.SingleChoiceBlock = SingleChoiceBlock; // Set
 			}
 		}
