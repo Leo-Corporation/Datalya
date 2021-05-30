@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,15 +44,23 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class SingleChoiceBlockPropertiesUI : UserControl
 	{
-		public SingleChoiceBlockPropertiesUI()
+		private SingleChoiceBlockCreatorUI ParentElement { get; init; }
+		internal SingleChoiceBlock SingleChoiceBlock { get; set; }
+		public SingleChoiceBlockPropertiesUI(SingleChoiceBlockCreatorUI singleChoiceBlockCreatorUI)
 		{
 			InitializeComponent();
 			AddCheckBoxItem(); // Add item
+			ParentElement = singleChoiceBlockCreatorUI; // Set
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
+			{
+				SingleChoiceBlock = new(NameTxt.Text);
+				ParentElement.NameTxt.Text = SingleChoiceBlock.Name; // Set name 
+				ParentElement.SingleChoiceBlock = SingleChoiceBlock; // Set
+			}
 		}
 
 		private void AddBtn_Click(object sender, RoutedEventArgs e)
