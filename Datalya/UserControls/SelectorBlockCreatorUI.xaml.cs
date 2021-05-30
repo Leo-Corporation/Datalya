@@ -45,10 +45,11 @@ namespace Datalya.UserControls
 	public partial class SelectorBlockCreatorUI : UserControl
 	{
 		SelectorBlockPropertiesUI SelectorBlockPropertiesUI { get; init; }
+		internal Classes.SelectorBlock SelectorBlock { get; set; }
 		public SelectorBlockCreatorUI()
 		{
 			InitializeComponent();
-			SelectorBlockPropertiesUI = new();
+			SelectorBlockPropertiesUI = new(this);
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
