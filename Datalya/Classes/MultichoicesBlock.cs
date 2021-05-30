@@ -39,6 +39,11 @@ namespace Datalya.Classes
 
 		public object Value { get; set; }
 
+		public MultichoicesBlock(string name)
+		{
+			Name = name;
+		}
+
 		public void ChangeName(string name) => Name = name;
 	}
 }
