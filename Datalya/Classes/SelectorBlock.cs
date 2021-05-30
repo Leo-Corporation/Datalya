@@ -47,6 +47,7 @@ namespace Datalya.Classes
 		public SelectorBlock(string name)
 		{
 			Name = name;
+			Choices = new();
 		}
 
 		public void ChangeName(string name) => Name = name;
