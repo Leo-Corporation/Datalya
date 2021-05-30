@@ -45,10 +45,11 @@ namespace Datalya.UserControls
 	public partial class MultichoicesBlockCreatorUI : UserControl
 	{
 		MultichoicesBlockPropertiesUI MultichoicesBlockPropertiesUI { get; init; }
+		internal MultichoicesBlock MultichoicesBlock { get; set; }
 		public MultichoicesBlockCreatorUI()
 		{
 			InitializeComponent();
-			MultichoicesBlockPropertiesUI = new();
+			MultichoicesBlockPropertiesUI = new(this);
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
