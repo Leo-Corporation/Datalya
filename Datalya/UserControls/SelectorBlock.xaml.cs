@@ -43,14 +43,17 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class SelectorBlock : UserControl
 	{
-		public SelectorBlock()
+		Classes.SelectorBlock CSelectorBlock { get; set; }
+		public SelectorBlock(Classes.SelectorBlock selectorBlock)
 		{
 			InitializeComponent();
+			CSelectorBlock = selectorBlock;
+			InitUI();
 		}
 
-		private void EditBtn_Click(object sender, RoutedEventArgs e)
+		private void InitUI()
 		{
-
+			NameTxt.Text = CSelectorBlock.Name; // Set text
 		}
 	}
 }
