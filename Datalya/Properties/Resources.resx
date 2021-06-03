@@ -193,4 +193,10 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="AddElement" xml:space="preserve">
+    <value>Add an element</value>
+  </data>
+  <data name="AddElementDesc" xml:space="preserve">
+    <value>Add an element to the database.</value>
+  </data>
 </root>

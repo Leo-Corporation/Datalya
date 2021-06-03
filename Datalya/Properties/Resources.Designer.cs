@@ -70,6 +70,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add an element.
+        /// </summary>
+        public static string AddElement {
+            get {
+                return ResourceManager.GetString("AddElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add an element to the database..
+        /// </summary>
+        public static string AddElementDesc {
+            get {
+                return ResourceManager.GetString("AddElementDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A choice per line..
         /// </summary>
         public static string ChoicePerLine {
