@@ -82,19 +82,31 @@ namespace Datalya.Pages
 				{
 					if (uIElement is InputBlockCreatorUI inputCreatorUI)
 					{
-						blocks.Add(inputCreatorUI.InputBlock); // Add item
+						if (inputCreatorUI.InputBlock is not null)
+						{
+							blocks.Add(inputCreatorUI.InputBlock); // Add item 
+						}
 					}
 					else if (uIElement is MultichoicesBlockCreatorUI multichoicesBlockCreatorUI)
 					{
-						blocks.Add(multichoicesBlockCreatorUI.MultichoicesBlock); // Add item
+						if (multichoicesBlockCreatorUI.MultichoicesBlock is not null)
+						{
+							blocks.Add(multichoicesBlockCreatorUI.MultichoicesBlock); // Add item 
+						}
 					}
 					else if (uIElement is SelectorBlockCreatorUI selectorBlockCreatorUI)
 					{
-						blocks.Add(selectorBlockCreatorUI.SelectorBlock); // Add item
+						if (selectorBlockCreatorUI.SelectorBlock is not null)
+						{
+							blocks.Add(selectorBlockCreatorUI.SelectorBlock); // Add item 
+						}
 					}
 					else if (uIElement is SingleChoiceBlockCreatorUI choiceBlockCreatorUI)
 					{
-						blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item
+						if (choiceBlockCreatorUI.SingleChoiceBlock is not null)
+						{
+							blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item 
+						}
 					}
 				}
 				Global.DataBaseBlocks = blocks;
