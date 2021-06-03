@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Interfaces;
+using Datalya.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -170,7 +171,7 @@ namespace Datalya.Pages
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new AddWindow().Show(); // Show "Add" window
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
