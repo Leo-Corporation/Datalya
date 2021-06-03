@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,14 +44,18 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class InputBlockUI : UserControl
 	{
-		public InputBlockUI()
+		InputBlock InputBlock { get; set; }
+		public InputBlockUI(InputBlock inputBlock)
 		{
 			InitializeComponent();
+			InputBlock = inputBlock;
+
+			InitUI();
 		}
 
-		private void EditBtn_Click(object sender, RoutedEventArgs e)
+		private	void InitUI()
 		{
-
+			NameTxt.Text = InputBlock.Name; // Set name
 		}
 	}
 }
