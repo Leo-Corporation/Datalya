@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using System;
@@ -52,5 +53,10 @@ namespace Datalya.Classes
 		/// Placeholder when there is no Block selected.
 		/// </summary>
 		internal static EmptyPropertyUI EmptyPropertyUI { get; set; }
+
+		/// <summary>
+		/// Blocks used in the database.
+		/// </summary>
+		public static List<IBlock> DataBaseBlocks { get; set; }
 	}
 }

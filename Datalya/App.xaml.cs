@@ -42,6 +42,8 @@ namespace Datalya
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page
 
+			Global.DataBaseBlocks = new(); // Create new list
+
 			base.OnStartup(e);
 		}
 	}

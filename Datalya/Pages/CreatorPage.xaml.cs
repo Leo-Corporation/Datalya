@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.Interfaces;
 using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,38 @@ namespace Datalya.Pages
 		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
 			BlockDisplayer.Children.Add(new SelectorBlockCreatorUI()); // Add block
+		}
+
+		private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				List<IBlock> blocks = new();
+				foreach (UIElement uIElement in BlockDisplayer.Children)
+				{
+					if (uIElement is InputBlockCreatorUI inputCreatorUI)
+					{
+						blocks.Add(inputCreatorUI.InputBlock); // Add item
+					}
+					else if (uIElement is MultichoicesBlockCreatorUI multichoicesBlockCreatorUI)
+					{
+						blocks.Add(multichoicesBlockCreatorUI.MultichoicesBlock); // Add item
+					}
+					else if (uIElement is SelectorBlockCreatorUI selectorBlockCreatorUI)
+					{
+						blocks.Add(selectorBlockCreatorUI.SelectorBlock); // Add item
+					}
+					else if (uIElement is SingleChoiceBlockCreatorUI choiceBlockCreatorUI)
+					{
+						blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item
+					}
+				}
+				Global.DataBaseBlocks = blocks;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
 	}
 }

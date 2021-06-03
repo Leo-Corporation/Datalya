@@ -187,4 +187,10 @@
   <data name="NothingToShowMsg" xml:space="preserve">
     <value>There is no informations to show. Please select or create a block to see its informations here.</value>
   </data>
+  <data name="ErrorOccured" xml:space="preserve">
+    <value>An error has occured.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>
