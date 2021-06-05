@@ -43,6 +43,7 @@ namespace Datalya
 			Global.CreatorPage = new(); // Create new Creator page
 
 			Global.DataBaseBlocks = new(); // Create new list
+			Global.DataBaseContent = new(); // Create new list
 
 			base.OnStartup(e);
 		}
