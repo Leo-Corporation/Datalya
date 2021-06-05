@@ -58,5 +58,10 @@ namespace Datalya.Classes
 		/// Blocks used in the database.
 		/// </summary>
 		public static List<IBlock> DataBaseBlocks { get; set; }
+
+		/// <summary>
+		/// Database elements.
+		/// </summary>
+		public static List<List<IBlock>> DataBaseContent { get; set; }
 	}
 }

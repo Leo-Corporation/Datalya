@@ -57,6 +57,13 @@ namespace Datalya.Pages
 		{
 			CheckButton(FileRibBtn); // Check
 			FileTab.Visibility = Visibility.Visible; // Show
+
+			InitDataBaseUI(); // Init database UI
+		}
+
+		internal void InitDataBaseUI()
+		{
+
 		}
 
 		private void FileRibBtn_Click(object sender, RoutedEventArgs e)

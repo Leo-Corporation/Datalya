@@ -120,6 +120,8 @@ namespace Datalya
 		{
 			ResetAllCheckStatus(); // Reset
 			CheckButton(DatabaseBtn); // Check
+
+			Global.DatabasePage.InitDataBaseUI(); // Refresh datagrid
 			WindowContent.Navigate(Global.DatabasePage); // Navigate
 		}
 

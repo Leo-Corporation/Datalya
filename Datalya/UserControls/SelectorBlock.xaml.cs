@@ -43,7 +43,7 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class SelectorBlock : UserControl
 	{
-		Classes.SelectorBlock CSelectorBlock { get; set; }
+		public Classes.SelectorBlock CSelectorBlock { get; set; }
 		public SelectorBlock(Classes.SelectorBlock selectorBlock)
 		{
 			InitializeComponent();

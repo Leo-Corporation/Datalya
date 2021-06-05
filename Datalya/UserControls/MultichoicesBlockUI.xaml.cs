@@ -44,7 +44,7 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class MultichoicesBlockUI : UserControl
 	{
-		MultichoicesBlock MultichoicesBlock { get; set; }
+		public MultichoicesBlock MultichoicesBlock { get; set; }
 		public MultichoicesBlockUI(MultichoicesBlock multichoicesBlock)
 		{
 			InitializeComponent();

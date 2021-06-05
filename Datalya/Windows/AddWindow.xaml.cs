@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Enums;
+using Datalya.Interfaces;
 using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,47 @@ namespace Datalya.Windows
 		private void CloseBtn_Click(object sender, RoutedEventArgs e)
 		{
 			Close(); // Closes the window
+		}
+
+		private void AddBtn_Click(object sender, RoutedEventArgs e)
+		{
+			List<IBlock> blocks = new();
+
+			foreach (UIElement uIElement in BlockDisplayer.Children)
+			{
+				if (uIElement is InputBlockUI inputBlockUI)
+				{
+					if (inputBlockUI.InputBlock is not null)
+					{
+						blocks.Add(inputBlockUI.InputBlock); // Add item 
+					}
+				}
+				else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
+				{
+					if (multichoicesBlockUI.MultichoicesBlock is not null)
+					{
+						blocks.Add(multichoicesBlockUI.MultichoicesBlock); // Add item 
+					}
+				}
+				else if (uIElement is UserControls.SelectorBlock selectorBlock)
+				{
+					if (selectorBlock.CSelectorBlock is not null)
+					{
+						blocks.Add(selectorBlock.CSelectorBlock); // Add item 
+					}
+				}
+				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
+				{
+					if (singleChoiceBlockUI.SingleChoiceBlock is not null)
+					{
+						blocks.Add(singleChoiceBlockUI.SingleChoiceBlock); // Add item 
+					}
+				}
+			}
+
+			Global.DataBaseContent.Add(blocks); // Add blocks
+			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
+			Close(); // Close window
 		}
 	}
 }

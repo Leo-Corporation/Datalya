@@ -44,7 +44,7 @@ namespace Datalya.UserControls
 	/// </summary>
 	public partial class InputBlockUI : UserControl
 	{
-		InputBlock InputBlock { get; set; }
+		public InputBlock InputBlock { get; set; }
 		public InputBlockUI(InputBlock inputBlock)
 		{
 			InitializeComponent();
