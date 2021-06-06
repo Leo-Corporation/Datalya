@@ -92,35 +92,35 @@ namespace Datalya.Windows
 			{
 				if (uIElement is InputBlockUI inputBlockUI)
 				{
-					if (inputBlockUI.InputBlock is not null)
+					if (inputBlockUI.ValueTxt.Text is not null)
 					{
-						blocks.Add(inputBlockUI.InputBlock); // Add item 
+						InputBlock i = new(inputBlockUI.InputBlock.Name);
+						i.BlockValue = inputBlockUI.ValueTxt.Text;
+						blocks.Add(i); // Add item 
 					}
 				}
 				else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
 				{
-					if (multichoicesBlockUI.MultichoicesBlock is not null)
-					{
-						blocks.Add(multichoicesBlockUI.MultichoicesBlock); // Add item 
-					}
+					//TODO
 				}
 				else if (uIElement is UserControls.SelectorBlock selectorBlock)
 				{
-					if (selectorBlock.CSelectorBlock is not null)
-					{
-						blocks.Add(selectorBlock.CSelectorBlock); // Add item 
-					}
+					//TODO
 				}
 				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
 				{
-					if (singleChoiceBlockUI.SingleChoiceBlock is not null)
-					{
-						blocks.Add(singleChoiceBlockUI.SingleChoiceBlock); // Add item 
-					}
+					//TODO
 				}
 			}
 
-			Global.DataBaseContent.Add(new(blocks));
+			List<DataBaseItem> dbs = new();
+			for (int i = 0; i < Global.DataBaseContent.Count; i++)
+			{
+				dbs.Add(Global.DataBaseContent[i]);
+			}
+			dbs.Add(new(blocks));
+
+			Global.DataBaseContent = dbs;
 			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
 			Close(); // Close window
 		}
