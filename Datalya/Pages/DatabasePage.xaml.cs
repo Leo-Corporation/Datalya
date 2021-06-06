@@ -26,6 +26,7 @@ using Datalya.Interfaces;
 using Datalya.Windows;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,31 @@ namespace Datalya.Pages
 
 		internal void InitDataBaseUI()
 		{
+			try
+			{
+				if (Global.DataBaseBlocks.Count > 0)
+				{
+					var dt = new DataTable();
 
+					// Columns
+					for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
+					{
+						dt.Columns.Add(Global.DataBaseBlocks[i].Name);
+					}
+
+					// Rows
+					for (int i = 0; i < Global.DataBaseContent.Count; i++)
+					{
+						dt.Rows.Add(Global.DataBaseContent[i].Blocks.Take(dt.Columns.Count).ToArray());
+					}
+
+					DataGridDb.ItemsSource = dt.DefaultView;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void FileRibBtn_Click(object sender, RoutedEventArgs e)

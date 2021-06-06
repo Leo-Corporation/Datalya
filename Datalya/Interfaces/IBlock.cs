@@ -46,7 +46,7 @@ namespace Datalya.Interfaces
 		/// <summary>
 		/// The value of the block
 		/// </summary>
-		public object? Value { get; set; }
+		public string BlockValue { get; set; }
 
 		/// <summary>
 		/// Changes the name.

@@ -57,5 +57,10 @@ namespace Datalya.UserControls
 		{
 			NameTxt.Text = InputBlock.Name; // Set name
 		}
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			InputBlock.BlockValue = ValueTxt.Text; // Set
+		}
 	}
 }

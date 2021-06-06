@@ -62,6 +62,6 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Database elements.
 		/// </summary>
-		public static List<List<IBlock>> DataBaseContent { get; set; }
+		public static List<DataBaseItem> DataBaseContent { get; set; }
 	}
 }

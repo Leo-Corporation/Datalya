@@ -36,8 +36,18 @@ namespace Datalya.Classes
 	public class DataBaseItem
 	{
 		/// <summary>
-		/// Blocks of the DataBaseItem
+		/// Blocks of the DataBaseItem.
 		/// </summary>
 		public List<IBlock> Blocks { get; set; }
+
+		public DataBaseItem(List<IBlock> blocks)
+		{
+			Blocks = blocks; // Set value
+		}
+
+		public DataBaseItem()
+		{
+			// Nothing
+		}
 	}
 }

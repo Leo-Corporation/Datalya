@@ -120,7 +120,7 @@ namespace Datalya.Windows
 				}
 			}
 
-			Global.DataBaseContent.Add(blocks); // Add blocks
+			Global.DataBaseContent.Add(new(blocks));
 			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
 			Close(); // Close window
 		}

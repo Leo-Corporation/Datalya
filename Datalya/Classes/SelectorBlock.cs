@@ -42,7 +42,7 @@ namespace Datalya.Classes
 		/// </summary>
 		public List<string> Choices { get; set; }
 
-		public object Value { get; set; }
+		public string BlockValue { get; set; }
 
 		public SelectorBlock(string name)
 		{
