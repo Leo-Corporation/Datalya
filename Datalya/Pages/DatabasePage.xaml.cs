@@ -123,6 +123,7 @@ namespace Datalya.Pages
 			CheckButton(HelpRibBtn); // Check
 
 			HideAllTabs(); // Hide all ribbon tabs
+			HelpTab.Visibility = Visibility.Visible; // Show
 		}
 
 		private void TabEnter(object sender, MouseEventArgs e)
@@ -169,6 +170,7 @@ namespace Datalya.Pages
 		{
 			FileTab.Visibility = Visibility.Collapsed; // Hide
 			EditTab.Visibility = Visibility.Collapsed; // Hide
+			HelpTab.Visibility = Visibility.Collapsed; // Hide
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -217,6 +219,16 @@ namespace Datalya.Pages
 		}
 
 		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void AboutBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void GetHelpBtn_Click(object sender, RoutedEventArgs e)
 		{
 
 		}

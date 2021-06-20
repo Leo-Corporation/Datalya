@@ -81,6 +81,21 @@
 						</StackPanel>
 					</Button>
 				</StackPanel>
+
+				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="HelpTab" Grid.Row="1">
+					<Button x:Name="GetHelpBtn" Click="GetHelpBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="&#xF63E;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
+							<TextBlock Text="{x:Static lang:Resources.Help}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+						</StackPanel>
+					</Button>
+					<Button x:Name="AboutBtn" Click="AboutBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="&#xF4A4;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
+							<TextBlock Text="{x:Static lang:Resources.About}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+						</StackPanel>
+					</Button>
+				</StackPanel>
 			</Grid>
 		</Border>
 

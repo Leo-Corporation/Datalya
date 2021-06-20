@@ -199,4 +199,7 @@
   <data name="AddElementDesc" xml:space="preserve">
     <value>Add an element to the database.</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
 </root>
