@@ -225,7 +225,7 @@ namespace Datalya.Pages
 
 		private void AboutBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new AboutWindow().Show(); // Show about window
 		}
 
 		private void GetHelpBtn_Click(object sender, RoutedEventArgs e)

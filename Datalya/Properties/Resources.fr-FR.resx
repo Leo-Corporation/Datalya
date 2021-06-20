@@ -222,4 +222,10 @@
   <data name="About" xml:space="preserve">
     <value>A propos</value>
   </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
 </root>
