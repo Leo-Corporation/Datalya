@@ -101,7 +101,20 @@ namespace Datalya.Windows
 				}
 				else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
 				{
-					//TODO
+					MultichoicesBlock multichoicesBlock = new(multichoicesBlockUI.MultichoicesBlock.Name);
+					for (int i = 0; i < multichoicesBlockUI.CheckBoxesDisplayer.Children.Count; i++)
+					{
+						if (multichoicesBlockUI.CheckBoxesDisplayer.Children[i] is CheckBox)
+						{
+							CheckBox checkBox = (CheckBox)multichoicesBlockUI.CheckBoxesDisplayer.Children[i];
+							if (checkBox.IsChecked.Value)
+							{
+								multichoicesBlock.SelectedChoices.Add(checkBox.Content.ToString());
+							} 
+						}
+					}
+
+					blocks.Add(multichoicesBlock);
 				}
 				else if (uIElement is UserControls.SelectorBlock selectorBlock)
 				{

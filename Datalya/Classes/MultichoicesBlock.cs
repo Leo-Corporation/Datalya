@@ -42,14 +42,30 @@ namespace Datalya.Classes
 		/// </summary>
 		public List<string> Choices { get; set; }
 
+		public List<string> SelectedChoices { get; set; }
+
 		public string BlockValue { get; set; }
 
 		public MultichoicesBlock(string name)
 		{
 			Name = name;
 			Choices = new();
+			SelectedChoices = new();
 		}
 
 		public void ChangeName(string name) => Name = name;
+
+		public override string ToString()
+		{
+			string result = ""; // Final result string
+
+			for (int i = 0; i < SelectedChoices.Count; i++)
+			{
+				string s = i == SelectedChoices.Count - 1 ? "" : ", "; // Set
+				result += $"{SelectedChoices[i]}{s}"; // Add text to string
+			}
+
+			return result;
+		}
 	}
 }

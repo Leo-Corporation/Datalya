@@ -55,6 +55,18 @@ namespace Datalya.UserControls
 		private void InitUI()
 		{
 			NameTxt.Text = MultichoicesBlock.Name; // Set text
+
+			for (int i = 0; i < MultichoicesBlock.Choices.Count; i++) // For each choice
+			{
+				CheckBoxesDisplayer.Children.Add(new CheckBox()
+				{
+					Style = FindResource("CheckBoxStyle1") as Style, // Set style
+					BorderThickness = new(2), // Set border thickness
+					Content = MultichoicesBlock.Choices[i], // Set content
+					FontWeight = FontWeights.Bold, // Set font to bold
+					VerticalContentAlignment = VerticalAlignment.Center // Set vertical alignment
+				});
+			}
 		}
 	}
 }

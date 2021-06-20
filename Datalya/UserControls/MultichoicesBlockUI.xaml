@@ -11,9 +11,11 @@
 	<Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
 		<StackPanel Orientation="Vertical">
 			<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
-			<!-- Content will be set on start -->
-			<!--<CheckBox Style="{DynamicResource CheckBoxStyle1}" Content="This is a demo" BorderThickness="2"/>
+			<StackPanel x:Name="CheckBoxesDisplayer">
+				<!-- Content will be set on start -->
+				<!--<CheckBox Style="{DynamicResource CheckBoxStyle1}" Content="This is a demo" BorderThickness="2"/>
 			<CheckBox Style="{DynamicResource CheckBoxStyle1}" Content="This is a demo" IsChecked="True" BorderThickness="2"/>-->
+			</StackPanel>
 		</StackPanel>
 	</Border>
 </UserControl>
