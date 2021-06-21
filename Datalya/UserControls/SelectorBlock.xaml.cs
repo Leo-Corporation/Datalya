@@ -54,6 +54,12 @@ namespace Datalya.UserControls
 		private void InitUI()
 		{
 			NameTxt.Text = CSelectorBlock.Name; // Set text
+
+			// Load combobox
+			for (int i = 0; i < CSelectorBlock.Choices.Count; i++)
+			{
+				ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
+			}
 		}
 	}
 }

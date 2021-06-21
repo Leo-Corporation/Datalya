@@ -62,7 +62,7 @@ namespace Datalya.UserControls
 				ParentElement.NameTxt.Text = CSelectorBlock.Name; // Set name 
 
 				// Choices
-				string[] lines = ChoicesTxt.Text.SplitLines(); // Split
+				string[] lines = ChoicesTxt.Text.Split(new string[] { "\n", "\r", "\r\n" }, StringSplitOptions.RemoveEmptyEntries); // Split
 				var filledLines = lines.RemoveItem(string.Empty); // Remove
 				for (int i = 0; i < filledLines.Length; i++)
 				{

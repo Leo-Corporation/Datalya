@@ -118,7 +118,12 @@ namespace Datalya.Windows
 				}
 				else if (uIElement is UserControls.SelectorBlock selectorBlock)
 				{
-					//TODO
+					Classes.SelectorBlock cSelector = new(selectorBlock.CSelectorBlock.Name);
+					if (selectorBlock.ItemComboBox.SelectedItem is not null)
+					{
+						cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
+						blocks.Add(cSelector); 
+					}
 				}
 				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
 				{
