@@ -11,9 +11,11 @@
 	<Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
 		<StackPanel Orientation="Vertical">
 			<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
-			<!-- Content will be set on start -->
-			<!--<RadioButton Style="{DynamicResource RadioButtonStyle1}" Content="This is a demo"/>
-			<RadioButton Style="{DynamicResource RadioButtonStyle1}" Content="This is a demo" IsChecked="True"/>-->
+			<StackPanel x:Name="RadioButtonsDisplayer">
+				<!-- Content will be set on start -->
+				<!--<RadioButton Style="{DynamicResource RadioButtonStyle1}" Content="This is a demo"/>
+				<RadioButton Style="{DynamicResource RadioButtonStyle1}" Content="This is a demo" IsChecked="True"/>-->
+			</StackPanel>
 		</StackPanel>
 	</Border>
 </UserControl>

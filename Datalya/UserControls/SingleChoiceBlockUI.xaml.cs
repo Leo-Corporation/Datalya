@@ -55,6 +55,17 @@ namespace Datalya.UserControls
 		private void InitUI()
 		{
 			NameTxt.Text = SingleChoiceBlock.Name; // Set text
+
+			for (int i = 0; i < SingleChoiceBlock.Choices.Count; i++)
+			{
+				RadioButtonsDisplayer.Children.Add(new RadioButton()
+				{
+					Style = FindResource("RadioButtonStyle1") as Style, // Set style
+					Content = SingleChoiceBlock.Choices[i], // Set content
+					FontWeight = FontWeights.Bold, // Set font to bold
+					VerticalContentAlignment = VerticalAlignment.Center // Set vertical alignment
+				});
+			}
 		}
 	}
 }

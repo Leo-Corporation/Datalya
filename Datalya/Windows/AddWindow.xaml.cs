@@ -122,7 +122,20 @@ namespace Datalya.Windows
 				}
 				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
 				{
-					//TODO
+					SingleChoiceBlock singleChoiceBlock = new(singleChoiceBlockUI.SingleChoiceBlock.Name);
+					for (int i = 0; i < singleChoiceBlockUI.RadioButtonsDisplayer.Children.Count; i++)
+					{
+						if (singleChoiceBlockUI.RadioButtonsDisplayer.Children[i] is RadioButton)
+						{
+							RadioButton radioButton = (RadioButton)singleChoiceBlockUI.RadioButtonsDisplayer.Children[i];
+							if (radioButton.IsChecked.Value)
+							{
+								singleChoiceBlock.BlockValue = radioButton.Content.ToString(); // Set
+							}
+						}
+					}
+
+					blocks.Add(singleChoiceBlock);
 				}
 			}
 
