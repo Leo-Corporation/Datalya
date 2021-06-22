@@ -169,6 +169,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The database is empty, there is nothing to delete..
+        /// </summary>
+        public static string DataBaseEmptyDeleteMsg {
+            get {
+                return ResourceManager.GetString("DataBaseEmptyDeleteMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Datalya.
         /// </summary>
         public static string Datalya {

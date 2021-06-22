@@ -231,4 +231,7 @@
   <data name="DeleteAllMsg" xml:space="preserve">
     <value>Toutes les entrées de la base de données vont être supprimées. Cette opération est irréversible. Voulez-vous continuer ?</value>
   </data>
+  <data name="DataBaseEmptyDeleteMsg" xml:space="preserve">
+    <value>La base de données est vide, il n'y a rien à supprimer.</value>
+  </data>
 </root>

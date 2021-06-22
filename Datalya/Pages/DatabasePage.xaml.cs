@@ -223,6 +223,10 @@ namespace Datalya.Pages
 						dataRowView.Delete(); // Delete
 					}
 				}
+				else
+				{
+					MessageBox.Show(Properties.Resources.DataBaseEmptyDeleteMsg, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -237,10 +241,17 @@ namespace Datalya.Pages
 
 		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+			if (DataGridDb.Items.Count > 0)
 			{
-				Global.DataBaseContent.Clear(); // Clear 
-				InitDataBaseUI(); // Refresh UI
+				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+				{
+					Global.DataBaseContent.Clear(); // Clear 
+					InitDataBaseUI(); // Refresh UI
+				} 
+			}
+			else
+			{
+				MessageBox.Show(Properties.Resources.DataBaseEmptyDeleteMsg, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 			}
 		}
 
