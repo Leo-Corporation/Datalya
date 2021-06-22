@@ -211,7 +211,23 @@ namespace Datalya.Pages
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
 		{
-			
+			try
+			{
+				if (DataGridDb.SelectedItems.Count > 0)
+				{
+					for (int i = 0; i < DataGridDb.SelectedItems.Count; i++)
+					{
+						Global.DataBaseContent.RemoveAt(DataGridDb.Items.IndexOf(DataGridDb.SelectedItems[i])); // Delete
+
+						DataRowView dataRowView = (DataRowView)DataGridDb.SelectedItems[i];
+						dataRowView.Delete(); // Delete
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"{Properties.Resources.ErrorOccured}.\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
 
 		private void EditBtn_Click(object sender, RoutedEventArgs e)
