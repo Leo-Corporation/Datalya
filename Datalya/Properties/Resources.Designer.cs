@@ -196,6 +196,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All entries of the database are going to be deleted. This operation is irreversible. Do you want to continue?.
+        /// </summary>
+        public static string DeleteAllMsg {
+            get {
+                return ResourceManager.GetString("DeleteAllMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {

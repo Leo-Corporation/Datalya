@@ -62,13 +62,14 @@ namespace Datalya.Pages
 			InitDataBaseUI(); // Init database UI
 		}
 
+		DataTable dt;
 		internal void InitDataBaseUI()
 		{
 			try
 			{
 				if (Global.DataBaseBlocks.Count > 0)
 				{
-					var dt = new DataTable();
+					dt = new();
 
 					// Columns
 					for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
@@ -210,7 +211,7 @@ namespace Datalya.Pages
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			
 		}
 
 		private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -220,7 +221,11 @@ namespace Datalya.Pages
 
 		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+			{
+				Global.DataBaseContent.Clear(); // Clear 
+				InitDataBaseUI(); // Refresh UI
+			}
 		}
 
 		private void AboutBtn_Click(object sender, RoutedEventArgs e)

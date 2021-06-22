@@ -228,4 +228,7 @@
   <data name="Copyright" xml:space="preserve">
     <value>Copyright</value>
   </data>
+  <data name="DeleteAllMsg" xml:space="preserve">
+    <value>Toutes les entrées de la base de données vont être supprimées. Cette opération est irréversible. Voulez-vous continuer ?</value>
+  </data>
 </root>
