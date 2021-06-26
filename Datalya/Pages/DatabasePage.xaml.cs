@@ -71,9 +71,11 @@ namespace Datalya.Pages
 				{
 					dt = new();
 
+					DataBaseGridView.Columns.Clear();
 					// Columns
 					for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
 					{
+						DataBaseGridView.Columns.Add(new() { Header = Global.DataBaseBlocks[i].Name });
 						dt.Columns.Add(Global.DataBaseBlocks[i].Name);
 					}
 
@@ -82,8 +84,6 @@ namespace Datalya.Pages
 					{
 						dt.Rows.Add(Global.DataBaseContent[i].Blocks.Take(dt.Columns.Count).ToArray());
 					}
-
-					DataGridDb.ItemsSource = dt.DefaultView;
 				}
 			}
 			catch (Exception ex)
@@ -213,13 +213,13 @@ namespace Datalya.Pages
 		{
 			try
 			{
-				if (DataGridDb.SelectedItems.Count > 0)
+				if (DataBaseListView.SelectedItems.Count > 0)
 				{
-					for (int i = 0; i < DataGridDb.SelectedItems.Count; i++)
+					for (int i = 0; i < DataBaseListView.SelectedItems.Count; i++)
 					{
-						Global.DataBaseContent.RemoveAt(DataGridDb.Items.IndexOf(DataGridDb.SelectedItems[i])); // Delete
+						Global.DataBaseContent.RemoveAt(DataBaseListView.Items.IndexOf(DataBaseListView.SelectedItems[i])); // Delete
 
-						DataRowView dataRowView = (DataRowView)DataGridDb.SelectedItems[i];
+						DataRowView dataRowView = (DataRowView)DataBaseListView.SelectedItems[i];
 						dataRowView.Delete(); // Delete
 					}
 				}
@@ -241,7 +241,7 @@ namespace Datalya.Pages
 
 		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (DataGridDb.Items.Count > 0)
+			if (DataBaseListView.Items.Count > 0)
 			{
 				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 				{
