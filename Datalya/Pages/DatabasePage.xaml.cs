@@ -62,27 +62,35 @@ namespace Datalya.Pages
 			InitDataBaseUI(); // Init database UI
 		}
 
-		DataTable dt;
+		public List<List<string>> Items { get; set; }
 		internal void InitDataBaseUI()
 		{
 			try
 			{
 				if (Global.DataBaseBlocks.Count > 0)
 				{
-					dt = new();
-
+					// Clear
+					Items = new();
 					DataBaseGridView.Columns.Clear();
+
+					// Binding
+					DataBaseListView.ItemsSource = Items; // Bind
+
+					// Populate Items
+					for (int i = 0; i < Global.DataBaseContent.Count; i++)
+					{
+						List<string> content = new(); // Content
+						for (int j = 0; j < Global.DataBaseContent[i].Blocks.Count; j++)
+						{
+							content.Add(Global.DataBaseContent[i].Blocks[j].BlockValue); // Add content
+						}
+						Items.Add(content); // Add content
+					}
+
 					// Columns
 					for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
 					{
-						DataBaseGridView.Columns.Add(new() { Header = Global.DataBaseBlocks[i].Name });
-						dt.Columns.Add(Global.DataBaseBlocks[i].Name);
-					}
-
-					// Rows
-					for (int i = 0; i < Global.DataBaseContent.Count; i++)
-					{
-						dt.Rows.Add(Global.DataBaseContent[i].Blocks.Take(dt.Columns.Count).ToArray());
+						DataBaseGridView.Columns.Add(new() { Header = Global.DataBaseBlocks[i].Name, DisplayMemberBinding = new Binding($"Item[{i}]") });
 					}
 				}
 			}
