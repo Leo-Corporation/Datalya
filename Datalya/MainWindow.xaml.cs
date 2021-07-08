@@ -55,6 +55,8 @@ namespace Datalya
 		{
 			// Register events
 			StateChanged += (o, e) => RefreshState();
+			Loaded += (o, e) => RefreshState();
+			LocationChanged += (o, e) => RefreshState();
 
 			// UI
 			WindowContent.Content = Global.DatabasePage; // Set content
@@ -80,6 +82,9 @@ namespace Datalya
 		private void RefreshState()
 		{
 			MaximizeBtn.Content = WindowState == WindowState.Maximized ? "\uFBA6" : "\uFA40"; // Set
+			DefineMaximumSize(); // Avoid taskbar overflow
+
+			WindowBorder.Margin = WindowState == WindowState.Maximized ? new(10, 10, 0, 0) : new(10); // Set
 		}
 
 		private void TabEnter(object sender, MouseEventArgs e)
@@ -135,6 +140,35 @@ namespace Datalya
 		private void EditFileNameBtn_Click(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void DefineMaximumSize()
+		{
+			System.Windows.Forms.Screen currentScreen = System.Windows.Forms.Screen.FromHandle(new System.Windows.Interop.WindowInteropHelper(this).Handle); // The current screen
+
+			float dpiX, dpiY;
+			double scaling = 100; // Default scaling = 100%
+
+			using (System.Drawing.Graphics graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero))
+			{
+				dpiX = graphics.DpiX; // Get the DPI
+				dpiY = graphics.DpiY; // Get the DPI
+
+				scaling = dpiX switch
+				{
+					96 => 100, // Get the %
+					120 => 125, // Get the %
+					144 => 150, // Get the %
+					168 => 175, // Get the %
+					192 => 200, // Get the % 
+					_ => 100
+				};
+			}
+
+			double factor = scaling / 100d; // Calculate factor
+
+			MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
+			MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
 		}
 	}
 }
