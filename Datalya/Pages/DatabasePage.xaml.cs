@@ -82,7 +82,7 @@ namespace Datalya.Pages
 						List<string> content = new(); // Content
 						for (int j = 0; j < Global.DataBaseContent[i].Blocks.Count; j++)
 						{
-							content.Add(Global.DataBaseContent[i].Blocks[j].BlockValue); // Add content
+							content.Add(Global.DataBaseContent[i].Blocks[j].ToString()); // Add content
 						}
 						Items.Add(content); // Add content
 					}

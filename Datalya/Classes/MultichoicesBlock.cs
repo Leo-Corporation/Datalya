@@ -64,7 +64,7 @@ namespace Datalya.Classes
 				string s = i == SelectedChoices.Count - 1 ? "" : ", "; // Set
 				result += $"{SelectedChoices[i]}{s}"; // Add text to string
 			}
-
+			BlockValue = result;
 			return result;
 		}
 	}
