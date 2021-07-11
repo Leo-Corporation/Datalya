@@ -102,7 +102,23 @@
 		<ListView x:Name="DataBaseListView" Grid.Row="1">
 			<ListView.View>
 				<GridView x:Name="DataBaseGridView">
-					
+					<GridView.ColumnHeaderContainerStyle>
+						<Style TargetType="GridViewColumnHeader">
+							<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}"/>
+							<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}"/>
+							<Setter Property="BorderThickness" Value="0"/>
+
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="GridViewColumnHeader">
+										<Border Padding="5" Margin="0 0 1 0">
+											<ContentPresenter/>
+										</Border>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</GridView.ColumnHeaderContainerStyle>
 				</GridView>
 			</ListView.View>
 			
