@@ -100,6 +100,22 @@
 		</Border>
 
 		<ListView x:Name="DataBaseListView" Grid.Row="1">
+			<ListView.Resources>
+				<Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">
+					<Setter Property="Width" Value="18"/>
+					<Setter Property="Background" Value="White"/>
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="{x:Type Thumb}">
+								<Border Padding="{TemplateBinding Padding}" Background="Transparent">
+									<Rectangle HorizontalAlignment="Center" Width="3" Fill="{TemplateBinding Background}"/>
+								</Border>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ListView.Resources>
+			
 			<ListView.View>
 				<GridView x:Name="DataBaseGridView">
 					<GridView.ColumnHeaderContainerStyle>
@@ -107,12 +123,27 @@
 							<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}"/>
 							<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}"/>
 							<Setter Property="BorderThickness" Value="0"/>
+							<Setter Property="OverridesDefaultStyle" Value="True" />
 
 							<Setter Property="Template">
 								<Setter.Value>
 									<ControlTemplate TargetType="GridViewColumnHeader">
-										<Border Padding="5" Margin="0 0 1 0">
-											<ContentPresenter/>
+										<Border BorderBrush="{Binding Source={StaticResource Gray}}" BorderThickness="0 0 1 0" Padding="2" Margin="0 0 1 0">
+											<Grid>
+												<Border CornerRadius="3" Padding="5" BorderBrush="{Binding Source={StaticResource Gray}}" Margin="0 0 2 0">
+													<Border.Style>
+														<Style TargetType="Border">
+															<Style.Triggers>
+																<Trigger Property="IsMouseOver" Value="True">
+																	<Setter Property="Background" Value="{Binding Source={StaticResource Gray}}"/>
+																</Trigger>
+															</Style.Triggers>
+														</Style>
+													</Border.Style>
+													<TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Width="{TemplateBinding Width}" TextAlignment="Center"/>
+												</Border>
+												<Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{StaticResource GridViewColumnHeaderGripper}"/>
+											</Grid>
 										</Border>
 									</ControlTemplate>
 								</Setter.Value>
