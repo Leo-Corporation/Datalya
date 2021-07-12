@@ -99,7 +99,7 @@
 			</Grid>
 		</Border>
 
-		<ListView x:Name="DataBaseListView" Grid.Row="1">
+		<ListView x:Name="DataBaseListView" Grid.Row="1" BorderBrush="{Binding Source={StaticResource Gray}}" BorderThickness="0 1 0 0">
 			<ListView.Resources>
 				<Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">
 					<Setter Property="Width" Value="18"/>
