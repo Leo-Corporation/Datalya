@@ -223,10 +223,7 @@ namespace Datalya.Pages
 			{
 				if (DataBaseListView.SelectedItems.Count > 0)
 				{
-					for (int i = 0; i < DataBaseListView.SelectedItems.Count; i++)
-					{
-						Global.DataBaseContent.RemoveAt(DataBaseListView.Items.IndexOf(DataBaseListView.SelectedItems[i])); // Delete
-					}
+					Global.DataBaseContent.RemoveRange(DataBaseListView.Items.IndexOf(DataBaseListView.SelectedItems[0]), DataBaseListView.SelectedItems.Count);
 					InitDataBaseUI();
 				}
 				else
