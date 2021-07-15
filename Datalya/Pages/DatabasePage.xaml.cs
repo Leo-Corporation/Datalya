@@ -270,5 +270,14 @@ namespace Datalya.Pages
 		{
 
 		}
+
+		private void DuplicateItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (DataBaseListView.SelectedItems.Count > 0)
+			{
+				Global.DataBaseContent.Add(Global.DataBaseContent[DataBaseListView.SelectedIndex]);
+				InitDataBaseUI(); // Refresh UI
+			}
+		}
 	}
 }

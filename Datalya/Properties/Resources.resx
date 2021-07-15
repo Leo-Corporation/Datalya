@@ -214,4 +214,7 @@
   <data name="DataBaseEmptyDeleteMsg" xml:space="preserve">
     <value>The database is empty, there is nothing to delete.</value>
   </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
 </root>

@@ -234,4 +234,7 @@
   <data name="DataBaseEmptyDeleteMsg" xml:space="preserve">
     <value>La base de données est vide, il n'y a rien à supprimer.</value>
   </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>Dupliquer</value>
+  </data>
 </root>
