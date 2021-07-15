@@ -266,8 +266,11 @@ namespace Datalya.Pages
 		{
 			if (DataBaseListView.SelectedItems.Count > 0)
 			{
-				Global.CurrentDataBase.ItemsContent.Add(Global.CurrentDataBase.ItemsContent[DataBaseListView.SelectedIndex]);
+				var selectedItem = DataBaseListView.SelectedItem; // Get selected item
+
+				Global.CurrentDataBase.ItemsContent.Add((List<string>)selectedItem); // Duplicate
 				InitDataBaseUI(); // Refresh UI
+				DataBaseListView.SelectedItem = selectedItem; // Set selected item
 			}
 		}
 	}
