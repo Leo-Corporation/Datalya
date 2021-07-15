@@ -72,6 +72,7 @@ namespace Datalya.Pages
 					DataBaseGridView.Columns.Clear();
 
 					// Binding
+					DataBaseListView.ItemsSource = null; // Bind
 					DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind
 
 					// Columns
@@ -211,7 +212,12 @@ namespace Datalya.Pages
 			{
 				if (DataBaseListView.SelectedItems.Count > 0)
 				{
-					//TODO
+					var selectedItems = DataBaseListView.SelectedItems; // Set
+					for (int i = 0; i < selectedItems.Count; i++)
+					{
+						Global.CurrentDataBase.ItemsContent.Remove((List<string>)selectedItems[i]);
+					}
+
 					InitDataBaseUI();
 				}
 				else
