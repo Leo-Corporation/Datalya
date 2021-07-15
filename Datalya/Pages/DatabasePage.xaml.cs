@@ -74,7 +74,6 @@ namespace Datalya.Pages
 					// Binding
 					DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind
 
-
 					// Columns
 					for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 					{
@@ -237,7 +236,7 @@ namespace Datalya.Pages
 			{
 				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 				{
-					Global.CurrentDataBase.ItemsContent.Clear(); // Clear 
+					Global.CurrentDataBase.ItemsContent = new(); // Clear 
 					InitDataBaseUI(); // Refresh UI
 				} 
 			}
