@@ -56,15 +56,15 @@ namespace Datalya.Windows
 		{
 			try
 			{
-				for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
+				for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 				{
-					BlockDisplayer.Children.Add(Global.DataBaseBlocks[i].BlockType switch
+					BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
 					{
-						BlockType.Input => new InputBlockUI((InputBlock)Global.DataBaseBlocks[i]), // Add block
-						BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.DataBaseBlocks[i]), // Add block
-						BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.DataBaseBlocks[i]), // Add block
-						BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.DataBaseBlocks[i]), // Add block
-						_ => new InputBlockUI((InputBlock)Global.DataBaseBlocks[i]) // Add block
+						BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]), // Add block
+						BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.CurrentDataBase.Blocks[i]), // Add block
+						BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i]), // Add block
+						BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i]), // Add block
+						_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
 					}); // Add
 				}
 			}
@@ -144,14 +144,20 @@ namespace Datalya.Windows
 				}
 			}
 
-			List<DataBaseItem> dbs = new();
-			for (int i = 0; i < Global.DataBaseContent.Count; i++)
+			List<List<string>> content = new();
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
 			{
-				dbs.Add(Global.DataBaseContent[i]);
+				content.Add(Global.CurrentDataBase.ItemsContent[i]);
 			}
-			dbs.Add(new(blocks));
 
-			Global.DataBaseContent = dbs;
+			List<string> item = new();
+			for (int i = 0; i < blocks.Count; i++)
+			{
+				item.Add(blocks[i].BlockValue);
+			}
+			content.Add(item); // Add item
+
+			Global.CurrentDataBase.ItemsContent = content;
 			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
 			Close(); // Close window
 		}

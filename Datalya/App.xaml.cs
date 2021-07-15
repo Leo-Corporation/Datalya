@@ -39,8 +39,7 @@ namespace Datalya
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
-			Global.DataBaseBlocks = new(); // Create new list
-			Global.DataBaseContent = new(); // Create new list
+			Global.CurrentDataBase = new(); // Create new list
 
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page

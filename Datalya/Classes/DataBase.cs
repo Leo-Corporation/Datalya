@@ -22,8 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Interfaces;
-using Datalya.Pages;
-using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,31 +30,18 @@ using System.Threading.Tasks;
 
 namespace Datalya.Classes
 {
-	public static class Global
+	/// <summary>
+	/// A DataBase.
+	/// </summary>
+	public class DataBase
 	{
-		/// <summary>
-		/// Datalya's version.
-		/// </summary>
-		public static string Version => "1.0.0.21XX";
+		public List<IBlock> Blocks { get; set; }
+		public List<List<string>> ItemsContent { get; set; }
 
-		/// <summary>
-		/// The <see cref="Pages.DatabasePage"/> page.
-		/// </summary>
-		public static DatabasePage DatabasePage { get; set; }
-
-		/// <summary>
-		/// The <see cref="Pages.CreatorPage"/> page.
-		/// </summary>
-		public static CreatorPage CreatorPage { get; set; }
-
-		/// <summary>
-		/// Placeholder when there is no Block selected.
-		/// </summary>
-		internal static EmptyPropertyUI EmptyPropertyUI { get; set; }
-
-		/// <summary>
-		/// The current DataBase.
-		/// </summary>
-		public static DataBase CurrentDataBase { get; set; }
+		public DataBase()
+		{
+			Blocks = new(); // Create List
+			ItemsContent = new(); // Create List
+		}
 	}
 }

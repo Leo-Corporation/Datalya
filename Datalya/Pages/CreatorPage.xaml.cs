@@ -109,7 +109,7 @@ namespace Datalya.Pages
 						}
 					}
 				}
-				Global.DataBaseBlocks = blocks;
+				Global.CurrentDataBase.Blocks = blocks;
 			}
 			catch (Exception ex)
 			{

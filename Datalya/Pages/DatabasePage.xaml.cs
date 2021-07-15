@@ -62,35 +62,23 @@ namespace Datalya.Pages
 			InitDataBaseUI(); // Init database UI
 		}
 
-		public List<List<string>> Items { get; set; }
 		internal void InitDataBaseUI()
 		{
 			try
 			{
-				if (Global.DataBaseBlocks.Count > 0)
+				if (Global.CurrentDataBase.Blocks.Count > 0)
 				{
 					// Clear
-					Items = new();
 					DataBaseGridView.Columns.Clear();
 
 					// Binding
-					DataBaseListView.ItemsSource = Items; // Bind
+					DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind
 
-					// Populate Items
-					for (int i = 0; i < Global.DataBaseContent.Count; i++)
-					{
-						List<string> content = new(); // Content
-						for (int j = 0; j < Global.DataBaseContent[i].Blocks.Count; j++)
-						{
-							content.Add(Global.DataBaseContent[i].Blocks[j].ToString()); // Add content
-						}
-						Items.Add(content); // Add content
-					}
 
 					// Columns
-					for (int i = 0; i < Global.DataBaseBlocks.Count; i++)
+					for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 					{
-						DataBaseGridView.Columns.Add(new() { Header = Global.DataBaseBlocks[i].Name, DisplayMemberBinding = new Binding($"Item[{i}]") });
+						DataBaseGridView.Columns.Add(new() { Header = Global.CurrentDataBase.Blocks[i].Name, DisplayMemberBinding = new Binding($"Item[{i}]") });
 					}
 				}
 			}
@@ -219,11 +207,12 @@ namespace Datalya.Pages
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
 		{
+			
 			try
 			{
 				if (DataBaseListView.SelectedItems.Count > 0)
 				{
-					Global.DataBaseContent.RemoveRange(DataBaseListView.Items.IndexOf(DataBaseListView.SelectedItems[0]), DataBaseListView.SelectedItems.Count);
+					//TODO
 					InitDataBaseUI();
 				}
 				else
@@ -248,7 +237,7 @@ namespace Datalya.Pages
 			{
 				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 				{
-					Global.DataBaseContent.Clear(); // Clear 
+					Global.CurrentDataBase.ItemsContent.Clear(); // Clear 
 					InitDataBaseUI(); // Refresh UI
 				} 
 			}
@@ -272,7 +261,7 @@ namespace Datalya.Pages
 		{
 			if (DataBaseListView.SelectedItems.Count > 0)
 			{
-				Global.DataBaseContent.Add(Global.DataBaseContent[DataBaseListView.SelectedIndex]);
+				Global.CurrentDataBase.ItemsContent.Add(Global.CurrentDataBase.ItemsContent[DataBaseListView.SelectedIndex]);
 				InitDataBaseUI(); // Refresh UI
 			}
 		}
