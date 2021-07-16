@@ -226,4 +226,7 @@
   <data name="EditShort" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="CantEditItemDeletedMsg" xml:space="preserve">
+    <value>Cannot edit an item that was deleted.</value>
+  </data>
 </root>

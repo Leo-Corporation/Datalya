@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Enums;
+using Datalya.Interfaces;
 using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,80 @@ namespace Datalya.Windows
 
 		private void EditBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.ItemsContent.Contains(Item))
+			{
+				List<IBlock> blocks = new();
 
+				foreach (UIElement uIElement in BlockDisplayer.Children)
+				{
+					if (uIElement is InputBlockUI inputBlockUI)
+					{
+						if (inputBlockUI.ValueTxt.Text is not null)
+						{
+							InputBlock i = new(inputBlockUI.InputBlock.Name);
+							i.BlockValue = inputBlockUI.ValueTxt.Text;
+							blocks.Add(i); // Add item 
+						}
+					}
+					else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
+					{
+						MultichoicesBlock multichoicesBlock = new(multichoicesBlockUI.MultichoicesBlock.Name);
+						for (int i = 0; i < multichoicesBlockUI.CheckBoxesDisplayer.Children.Count; i++)
+						{
+							if (multichoicesBlockUI.CheckBoxesDisplayer.Children[i] is CheckBox)
+							{
+								CheckBox checkBox = (CheckBox)multichoicesBlockUI.CheckBoxesDisplayer.Children[i];
+								if (checkBox.IsChecked.Value)
+								{
+									multichoicesBlock.SelectedChoices.Add(checkBox.Content.ToString());
+								}
+							}
+						}
+
+						blocks.Add(multichoicesBlock);
+					}
+					else if (uIElement is UserControls.SelectorBlock selectorBlock)
+					{
+						Classes.SelectorBlock cSelector = new(selectorBlock.CSelectorBlock.Name);
+						if (selectorBlock.ItemComboBox.SelectedItem is not null)
+						{
+							cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
+							blocks.Add(cSelector);
+						}
+					}
+					else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
+					{
+						SingleChoiceBlock singleChoiceBlock = new(singleChoiceBlockUI.SingleChoiceBlock.Name);
+						for (int i = 0; i < singleChoiceBlockUI.RadioButtonsDisplayer.Children.Count; i++)
+						{
+							if (singleChoiceBlockUI.RadioButtonsDisplayer.Children[i] is RadioButton)
+							{
+								RadioButton radioButton = (RadioButton)singleChoiceBlockUI.RadioButtonsDisplayer.Children[i];
+								if (radioButton.IsChecked.Value)
+								{
+									singleChoiceBlock.BlockValue = radioButton.Content.ToString(); // Set
+								}
+							}
+						}
+
+						blocks.Add(singleChoiceBlock);
+					}
+				}
+
+				List<string> newItem = new();
+				for (int i = 0; i < blocks.Count; i++)
+				{
+					newItem.Add(blocks[i].ToString()); // Add item
+				}
+
+				Global.CurrentDataBase.ItemsContent[Global.CurrentDataBase.ItemsContent.IndexOf(Item)] = newItem; // Edit
+				Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
+				Close(); // Close window 
+			}
+			else
+			{
+				MessageBox.Show(Properties.Resources.CantEditItemDeletedMsg, Properties.Resources.EditElement, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)

@@ -97,6 +97,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot edit an item that was deleted..
+        /// </summary>
+        public static string CantEditItemDeletedMsg {
+            get {
+                return ResourceManager.GetString("CantEditItemDeletedMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A choice per line..
         /// </summary>
         public static string ChoicePerLine {

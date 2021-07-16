@@ -246,4 +246,7 @@
   <data name="EditShort" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="CantEditItemDeletedMsg" xml:space="preserve">
+    <value>Impossible de supprimer un élément qui a été supprimé.</value>
+  </data>
 </root>
