@@ -233,7 +233,10 @@ namespace Datalya.Pages
 
 		private void EditBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			if (DataBaseListView.SelectedItems.Count > 0)
+			{
+				new EditWindow((List<string>)DataBaseListView.SelectedItem).Show(); // Show EditWindow
+			}
 		}
 
 		private void DeleteAllBtn_Click(object sender, RoutedEventArgs e)

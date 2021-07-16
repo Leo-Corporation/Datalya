@@ -153,7 +153,7 @@ namespace Datalya.Windows
 			List<string> item = new();
 			for (int i = 0; i < blocks.Count; i++)
 			{
-				item.Add(blocks[i].BlockValue);
+				item.Add(blocks[i].ToString());
 			}
 			content.Add(item); // Add item
 

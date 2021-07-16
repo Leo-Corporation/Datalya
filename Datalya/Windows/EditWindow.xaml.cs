@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.Enums;
+using Datalya.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,46 +36,59 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Datalya.UserControls
+namespace Datalya.Windows
 {
 	/// <summary>
-	/// Interaction logic for MultichoicesBlockUI.xaml
+	/// Interaction logic for EditWindow.xaml
 	/// </summary>
-	public partial class MultichoicesBlockUI : UserControl
+	public partial class EditWindow : Window
 	{
-		public MultichoicesBlock MultichoicesBlock { get; set; }
-		string ContentTxt { get; set; }
-		public MultichoicesBlockUI(MultichoicesBlock multichoicesBlock, string content = "")
+		List<string> Item { get; set; }
+		public EditWindow(List<string> item)
 		{
 			InitializeComponent();
-			MultichoicesBlock = multichoicesBlock; // Set
-			ContentTxt = content; // Set
+			Item = item; // Set value
 
-			InitUI();
+			InitUI(); // Load the UI
 		}
 
 		private void InitUI()
 		{
-			NameTxt.Text = MultichoicesBlock.Name; // Set text
-
-			string[] selectedChoices = ContentTxt.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries); // Split
-
-			// Add Checkboxes
-			for (int i = 0; i < MultichoicesBlock.Choices.Count; i++) // For each choice
+			try
 			{
-				CheckBoxesDisplayer.Children.Add(new CheckBox()
+				for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 				{
-					Style = FindResource("CheckBoxStyle1") as Style, // Set style
-					BorderThickness = new(2), // Set border thickness
-					Content = MultichoicesBlock.Choices[i], // Set content
-					FontWeight = FontWeights.Bold, // Set font to bold
-					VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
-					IsChecked = selectedChoices.Contains(MultichoicesBlock.Choices[i]) // Set IsChecked
-				});
+					BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
+					{
+						BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+						BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+						BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+						BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+						_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
+					}); // Add
+				}
 			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		private void EditBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+		{
+			WindowState = WindowState.Minimized; // Minimize
+		}
+
+		private void CloseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
 		}
 	}
 }

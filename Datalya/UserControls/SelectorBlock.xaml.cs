@@ -44,10 +44,13 @@ namespace Datalya.UserControls
 	public partial class SelectorBlock : UserControl
 	{
 		public Classes.SelectorBlock CSelectorBlock { get; set; }
-		public SelectorBlock(Classes.SelectorBlock selectorBlock)
+		string ContentTxt { get; set; }
+		public SelectorBlock(Classes.SelectorBlock selectorBlock, string content = "")
 		{
 			InitializeComponent();
-			CSelectorBlock = selectorBlock;
+			CSelectorBlock = selectorBlock; // Set value
+			ContentTxt = content; // Set value
+
 			InitUI();
 		}
 
@@ -60,6 +63,8 @@ namespace Datalya.UserControls
 			{
 				ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
 			}
+
+			ItemComboBox.SelectedItem = ContentTxt; // Set
 		}
 	}
 }

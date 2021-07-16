@@ -232,6 +232,33 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit an element.
+        /// </summary>
+        public static string EditElement {
+            get {
+                return ResourceManager.GetString("EditElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit an element of the database..
+        /// </summary>
+        public static string EditElementDesc {
+            get {
+                return ResourceManager.GetString("EditElementDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string EditShort {
+            get {
+                return ResourceManager.GetString("EditShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {

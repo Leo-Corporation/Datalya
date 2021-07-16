@@ -45,10 +45,12 @@ namespace Datalya.UserControls
 	public partial class InputBlockUI : UserControl
 	{
 		public InputBlock InputBlock { get; set; }
-		public InputBlockUI(InputBlock inputBlock)
+		string ContentTxt { get; set; }
+		public InputBlockUI(InputBlock inputBlock, string content = "")
 		{
 			InitializeComponent();
 			InputBlock = inputBlock;
+			ContentTxt = content; // Set
 
 			InitUI();
 		}
@@ -56,6 +58,7 @@ namespace Datalya.UserControls
 		private	void InitUI()
 		{
 			NameTxt.Text = InputBlock.Name; // Set name
+			ValueTxt.Text = ContentTxt; // Set value
 		}
 	}
 }

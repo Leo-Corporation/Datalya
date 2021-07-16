@@ -237,4 +237,13 @@
   <data name="Duplicate" xml:space="preserve">
     <value>Dupliquer</value>
   </data>
+  <data name="EditElement" xml:space="preserve">
+    <value>Modifier un élément</value>
+  </data>
+  <data name="EditElementDesc" xml:space="preserve">
+    <value>Modifier un élément de la base de données.</value>
+  </data>
+  <data name="EditShort" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
 </root>

@@ -45,10 +45,13 @@ namespace Datalya.UserControls
 	public partial class SingleChoiceBlockUI : UserControl
 	{
 		public SingleChoiceBlock SingleChoiceBlock { get; set; }
-		public SingleChoiceBlockUI(SingleChoiceBlock singleChoiceBlock)
+		string ContentTxt { get; set; }
+		public SingleChoiceBlockUI(SingleChoiceBlock singleChoiceBlock, string content = "")
 		{
 			InitializeComponent();
-			SingleChoiceBlock = singleChoiceBlock;
+			SingleChoiceBlock = singleChoiceBlock; // Set value
+			ContentTxt = content; // Set value
+
 			InitUI();
 		}
 
@@ -63,7 +66,8 @@ namespace Datalya.UserControls
 					Style = FindResource("RadioButtonStyle1") as Style, // Set style
 					Content = SingleChoiceBlock.Choices[i], // Set content
 					FontWeight = FontWeights.Bold, // Set font to bold
-					VerticalContentAlignment = VerticalAlignment.Center // Set vertical alignment
+					VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
+					IsChecked = ContentTxt == SingleChoiceBlock.Choices[i] // Set IsChecked
 				});
 			}
 		}
