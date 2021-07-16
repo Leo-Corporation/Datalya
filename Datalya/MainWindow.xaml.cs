@@ -61,6 +61,8 @@ namespace Datalya
 			// UI
 			WindowContent.Content = Global.DatabasePage; // Set content
 			CheckButton(DatabaseBtn); // Check
+			DataBaseNameTxt.Text = Global.CurrentDataBase.Name; // Set text
+			EditNameTextBox.Text = Global.CurrentDataBase.Name; // Set text
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -139,7 +141,15 @@ namespace Datalya
 
 		private void EditFileNameBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (DataBaseNameTxt.Visibility == Visibility.Collapsed) // If edit mode enabled
+			{
+				Global.CurrentDataBase.Name = EditNameTextBox.Text; // Set text
+				DataBaseNameTxt.Text = EditNameTextBox.Text; // Set text
+			}
 
+			DataBaseNameTxt.Visibility = (DataBaseNameTxt.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible; // Hide or show
+			EditNameTextBox.Visibility = (EditNameTextBox.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible; // Hide or show
+			EditFileNameBtn.Content = (DataBaseNameTxt.Visibility == Visibility.Visible) ? "\uF3DE" : "\uF295"; // Set text
 		}
 
 		private void DefineMaximumSize()

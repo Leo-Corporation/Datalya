@@ -249,4 +249,7 @@
   <data name="CantEditItemDeletedMsg" xml:space="preserve">
     <value>Cannot edit an item that was deleted.</value>
   </data>
+  <data name="DatalyaDataBase" xml:space="preserve">
+    <value>DatalyaDataBase</value>
+  </data>
 </root>

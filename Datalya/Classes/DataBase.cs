@@ -37,11 +37,14 @@ namespace Datalya.Classes
 	{
 		public List<IBlock> Blocks { get; set; }
 		public List<List<string>> ItemsContent { get; set; }
+		public string Name { get; set; }
 
-		public DataBase()
+		public DataBase(string name)
 		{
 			Blocks = new(); // Create List
 			ItemsContent = new(); // Create List
+
+			Name = name; // Set name
 		}
 	}
 }

@@ -39,7 +39,7 @@ namespace Datalya
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
-			Global.CurrentDataBase = new(); // Create new list
+			Global.CurrentDataBase = new(Datalya.Properties.Resources.DatalyaDataBase); // Create default database
 
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page

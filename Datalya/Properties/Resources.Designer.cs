@@ -196,6 +196,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DatalyaDataBase.
+        /// </summary>
+        public static string DatalyaDataBase {
+            get {
+                return ResourceManager.GetString("DatalyaDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {

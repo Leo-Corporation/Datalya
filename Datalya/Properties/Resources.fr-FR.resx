@@ -249,4 +249,7 @@
   <data name="CantEditItemDeletedMsg" xml:space="preserve">
     <value>Impossible de supprimer un élément qui a été supprimé.</value>
   </data>
+  <data name="DatalyaDataBase" xml:space="preserve">
+    <value>BaseDeDonnéesDatalya</value>
+  </data>
 </root>
