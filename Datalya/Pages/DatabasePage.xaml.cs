@@ -24,6 +24,7 @@ SOFTWARE.
 using Datalya.Classes;
 using Datalya.Interfaces;
 using Datalya.Windows;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -172,12 +173,28 @@ namespace Datalya.Pages
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0) // If the DataBase isn't empty
+			{
 
+			}
 		}
 
 		private void SaveAsBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0) // If the DataBase isn't empty
+			{
+				SaveFileDialog saveFileDialog = new()
+				{
+					FileName = $"{Global.CurrentDataBase.Name}.datalyadb", // Set file name
+					Filter = $"{Properties.Resources.DatalyaFile}|.datalyadb", // Set filter
+					Title = Properties.Resources.SaveAs // Set title
+				};
 
+				if (saveFileDialog.ShowDialog() ?? true)
+				{
+					DataBaseManager.Save(Global.CurrentDataBase, saveFileDialog.FileName); // Save DataBase
+				}
+			}
 		}
 
 		private void NewDatabaseBtn_Click(object sender, RoutedEventArgs e)

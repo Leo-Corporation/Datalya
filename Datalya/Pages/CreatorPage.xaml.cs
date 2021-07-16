@@ -77,7 +77,7 @@ namespace Datalya.Pages
 		{
 			try
 			{
-				List<IBlock> blocks = new();
+				List<Classes.Block> blocks = new();
 				foreach (UIElement uIElement in BlockDisplayer.Children)
 				{
 					if (uIElement is InputBlockCreatorUI inputCreatorUI)

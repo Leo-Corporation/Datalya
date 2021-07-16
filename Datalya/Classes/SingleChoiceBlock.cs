@@ -31,12 +31,9 @@ using System.Threading.Tasks;
 
 namespace Datalya.Classes
 {
-	public class SingleChoiceBlock : IBlock
+	[Serializable]
+	public class SingleChoiceBlock : Block
 	{
-		public string Name { get; set; }
-
-		public BlockType BlockType => BlockType.SingleChoice;
-
 		/// <summary>
 		/// Possible choices.
 		/// </summary>
@@ -44,10 +41,10 @@ namespace Datalya.Classes
 
 		public string BlockValue { get; set; }
 
-		public SingleChoiceBlock(string name)
+		public SingleChoiceBlock()
 		{
-			Name = name;
 			Choices = new();
+			BlockType = BlockType.SingleChoice; // Set
 		}
 
 		public void ChangeName(string name) => Name = name;

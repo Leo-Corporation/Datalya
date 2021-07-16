@@ -252,4 +252,10 @@
   <data name="DatalyaDataBase" xml:space="preserve">
     <value>BaseDeDonnéesDatalya</value>
   </data>
+  <data name="DatalyaFile" xml:space="preserve">
+    <value>Fichier de base de données Datalya</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Enregistrer sous</value>
+  </data>
 </root>

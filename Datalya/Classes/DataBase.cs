@@ -35,16 +35,16 @@ namespace Datalya.Classes
 	/// </summary>
 	public class DataBase
 	{
-		public List<IBlock> Blocks { get; set; }
+		public List<Block> Blocks { get; set; }
 		public List<List<string>> ItemsContent { get; set; }
 		public string Name { get; set; }
 
-		public DataBase(string name)
+		public DataBase()
 		{
 			Blocks = new(); // Create List
 			ItemsContent = new(); // Create List
 
-			Name = name; // Set name
+			Name = ""; // Set name
 		}
 	}
 }

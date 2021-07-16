@@ -22,33 +22,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Enums;
-using Datalya.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Datalya.Classes
 {
+	[XmlInclude(typeof(InputBlock))]
+	[XmlInclude(typeof(MultichoicesBlock))]
+	[XmlInclude(typeof(SingleChoiceBlock))]
+	[XmlInclude(typeof(SelectorBlock))]
 	[Serializable]
-	public class SelectorBlock : Block
+	public class Block
 	{
 		/// <summary>
-		/// Possible choices.
+		/// The <see cref="Enums.BlockType"/> of the block.
 		/// </summary>
-		public List<string> Choices { get; set; }
+		public BlockType BlockType { get; set; }
 
-		public string BlockValue { get; set; }
-
-		public SelectorBlock()
-		{
-			Choices = new();
-			BlockType = BlockType.Selector; // Set
-		}
-
-		public void ChangeName(string name) => Name = name;
-
-		public override string ToString() => BlockValue;
+		/// <summary>
+		/// The name given by the user to the block.
+		/// </summary>
+		public string Name { get; set; }
 	}
 }

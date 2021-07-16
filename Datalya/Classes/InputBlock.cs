@@ -31,17 +31,14 @@ using System.Threading.Tasks;
 
 namespace Datalya.Classes
 {
-	public class InputBlock : IBlock
+	[Serializable]
+	public class InputBlock : Block
 	{
-		public string Name { get; set; }
-
-		public BlockType BlockType => BlockType.Input;
-
 		public string BlockValue { get; set; }
 
-		public InputBlock(string name)
+		public InputBlock()
 		{
-			Name = name;
+			BlockType = BlockType.Input; // Set
 		}
 
 		public void ChangeName(string name) => Name = name;

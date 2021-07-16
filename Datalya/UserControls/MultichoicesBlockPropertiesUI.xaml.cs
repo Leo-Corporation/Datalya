@@ -59,7 +59,7 @@ namespace Datalya.UserControls
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
 				// Name
-				MultichoicesBlock = new(NameTxt.Text);
+				MultichoicesBlock = new() { Name = NameTxt.Text };
 				ParentElement.NameTxt.Text = MultichoicesBlock.Name; // Set name
 
 				// Choices

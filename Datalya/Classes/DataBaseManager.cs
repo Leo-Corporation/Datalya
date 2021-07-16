@@ -21,34 +21,34 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using Datalya.Enums;
-using Datalya.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Datalya.Classes
 {
-	[Serializable]
-	public class SelectorBlock : Block
+	/// <summary>
+	/// Methods to manage a <see cref="DataBase"/>.
+	/// </summary>
+	public static class DataBaseManager
 	{
 		/// <summary>
-		/// Possible choices.
+		/// Saves a spceified <see cref="DataBase"/> in a file.
 		/// </summary>
-		public List<string> Choices { get; set; }
-
-		public string BlockValue { get; set; }
-
-		public SelectorBlock()
+		/// <param name="dataBase"></param>
+		public static void Save(DataBase dataBase, string filePath)
 		{
-			Choices = new();
-			BlockType = BlockType.Selector; // Set
+			DataBase dataBase1 = dataBase; // Set value
+			XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
+
+			StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
+			xmlSerializer.Serialize(streamWriter, dataBase); // Save
+
+			streamWriter.Dispose(); // Dispose
 		}
-
-		public void ChangeName(string name) => Name = name;
-
-		public override string ToString() => BlockValue;
 	}
 }

@@ -58,7 +58,7 @@ namespace Datalya.UserControls
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
 				// Name
-				CSelectorBlock = new(NameTxt.Text);
+				CSelectorBlock = new() { Name = NameTxt.Text };
 				ParentElement.NameTxt.Text = CSelectorBlock.Name; // Set name 
 
 				// Choices

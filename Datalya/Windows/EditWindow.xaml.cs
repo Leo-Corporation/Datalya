@@ -81,7 +81,7 @@ namespace Datalya.Windows
 		{
 			if (Global.CurrentDataBase.ItemsContent.Contains(Item))
 			{
-				List<IBlock> blocks = new();
+				List<Classes.Block> blocks = new();
 
 				foreach (UIElement uIElement in BlockDisplayer.Children)
 				{
@@ -89,14 +89,14 @@ namespace Datalya.Windows
 					{
 						if (inputBlockUI.ValueTxt.Text is not null)
 						{
-							InputBlock i = new(inputBlockUI.InputBlock.Name);
+							InputBlock i = new() { Name = inputBlockUI.InputBlock.Name };
 							i.BlockValue = inputBlockUI.ValueTxt.Text;
 							blocks.Add(i); // Add item 
 						}
 					}
 					else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
 					{
-						MultichoicesBlock multichoicesBlock = new(multichoicesBlockUI.MultichoicesBlock.Name);
+						MultichoicesBlock multichoicesBlock = new() { Name = multichoicesBlockUI.MultichoicesBlock.Name };
 						for (int i = 0; i < multichoicesBlockUI.CheckBoxesDisplayer.Children.Count; i++)
 						{
 							if (multichoicesBlockUI.CheckBoxesDisplayer.Children[i] is CheckBox)
@@ -113,7 +113,7 @@ namespace Datalya.Windows
 					}
 					else if (uIElement is UserControls.SelectorBlock selectorBlock)
 					{
-						Classes.SelectorBlock cSelector = new(selectorBlock.CSelectorBlock.Name);
+						Classes.SelectorBlock cSelector = new() { Name = selectorBlock.CSelectorBlock.Name };
 						if (selectorBlock.ItemComboBox.SelectedItem is not null)
 						{
 							cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
@@ -122,7 +122,7 @@ namespace Datalya.Windows
 					}
 					else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
 					{
-						SingleChoiceBlock singleChoiceBlock = new(singleChoiceBlockUI.SingleChoiceBlock.Name);
+						SingleChoiceBlock singleChoiceBlock = new() { Name = singleChoiceBlockUI.SingleChoiceBlock.Name };
 						for (int i = 0; i < singleChoiceBlockUI.RadioButtonsDisplayer.Children.Count; i++)
 						{
 							if (singleChoiceBlockUI.RadioButtonsDisplayer.Children[i] is RadioButton)

@@ -232,4 +232,10 @@
   <data name="DatalyaDataBase" xml:space="preserve">
     <value>DatalyaDataBase</value>
   </data>
+  <data name="DatalyaFile" xml:space="preserve">
+    <value>Datalya DataBase File</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save As</value>
+  </data>
 </root>

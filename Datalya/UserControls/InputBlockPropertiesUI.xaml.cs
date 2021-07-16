@@ -56,7 +56,7 @@ namespace Datalya.UserControls
 		{
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
-				InputBlock = new(NameTxt.Text);
+				InputBlock = new() { Name = NameTxt.Text };
 				ParentElement.NameTxt.Text = InputBlock.Name; // Set name 
 				ParentElement.InputBlock = InputBlock; // Set
 			}
