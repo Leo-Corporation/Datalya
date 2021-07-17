@@ -43,13 +43,20 @@ namespace Datalya.Classes
 		/// <param name="dataBase"></param>
 		public static void Save(DataBase dataBase, string filePath)
 		{
-			DataBase dataBase1 = dataBase; // Set value
-			XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
+			try
+			{
+				DataBase dataBase1 = dataBase; // Set value
+				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
 
-			StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
-			xmlSerializer.Serialize(streamWriter, dataBase); // Save
+				StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
+				xmlSerializer.Serialize(streamWriter, dataBase); // Save
 
-			streamWriter.Dispose(); // Dispose
+				streamWriter.Dispose(); // Dispose
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
 
 		/// <summary>
@@ -58,23 +65,30 @@ namespace Datalya.Classes
 		/// <param name="filePath"></param>
 		public static void Open(string filePath)
 		{
-			if (File.Exists(filePath))
+			try
 			{
-				XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
-				StreamReader streamReader = new(filePath); // The location of the file
+				if (File.Exists(filePath))
+				{
+					XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
+					StreamReader streamReader = new(filePath); // The location of the file
 
-				Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
-				streamReader.Dispose(); // Dispose
+					Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
+					streamReader.Dispose(); // Dispose
 
-				Global.DatabasePage.InitDataBaseUI(); // Refresh database view
-				Global.CreatorPage.InitUI(); // Refresh creator view
-				Global.MainWindow.RefreshName(); // Refresh database name
+					Global.DatabasePage.InitDataBaseUI(); // Refresh database view
+					Global.CreatorPage.InitUI(); // Refresh creator view
+					Global.MainWindow.RefreshName(); // Refresh database name
 
-				Global.DataBaseFilePath = filePath; // Set
+					Global.DataBaseFilePath = filePath; // Set
+				}
+				else
+				{
+					MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
+				MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
 	}
