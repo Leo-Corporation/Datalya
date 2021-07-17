@@ -238,4 +238,13 @@
   <data name="SaveAs" xml:space="preserve">
     <value>Save As</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>The specified file doesn't exist.</value>
+  </data>
+  <data name="CannotSaveDataBase" xml:space="preserve">
+    <value>Cannot save the database.</value>
+  </data>
+  <data name="AllFiles" xml:space="preserve">
+    <value>All Files</value>
+  </data>
 </root>

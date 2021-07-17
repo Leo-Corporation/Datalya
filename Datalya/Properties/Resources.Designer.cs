@@ -97,6 +97,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Files.
+        /// </summary>
+        public static string AllFiles {
+            get {
+                return ResourceManager.GetString("AllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot save the database..
+        /// </summary>
+        public static string CannotSaveDataBase {
+            get {
+                return ResourceManager.GetString("CannotSaveDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot edit an item that was deleted..
         /// </summary>
         public static string CantEditItemDeletedMsg {
@@ -318,6 +336,15 @@ namespace Datalya.Properties {
         public static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified file doesn&apos;t exist..
+        /// </summary>
+        public static string FileNotFound {
+            get {
+                return ResourceManager.GetString("FileNotFound", resourceCulture);
             }
         }
         

@@ -50,7 +50,37 @@ namespace Datalya.Pages
 		{
 			InitializeComponent();
 			Global.EmptyPropertyUI = new();
+
+			InitUI();
+		}
+
+		internal void InitUI() 
+		{
+			// Clear
+			BlockDisplayer.Children.Clear(); // Clear
+
 			PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
+
+			// Load Blocks
+			for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
+			{
+				if (Global.CurrentDataBase.Blocks[i] is InputBlock inputBlock)
+				{
+					BlockDisplayer.Children.Add(new InputBlockCreatorUI(inputBlock)); // Add item
+				}
+				else if (Global.CurrentDataBase.Blocks[i] is MultichoicesBlock multichoicesBlock)
+				{
+					BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI(multichoicesBlock)); // Add item
+				}
+				else if (Global.CurrentDataBase.Blocks[i] is SingleChoiceBlock singleChoiceBlock)
+				{
+					BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI(singleChoiceBlock)); // Add item
+				}
+				else if (Global.CurrentDataBase.Blocks[i] is Classes.SelectorBlock s)
+				{
+					BlockDisplayer.Children.Add(new SelectorBlockCreatorUI(s));
+				}
+			}
 		}
 
 		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)

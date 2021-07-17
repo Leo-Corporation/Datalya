@@ -258,4 +258,13 @@
   <data name="SaveAs" xml:space="preserve">
     <value>Enregistrer sous</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Le fichier spécifié n'existe pas.</value>
+  </data>
+  <data name="CannotSaveDataBase" xml:space="preserve">
+    <value>Impossible de sauvegarder la base de données.</value>
+  </data>
+  <data name="AllFiles" xml:space="preserve">
+    <value>Tous les fichiers</value>
+  </data>
 </root>

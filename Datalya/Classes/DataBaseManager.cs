@@ -27,6 +27,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Serialization;
 
 namespace Datalya.Classes
@@ -49,6 +50,29 @@ namespace Datalya.Classes
 			xmlSerializer.Serialize(streamWriter, dataBase); // Save
 
 			streamWriter.Dispose(); // Dispose
+		}
+
+		/// <summary>
+		/// Opens a specified <see cref="DataBase"/> from a file path.
+		/// </summary>
+		/// <param name="filePath"></param>
+		public static void Open(string filePath)
+		{
+			if (File.Exists(filePath))
+			{
+				XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
+				StreamReader streamReader = new(filePath); // The location of the file
+
+				Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
+				streamReader.Dispose(); // Dispose
+
+				Global.DatabasePage.InitDataBaseUI(); // Refresh database view
+				Global.CreatorPage.InitUI(); // Refresh creator view
+			}
+			else
+			{
+				MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
+			}
 		}
 	}
 }

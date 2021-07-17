@@ -46,10 +46,16 @@ namespace Datalya.UserControls
 	{
 		MultichoicesBlockPropertiesUI MultichoicesBlockPropertiesUI { get; init; }
 		internal MultichoicesBlock MultichoicesBlock { get; set; }
-		public MultichoicesBlockCreatorUI()
+		public MultichoicesBlockCreatorUI(MultichoicesBlock multichoicesBlock = null)
 		{
 			InitializeComponent();
-			MultichoicesBlockPropertiesUI = new(this);
+			MultichoicesBlock = multichoicesBlock;
+			MultichoicesBlockPropertiesUI = new(this, MultichoicesBlock);
+
+			if (multichoicesBlock is not null)
+			{
+				NameTxt.Text = multichoicesBlock.Name; // Set text
+			}
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)

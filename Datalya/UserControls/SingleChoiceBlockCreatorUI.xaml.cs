@@ -46,10 +46,17 @@ namespace Datalya.UserControls
 	{
 		SingleChoiceBlockPropertiesUI SingleChoiceBlockPropertiesUI { get; init; }
 		internal SingleChoiceBlock SingleChoiceBlock { get; set; }
-		public SingleChoiceBlockCreatorUI()
+		public SingleChoiceBlockCreatorUI(SingleChoiceBlock singleChoiceBlock = null)
 		{
 			InitializeComponent();
-			SingleChoiceBlockPropertiesUI = new(this);
+			SingleChoiceBlock = singleChoiceBlock; // Sett
+
+			SingleChoiceBlockPropertiesUI = new(this, SingleChoiceBlock);
+
+			if (singleChoiceBlock is not null)
+			{
+				NameTxt.Text = singleChoiceBlock.Name; // Set text
+			}
 		}
 
 		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)

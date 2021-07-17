@@ -46,10 +46,16 @@ namespace Datalya.UserControls
 	{
 		private InputBlockCreatorUI ParentElement { get; init; }
 		internal InputBlock InputBlock { get; set; }
-		public InputBlockPropertiesUI(InputBlockCreatorUI inputBlockCreatorUI)
+		public InputBlockPropertiesUI(InputBlockCreatorUI inputBlockCreatorUI, InputBlock inputBlock)
 		{
 			InitializeComponent();
+			InputBlock = inputBlock; // Set
 			ParentElement = inputBlockCreatorUI; // Set
+
+			if (inputBlock is not null)
+			{
+				NameTxt.Text = inputBlock.Name; // Set
+			}
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)

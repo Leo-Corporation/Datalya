@@ -47,10 +47,22 @@ namespace Datalya.UserControls
 	{
 		private SelectorBlockCreatorUI ParentElement { get; init; }
 		internal Classes.SelectorBlock CSelectorBlock { get; set; }
-		public SelectorBlockPropertiesUI(SelectorBlockCreatorUI selectorBlockCreatorUI)
+		public SelectorBlockPropertiesUI(SelectorBlockCreatorUI selectorBlockCreatorUI, Classes.SelectorBlock s)
 		{
 			InitializeComponent();
 			ParentElement = selectorBlockCreatorUI; // Set
+
+			if (s is not null)
+			{
+				NameTxt.Text = s.Name; // Set text
+				string choices = "";
+				for (int i = 0; i < s.Choices.Count; i++)
+				{
+					choices += s.Choices[i] + "\n"; // Add
+				}
+
+				ChoicesTxt.Text = choices; // Set text
+			}
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)

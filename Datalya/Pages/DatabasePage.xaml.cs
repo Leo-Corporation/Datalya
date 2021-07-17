@@ -186,7 +186,7 @@ namespace Datalya.Pages
 				SaveFileDialog saveFileDialog = new()
 				{
 					FileName = $"{Global.CurrentDataBase.Name}.datalyadb", // Set file name
-					Filter = $"{Properties.Resources.DatalyaFile}|.datalyadb", // Set filter
+					Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb", // Set filter
 					Title = Properties.Resources.SaveAs // Set title
 				};
 
@@ -204,7 +204,16 @@ namespace Datalya.Pages
 
 		private void OpenDbBtn_Click(object sender, RoutedEventArgs e)
 		{
+			OpenFileDialog openFileDialog = new()
+			{
+				Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb|{Properties.Resources.AllFiles}|*.*", // Set filter
+				Title = Properties.Resources.Open // Set title
+			};
 
+			if (openFileDialog.ShowDialog() ?? true)
+			{
+				DataBaseManager.Open(openFileDialog.FileName); // Open DataBase
+			}
 		}
 
 		private void InfoBtn_Click(object sender, RoutedEventArgs e)

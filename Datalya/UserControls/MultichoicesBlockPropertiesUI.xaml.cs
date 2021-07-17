@@ -47,11 +47,23 @@ namespace Datalya.UserControls
 		private MultichoicesBlockCreatorUI ParentElement { get; init; }
 		internal MultichoicesBlock MultichoicesBlock { get; set; }
 
-		public MultichoicesBlockPropertiesUI(MultichoicesBlockCreatorUI multichoicesBlockCreatorUI)
+		public MultichoicesBlockPropertiesUI(MultichoicesBlockCreatorUI multichoicesBlockCreatorUI, MultichoicesBlock multichoicesBlock)
 		{
 			InitializeComponent();
-			AddCheckBoxItem(); // Add item
 			ParentElement = multichoicesBlockCreatorUI; // Set
+
+			if (multichoicesBlock is not null && multichoicesBlock.Choices is not null)
+			{
+				NameTxt.Text = multichoicesBlock.Name; // Set text
+				for (int i = 0; i < multichoicesBlock.Choices.Count; i++)
+				{
+					AddCheckBoxItem(multichoicesBlock.Choices[i]); // Add
+				}
+			}
+			else
+			{
+				AddCheckBoxItem(""); // Add item
+			}
 		}
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -76,10 +88,10 @@ namespace Datalya.UserControls
 
 		private void AddBtn_Click(object sender, RoutedEventArgs e)
 		{
-			AddCheckBoxItem(); // Add item
+			AddCheckBoxItem(""); // Add item
 		}
 
-		internal void AddCheckBoxItem()
+		internal void AddCheckBoxItem(string text)
 		{
 			try
 			{
@@ -93,7 +105,8 @@ namespace Datalya.UserControls
 					Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
 					FontWeight = FontWeights.Bold, // Set font to bold
 					TextAlignment = TextAlignment.Left, // Left text alignment
-					VerticalAlignment = VerticalAlignment.Center // Set vertical alignment
+					VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
+					Text = text // Set text
 				}; // Create textbox
 
 				Button button = new()
