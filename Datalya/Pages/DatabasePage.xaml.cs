@@ -67,11 +67,11 @@ namespace Datalya.Pages
 		{
 			try
 			{
+				// Clear
+				DataBaseGridView.Columns.Clear();
+
 				if (Global.CurrentDataBase.Blocks.Count > 0)
 				{
-					// Clear
-					DataBaseGridView.Columns.Clear();
-
 					// Binding
 					DataBaseListView.ItemsSource = null; // Bind
 					DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind
@@ -223,7 +223,35 @@ namespace Datalya.Pages
 
 		private void CloseDbBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
+			{
+				if (MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information) == MessageBoxResult.Yes)
+				{
+					if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
+					{
+						DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
+					}
+					else
+					{
+						SaveFileDialog saveFileDialog = new()
+						{
+							FileName = $"{Global.CurrentDataBase.Name}.datalyadb", // Set file name
+							Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb", // Set filter
+							Title = Properties.Resources.SaveAs // Set title
+						};
 
+						if (saveFileDialog.ShowDialog() ?? true)
+						{
+							DataBaseManager.Save(Global.CurrentDataBase, saveFileDialog.FileName); // Save DataBase
+						}
+					}
+
+					Global.DataBaseFilePath = ""; // Reset
+					Global.CurrentDataBase = new(); // Reset
+					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
+					Global.CreatorPage.InitUI(); // Refresh UI
+				}
+			}
 		}
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)

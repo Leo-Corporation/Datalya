@@ -151,6 +151,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to close the database? Your data will be saved..
+        /// </summary>
+        public static string CloseDBConfirmMsg {
+            get {
+                return ResourceManager.GetString("CloseDBConfirmMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure.
         /// </summary>
         public static string Configure {

@@ -267,4 +267,7 @@
   <data name="AllFiles" xml:space="preserve">
     <value>All Files</value>
   </data>
+  <data name="CloseDBConfirmMsg" xml:space="preserve">
+    <value>Are you sure you want to close the database? Your data will be saved.</value>
+  </data>
 </root>
