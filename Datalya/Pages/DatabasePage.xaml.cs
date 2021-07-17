@@ -181,7 +181,7 @@ namespace Datalya.Pages
 			}
 			else if (string.IsNullOrEmpty(Global.DataBaseFilePath) && Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
 			{
-				SaveAsBtn_Click(this, null);
+				SaveAsBtn_Click(SaveBtn, null);
 			}
 		}
 
