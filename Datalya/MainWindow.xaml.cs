@@ -48,6 +48,7 @@ namespace Datalya
 		public MainWindow()
 		{
 			InitializeComponent();
+			Global.MainWindow = this;
 			InitUI();
 		}
 
@@ -79,6 +80,12 @@ namespace Datalya
 		{
 			WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; // Set
 			RefreshState();
+		}
+
+		internal void RefreshName()
+		{
+			EditNameTextBox.Text = Global.CurrentDataBase.Name; // Set text
+			DataBaseNameTxt.Text = Global.CurrentDataBase.Name; // Set text
 		}
 
 		private void RefreshState()

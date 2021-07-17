@@ -50,6 +50,11 @@ namespace Datalya.Classes
 		public static CreatorPage CreatorPage { get; set; }
 
 		/// <summary>
+		/// The <see cref="Datalya.MainWindow"/> of Datalya.
+		/// </summary>
+		public static MainWindow MainWindow { get; set; }
+
+		/// <summary>
 		/// Placeholder when there is no Block selected.
 		/// </summary>
 		internal static EmptyPropertyUI EmptyPropertyUI { get; set; }
