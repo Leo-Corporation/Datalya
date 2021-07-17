@@ -61,6 +61,11 @@ namespace Datalya.Windows
 			{
 				for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 				{
+					if (i > Item.Count - 1) // If new fields added
+					{
+						Item.Add(""); // Set
+					}
+
 					BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
 					{
 						BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
