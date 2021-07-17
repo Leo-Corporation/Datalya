@@ -69,6 +69,8 @@ namespace Datalya.Classes
 				Global.DatabasePage.InitDataBaseUI(); // Refresh database view
 				Global.CreatorPage.InitUI(); // Refresh creator view
 				Global.MainWindow.RefreshName(); // Refresh database name
+
+				Global.DataBaseFilePath = filePath; // Set
 			}
 			else
 			{

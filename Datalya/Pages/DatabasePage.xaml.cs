@@ -173,9 +173,9 @@ namespace Datalya.Pages
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0) // If the DataBase isn't empty
+			if (!string.IsNullOrEmpty(Global.DataBaseFilePath) && Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0) // If the DataBase isn't empty
 			{
-
+				DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
 			}
 		}
 

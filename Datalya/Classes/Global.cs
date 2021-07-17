@@ -63,5 +63,10 @@ namespace Datalya.Classes
 		/// The current DataBase.
 		/// </summary>
 		public static DataBase CurrentDataBase { get; set; }
+
+		/// <summary>
+		/// The file path of the current <see cref="DataBase"/>.
+		/// </summary>
+		public static string DataBaseFilePath { get; set; }
 	}
 }
