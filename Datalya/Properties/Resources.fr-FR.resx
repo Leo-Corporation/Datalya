@@ -270,4 +270,7 @@
   <data name="CloseDBConfirmMsg" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir fermer la base de données ? Vos données seront enregistrées.</value>
   </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Exporter dans Excel</value>
+  </data>
 </root>

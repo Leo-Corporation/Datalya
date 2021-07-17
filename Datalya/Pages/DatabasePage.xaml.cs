@@ -113,6 +113,7 @@ namespace Datalya.Pages
 			CheckButton(ExportRibBtn); // Check
 
 			HideAllTabs(); // Hide all ribbon tabs
+			ExportTab.Visibility = Visibility.Visible; // Show
 		}
 
 		private void HelpRibBtn_Click(object sender, RoutedEventArgs e)
@@ -168,6 +169,7 @@ namespace Datalya.Pages
 		{
 			FileTab.Visibility = Visibility.Collapsed; // Hide
 			EditTab.Visibility = Visibility.Collapsed; // Hide
+			ExportTab.Visibility = Visibility.Collapsed; // Hide
 			HelpTab.Visibility = Visibility.Collapsed; // Hide
 		}
 
@@ -329,6 +331,11 @@ namespace Datalya.Pages
 				InitDataBaseUI(); // Refresh UI
 				DataBaseListView.SelectedItem = selectedItem; // Set selected item
 			}
+		}
+
+		private void ExportDbExcelBtn_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
