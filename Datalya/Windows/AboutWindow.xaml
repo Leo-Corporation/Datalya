@@ -101,7 +101,7 @@
 
 
 	<Border Name="WindowBorder" Margin="10" BorderThickness="0" Background="{Binding Source={StaticResource Background1}}" CornerRadius="5">
-		<Grid VerticalAlignment="Top">
+		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="*"/>
@@ -122,8 +122,18 @@
 
 			<Grid Grid.Row="1">
 				<StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<Image Source="..\Images\Datalya.png" Height="100"/>
 					<TextBlock Text="{x:Static lang:Resources.Datalya}" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center"/>
 					<TextBlock x:Name="VersionTxt" Text="{x:Static lang:Resources.Version}" FontSize="15" HorizontalAlignment="Center"/>
+					<StackPanel	Orientation="Horizontal">
+						<Button x:Name="UpdateBtn" Click="UpdateBtn_Click" Margin="5" Padding="5" HorizontalAlignment="Center" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Cursor="Hand">
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="&#xF191;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
+								<TextBlock Text="{x:Static lang:Resources.CheckUpdate}" FontSize="13" VerticalAlignment="Center" FontWeight="Bold"/>
+							</StackPanel>
+						</Button>
+						<Button x:Name="LicensesBtn" Click="LicensesBtn_Click" Content="&#xF4A4;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="0 5" BorderThickness="0" Background="{Binding Source={StaticResource Gray}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</StackPanel>
 				</StackPanel>
 			</Grid>
 		</Grid>

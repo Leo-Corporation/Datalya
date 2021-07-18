@@ -63,5 +63,15 @@ namespace Datalya.Windows
 		{
 			Close(); // Close the window
 		}
+
+		private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void LicensesBtn_Click(object sender, RoutedEventArgs e)
+		{
+			
+		}
 	}
 }
