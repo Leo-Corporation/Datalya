@@ -205,7 +205,38 @@ namespace Datalya.Pages
 
 		private void NewDatabaseBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.Blocks.Count > 0) // If database is open
+			{
+				if (MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information) == MessageBoxResult.Yes)
+				{
+					if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
+					{
+						DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
+					}
+					else
+					{
+						SaveAsBtn_Click(NewDatabaseBtn, null); // Call SaveAs code
+					}
 
+					//TODO: Window asking name and path of the new DataBase
+
+					Global.DataBaseFilePath = ""; // Reset
+					Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
+					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
+					Global.CreatorPage.InitUI(); // Refresh UI
+					Global.MainWindow.RefreshName();
+				}
+			}
+			else
+			{
+				//TODO: Window asking name and path of the new DataBase
+
+				Global.DataBaseFilePath = ""; // Reset
+				Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
+				Global.DatabasePage.InitDataBaseUI(); // Refresh UI
+				Global.CreatorPage.InitUI(); // Refresh UI
+				Global.MainWindow.RefreshName();
+			}
 		}
 
 		private void OpenDbBtn_Click(object sender, RoutedEventArgs e)
