@@ -253,9 +253,10 @@ namespace Datalya.Pages
 					}
 
 					Global.DataBaseFilePath = ""; // Reset
-					Global.CurrentDataBase = new(); // Reset
+					Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
 					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 					Global.CreatorPage.InitUI(); // Refresh UI
+					Global.MainWindow.RefreshName();
 				}
 			}
 		}
