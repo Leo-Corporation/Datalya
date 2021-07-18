@@ -69,11 +69,11 @@ namespace Datalya.Pages
 			{
 				// Clear
 				DataBaseGridView.Columns.Clear();
+				DataBaseListView.ItemsSource = null; // Bind
 
 				if (Global.CurrentDataBase.Blocks.Count > 0)
 				{
 					// Binding
-					DataBaseListView.ItemsSource = null; // Bind
 					DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind
 
 					// Columns
