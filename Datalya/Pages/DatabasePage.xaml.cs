@@ -262,7 +262,10 @@ namespace Datalya.Pages
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
 		{
-			new AddWindow().Show(); // Show "Add" window
+			if (Global.CurrentDataBase.Blocks.Count > 0)
+			{
+				new AddWindow().Show(); // Show "Add" window 
+			}
 		}
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
