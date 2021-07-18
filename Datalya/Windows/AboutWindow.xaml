@@ -132,7 +132,7 @@
 								<TextBlock Text="{x:Static lang:Resources.CheckUpdate}" FontSize="13" VerticalAlignment="Center" FontWeight="Bold"/>
 							</StackPanel>
 						</Button>
-						<Button x:Name="LicensesBtn" Click="LicensesBtn_Click" Content="&#xF4A4;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="0 5" BorderThickness="0" Background="{Binding Source={StaticResource Gray}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+						<Button x:Name="LicensesBtn" Click="LicensesBtn_Click" Content="&#xF4A4;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="0 5" BorderThickness="0" Background="{Binding Source={StaticResource Gray}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand"/>
 					</StackPanel>
 				</StackPanel>
 			</Grid>
