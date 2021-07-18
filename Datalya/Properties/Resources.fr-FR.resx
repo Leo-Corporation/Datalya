@@ -273,4 +273,13 @@
   <data name="ExportToExcel" xml:space="preserve">
     <value>Exporter dans Excel</value>
   </data>
+  <data name="Updates" xml:space="preserve">
+    <value>Mises à jour</value>
+  </data>
+  <data name="CheckUpdate" xml:space="preserve">
+    <value>Rechercher des mises à jour</value>
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>Licences</value>
+  </data>
 </root>

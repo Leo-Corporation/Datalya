@@ -124,6 +124,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check update.
+        /// </summary>
+        public static string CheckUpdate {
+            get {
+                return ResourceManager.GetString("CheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A choice per line..
         /// </summary>
         public static string ChoicePerLine {
@@ -403,6 +412,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Licenses.
+        /// </summary>
+        public static string Licenses {
+            get {
+                return ResourceManager.GetString("Licenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Multichoices.
         /// </summary>
         public static string Multichoices {
@@ -516,6 +534,15 @@ namespace Datalya.Properties {
         public static string SingleChoice {
             get {
                 return ResourceManager.GetString("SingleChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updates.
+        /// </summary>
+        public static string Updates {
+            get {
+                return ResourceManager.GetString("Updates", resourceCulture);
             }
         }
         

@@ -12,6 +12,7 @@
     <None Remove="Fonts\FluentSystemIcons-Regular.ttf" />
     <None Remove="Fonts\Montserrat-Bold.ttf" />
     <None Remove="Fonts\Montserrat-Regular.ttf" />
+    <None Remove="Images\Datalya.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Fonts\Montserrat-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Datalya.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
