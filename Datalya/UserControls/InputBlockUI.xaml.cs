@@ -55,7 +55,7 @@ namespace Datalya.UserControls
 			InitUI();
 		}
 
-		private	void InitUI()
+		private void InitUI()
 		{
 			NameTxt.Text = InputBlock.Name; // Set name
 			ValueTxt.Text = ContentTxt; // Set value

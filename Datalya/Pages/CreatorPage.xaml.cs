@@ -54,7 +54,7 @@ namespace Datalya.Pages
 			InitUI();
 		}
 
-		internal void InitUI() 
+		internal void InitUI()
 		{
 			// Clear
 			BlockDisplayer.Children.Clear(); // Clear

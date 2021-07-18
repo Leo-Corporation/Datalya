@@ -157,10 +157,10 @@ namespace Datalya.Pages
 
 			EditRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
 			EditRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the foreground
-						
+
 			ExportRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			ExportRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
-			
+
 			HelpRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			HelpRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
 		}
@@ -267,7 +267,7 @@ namespace Datalya.Pages
 
 		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
 		{
-			
+
 			try
 			{
 				if (DataBaseListView.SelectedItems.Count > 0)
@@ -307,7 +307,7 @@ namespace Datalya.Pages
 				{
 					Global.CurrentDataBase.ItemsContent = new(); // Clear 
 					InitDataBaseUI(); // Refresh UI
-				} 
+				}
 			}
 			else
 			{

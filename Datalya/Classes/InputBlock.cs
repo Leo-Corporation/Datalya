@@ -44,6 +44,6 @@ namespace Datalya.Classes
 		public void ChangeName(string name) => Name = name;
 
 		public override string ToString() => BlockValue;
-		
+
 	}
 }

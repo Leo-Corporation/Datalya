@@ -110,7 +110,7 @@ namespace Datalya.Windows
 							if (checkBox.IsChecked.Value)
 							{
 								multichoicesBlock.SelectedChoices.Add(checkBox.Content.ToString());
-							} 
+							}
 						}
 					}
 
@@ -122,7 +122,7 @@ namespace Datalya.Windows
 					if (selectorBlock.ItemComboBox.SelectedItem is not null)
 					{
 						cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
-						blocks.Add(cSelector); 
+						blocks.Add(cSelector);
 					}
 				}
 				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
