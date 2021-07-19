@@ -147,13 +147,13 @@ namespace Datalya.Windows
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
 		{
-			WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; // Set
-			RefreshState();
+			WindowState = WindowState.Minimized; // Minimize window
 		}
 
 		private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
 		{
-			WindowState = WindowState.Maximized; // Maximize window
+			WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; // Set
+			RefreshState();
 		}
 
 		private void CloseBtn_Click(object sender, RoutedEventArgs e)
