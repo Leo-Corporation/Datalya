@@ -144,7 +144,7 @@ namespace Datalya.Windows
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
 		{
-			WindowState = WindowState.Minimized; // Minimize window
+			WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; // Set
 			RefreshState();
 		}
 
