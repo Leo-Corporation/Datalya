@@ -285,4 +285,13 @@
   <data name="Rename" xml:space="preserve">
     <value>Renommer</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Récent</value>
+  </data>
+  <data name="Pined" xml:space="preserve">
+    <value>Epinglé</value>
+  </data>
 </root>
