@@ -282,4 +282,7 @@
   <data name="Licenses" xml:space="preserve">
     <value>Licences</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Renommer</value>
+  </data>
 </root>
