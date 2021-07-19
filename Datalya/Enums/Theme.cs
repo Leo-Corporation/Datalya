@@ -21,60 +21,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using Datalya.Interfaces;
-using Datalya.Pages;
-using Datalya.UserControls;
-using Datalya.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Datalya.Classes
+namespace Datalya.Enums
 {
-	public static class Global
+	/// <summary>
+	/// Datalya's themes.
+	/// </summary>
+	public enum Theme
 	{
 		/// <summary>
-		/// Datalya's version.
+		/// Dark theme.
 		/// </summary>
-		public static string Version => "1.0.0.21XX";
+		Dark,
 
 		/// <summary>
-		/// The <see cref="Pages.DatabasePage"/> page.
+		/// Light theme.
 		/// </summary>
-		public static DatabasePage DatabasePage { get; set; }
+		Light,
 
 		/// <summary>
-		/// The <see cref="Pages.CreatorPage"/> page.
+		/// System theme.
 		/// </summary>
-		public static CreatorPage CreatorPage { get; set; }
-
-		/// <summary>
-		/// The <see cref="Datalya.MainWindow"/> of Datalya.
-		/// </summary>
-		public static MainWindow MainWindow { get; set; }
-
-		/// <summary>
-		/// The <see cref="Windows.HomeWindow"/> of Datalya.
-		/// </summary>
-		public static HomeWindow HomeWindow { get; set; }
-
-		/// <summary>
-		/// Placeholder when there is no Block selected.
-		/// </summary>
-		internal static EmptyPropertyUI EmptyPropertyUI { get; set; }
-
-		/// <summary>
-		/// The current DataBase.
-		/// </summary>
-		public static DataBase CurrentDataBase { get; set; }
-
-		/// <summary>
-		/// The file path of the current <see cref="DataBase"/>.
-		/// </summary>
-		public static string DataBaseFilePath { get; set; }
-
-		public static Settings Settings { get; set; }
+		System
 	}
 }
