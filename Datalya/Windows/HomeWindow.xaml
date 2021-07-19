@@ -158,8 +158,8 @@
 					</Grid.RowDefinitions>
 
 					<StackPanel Margin="30 10" Orientation="Horizontal" Grid.Row="0">
-						<Button x:Name="RecentTabBtn" Click="RecentTabBtn_Click" Content="{x:Static lang:Resources.Recent}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="Bold" FontSize="16" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
-						<Button x:Name="PinedTabBtn" Click="PinedTabBtn_Click" Content="{x:Static lang:Resources.Pined}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="Bold" FontSize="16" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+						<Button x:Name="RecentTabBtn" Click="RecentTabBtn_Click" Content="{x:Static lang:Resources.Recent}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="Bold" FontSize="14" MouseEnter="TabEnter" MouseLeave="TabLeave" Cursor="Hand"/>
+						<Button x:Name="PinedTabBtn" Click="PinedTabBtn_Click" Content="{x:Static lang:Resources.Pined}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="Bold" FontSize="14" MouseEnter="TabEnter" MouseLeave="TabLeave" Cursor="Hand"/>
 					</StackPanel>
 
 					<StackPanel x:Name="RecentItemDisplayer" Grid.Row="1" Margin="30 0">
