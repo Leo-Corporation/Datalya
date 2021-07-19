@@ -48,7 +48,6 @@ namespace Datalya
 		public MainWindow()
 		{
 			InitializeComponent();
-			Global.MainWindow = this;
 			InitUI();
 		}
 

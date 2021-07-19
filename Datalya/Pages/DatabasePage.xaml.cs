@@ -288,7 +288,7 @@ namespace Datalya.Pages
 					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 					Global.CreatorPage.InitUI(); // Refresh UI
 					Global.MainWindow.RefreshName();
-					Global.MainWindow.Close(); // Close
+					Global.MainWindow.Hide(); // Close
 					Global.HomeWindow.Show(); // Show home page
 				}
 			}

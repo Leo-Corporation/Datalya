@@ -21,6 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -168,7 +170,18 @@ namespace Datalya.Windows
 
 		private void OpenDbBtn_Click(object sender, RoutedEventArgs e)
 		{
+			OpenFileDialog openFileDialog = new()
+			{
+				Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb|{Properties.Resources.AllFiles}|*.*", // Set filter
+				Title = Properties.Resources.Open // Set title
+			};
 
+			if (openFileDialog.ShowDialog() ?? true)
+			{
+				DataBaseManager.Open(openFileDialog.FileName); // Open DataBase
+				Global.MainWindow.Show();
+				Hide(); // Close the window
+			}
 		}
 
 		private void RecentTabBtn_Click(object sender, RoutedEventArgs e)
