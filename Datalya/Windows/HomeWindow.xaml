@@ -130,7 +130,7 @@
 				
 				<StackPanel Margin="30 15" Grid.Row="0">
 					<TextBlock Text="{x:Static lang:Resources.Datalya}" FontWeight="Bold" FontSize="48"/>
-					<TextBlock d:Text="Welcome back, [User]" FontWeight="SemiBold" FontSize="14"/>
+					<TextBlock x:Name="WelcomeMessageTxt" d:Text="Welcome back, [User]" FontWeight="SemiBold" FontSize="14"/>
 				</StackPanel>
 
 				<StackPanel Grid.Row="1" Margin="30 10">

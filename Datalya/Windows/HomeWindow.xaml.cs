@@ -62,6 +62,9 @@ namespace Datalya.Windows
 			// Check & Display default tab
 			CheckButton(RecentTabBtn); // Check
 			RecentItemDisplayer.Visibility = Visibility.Visible; // Show
+
+			// UI
+			WelcomeMessageTxt.Text = $"{Properties.Resources.WelcomeBack} {Environment.UserName}"; // Set text
 		}
 
 		private void HideAllTabs()

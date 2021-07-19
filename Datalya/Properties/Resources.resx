@@ -274,4 +274,7 @@
   <data name="Pined" xml:space="preserve">
     <value>Pined</value>
   </data>
+  <data name="WelcomeBack" xml:space="preserve">
+    <value>Welcome back,</value>
+  </data>
 </root>
