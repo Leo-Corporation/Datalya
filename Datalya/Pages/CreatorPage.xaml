@@ -28,7 +28,7 @@
 			<TextBlock Text="{x:Static lang:Resources.CreatorDesc}"/>
 		</StackPanel>
 
-		<Border CornerRadius="5" Margin="10" Background="{Binding Source={StaticResource Background1}}" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Left">
+		<Border CornerRadius="5" Margin="10" Background="{Binding Source={StaticResource LightBackground}}" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Left">
 			<Border.Effect>
 				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
 			</Border.Effect>
@@ -74,7 +74,7 @@
 			</StackPanel>
 		</Button>
 
-		<Border Grid.Column="1" Width="310" Padding="10" Grid.Row="1" Grid.RowSpan="3" Background="{Binding Source={StaticResource Background1}}" Margin="10,0,0,0">
+		<Border Grid.Column="1" Width="310" Padding="10" Grid.Row="1" Grid.RowSpan="3" Background="{Binding Source={StaticResource LightBackground}}" Margin="10,0,0,0">
 			<Border.Effect>
 				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
 			</Border.Effect>
