@@ -24,6 +24,7 @@ SOFTWARE.
 using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
+using Datalya.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,11 @@ namespace Datalya.Classes
 		/// The <see cref="Datalya.MainWindow"/> of Datalya.
 		/// </summary>
 		public static MainWindow MainWindow { get; set; }
+
+		/// <summary>
+		/// The <see cref="Windows.HomeWindow"/> of Datalya.
+		/// </summary>
+		public static HomeWindow HomeWindow { get; set; }
 
 		/// <summary>
 		/// Placeholder when there is no Block selected.
