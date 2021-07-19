@@ -44,8 +44,9 @@ namespace Datalya
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page
 			Global.HomeWindow = new(); // Create new HomeWindow
+			Global.MainWindow = new(); // Create new MainWindow
 
-			base.OnStartup(e);
+			Global.HomeWindow.Show(); // Show
 		}
 	}
 }
