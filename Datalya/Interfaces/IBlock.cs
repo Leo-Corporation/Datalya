@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 
 namespace Datalya.Interfaces
 {
+	[Obsolete("Use the Block class instead")]
 	public interface IBlock
 	{
 
