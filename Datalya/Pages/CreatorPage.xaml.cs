@@ -24,6 +24,7 @@ SOFTWARE.
 using Datalya.Classes;
 using Datalya.Interfaces;
 using Datalya.UserControls;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -144,6 +145,28 @@ namespace Datalya.Pages
 			catch (Exception ex)
 			{
 				MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (Global.CurrentDataBase.Blocks.Count > 0)
+			{
+				SaveFileDialog saveFileDialog = new()
+				{
+					Filter = $"{Properties.Resources.Template}|*.datalyabt",
+					Title = Properties.Resources.ExportAsTemplate
+				};
+
+				if (saveFileDialog.ShowDialog() ?? true)
+				{
+					BlockTemplateManager.Export(new() { Name = saveFileDialog.FileName, Blocks = Global.CurrentDataBase.Blocks }, saveFileDialog.FileName); // Export
+				} 
 			}
 		}
 	}

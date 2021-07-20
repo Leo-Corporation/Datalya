@@ -58,6 +58,11 @@
 						<TextBlock Text="{x:Static lang:Resources.Selector}" FontSize="13" VerticalAlignment="Center"/>
 					</StackPanel>
 				</Button>
+				
+				<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
+
+				<Button x:Name="ImportBlockBtn" Click="ImportBlockBtn_Click" Content="&#xF151;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18"/>
+				<Button x:Name="ExportBlockBtn" Click="ExportBlockBtn_Click" Content="&#xF1A5;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18"/>
 			</StackPanel>
 		</Border>
 
