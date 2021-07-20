@@ -218,24 +218,12 @@ namespace Datalya.Pages
 						SaveAsBtn_Click(NewDatabaseBtn, null); // Call SaveAs code
 					}
 
-					//TODO: Window asking name and path of the new DataBase
-
-					Global.DataBaseFilePath = ""; // Reset
-					Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
-					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-					Global.CreatorPage.InitUI(); // Refresh UI
-					Global.MainWindow.RefreshName();
+					new NewDataBaseWindow().Show(); // Show
 				}
 			}
 			else
 			{
-				//TODO: Window asking name and path of the new DataBase
-
-				Global.DataBaseFilePath = ""; // Reset
-				Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
-				Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-				Global.CreatorPage.InitUI(); // Refresh UI
-				Global.MainWindow.RefreshName();
+				new NewDataBaseWindow().Show(); // Show
 			}
 		}
 

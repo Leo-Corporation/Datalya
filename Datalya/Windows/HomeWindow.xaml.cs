@@ -165,7 +165,7 @@ namespace Datalya.Windows
 
 		private void NewDbBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new NewDataBaseWindow(true).Show(); // Show
 		}
 
 		private void OpenDbBtn_Click(object sender, RoutedEventArgs e)
