@@ -297,4 +297,25 @@
   <data name="WelcomeBack" xml:space="preserve">
     <value>Welcome back,</value>
   </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="ExportAsTemplate" xml:space="preserve">
+    <value>Export as a template</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreateDataBase" xml:space="preserve">
+    <value>Create a new database.</value>
+  </data>
 </root>
