@@ -430,6 +430,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import template.
+        /// </summary>
+        public static string ImportTemplate {
+            get {
+                return ResourceManager.GetString("ImportTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Info.
         /// </summary>
         public static string Info {

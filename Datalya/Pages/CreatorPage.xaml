@@ -39,30 +39,50 @@
 						<TextBlock Text="&#xF793;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
 						<TextBlock Text="{x:Static lang:Resources.Input}" FontSize="13" VerticalAlignment="Center"/>
 					</StackPanel>
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.Input}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
 				</Button>
 				<Button x:Name="MultichoicesBlockBtn" Click="MultichoicesBlockBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18">
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="&#xF28E;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
 						<TextBlock Text="{x:Static lang:Resources.Multichoices}" FontSize="13" VerticalAlignment="Center"/>
 					</StackPanel>
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.Multichoices}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
 				</Button>
 				<Button x:Name="SingleChoiceBlockBtn" Click="SingleChoiceBlockBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18">
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="&#xF662;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
 						<TextBlock Text="{x:Static lang:Resources.SingleChoice}" FontSize="13" VerticalAlignment="Center"/>
 					</StackPanel>
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.SingleChoice}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
 				</Button>
 				<Button x:Name="SelectorBlockBtn" Click="SelectorBlockBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18">
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="&#xF55C;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
 						<TextBlock Text="{x:Static lang:Resources.Selector}" FontSize="13" VerticalAlignment="Center"/>
 					</StackPanel>
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.Selector}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
 				</Button>
 				
 				<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
 
-				<Button x:Name="ImportBlockBtn" Click="ImportBlockBtn_Click" Content="&#xF151;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18"/>
-				<Button x:Name="ExportBlockBtn" Click="ExportBlockBtn_Click" Content="&#xF1A5;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18"/>
+				<Button x:Name="ImportBlockBtn" Click="ImportBlockBtn_Click" Content="&#xF151;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18">
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.ImportTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
+				</Button>
+				<Button x:Name="ExportBlockBtn" Click="ExportBlockBtn_Click" Content="&#xF1A5;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background1}}" Cursor="Hand" BorderThickness="0" FontSize="18">
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.ExportAsTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
+				</Button>
 			</StackPanel>
 		</Border>
 

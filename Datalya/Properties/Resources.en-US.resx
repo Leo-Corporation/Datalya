@@ -318,4 +318,7 @@
   <data name="CreateDataBase" xml:space="preserve">
     <value>Create a new database.</value>
   </data>
+  <data name="ImportTemplate" xml:space="preserve">
+    <value>Import template</value>
+  </data>
 </root>
