@@ -253,6 +253,7 @@ namespace Datalya.Pages
 			{
 				if (MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information) == MessageBoxResult.Yes)
 				{
+					Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime;
 					if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
 					{
 						DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save

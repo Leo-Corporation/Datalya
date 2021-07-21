@@ -75,10 +75,18 @@ namespace Datalya.Windows
 
 			if (Global.Settings.RecentFiles is not null)
 			{
+				Dictionary<DataBaseInfo, int> keyValuePairs = new(); // Create a dictionnary
 				for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
 				{
-					RecentItemDisplayer.Children.Add(new HomeDataBaseItem(Global.Settings.RecentFiles[i])); // Add item
-				} 
+					keyValuePairs.Add(Global.Settings.RecentFiles[i], Global.Settings.RecentFiles[i].LastEditTime); // Add to dictionnary
+				}
+
+				var items = from pair in keyValuePairs orderby pair.Value descending select pair; // Sort
+
+				foreach (KeyValuePair<DataBaseInfo, int> pair1 in items)
+				{
+					RecentItemDisplayer.Children.Add(new HomeDataBaseItem(pair1.Key)); // Add item
+				}
 			}
 
 			// Pined tab

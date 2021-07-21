@@ -56,9 +56,26 @@ namespace Datalya.Classes
 				}
 
 				DataBase dataBase1 = dataBase; // Set value
-				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
 				dataBase1.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
 
+				if (!Global.DataBaseItemAlreadyExists(dataBase.DataBaseInfo)) // Check
+				{
+					Global.Settings.RecentFiles.Add(dataBase.DataBaseInfo); // Add
+					SettingsManager.Save();
+				}
+				else
+				{
+					List<string> files = new();
+					for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
+					{
+						files.Add(Global.Settings.RecentFiles[i].FilePath);
+					}
+
+					int index = files.IndexOf(filePath);
+					Global.Settings.RecentFiles[index] = dataBase1.DataBaseInfo; // Set
+				}
+				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
+				
 				StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
 				xmlSerializer.Serialize(streamWriter, dataBase); // Save
 
