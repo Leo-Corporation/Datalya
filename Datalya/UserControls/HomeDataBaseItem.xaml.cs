@@ -25,6 +25,7 @@ using Datalya.Classes;
 using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,6 +92,16 @@ namespace Datalya.UserControls
 			Global.Settings.RecentFiles.Remove(DataBaseInfo); // Remove
 			SettingsManager.Save();
 			Global.HomeWindow.InitUI(); // Refresh
+		}
+
+		private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		{
+			if (File.Exists(DataBaseInfo.FilePath)) // If the file exists
+			{
+				DataBaseManager.Open(DataBaseInfo.FilePath); // Open DataBase
+				Global.MainWindow.Show(); // Show
+				Global.HomeWindow.Hide(); // Hide
+			}
 		}
 	}
 }
