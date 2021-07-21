@@ -50,7 +50,7 @@ namespace Datalya.Classes
 				if (File.Exists(filePath))
 				{
 					FileInfo fileInfo = new(filePath); // Create fileinfo 
-					dataBase.DataBaseInfo.Size = fileInfo.Length; // Set
+					dataBase.DataBaseInfo.Size = (int)fileInfo.Length; // Set
 				}
 
 				DataBase dataBase1 = dataBase; // Set value

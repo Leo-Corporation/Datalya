@@ -244,7 +244,7 @@ namespace Datalya.Pages
 
 		private void InfoBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new DataBaseInfoWindow().Show(); // Show infos
 		}
 
 		private void CloseDbBtn_Click(object sender, RoutedEventArgs e)

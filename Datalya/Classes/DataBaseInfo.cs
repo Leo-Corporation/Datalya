@@ -34,7 +34,7 @@ namespace Datalya.Classes
 	/// </summary>
 	public class DataBaseInfo
 	{
-		public double Size { get; set; }
+		public int Size { get; set; }
 		public int LastEditTime { get; set; }
 		public int CreationTime { get; set; }
 		public List<string> Authors { get; set; }
