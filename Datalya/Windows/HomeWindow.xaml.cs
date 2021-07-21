@@ -71,12 +71,26 @@ namespace Datalya.Windows
 
 			// Recent tab
 			RecentItemDisplayer.Children.Clear(); // Clear
+			PinedItemDisplayer.Children.Clear(); // Clear
+
 			if (Global.Settings.RecentFiles is not null)
 			{
 				for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
 				{
 					RecentItemDisplayer.Children.Add(new HomeDataBaseItem(Global.Settings.RecentFiles[i])); // Add item
 				} 
+			}
+
+			// Pined tab
+			if (Global.Settings.RecentFiles is not null)
+			{
+				for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
+				{
+					if (Global.Settings.RecentFiles[i].IsPinned) // If is pinned
+					{
+						PinedItemDisplayer.Children.Add(new HomeDataBaseItem(Global.Settings.RecentFiles[i])); // Add item
+					}
+				}
 			}
 		}
 
@@ -199,12 +213,18 @@ namespace Datalya.Windows
 		{
 			UnCheckAllTabs(); // Clear
 			CheckButton(RecentTabBtn); // Check
+
+			HideAllTabs();
+			RecentItemDisplayer.Visibility = Visibility.Visible; // Show
 		}
 
 		private void PinedTabBtn_Click(object sender, RoutedEventArgs e)
 		{
 			UnCheckAllTabs(); // Clear
 			CheckButton(PinedTabBtn); // Check
+
+			HideAllTabs();
+			PinedItemDisplayer.Visibility = Visibility.Visible; // Show
 		}
 	}
 }

@@ -6,8 +6,8 @@
 			 xmlns:local="clr-namespace:Datalya.UserControls"
 			 xmlns:lang="clr-namespace:Datalya.Properties" FontFamily="..\Fonts\#Montserrat"
 			 mc:Ignorable="d" Foreground="{Binding Source={StaticResource Foreground1}}"
-			 Height="50" d:MinWidth="700">
-	<Border Background="{Binding Source={StaticResource Background1}}" CornerRadius="10" BorderThickness="2" BorderBrush="{Binding Source={StaticResource Gray}}">
+			 Height="55" d:MinWidth="700">
+	<Border Margin="3" Background="{Binding Source={StaticResource Background1}}" CornerRadius="10" BorderThickness="2" BorderBrush="{Binding Source={StaticResource Gray}}">
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition/>
