@@ -68,7 +68,7 @@ namespace Datalya.Windows
 				_ => Properties.Resources.Ko // Set text
 			}; // Set unit text
 
-			SizeTxt.Text = $"{size} {unit}"; // Set text: ex: 10 KB
+			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
 
 			// Last Edit
 			var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date

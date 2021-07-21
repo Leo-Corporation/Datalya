@@ -88,12 +88,12 @@ namespace Datalya.Classes
 		{
 			if (size > 1000000)
 			{
-				converted = size / 1000000; // Return
+				converted = size / 1000000d; // Return
 				unitType = UnitType.Megabyte; // Return
 			}
 			else if (size > 1000)
 			{
-				converted = size / 1000; // Return
+				converted = size / 1000d; // Return
 				unitType = UnitType.Kilobyte; // Return
 			}
 			else
