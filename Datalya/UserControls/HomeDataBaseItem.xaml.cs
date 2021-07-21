@@ -75,12 +75,14 @@ namespace Datalya.UserControls
 
 			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text
 			PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
+			PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
 		}
 
 		private void PinBtn_Click(object sender, RoutedEventArgs e)
 		{
 			DataBaseInfo.IsPinned = !DataBaseInfo.IsPinned; // Set value
 			PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
+			PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
 
 			Global.Settings.RecentFiles[Global.Settings.RecentFiles.IndexOf(DataBaseInfo)] = DataBaseInfo;
 			SettingsManager.Save();

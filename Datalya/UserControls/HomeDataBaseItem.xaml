@@ -20,8 +20,16 @@
 			<TextBlock x:Name="SizeTxt" d:Text="2 KB" Margin="5" Grid.Column="2" FontSize="16" VerticalAlignment="Center" Foreground="{Binding Source={StaticResource DarkGray}}"/>
 
 			<StackPanel	Orientation="Horizontal" Grid.Column="3">
-				<Button x:Name="PinBtn" Click="PinBtn_Click" Content="&#xF602;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="10" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand" Grid.Column="3" VerticalAlignment="Center" FontSize="14"/>
-				<Button x:Name="RemoveBtn" Click="RemoveBtn_Click" Content="&#xF3F8;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="10" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand" Grid.Column="3" VerticalAlignment="Center" FontSize="14"/>
+				<Button x:Name="PinBtn" Click="PinBtn_Click" Content="&#xF602;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="10" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand" Grid.Column="3" VerticalAlignment="Center" FontSize="14">
+					<Button.ToolTip>
+						<ToolTip x:Name="PinToolTip" Content="{x:Static lang:Resources.Pin}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
+				</Button>
+				<Button x:Name="RemoveBtn" Click="RemoveBtn_Click" Content="&#xF3F8;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="10" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand" Grid.Column="3" VerticalAlignment="Center" FontSize="14">
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.RemoveFromList}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
+				</Button>
 			</StackPanel>
 		</Grid>   
 	</Border>
