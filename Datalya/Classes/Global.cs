@@ -102,5 +102,17 @@ namespace Datalya.Classes
 				unitType = UnitType.Byte; // Return
 			}
 		}
+
+		public static bool DataBaseItemAlreadyExists(DataBaseInfo dataBaseInfo)
+		{
+			List<string> files = new(); // Files
+
+			for (int i = 0; i < Settings.RecentFiles.Count; i++) // For each item
+			{
+				files.Add(Settings.RecentFiles[i].FilePath); // Add file path
+			}
+
+			return files.Contains(dataBaseInfo.FilePath); // Return
+		}
 	}
 }

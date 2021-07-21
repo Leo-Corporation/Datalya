@@ -95,7 +95,7 @@ namespace Datalya.Classes
 					Global.DataBaseFilePath = filePath; // Set
 					Global.CurrentDataBase.DataBaseInfo.FilePath = filePath; // Set
 					
-					if (!Global.Settings.RecentFiles.Contains(Global.CurrentDataBase.DataBaseInfo)) // Check
+					if (!Global.DataBaseItemAlreadyExists(Global.CurrentDataBase.DataBaseInfo)) // Check
 					{
 						Global.Settings.RecentFiles.Add(Global.CurrentDataBase.DataBaseInfo); // Add
 						SettingsManager.Save();
