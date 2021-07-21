@@ -115,6 +115,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authors.
+        /// </summary>
+        public static string Authors {
+            get {
+                return ResourceManager.GetString("Authors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bytes.
+        /// </summary>
+        public static string Bytes {
+            get {
+                return ResourceManager.GetString("Bytes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -169,6 +187,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close database.
         /// </summary>
         public static string CloseDataBase {
@@ -219,6 +246,15 @@ namespace Datalya.Properties {
         public static string CreateDataBase {
             get {
                 return ResourceManager.GetString("CreateDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creation.
+        /// </summary>
+        public static string Creation {
+            get {
+                return ResourceManager.GetString("Creation", resourceCulture);
             }
         }
         
@@ -448,6 +484,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Informations.
+        /// </summary>
+        public static string Informations {
+            get {
+                return ResourceManager.GetString("Informations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informations about the database..
+        /// </summary>
+        public static string InformationsDesc {
+            get {
+                return ResourceManager.GetString("InformationsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input.
         /// </summary>
         public static string Input {
@@ -466,11 +520,38 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to KB.
+        /// </summary>
+        public static string Ko {
+            get {
+                return ResourceManager.GetString("Ko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last edit.
+        /// </summary>
+        public static string LastEditTime {
+            get {
+                return ResourceManager.GetString("LastEditTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Licenses.
         /// </summary>
         public static string Licenses {
             get {
                 return ResourceManager.GetString("Licenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MB.
+        /// </summary>
+        public static string Mo {
+            get {
+                return ResourceManager.GetString("Mo", resourceCulture);
             }
         }
         
@@ -633,6 +714,15 @@ namespace Datalya.Properties {
         public static string SingleChoice {
             get {
                 return ResourceManager.GetString("SingleChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
             }
         }
         

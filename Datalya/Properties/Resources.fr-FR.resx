@@ -321,4 +321,34 @@
   <data name="ImportTemplate" xml:space="preserve">
     <value>Importer un modèle</value>
   </data>
+  <data name="Informations" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="InformationsDesc" xml:space="preserve">
+    <value>Informations de la base de données.</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="Mo" xml:space="preserve">
+    <value>Mo</value>
+  </data>
+  <data name="Ko" xml:space="preserve">
+    <value>Ko</value>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value>Bytes</value>
+  </data>
+  <data name="Creation" xml:space="preserve">
+    <value>Creation</value>
+  </data>
+  <data name="LastEditTime" xml:space="preserve">
+    <value>Dernière modification</value>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Auteurs</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
 </root>

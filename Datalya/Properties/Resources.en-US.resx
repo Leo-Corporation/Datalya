@@ -321,4 +321,34 @@
   <data name="ImportTemplate" xml:space="preserve">
     <value>Import template</value>
   </data>
+  <data name="Informations" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="InformationsDesc" xml:space="preserve">
+    <value>Informations about the database.</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Mo" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="Ko" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value>Bytes</value>
+  </data>
+  <data name="Creation" xml:space="preserve">
+    <value>Creation</value>
+  </data>
+  <data name="LastEditTime" xml:space="preserve">
+    <value>Last edit</value>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>
