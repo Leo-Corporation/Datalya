@@ -270,16 +270,15 @@ namespace Datalya.Pages
 							DataBaseManager.Save(Global.CurrentDataBase, saveFileDialog.FileName); // Save DataBase
 						}
 					}
-
-					Global.DataBaseFilePath = ""; // Reset
-					Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
-					Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-					Global.CreatorPage.InitUI(); // Refresh UI
-					Global.MainWindow.RefreshName();
-					Global.MainWindow.Hide(); // Close
-					Global.HomeWindow.Show(); // Show home page
 				}
 			}
+			Global.DataBaseFilePath = ""; // Reset
+			Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
+			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
+			Global.CreatorPage.InitUI(); // Refresh UI
+			Global.MainWindow.RefreshName();
+			Global.MainWindow.Hide(); // Close
+			Global.HomeWindow.Show(); // Show home page
 		}
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
