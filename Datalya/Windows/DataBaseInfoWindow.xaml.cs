@@ -53,7 +53,7 @@ namespace Datalya.Windows
 		private void InitUI()
 		{
 			// Name
-			DataBaseNameTxt.Text = Global.CurrentDataBase.Name; // Set text
+			DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 
 			// Size
 			double size;

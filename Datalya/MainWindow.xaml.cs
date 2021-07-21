@@ -61,8 +61,8 @@ namespace Datalya
 			// UI
 			WindowContent.Content = Global.DatabasePage; // Set content
 			CheckButton(DatabaseBtn); // Check
-			DataBaseNameTxt.Text = Global.CurrentDataBase.Name; // Set text
-			EditNameTextBox.Text = Global.CurrentDataBase.Name; // Set text
+			DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
+			EditNameTextBox.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -83,8 +83,8 @@ namespace Datalya
 
 		internal void RefreshName()
 		{
-			EditNameTextBox.Text = Global.CurrentDataBase.Name; // Set text
-			DataBaseNameTxt.Text = Global.CurrentDataBase.Name; // Set text
+			EditNameTextBox.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
+			DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 		}
 
 		private void RefreshState()
@@ -149,7 +149,7 @@ namespace Datalya
 		{
 			if (DataBaseNameTxt.Visibility == Visibility.Collapsed) // If edit mode enabled
 			{
-				Global.CurrentDataBase.Name = EditNameTextBox.Text; // Set text
+				Global.CurrentDataBase.DataBaseInfo.Name = EditNameTextBox.Text; // Set text
 				DataBaseNameTxt.Text = EditNameTextBox.Text; // Set text
 			}
 

@@ -35,66 +35,53 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Datalya.Windows
+namespace Datalya.UserControls
 {
 	/// <summary>
-	/// Interaction logic for NewDataBaseWindow.xaml
+	/// Interaction logic for HomeDataBaseItem.xaml
 	/// </summary>
-	public partial class NewDataBaseWindow : Window
+	public partial class HomeDataBaseItem : UserControl
 	{
-		bool showMainWindow = false;
-		public NewDataBaseWindow(bool closeHome = false)
+		DataBaseInfo DataBaseInfo { get; init; }
+		public HomeDataBaseItem(DataBaseInfo dataBase)
 		{
 			InitializeComponent();
-			showMainWindow = closeHome; // Set
+			DataBaseInfo = dataBase; // Set value
+
+			InitUI(); // Load the UI
 		}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+		private void InitUI()
 		{
-			WindowState = WindowState.Minimized; // Minimize
-		}
+			NameTxt.Text = DataBaseInfo.Name; // Set text
+			LastEditTxt.Text = Env.UnixTimeToDateTime(DataBaseInfo.LastEditTime).ToString("g"); // Set text
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
+			// Size
+			double size;
+			UnitType unitType;
 
-		private void SelectTemplateBtn_Click(object sender, RoutedEventArgs e)
-		{
-			//TODO
-		}
-
-		private void CreateBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Global.DataBaseFilePath = ""; // Reset
-
-			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
-			dbi.Authors.Add(Environment.UserName); // Add
-			dbi.Name = NameTxt.Text; // Set text
-
-			Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
-
-			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-			Global.CreatorPage.InitUI(); // Refresh UI
-			Global.MainWindow.RefreshName();
-			Global.MainWindow.Hide(); // Close
-			Global.HomeWindow.InitUI(); // Refresh
-			Global.HomeWindow.Show(); // Show home page
-
-			if (showMainWindow)
+			Global.ConvertByteToCorrectSize(DataBaseInfo.Size, out size, out unitType);
+			string unit = unitType switch
 			{
-				Global.HomeWindow.Hide(); // Close/Hide 
-				Global.MainWindow.Show(); // Show
-			}
+				UnitType.Byte => Properties.Resources.Bytes, // Set text
+				UnitType.Kilobyte => Properties.Resources.Ko, // Set text
+				UnitType.Megabyte => Properties.Resources.Mo, // Set text
+				_ => Properties.Resources.Ko // Set text
+			}; // Set unit text
 
-			Close(); // Close the window
+			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text
 		}
 
-		private void CancelBtn_Click(object sender, RoutedEventArgs e)
+		private void PinBtn_Click(object sender, RoutedEventArgs e)
 		{
-			Close(); // Close the window
+			DataBaseInfo.IsPinned = !DataBaseInfo.IsPinned; // Set value
+			PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
+
+			Global.Settings.RecentFiles[Global.Settings.RecentFiles.IndexOf(DataBaseInfo)] = DataBaseInfo;
+			SettingsManager.Save();
 		}
 	}
 }

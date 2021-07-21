@@ -51,7 +51,7 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Recent files opened by the user.
 		/// </summary>
-		public List<string> RecentFiles { get; set; }
+		public List<DataBaseInfo> RecentFiles { get; set; }
 	}
 
 	public static class SettingsManager

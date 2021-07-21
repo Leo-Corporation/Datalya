@@ -40,7 +40,7 @@ namespace Datalya
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			SettingsManager.Load(); // Load settings
-			Global.CurrentDataBase = new() { Name = Datalya.Properties.Resources.DatalyaDataBase }; // Create default database
+			Global.CurrentDataBase = new() { DataBaseInfo = new() { Name = Datalya.Properties.Resources.DatalyaDataBase } }; // Create default database
 
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Datalya.UserControls.HomeDataBaseItem"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Datalya.UserControls"
+			 xmlns:lang="clr-namespace:Datalya.Properties" FontFamily="..\Fonts\#Montserrat"
+			 mc:Ignorable="d" Foreground="{Binding Source={StaticResource Foreground1}}"
+			 Height="50" d:MinWidth="700">
+	<Border Background="{Binding Source={StaticResource Background1}}" CornerRadius="10" BorderThickness="2" BorderBrush="{Binding Source={StaticResource Gray}}">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock x:Name="NameTxt" d:Text="Name" Margin="5" Grid.Column="0" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+			<TextBlock x:Name="LastEditTxt" d:Text="20/07/2021 11:23" Margin="5" Grid.Column="1" FontSize="16" VerticalAlignment="Center" Foreground="{Binding Source={StaticResource DarkGray}}"/>
+			<TextBlock x:Name="SizeTxt" d:Text="2 KB" Margin="5" Grid.Column="2" FontSize="16" VerticalAlignment="Center" Foreground="{Binding Source={StaticResource DarkGray}}"/>
+			<Button x:Name="PinBtn" Click="PinBtn_Click" Content="&#xF602;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Style="{DynamicResource RegularButtonStyle}" Padding="10" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand" Grid.Column="3" VerticalAlignment="Center" FontSize="14"/>
+		</Grid>   
+	</Border>
+</UserControl>

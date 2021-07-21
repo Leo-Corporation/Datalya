@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.UserControls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,7 @@ namespace Datalya.Windows
 			InitUI(); // Load the UI
 		}
 
-		private void InitUI()
+		internal void InitUI()
 		{
 			// Reset & Clear
 			UnCheckAllTabs();
@@ -67,6 +68,16 @@ namespace Datalya.Windows
 
 			// UI
 			WelcomeMessageTxt.Text = $"{Properties.Resources.WelcomeBack} {Environment.UserName}"; // Set text
+
+			// Recent tab
+			RecentItemDisplayer.Children.Clear(); // Clear
+			if (Global.Settings.RecentFiles is not null)
+			{
+				for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
+				{
+					RecentItemDisplayer.Children.Add(new HomeDataBaseItem(Global.Settings.RecentFiles[i])); // Add item
+				} 
+			}
 		}
 
 		private void HideAllTabs()

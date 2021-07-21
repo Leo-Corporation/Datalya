@@ -192,7 +192,7 @@ namespace Datalya.Pages
 			{
 				SaveFileDialog saveFileDialog = new()
 				{
-					FileName = $"{Global.CurrentDataBase.Name}.datalyadb", // Set file name
+					FileName = $"{Global.CurrentDataBase.DataBaseInfo.Name}.datalyadb", // Set file name
 					Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb", // Set filter
 					Title = Properties.Resources.SaveAs // Set title
 				};
@@ -261,7 +261,7 @@ namespace Datalya.Pages
 					{
 						SaveFileDialog saveFileDialog = new()
 						{
-							FileName = $"{Global.CurrentDataBase.Name}.datalyadb", // Set file name
+							FileName = $"{Global.CurrentDataBase.DataBaseInfo.Name}.datalyadb", // Set file name
 							Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb", // Set filter
 							Title = Properties.Resources.SaveAs // Set title
 						};
@@ -278,17 +278,15 @@ namespace Datalya.Pages
 
 			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
 			dbi.Authors.Add(Environment.UserName); // Add
+			dbi.Name = Properties.Resources.DatalyaDataBase; // Set
 
-			Global.CurrentDataBase = new() 
-			{ 
-				Name = Properties.Resources.DatalyaDataBase,
-				DataBaseInfo = dbi
-			}; // New Database
+			Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
 
 			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 			Global.CreatorPage.InitUI(); // Refresh UI
 			Global.MainWindow.RefreshName();
 			Global.MainWindow.Hide(); // Close
+			Global.HomeWindow.InitUI(); // Refresh
 			Global.HomeWindow.Show(); // Show home page
 		}
 

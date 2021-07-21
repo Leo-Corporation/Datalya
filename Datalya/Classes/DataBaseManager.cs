@@ -46,6 +46,8 @@ namespace Datalya.Classes
 		{
 			try
 			{
+				dataBase.DataBaseInfo.FilePath = filePath; // Set
+
 				// Get size
 				if (File.Exists(filePath))
 				{
@@ -91,6 +93,13 @@ namespace Datalya.Classes
 					Global.MainWindow.RefreshName(); // Refresh database name
 
 					Global.DataBaseFilePath = filePath; // Set
+					Global.CurrentDataBase.DataBaseInfo.FilePath = filePath; // Set
+					
+					if (!Global.Settings.RecentFiles.Contains(Global.CurrentDataBase.DataBaseInfo)) // Check
+					{
+						Global.Settings.RecentFiles.Add(Global.CurrentDataBase.DataBaseInfo); // Add
+						SettingsManager.Save();
+					}
 				}
 				else
 				{
