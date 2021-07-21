@@ -25,6 +25,7 @@ using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
+using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,5 +77,30 @@ namespace Datalya.Classes
 		public static string DataBaseFilePath { get; set; }
 
 		public static Settings Settings { get; set; }
+
+		/// <summary>
+		/// Converts byte to correct size.
+		/// </summary>
+		/// <param name="size">The initial size.</param>
+		/// <param name="converted">The converted size.</param>
+		/// <param name="unitType">The final unit.</param>
+		public static void ConvertByteToCorrectSize(int size, out double converted, out UnitType unitType)
+		{
+			if (size > 1000000)
+			{
+				converted = size / 1000000; // Return
+				unitType = UnitType.Megabyte; // Return
+			}
+			else if (size > 1000)
+			{
+				converted = size / 1000; // Return
+				unitType = UnitType.Kilobyte; // Return
+			}
+			else
+			{
+				converted = size; // Return
+				unitType = UnitType.Byte; // Return
+			}
+		}
 	}
 }

@@ -24,6 +24,7 @@ SOFTWARE.
 using Datalya.Classes;
 using Datalya.Interfaces;
 using Datalya.Windows;
+using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -272,8 +273,18 @@ namespace Datalya.Pages
 					}
 				}
 			}
+
 			Global.DataBaseFilePath = ""; // Reset
-			Global.CurrentDataBase = new() { Name = Properties.Resources.DatalyaDataBase }; // Reset
+
+			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
+			dbi.Authors.Add(Environment.UserName); // Add
+
+			Global.CurrentDataBase = new() 
+			{ 
+				Name = Properties.Resources.DatalyaDataBase,
+				DataBaseInfo = dbi
+			}; // New Database
+
 			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 			Global.CreatorPage.InitUI(); // Refresh UI
 			Global.MainWindow.RefreshName();

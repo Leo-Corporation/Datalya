@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,8 +46,16 @@ namespace Datalya.Classes
 		{
 			try
 			{
+				// Get size
+				if (File.Exists(filePath))
+				{
+					FileInfo fileInfo = new(filePath); // Create fileinfo 
+					dataBase.DataBaseInfo.Size = fileInfo.Length; // Set
+				}
+
 				DataBase dataBase1 = dataBase; // Set value
 				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
+				dataBase1.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
 
 				StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
 				xmlSerializer.Serialize(streamWriter, dataBase); // Save
@@ -74,6 +83,8 @@ namespace Datalya.Classes
 
 					Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
 					streamReader.Dispose(); // Dispose
+
+					Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
 
 					Global.DatabasePage.InitDataBaseUI(); // Refresh database view
 					Global.CreatorPage.InitUI(); // Refresh creator view

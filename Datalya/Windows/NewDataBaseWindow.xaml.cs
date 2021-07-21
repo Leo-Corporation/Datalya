@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,10 +69,21 @@ namespace Datalya.Windows
 		private void CreateBtn_Click(object sender, RoutedEventArgs e)
 		{
 			Global.DataBaseFilePath = ""; // Reset
-			Global.CurrentDataBase = new() { Name = NameTxt.Text }; // Reset
+
+			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
+			dbi.Authors.Add(Environment.UserName); // Add
+
+			Global.CurrentDataBase = new()
+			{
+				Name = NameTxt.Text,
+				DataBaseInfo = dbi
+			}; // New Database
+
 			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 			Global.CreatorPage.InitUI(); // Refresh UI
 			Global.MainWindow.RefreshName();
+			Global.MainWindow.Hide(); // Close
+			Global.HomeWindow.Show(); // Show home page
 
 			if (showMainWindow)
 			{
