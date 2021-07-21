@@ -83,5 +83,12 @@ namespace Datalya.UserControls
 			Global.Settings.RecentFiles[Global.Settings.RecentFiles.IndexOf(DataBaseInfo)] = DataBaseInfo;
 			SettingsManager.Save();
 		}
+
+		private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+		{
+			Global.Settings.RecentFiles.Remove(DataBaseInfo); // Remove
+			SettingsManager.Save();
+			Global.HomeWindow.InitUI(); // Refresh
+		}
 	}
 }
