@@ -412,6 +412,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Excel Workbook 2007+.
+        /// </summary>
+        public static string ExcelWorkbook {
+            get {
+                return ResourceManager.GetString("ExcelWorkbook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Export {

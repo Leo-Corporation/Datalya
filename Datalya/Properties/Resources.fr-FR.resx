@@ -360,4 +360,7 @@
   <data name="Unpin" xml:space="preserve">
     <value>Désépingler</value>
   </data>
+  <data name="ExcelWorkbook" xml:space="preserve">
+    <value>Classeur Excel 2007+</value>
+  </data>
 </root>

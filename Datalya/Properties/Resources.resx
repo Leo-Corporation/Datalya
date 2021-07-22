@@ -340,4 +340,7 @@
   <data name="Unpin" xml:space="preserve">
     <value>Unpin</value>
   </data>
+  <data name="ExcelWorkbook" xml:space="preserve">
+    <value>Excel Workbook 2007+</value>
+  </data>
 </root>
