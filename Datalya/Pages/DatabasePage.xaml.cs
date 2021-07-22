@@ -401,6 +401,9 @@ namespace Datalya.Pages
 								worksheet.Cell(1, i + 1).Style.Font.Bold = true; // Bold
 							}
 
+							// Add auto filter
+							worksheet.RangeUsed().SetAutoFilter();
+
 							// Content
 							for (int i = 1; i <= Global.CurrentDataBase.ItemsContent.Count; i++)
 							{
