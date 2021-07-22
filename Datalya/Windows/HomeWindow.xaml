@@ -136,13 +136,13 @@
 				<StackPanel Grid.Row="1" Margin="30 10">
 					<TextBlock Text="{x:Static lang:Resources.Actions}" FontWeight="Bold" FontSize="16"/>
 					<StackPanel Orientation="Horizontal">
-						<Button x:Name="NewDbBtn" Click="NewDbBtn_Click" Width="110" Height="110" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background2}}" Padding="20" Cursor="Hand" BorderThickness="0" Margin="5">
+						<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="NewDbBtn" Click="NewDbBtn_Click" Width="110" Height="110" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background2}}" Padding="20" Cursor="Hand" BorderThickness="0" Margin="5">
 							<StackPanel>
 								<TextBlock Text="&#xF379;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" HorizontalAlignment="Center" FontSize="36" Margin="0,0,0,5"/>
 								<TextBlock Text="{x:Static lang:Resources.New}" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"/>
 							</StackPanel>
 						</Button>
-						<Button x:Name="OpenDbBtn" Click="OpenDbBtn_Click" Width="110" Height="110" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background2}}" Padding="20" Cursor="Hand" BorderThickness="0" Margin="5">
+						<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="OpenDbBtn" Click="OpenDbBtn_Click" Width="110" Height="110" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource Background2}}" Padding="20" Cursor="Hand" BorderThickness="0" Margin="5">
 							<StackPanel>
 								<TextBlock Text="&#xF42F;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" HorizontalAlignment="Center" FontSize="36" Margin="0,0,0,5"/>
 								<TextBlock Text="{x:Static lang:Resources.Open}" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"/>
