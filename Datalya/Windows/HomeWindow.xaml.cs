@@ -234,5 +234,10 @@ namespace Datalya.Windows
 			HideAllTabs();
 			PinedItemDisplayer.Visibility = Visibility.Visible; // Show
 		}
+
+		private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

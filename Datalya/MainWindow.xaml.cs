@@ -186,5 +186,10 @@ namespace Datalya
 			MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
 			MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
 		}
+
+		private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
