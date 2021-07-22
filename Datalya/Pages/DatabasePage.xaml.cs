@@ -396,6 +396,9 @@ namespace Datalya.Pages
 							for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 							{
 								worksheet.Cell(1, i + 1).Value = Global.CurrentDataBase.Blocks[i].Name; // Set the header in the first row
+								worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
+								worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
+								worksheet.Cell(1, i + 1).Style.Font.Bold = true; // Bold
 							}
 
 							// Content
@@ -404,6 +407,9 @@ namespace Datalya.Pages
 								for (int j = 1; j <= Global.CurrentDataBase.ItemsContent[i - 1].Count; j++) // For each item
 								{
 									worksheet.Cell(i + 1, j).Value = Global.CurrentDataBase.ItemsContent[i - 1][j - 1]; // Set item value
+									worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
+									worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
+									worksheet.Column(j).AdjustToContents(); // Set width
 								}
 							}
 
