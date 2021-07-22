@@ -375,5 +375,13 @@ namespace Datalya.Pages
 		{
 
 		}
+
+		private void DataBaseListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			if (DataBaseListView.SelectedItems.Count > 0)
+			{
+				new EditWindow((List<string>)DataBaseListView.SelectedItem).Show(); // Show EditWindow
+			}
+		}
 	}
 }
