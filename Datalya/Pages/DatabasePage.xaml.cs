@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using ClosedXML.Excel;
 using Datalya.Classes;
 using Datalya.Interfaces;
 using Datalya.Windows;
@@ -373,7 +374,48 @@ namespace Datalya.Pages
 
 		private void ExportDbExcelBtn_Click(object sender, RoutedEventArgs e)
 		{
+			try
+			{
+				if (Global.CurrentDataBase.ItemsContent.Count > 0) // If there is items
+				{
+					SaveFileDialog saveFileDialog = new()
+					{
+						FileName = Global.CurrentDataBase.DataBaseInfo.Name, // File name
+						Filter = $"{Properties.Resources.ExcelWorkbook}|*.xlsx", // Set filter
+						Title = Properties.Resources.ExportToExcel // Set title
+					}; // Create SaveFileDialog 
 
+					if (saveFileDialog.ShowDialog() ?? true)
+					{
+						using (var workbook = new XLWorkbook())
+						{
+							var worksheet = workbook.Worksheets.Add(Global.CurrentDataBase.DataBaseInfo.Name);
+
+							// Populate cells
+							// Headers
+							for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
+							{
+								worksheet.Cell(1, i + 1).Value = Global.CurrentDataBase.Blocks[i].Name; // Set the header in the first row
+							}
+
+							// Content
+							for (int i = 1; i <= Global.CurrentDataBase.ItemsContent.Count; i++)
+							{
+								for (int j = 1; j <= Global.CurrentDataBase.ItemsContent[i - 1].Count; j++) // For each item
+								{
+									worksheet.Cell(i + 1, j).Value = Global.CurrentDataBase.ItemsContent[i - 1][j - 1]; // Set item value
+								}
+							}
+
+							workbook.SaveAs(saveFileDialog.FileName); // Save
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"{Properties.Resources.ErrorOccured}.\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
 
 		private void DataBaseListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
