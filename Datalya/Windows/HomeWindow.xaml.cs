@@ -45,9 +45,12 @@ namespace Datalya.Windows
 	/// </summary>
 	public partial class HomeWindow : Window
 	{
+		int PageId { get; set; } // 0 = Recent, 1 = Pined
 		public HomeWindow()
 		{
 			InitializeComponent();
+			PageId = 0; // Set default value
+
 			InitUI(); // Load the UI
 		}
 
@@ -63,8 +66,16 @@ namespace Datalya.Windows
 			LocationChanged += (o, e) => RefreshState();
 
 			// Check & Display default tab
-			CheckButton(RecentTabBtn); // Check
-			RecentItemDisplayer.Visibility = Visibility.Visible; // Show
+			if (PageId == 0)
+			{
+				CheckButton(RecentTabBtn); // Check
+				RecentItemDisplayer.Visibility = Visibility.Visible; // Show 
+			}
+			else
+			{
+				CheckButton(PinedTabBtn); // Check
+				PinedItemDisplayer.Visibility = Visibility.Visible; // Show 
+			}
 
 			// UI
 			WelcomeMessageTxt.Text = $"{Properties.Resources.WelcomeBack} {Environment.UserName}"; // Set text
@@ -219,6 +230,7 @@ namespace Datalya.Windows
 
 		private void RecentTabBtn_Click(object sender, RoutedEventArgs e)
 		{
+			PageId = 0;
 			UnCheckAllTabs(); // Clear
 			CheckButton(RecentTabBtn); // Check
 
@@ -228,6 +240,7 @@ namespace Datalya.Windows
 
 		private void PinedTabBtn_Click(object sender, RoutedEventArgs e)
 		{
+			PageId = 1;
 			UnCheckAllTabs(); // Clear
 			CheckButton(PinedTabBtn); // Check
 
