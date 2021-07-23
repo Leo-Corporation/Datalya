@@ -363,4 +363,16 @@
   <data name="ExcelWorkbook" xml:space="preserve">
     <value>Classeur Excel 2007+</value>
   </data>
+  <data name="Minimize" xml:space="preserve">
+    <value>Minimiser</value>
+  </data>
+  <data name="Maximize" xml:space="preserve">
+    <value>Maximiser</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restorer</value>
+  </data>
 </root>
