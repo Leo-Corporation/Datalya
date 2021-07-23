@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -190,7 +191,7 @@ namespace Datalya
 
 		private void SettingsBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new SettingsWindow().Show(); // Show
 		}
 	}
 }

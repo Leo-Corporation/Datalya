@@ -358,6 +358,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -664,6 +673,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Datalya needs to restart to apply changes..
+        /// </summary>
+        public static string NeedRestartToApplyChanges {
+            get {
+                return ResourceManager.GetString("NeedRestartToApplyChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
         public static string New {
@@ -799,6 +817,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you wanna reset Datalya&apos;s settings? This operation is irreversible..
+        /// </summary>
+        public static string ResetSettingsConfirmMsg {
+            get {
+                return ResourceManager.GetString("ResetSettingsConfirmMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restore.
         /// </summary>
         public static string Restore {
@@ -858,6 +885,15 @@ namespace Datalya.Properties {
         public static string SettingsDesc {
             get {
                 return ResourceManager.GetString("SettingsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings were reset. Datalya will now restart..
+        /// </summary>
+        public static string SettingsReset {
+            get {
+                return ResourceManager.GetString("SettingsReset", resourceCulture);
             }
         }
         

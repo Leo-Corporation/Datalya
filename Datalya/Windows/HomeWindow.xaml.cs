@@ -251,7 +251,7 @@ namespace Datalya.Windows
 
 		private void SettingsBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			new SettingsWindow().Show(); // Show
 		}
 	}
 }

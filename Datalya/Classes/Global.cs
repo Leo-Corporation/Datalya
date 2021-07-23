@@ -79,6 +79,16 @@ namespace Datalya.Classes
 		public static Settings Settings { get; set; }
 
 		/// <summary>
+		/// List of the available languages.
+		/// </summary>
+		public static List<string> LanguageList => new() { "English (United States)", "Français (France)" };
+
+		/// <summary>
+		/// List of the available languages codes.
+		/// </summary>
+		public static List<string> LanguageCodeList => new() { "en-US", "fr-FR" };
+
+		/// <summary>
 		/// Converts byte to correct size.
 		/// </summary>
 		/// <param name="size">The initial size.</param>

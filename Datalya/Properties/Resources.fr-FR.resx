@@ -411,4 +411,16 @@
   <data name="LanguageDesc" xml:space="preserve">
     <value>Langue par défaut de Datalya.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Défaut</value>
+  </data>
+  <data name="NeedRestartToApplyChanges" xml:space="preserve">
+    <value>Datalya a besoin de redémarrer pour appliquer les changements.</value>
+  </data>
+  <data name="ResetSettingsConfirmMsg" xml:space="preserve">
+    <value>Voulez-vous vraiment réinitialiser les paramètres de Datalya ? Cette opération est irréversible.</value>
+  </data>
+  <data name="SettingsReset" xml:space="preserve">
+    <value>Les paramètres ont été réinitialisés. Datalya va maintenant redémarrer.</value>
+  </data>
 </root>

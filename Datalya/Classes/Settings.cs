@@ -88,7 +88,9 @@ namespace Datalya.Classes
 				{
 					Theme = Theme.System,
 					Language = "_default",
-					RecentFiles = new()
+					RecentFiles = new(),
+					CheckUpdatesOnStart = true,
+					NotifyUpdates = true
 				}; // Create a new settings file
 
 				Save(); // Save the changes
