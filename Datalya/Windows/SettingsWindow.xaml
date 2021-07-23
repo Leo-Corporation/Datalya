@@ -141,8 +141,8 @@
 				<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
 					<StackPanel Margin="10">
 						<TextBlock Text="{x:Static lang:Resources.Updates}" FontWeight="Bold" FontSize="16" Margin="0 5"/>
-						<CheckBox x:Name="CheckUpdateOnStartChk" Checked="CheckUpdateOnStartChk_Checked" Unchecked="CheckUpdateOnStartChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.CheckUpdateOnStart}" FontWeight="Bold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center"/>
-						<CheckBox x:Name="NotifyUpdateChk" Checked="NotifyUpdateChk_Checked" Unchecked="NotifyUpdateChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.NotifyUpdates}" FontWeight="Bold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center"/>
+						<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="CheckUpdateOnStartChk" Checked="CheckUpdateOnStartChk_Checked" Unchecked="CheckUpdateOnStartChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.CheckUpdateOnStart}" FontWeight="Bold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center"/>
+						<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="NotifyUpdateChk" Checked="NotifyUpdateChk_Checked" Unchecked="NotifyUpdateChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.NotifyUpdates}" FontWeight="Bold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center"/>
 
 						<TextBlock Text="{x:Static lang:Resources.Theme}" FontWeight="Bold" FontSize="16" Margin="0 5"/>
 						<StackPanel Orientation="Horizontal" Margin="0 5">

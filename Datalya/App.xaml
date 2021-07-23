@@ -127,7 +127,7 @@
 			<SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
 			<SolidColorBrush x:Key="OptionMark.Static.Border" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="{Binding Source={StaticResource WindowButtonsHoverForeground1}}"/>
-			<SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#FFF3F9FF"/>
+			<SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="{Binding Source={StaticResource Background1}}"/>
 			<SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
 				<Setter Property="Template">
@@ -302,7 +302,7 @@ ConverterParameter={x:Static DataGridHeadersVisibility.Row},
 			</Style>
 
 			<SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="{Binding Source={StaticResource WindowButtonsHoverForeground1}}"/>
-			<SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="#FFD9ECFF"/>
+			<SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="{Binding Source={StaticResource Background1}}"/>
 			<SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="{Binding Source={StaticResource WindowButtonsHoverForeground1}}"/>
 			<SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6"/>
