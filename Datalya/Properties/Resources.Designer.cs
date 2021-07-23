@@ -115,6 +115,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string Apply {
+            get {
+                return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authors.
         /// </summary>
         public static string Authors {
@@ -165,6 +174,15 @@ namespace Datalya.Properties {
         public static string CheckUpdate {
             get {
                 return ResourceManager.GetString("CheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check updates on start.
+        /// </summary>
+        public static string CheckUpdateOnStart {
+            get {
+                return ResourceManager.GetString("CheckUpdateOnStart", resourceCulture);
             }
         }
         
@@ -273,6 +291,24 @@ namespace Datalya.Properties {
         public static string CreatorDesc {
             get {
                 return ResourceManager.GetString("CreatorDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string Dark {
+            get {
+                return ResourceManager.GetString("Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string Data {
+            get {
+                return ResourceManager.GetString("Data", resourceCulture);
             }
         }
         
@@ -538,6 +574,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default language of Datalya..
+        /// </summary>
+        public static string LanguageDesc {
+            get {
+                return ResourceManager.GetString("LanguageDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last edit.
         /// </summary>
         public static string LastEditTime {
@@ -552,6 +606,15 @@ namespace Datalya.Properties {
         public static string Licenses {
             get {
                 return ResourceManager.GetString("Licenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string Light {
+            get {
+                return ResourceManager.GetString("Light", resourceCulture);
             }
         }
         
@@ -637,6 +700,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show a notification when updates are available.
+        /// </summary>
+        public static string NotifyUpdates {
+            get {
+                return ResourceManager.GetString("NotifyUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         public static string Open {
@@ -718,6 +790,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset data.
+        /// </summary>
+        public static string ResetData {
+            get {
+                return ResourceManager.GetString("ResetData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restore.
         /// </summary>
         public static string Restore {
@@ -772,6 +853,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings of Datalya..
+        /// </summary>
+        public static string SettingsDesc {
+            get {
+                return ResourceManager.GetString("SettingsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Single choice.
         /// </summary>
         public static string SingleChoice {
@@ -790,11 +880,29 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string System {
+            get {
+                return ResourceManager.GetString("System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Template.
         /// </summary>
         public static string Template {
             get {
                 return ResourceManager.GetString("Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
             }
         }
         

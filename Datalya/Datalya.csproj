@@ -14,7 +14,10 @@
     <None Remove="Fonts\Montserrat-Bold.ttf" />
     <None Remove="Fonts\Montserrat-Regular.ttf" />
     <None Remove="Fonts\Montserrat-SemiBold.ttf" />
+    <None Remove="Images\DarkTheme.png" />
     <None Remove="Images\Datalya.png" />
+    <None Remove="Images\LightTheme.png" />
+    <None Remove="Images\SystemTheme.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +38,16 @@
     <Resource Include="Fonts\Montserrat-SemiBold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\DarkTheme.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Datalya.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LightTheme.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SystemTheme.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

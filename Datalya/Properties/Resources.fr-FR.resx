@@ -375,4 +375,40 @@
   <data name="Restore" xml:space="preserve">
     <value>Restorer</value>
   </data>
+  <data name="SettingsDesc" xml:space="preserve">
+    <value>Les paramètres de Datalya.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Données</value>
+  </data>
+  <data name="ResetData" xml:space="preserve">
+    <value>Réinitialiser les données</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Thème</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Système</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Appliquer</value>
+  </data>
+  <data name="CheckUpdateOnStart" xml:space="preserve">
+    <value>Rechercher des mises à jour lors du démarrage</value>
+  </data>
+  <data name="NotifyUpdates" xml:space="preserve">
+    <value>Montrer une notification lorsque des mises à jour sont disponibles</value>
+  </data>
+  <data name="LanguageDesc" xml:space="preserve">
+    <value>Langue par défaut de Datalya.</value>
+  </data>
 </root>
