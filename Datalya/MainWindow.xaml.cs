@@ -90,6 +90,7 @@ namespace Datalya
 		private void RefreshState()
 		{
 			MaximizeBtn.Content = WindowState == WindowState.Maximized ? "\uFBA6" : "\uFA40"; // Set
+			MaximizeToolTip.Content = WindowState == WindowState.Maximized ? Properties.Resources.Restore : Properties.Resources.Maximize; // Set
 			DefineMaximumSize(); // Avoid taskbar overflow
 
 			WindowBorder.Margin = WindowState == WindowState.Maximized ? new(10, 10, 0, 0) : new(10); // Set
