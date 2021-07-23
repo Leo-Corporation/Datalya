@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -173,6 +174,24 @@ namespace Datalya.Classes
 				1 => false,
 				_ => false
 			}; // Return
+		}
+
+		public static void ChangeLanguage()
+		{
+			switch (Settings.Language) // For each case
+			{
+				case "_default": // No language
+					break;
+				case "en-US": // English (US)
+					Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US"); // Change
+					break;
+
+				case "fr-FR": // French (FR)
+					Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR"); // Change
+					break;
+				default: // No language
+					break;
+			}
 		}
 	}
 }

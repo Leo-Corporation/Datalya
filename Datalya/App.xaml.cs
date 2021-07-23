@@ -41,6 +41,7 @@ namespace Datalya
 		{
 			SettingsManager.Load(); // Load settings
 			Global.ChangeTheme(); // Change theme
+			Global.ChangeLanguage(); // Change language
 
 			Global.CurrentDataBase = new() { DataBaseInfo = new() { Name = Datalya.Properties.Resources.DatalyaDataBase } }; // Create default database
 
