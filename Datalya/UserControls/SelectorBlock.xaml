@@ -11,7 +11,7 @@
 	<Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
 		<StackPanel Orientation="Vertical">
 			<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
-			<ComboBox Background="{Binding Source={StaticResource Background1}}" Style="{DynamicResource ComboBoxStyle1}" Name="ItemComboBox" BorderBrush="{x:Null}" BorderThickness="2"/>
+			<ComboBox Background="{Binding Source={StaticResource Background1}}" Style="{DynamicResource ComboBoxStyle1}" Name="ItemComboBox" BorderBrush="{x:Null}" BorderThickness="2" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 		</StackPanel>
 	</Border>
 </UserControl>
