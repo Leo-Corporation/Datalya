@@ -21,16 +21,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Enums;
 using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
 using LeoCorpLibrary;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Datalya.Classes
 {
@@ -123,6 +126,53 @@ namespace Datalya.Classes
 			}
 
 			return files.Contains(dataBaseInfo.FilePath); // Return
+		}
+
+		/// <summary>
+		/// Changes the application's theme.
+		/// </summary>
+		public static void ChangeTheme()
+		{
+			App.Current.Resources.MergedDictionaries.Clear(); // Clear all resources
+			ResourceDictionary resourceDictionary = new(); // Create a resource dictionary
+
+			switch (Settings.Theme)
+			{
+				case Theme.Light:
+					resourceDictionary.Source = new Uri("..\\Themes\\Light.xaml", UriKind.Relative); // Add source
+					break;
+				case Theme.Dark:
+					resourceDictionary.Source = new Uri("..\\Themes\\Dark.xaml", UriKind.Relative); // Add source
+					break;
+				case Theme.System:
+					if (IsSystemThemeDark())
+					{
+						resourceDictionary.Source = new Uri("..\\Themes\\Dark.xaml", UriKind.Relative); // Add source
+					}
+					else
+					{
+						resourceDictionary.Source = new Uri("..\\Themes\\Light.xaml", UriKind.Relative); // Add source
+					}
+					break;
+			}
+
+			App.Current.Resources.MergedDictionaries.Add(resourceDictionary); // Add the dictionary
+		}
+
+		public static bool IsSystemThemeDark()
+		{
+			if (Env.WindowsVersion != WindowsVersion.Windows10)
+			{
+				return false; // Avoid errors on older OSs
+			}
+
+			var t = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "SystemUsesLightTheme", "1");
+			return t switch
+			{
+				0 => true,
+				1 => false,
+				_ => false
+			}; // Return
 		}
 	}
 }
