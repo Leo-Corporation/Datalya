@@ -99,7 +99,7 @@
 			</StackPanel>
 		</Button>
 
-		<Border Grid.Column="1" Width="310" Padding="10" Grid.Row="1" Grid.RowSpan="3" Background="{Binding Source={StaticResource LightBackground}}" Margin="10,0,0,0">
+		<Border Grid.Column="1" Width="310" Padding="10" Grid.Row="1" Grid.RowSpan="3" Background="{Binding Source={StaticResource Background3}}" Margin="10,0,0,0">
 			<Border.Effect>
 				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
 			</Border.Effect>
