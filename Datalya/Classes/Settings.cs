@@ -49,6 +49,16 @@ namespace Datalya.Classes
 		public string Language { get; set; }
 
 		/// <summary>
+		/// True if Datalya should check updates on start.
+		/// </summary>
+		public bool CheckUpdatesOnStart { get; set; }
+
+		/// <summary>
+		/// True if Datalya should notify updates on start.
+		/// </summary>
+		public bool NotifyUpdates { get; set; }
+
+		/// <summary>
 		/// Recent files opened by the user.
 		/// </summary>
 		public List<DataBaseInfo> RecentFiles { get; set; }
