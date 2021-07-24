@@ -468,4 +468,7 @@
   <data name="Clear" xml:space="preserve">
     <value>Effacer</value>
   </data>
+  <data name="CannotImportTemplateBlockExists" xml:space="preserve">
+    <value>Impossible d’importer un modèle car la base de données a déjà des Blocs. Supprimez les Blocs pour importer un modèle.</value>
+  </data>
 </root>

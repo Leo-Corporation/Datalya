@@ -448,4 +448,7 @@
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
+  <data name="CannotImportTemplateBlockExists" xml:space="preserve">
+    <value>Cannot import a template because the database already has Blocks. Clear Blocks to import a template.</value>
+  </data>
 </root>

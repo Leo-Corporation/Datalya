@@ -171,7 +171,23 @@ namespace Datalya.Pages
 
 		private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (Global.CurrentDataBase.Blocks.Count == 0)
+			{
+				OpenFileDialog openFileDialog = new()
+				{
+					Filter = $"{Properties.Resources.Template}|*.datalyabt",
+					Title = Properties.Resources.ImportTemplate
+				}; // Create OpenFileDialog
 
+				if (openFileDialog.ShowDialog() ?? true)
+				{
+					BlockTemplateManager.Import(openFileDialog.FileName); // Import
+				}
+			}
+			else
+			{
+				MessageBox.Show(Properties.Resources.CannotImportTemplateBlockExists, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
+			}
 		}
 
 		private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)

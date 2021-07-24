@@ -178,6 +178,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot import a template because the database already has Blocks. Clear Blocks to import a template..
+        /// </summary>
+        public static string CannotImportTemplateBlockExists {
+            get {
+                return ResourceManager.GetString("CannotImportTemplateBlockExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot save the database..
         /// </summary>
         public static string CannotSaveDataBase {
