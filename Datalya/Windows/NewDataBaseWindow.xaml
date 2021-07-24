@@ -142,7 +142,7 @@
 					<TextBox Style="{DynamicResource RegularTextBoxStyle}" Padding="7" Margin="0,5,0,5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Text="{x:Static lang:Resources.DatalyaDataBase}" FontWeight="Bold" TextAlignment="Center" x:FieldModifier="public" x:Name="NameTxt"/>
 					<TextBlock Text="{x:Static lang:Resources.Template}" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
 					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="{x:Static lang:Resources.None}" FontWeight="Normal" Margin="2" VerticalAlignment="Center"/>
+						<TextBlock x:Name="TemplateNameTxt" Text="{x:Static lang:Resources.None}" FontWeight="Normal" Margin="2" VerticalAlignment="Center"/>
 						<Button x:Name="SelectTemplateBtn" Click="SelectTemplateBtn_Click" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="5 0 0 0" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" Cursor="Hand">
 							<StackPanel Orientation="Horizontal">
 								<TextBlock Text="&#xF42F;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" VerticalAlignment="Center"/>

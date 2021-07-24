@@ -44,9 +44,12 @@ namespace Datalya.Windows
 	/// </summary>
 	public partial class TemplateWindow : Window
 	{
-		public TemplateWindow()
+		internal NewDataBaseWindow NewDataBaseWindow { get; init; }
+		public TemplateWindow(NewDataBaseWindow newDataBaseWindow)
 		{
 			InitializeComponent();
+			NewDataBaseWindow = newDataBaseWindow; // Set
+
 			InitUI(); // Load the UI
 		}
 

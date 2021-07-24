@@ -64,7 +64,8 @@ namespace Datalya.UserControls
 
 		private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			//TODO: Select template
+			TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
+			TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
 			TemplateWindow.Close(); // Close
 		}
 	}

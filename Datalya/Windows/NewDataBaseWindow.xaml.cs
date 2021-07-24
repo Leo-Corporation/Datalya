@@ -44,6 +44,7 @@ namespace Datalya.Windows
 	/// </summary>
 	public partial class NewDataBaseWindow : Window
 	{
+		internal BlockTemplate BlockTemplate { get; set; }
 		bool showMainWindow = false;
 		public NewDataBaseWindow(bool closeHome = false)
 		{
@@ -63,7 +64,7 @@ namespace Datalya.Windows
 
 		private void SelectTemplateBtn_Click(object sender, RoutedEventArgs e)
 		{
-			new TemplateWindow().Show();
+			new TemplateWindow(this).Show();
 		}
 
 		private void CreateBtn_Click(object sender, RoutedEventArgs e)
