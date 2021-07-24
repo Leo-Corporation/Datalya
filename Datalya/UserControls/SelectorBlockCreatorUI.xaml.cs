@@ -70,6 +70,15 @@ namespace Datalya.UserControls
 				{
 					Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
 				}
+
+				if (Global.CurrentDataBase.ItemsContent.Count > 0)
+				{
+					for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
+					{
+						Global.CurrentDataBase.ItemsContent[i].RemoveAt(Global.CreatorPage.BlockDisplayer.Children.IndexOf(this)); // Remove item
+					}
+				}
+				Global.CurrentDataBase.Blocks.RemoveAt(Global.CreatorPage.BlockDisplayer.Children.IndexOf(this)); // Remove item
 				Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block
 			}
 			catch { }
