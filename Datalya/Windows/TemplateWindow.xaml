@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Datalya.Windows"
 		mc:Ignorable="d" FontFamily="\Fonts\#Montserrat"
 		xmlns:lang="clr-namespace:Datalya.Properties" Foreground="{Binding Source={StaticResource Foreground1}}"
-		Title="{x:Static lang:Resources.About}" Height="500" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize">
+		Title="{x:Static lang:Resources.About}" Height="500" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize">
 	<WindowChrome.WindowChrome>
 		<WindowChrome CaptionHeight="32" ResizeBorderThickness="10"/>
 	</WindowChrome.WindowChrome>
@@ -138,7 +138,7 @@
 					<TextBlock Text="{x:Static lang:Resources.SelectTemplate}" FontWeight="Bold" FontSize="36"/>
 					<TextBlock Text="{x:Static lang:Resources.SelectTemplateDesc}" FontSize="15"/>
 
-					<Button x:Name="ImportTemplate" Click="ImportTemplate_Click" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalAlignment="Left">
+					<Button x:Name="ImportTemplate" Click="ImportTemplate_Click" Style="{DynamicResource RegularButtonStyle}" Padding="5" Margin="5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalAlignment="Left" Cursor="Hand">
 						<StackPanel	Orientation="Horizontal">
 							<TextBlock Text="&#xF151;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0 0 10 0" VerticalAlignment="Center" FontSize="14"/>
 							<TextBlock Text="{x:Static lang:Resources.ImportTemplate}" VerticalAlignment="Center" FontWeight="Bold"/>
