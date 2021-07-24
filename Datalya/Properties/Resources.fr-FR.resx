@@ -423,4 +423,43 @@
   <data name="SettingsReset" xml:space="preserve">
     <value>Les paramètres ont été réinitialisés. Datalya va maintenant redémarrer.</value>
   </data>
+  <data name="SelectTemplate" xml:space="preserve">
+    <value>Sélectionner un modèle</value>
+  </data>
+  <data name="SelectTemplateDesc" xml:space="preserve">
+    <value>Sélectionner un modèle qui sera utilisé par la base de données.</value>
+  </data>
+  <data name="Books" xml:space="preserve">
+    <value>Livres</value>
+  </data>
+  <data name="People" xml:space="preserve">
+    <value>Personnes</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Auteur</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="Illustrator" xml:space="preserve">
+    <value>Illustrateur</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editeur</value>
+  </data>
+  <data name="N0" xml:space="preserve">
+    <value>N°</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Âge</value>
+  </data>
 </root>
