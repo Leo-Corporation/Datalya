@@ -445,4 +445,7 @@
   <data name="TemplateAlreadyImported" xml:space="preserve">
     <value>The template has already been imported.</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
 </root>

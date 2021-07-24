@@ -102,5 +102,11 @@ namespace Datalya.Windows
 		{
 			Close(); // Close the window
 		}
+
+		private void ClearTemplateBtn_Click(object sender, RoutedEventArgs e)
+		{
+			BlockTemplate = null; // Clear
+			TemplateNameTxt.Text = Properties.Resources.None; // Set text
+		}
 	}
 }
