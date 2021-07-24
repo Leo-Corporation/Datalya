@@ -67,6 +67,8 @@ namespace Datalya.UserControls
 		{
 			try
 			{
+				int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
+
 				if (Global.CreatorPage.PropertyDisplayer.Content == MultichoicesBlockPropertiesUI)
 				{
 					Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
@@ -76,10 +78,15 @@ namespace Datalya.UserControls
 				{
 					for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
 					{
-						Global.CurrentDataBase.ItemsContent[i].RemoveAt(Global.CreatorPage.BlockDisplayer.Children.IndexOf(this)); // Remove item
+						Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
 					}
 				}
-				Global.CurrentDataBase.Blocks.RemoveAt(Global.CreatorPage.BlockDisplayer.Children.IndexOf(this)); // Remove item
+
+				if (Global.CurrentDataBase.Blocks.Count > index)
+				{
+					Global.CurrentDataBase.Blocks.RemoveAt(index); // Remove item 
+				}
+
 				Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block
 			}
 			catch { }

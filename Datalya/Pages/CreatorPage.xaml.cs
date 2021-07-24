@@ -87,24 +87,45 @@ namespace Datalya.Pages
 		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
 			BlockDisplayer.Children.Add(new InputBlockCreatorUI()); // Add block
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
+			{
+				Global.CurrentDataBase.ItemsContent[i].Add("");
+			}
 		}
 
 		private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
 			BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI()); // Add block
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
+			{
+				Global.CurrentDataBase.ItemsContent[i].Add("");
+			}
 		}
 
 		private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
 			BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI()); // Add block
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
+			{
+				Global.CurrentDataBase.ItemsContent[i].Add("");
+			}
 		}
 
 		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
 		{
 			BlockDisplayer.Children.Add(new SelectorBlockCreatorUI()); // Add block
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
+			{
+				Global.CurrentDataBase.ItemsContent[i].Add("");
+			}
 		}
 
 		private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
+		{
+			SaveChanges(); // Save
+		}
+
+		private void SaveChanges()
 		{
 			try
 			{
