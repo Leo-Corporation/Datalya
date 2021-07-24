@@ -92,6 +92,23 @@ namespace Datalya.Classes
 		/// </summary>
 		public static List<string> LanguageCodeList => new() { "en-US", "fr-FR" };
 
+		public static List<BlockTemplate> BlockTemplates => new()
+		{ 
+			new() 
+			{ 
+				Name = "Books",
+				Blocks = new() 
+				{ 
+					new() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
+					new() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
+					new() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
+					new() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
+					new() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
+					new() { Name = Properties.Resources.Type, BlockType = BlockType.Input },
+				}
+			}
+		};
+
 		/// <summary>
 		/// Converts byte to correct size.
 		/// </summary>
