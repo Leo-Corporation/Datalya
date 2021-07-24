@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Datalya.UserControls.TemplateItem"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Datalya.UserControls"
+			 mc:Ignorable="d" Foreground="{Binding Source={StaticResource Foreground1}}"
+			 Height="150" Width="200" FontFamily="..\Fonts\#Montserrat">
+	<Border MouseLeftButtonUp="Border_MouseLeftButtonUp" Cursor="Hand" Margin="2" CornerRadius="10" BorderThickness="5" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}">
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+			<TextBlock x:Name="ShortTxt" d:Text="Bo" FontSize="46" FontWeight="Bold" HorizontalAlignment="Center"/>
+			<TextBlock x:Name="NameTxt" d:Text="Books" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+		</StackPanel>
+	</Border>
+</UserControl>

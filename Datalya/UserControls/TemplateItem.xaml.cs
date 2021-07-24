@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using LeoCorpLibrary;
+using Datalya.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,66 +35,37 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Datalya.Windows
+namespace Datalya.UserControls
 {
 	/// <summary>
-	/// Interaction logic for NewDataBaseWindow.xaml
+	/// Interaction logic for TemplateItem.xaml
 	/// </summary>
-	public partial class NewDataBaseWindow : Window
+	public partial class TemplateItem : UserControl
 	{
-		bool showMainWindow = false;
-		public NewDataBaseWindow(bool closeHome = false)
+		BlockTemplate BlockTemplate { get; set; }
+		TemplateWindow TemplateWindow { get; init; }
+		public TemplateItem(BlockTemplate blockTemplate, TemplateWindow templateWindow)
 		{
 			InitializeComponent();
-			showMainWindow = closeHome; // Set
+			BlockTemplate = blockTemplate; // Set
+			TemplateWindow = templateWindow; // Set
+
+			InitUI(); // Load the UI
 		}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+		private void InitUI()
 		{
-			WindowState = WindowState.Minimized; // Minimize
+			NameTxt.Text = BlockTemplate.Name; // Set text
+			ShortTxt.Text = BlockTemplate.Name[0].ToString().ToUpper() + BlockTemplate.Name[1].ToString(); // Set text
 		}
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
+		private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			Close(); // Close the window
-		}
-
-		private void SelectTemplateBtn_Click(object sender, RoutedEventArgs e)
-		{
-			new TemplateWindow().Show();
-		}
-
-		private void CreateBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Global.DataBaseFilePath = ""; // Reset
-
-			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
-			dbi.Authors.Add(Environment.UserName); // Add
-			dbi.Name = NameTxt.Text; // Set text
-
-			Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
-
-			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-			Global.CreatorPage.InitUI(); // Refresh UI
-			Global.MainWindow.RefreshName();
-			Global.MainWindow.Hide(); // Close
-			Global.HomeWindow.InitUI(); // Refresh
-			Global.HomeWindow.Show(); // Show home page
-
-			if (showMainWindow)
-			{
-				Global.HomeWindow.Hide(); // Close/Hide 
-				Global.MainWindow.Show(); // Show
-			}
-
-			Close(); // Close the window
-		}
-
-		private void CancelBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
+			//TODO: Select template
+			TemplateWindow.Close(); // Close
 		}
 	}
 }
