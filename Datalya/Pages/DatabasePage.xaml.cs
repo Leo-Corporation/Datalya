@@ -200,6 +200,7 @@ namespace Datalya.Pages
 
 				if (saveFileDialog.ShowDialog() ?? true)
 				{
+					Global.DataBaseFilePath = saveFileDialog.FileName; // Set
 					DataBaseManager.Save(Global.CurrentDataBase, saveFileDialog.FileName); // Save DataBase
 				}
 			}
