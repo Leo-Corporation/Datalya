@@ -99,12 +99,12 @@ namespace Datalya.Classes
 				Name = Properties.Resources.Books,
 				Blocks = new() 
 				{ 
-					new() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.Type, BlockType = BlockType.Input }
+					new InputBlock() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.Type, BlockType = BlockType.Input }
 				}
 			},
 			new()
@@ -112,9 +112,9 @@ namespace Datalya.Classes
 				Name = Properties.Resources.People,
 				Blocks = new()
 				{
-					new() { Name = Properties.Resources.FirstName, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.LastName, BlockType = BlockType.Input },
-					new() { Name = Properties.Resources.Age, BlockType = BlockType.Input }
+					new InputBlock() { Name = Properties.Resources.FirstName, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.LastName, BlockType = BlockType.Input },
+					new InputBlock() { Name = Properties.Resources.Age, BlockType = BlockType.Input }
 				}
 			}
 		};
