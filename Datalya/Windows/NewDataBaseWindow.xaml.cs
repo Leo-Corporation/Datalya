@@ -77,6 +77,11 @@ namespace Datalya.Windows
 
 			Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
 
+			if (BlockTemplate is not null)
+			{
+				Global.CurrentDataBase.Blocks = BlockTemplate.Blocks; // Set blocks
+			}
+
 			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
 			Global.CreatorPage.InitUI(); // Refresh UI
 			Global.MainWindow.RefreshName();
