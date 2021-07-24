@@ -1033,6 +1033,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The template has already been imported..
+        /// </summary>
+        public static string TemplateAlreadyImported {
+            get {
+                return ResourceManager.GetString("TemplateAlreadyImported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
         public static string Theme {

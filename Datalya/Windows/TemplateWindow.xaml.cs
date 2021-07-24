@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.UserControls;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace Datalya.Windows
 
 		private void InitUI()
 		{
+			TemplateDisplayer.Children.Clear(); // Clear
 			for (int i = 0; i < Global.BlockTemplates.Count; i++)
 			{
 				TemplateDisplayer.Children.Add(new TemplateItem(Global.BlockTemplates[i], this)); // Add new item
@@ -63,7 +65,17 @@ namespace Datalya.Windows
 
 		private void ImportTemplate_Click(object sender, RoutedEventArgs e)
 		{
+			OpenFileDialog openFileDialog = new()
+			{
+				Filter = $"{Properties.Resources.Template}|*.datalyabt",
+				Title = Properties.Resources.ImportTemplate
+			}; // Create OpenFileDialog
 
+			if (openFileDialog.ShowDialog() ?? true)
+			{
+				BlockTemplateManager.Import(openFileDialog.FileName, true); // Import
+				InitUI(); // Refresh UI
+			}
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)

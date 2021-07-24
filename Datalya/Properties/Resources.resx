@@ -442,4 +442,7 @@
   <data name="Age" xml:space="preserve">
     <value>Age</value>
   </data>
+  <data name="TemplateAlreadyImported" xml:space="preserve">
+    <value>The template has already been imported.</value>
+  </data>
 </root>

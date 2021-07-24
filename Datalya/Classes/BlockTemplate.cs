@@ -57,7 +57,7 @@ namespace Datalya.Classes
 		/// Imports a <see cref="BlockTemplate"/>.
 		/// </summary>
 		/// <param name="filePath"></param>
-		public static void Import(string filePath)
+		public static void Import(string filePath, bool fromNew = false)
 		{
 			if (!File.Exists(filePath))
 			{
@@ -68,7 +68,23 @@ namespace Datalya.Classes
 			XmlSerializer xmlSerializer = new(typeof(BlockTemplate)); // Create XML Serializer
 			StreamReader streamReader = new(filePath); // Where the file is going to be read
 
-			Global.CurrentDataBase.Blocks = ((BlockTemplate)xmlSerializer.Deserialize(streamReader)).Blocks; // Read and set
+			var template = (BlockTemplate)xmlSerializer.Deserialize(streamReader); // Deserialize
+
+			if (!fromNew)
+			{
+				Global.CurrentDataBase.Blocks = template.Blocks; // Set 
+			}
+			else
+			{
+				if (!Global.BlockTemplates.Contains(template))
+				{
+					Global.BlockTemplates.Add(template); // Add 
+				}
+				else
+				{
+					MessageBox.Show(Properties.Resources.TemplateAlreadyImported, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show message
+				}
+			}
 			Global.CreatorPage.InitUI();
 
 			streamReader.Dispose(); // Dispose

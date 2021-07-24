@@ -92,32 +92,32 @@ namespace Datalya.Classes
 		/// </summary>
 		public static List<string> LanguageCodeList => new() { "en-US", "fr-FR" };
 
-		public static List<BlockTemplate> BlockTemplates => new()
-		{ 
-			new() 
-			{ 
-				Name = Properties.Resources.Books,
-				Blocks = new() 
-				{ 
-					new InputBlock() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.Type, BlockType = BlockType.Input }
-				}
-			},
-			new()
+		public static BlockTemplate BooksTemplate => new()
+		{
+			Name = Properties.Resources.Books,
+			Blocks = new()
 			{
-				Name = Properties.Resources.People,
-				Blocks = new()
-				{
-					new InputBlock() { Name = Properties.Resources.FirstName, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.LastName, BlockType = BlockType.Input },
-					new InputBlock() { Name = Properties.Resources.Age, BlockType = BlockType.Input }
-				}
+				new InputBlock() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Type, BlockType = BlockType.Input }
 			}
 		};
+
+		public static BlockTemplate PeopleTemplate => new()
+		{
+			Name = Properties.Resources.People,
+			Blocks = new()
+			{
+				new InputBlock() { Name = Properties.Resources.FirstName, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.LastName, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Age, BlockType = BlockType.Input }
+			}
+		};
+
+		public static List<BlockTemplate> BlockTemplates { get; set; }
 
 		/// <summary>
 		/// Converts byte to correct size.

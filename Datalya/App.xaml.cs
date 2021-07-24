@@ -44,6 +44,9 @@ namespace Datalya
 			Global.ChangeLanguage(); // Change language
 
 			Global.CurrentDataBase = new() { DataBaseInfo = new() { Name = Datalya.Properties.Resources.DatalyaDataBase } }; // Create default database
+			Global.BlockTemplates = new(); // Create new List
+			Global.BlockTemplates.Add(Global.BooksTemplate); // Add template
+			Global.BlockTemplates.Add(Global.PeopleTemplate); // Add template
 
 			Global.DatabasePage = new(); // Create new Database page
 			Global.CreatorPage = new(); // Create new Creator page
