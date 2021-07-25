@@ -72,7 +72,10 @@ namespace Datalya
 
 					Global.DatabasePage.InitUI(); // Load the UI
 					Global.CreatorPage.InitUI(); // Load the UI
+
+					Global.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; // Set
 					Global.MainWindow.Show(); // Show
+					Global.MainWindow.WindowStartupLocation = WindowStartupLocation.Manual; // Set
 				}
 			}
 		}
