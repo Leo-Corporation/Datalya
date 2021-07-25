@@ -43,7 +43,12 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Datalya's version.
 		/// </summary>
-		public static string Version => "1.0.0.21XX";
+		public static string Version => "1.0.0.2107";
+
+		/// <summary>
+		/// Last version of Datalya.
+		/// </summary>
+		public static string LastVersionLink => "https://raw.githubusercontent.com/Leo-Corporation/LeoCorp-Docs/master/Liens/Update%20System/Datalya/Version.txt";
 
 		/// <summary>
 		/// The <see cref="Pages.DatabasePage"/> page.

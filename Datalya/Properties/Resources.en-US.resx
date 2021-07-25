@@ -477,4 +477,16 @@
   <data name="NoOpenedItems" xml:space="preserve">
     <value>Open a database to see it appear here.</value>
   </data>
+  <data name="UpdatesAvailable" xml:space="preserve">
+    <value>Updates are available. Do you want to install them now?</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="InstallVersion" xml:space="preserve">
+    <value>Install version</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>Datalya is up to date.</value>
+  </data>
 </root>

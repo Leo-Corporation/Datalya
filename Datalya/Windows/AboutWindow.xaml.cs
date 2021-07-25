@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,9 +65,24 @@ namespace Datalya.Windows
 			Close(); // Close the window
 		}
 
-		private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+		private async void UpdateBtn_Click(object sender, RoutedEventArgs e)
 		{
-
+			if (await NetworkConnection.IsAvailableAsync())
+			{
+				string lastVer = await Update.GetLastVersionAsync(Global.LastVersionLink); // Get last version
+				if (Update.IsAvailable(Global.Version, lastVer))
+				{
+					if (MessageBox.Show(Properties.Resources.UpdatesAvailable, $"{Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+					{
+						Env.ExecuteAsAdmin(AppDomain.CurrentDomain.BaseDirectory + @"\Xalyus Updater.exe"); // Execute as admin
+						Environment.Exit(0); // Close
+					}
+				}
+				else
+				{
+					MessageBox.Show(Properties.Resources.UpToDate, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show messgae
+				}
+			}
 		}
 
 		private void LicensesBtn_Click(object sender, RoutedEventArgs e)
