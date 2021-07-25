@@ -70,11 +70,13 @@ namespace Datalya.Windows
 			{
 				CheckButton(RecentTabBtn); // Check
 				RecentItemDisplayer.Visibility = Visibility.Visible; // Show 
+				RecentScroll.Visibility = Visibility.Visible; // Show 
 			}
 			else
 			{
 				CheckButton(PinedTabBtn); // Check
 				PinedItemDisplayer.Visibility = Visibility.Visible; // Show 
+				PinnedScroll.Visibility = Visibility.Visible; // Show 
 			}
 
 			// UI
@@ -128,6 +130,9 @@ namespace Datalya.Windows
 		{
 			RecentItemDisplayer.Visibility = Visibility.Collapsed; // Hide
 			PinedItemDisplayer.Visibility = Visibility.Collapsed; // Hide
+
+			RecentScroll.Visibility = Visibility.Collapsed; // Hide
+			PinnedScroll.Visibility = Visibility.Collapsed; // Hide
 		}
 
 		Button CheckedButton { get; set; }
@@ -248,6 +253,7 @@ namespace Datalya.Windows
 
 			HideAllTabs();
 			RecentItemDisplayer.Visibility = Visibility.Visible; // Show
+			RecentScroll.Visibility = Visibility.Visible; // Show
 		}
 
 		private void PinedTabBtn_Click(object sender, RoutedEventArgs e)
@@ -258,6 +264,7 @@ namespace Datalya.Windows
 
 			HideAllTabs();
 			PinedItemDisplayer.Visibility = Visibility.Visible; // Show
+			PinnedScroll.Visibility = Visibility.Visible; // Show
 		}
 
 		private void SettingsBtn_Click(object sender, RoutedEventArgs e)

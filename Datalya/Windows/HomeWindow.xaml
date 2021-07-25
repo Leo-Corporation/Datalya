@@ -180,13 +180,17 @@
 						<Button x:Name="PinedTabBtn" Click="PinedTabBtn_Click" Content="{x:Static lang:Resources.Pined}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="Bold" FontSize="14" MouseEnter="TabEnter" MouseLeave="TabLeave" Cursor="Hand"/>
 					</StackPanel>
 
-					<StackPanel x:Name="RecentItemDisplayer" Grid.Row="1" Margin="30 0">
-						<!-- Items loaded on start -->
-					</StackPanel>
+					<ScrollViewer x:Name="RecentScroll" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+						<StackPanel x:Name="RecentItemDisplayer" Grid.Row="1" Margin="30 0">
+							<!-- Items loaded on start -->
+						</StackPanel>
+					</ScrollViewer>
 
-					<StackPanel x:Name="PinedItemDisplayer" Visibility="Collapsed" Grid.Row="1" Margin="30 0">
-						<!-- Items loaded on start -->
-					</StackPanel>
+					<ScrollViewer x:Name="PinnedScroll" Visibility="Collapsed" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+						<StackPanel x:Name="PinedItemDisplayer" Visibility="Collapsed" Grid.Row="1" Margin="30 0">
+							<!-- Items loaded on start -->
+						</StackPanel>
+					</ScrollViewer>
 				</Grid>
 			</Grid>
 		</Grid>
