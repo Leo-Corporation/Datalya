@@ -469,4 +469,7 @@
   <data name="UpToDate" xml:space="preserve">
     <value>Datalya is up to date.</value>
   </data>
+  <data name="UpdatesAvailableShort" xml:space="preserve">
+    <value>Updates are available for Datalya.</value>
+  </data>
 </root>

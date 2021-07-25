@@ -1150,6 +1150,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updates are available for Datalya..
+        /// </summary>
+        public static string UpdatesAvailableShort {
+            get {
+                return ResourceManager.GetString("UpdatesAvailableShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Datalya is up to date..
         /// </summary>
         public static string UpToDate {

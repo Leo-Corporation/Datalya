@@ -22,10 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -53,7 +55,34 @@ namespace Datalya
 			Global.HomeWindow = new(); // Create new HomeWindow
 			Global.MainWindow = new(); // Create new MainWindow
 
+			if (Global.Settings.CheckUpdatesOnStart && Global.Settings.NotifyUpdates)
+			{
+				NotfyUpdates(); // Notify if updates are available
+			}
+
 			Global.HomeWindow.Show(); // Show
+		}
+
+		private async void NotfyUpdates()
+		{
+			string lastVer = await Update.GetLastVersionAsync(Global.LastVersionLink);
+			if (Update.IsAvailable(Global.Version, lastVer))
+			{
+				System.Windows.Forms.NotifyIcon notifyIcon = new(); // Create NotifyIcon
+				notifyIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.BaseDirectory + @"\Datalya.exe");
+				notifyIcon.BalloonTipClicked += (o, e) =>
+				{
+					if (MessageBox.Show(Datalya.Properties.Resources.UpdatesAvailable, $"{Datalya.Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+					{
+						Env.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
+						Environment.Exit(0); // Close
+					}
+				};
+
+				notifyIcon.Visible = true; // Show
+				notifyIcon.ShowBalloonTip(5000, Datalya.Properties.Resources.Datalya, Datalya.Properties.Resources.UpdatesAvailableShort, System.Windows.Forms.ToolTipIcon.Info);
+				notifyIcon.Visible = false; // Hide
+			}
 		}
 	}
 }
