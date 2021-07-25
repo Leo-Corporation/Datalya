@@ -763,7 +763,7 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Datalya needs to restart to apply changes..
+        ///   Looks up a localized string similar to Datalya needs to restart to apply changes. Do you want to restart now?.
         /// </summary>
         public static string NeedRestartToApplyChanges {
             get {

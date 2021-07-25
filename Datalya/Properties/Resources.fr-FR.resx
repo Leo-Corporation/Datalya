@@ -415,7 +415,7 @@
     <value>Défaut</value>
   </data>
   <data name="NeedRestartToApplyChanges" xml:space="preserve">
-    <value>Datalya a besoin de redémarrer pour appliquer les changements.</value>
+    <value>Datalya a besoin de redémarrer pour appliquer les changements. Voulez-vous redémarrer maintenant ?</value>
   </data>
   <data name="ResetSettingsConfirmMsg" xml:space="preserve">
     <value>Voulez-vous vraiment réinitialiser les paramètres de Datalya ? Cette opération est irréversible.</value>

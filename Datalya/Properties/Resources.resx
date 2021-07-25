@@ -395,7 +395,7 @@
     <value>Default</value>
   </data>
   <data name="NeedRestartToApplyChanges" xml:space="preserve">
-    <value>Datalya needs to restart to apply changes.</value>
+    <value>Datalya needs to restart to apply changes. Do you want to restart now?</value>
   </data>
   <data name="ResetSettingsConfirmMsg" xml:space="preserve">
     <value>Are you sure you wanna reset Datalya's settings? This operation is irreversible.</value>
