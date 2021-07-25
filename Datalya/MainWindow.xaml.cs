@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Windows;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,44 @@ namespace Datalya
 
 		private void CloseBtn_Click(object sender, RoutedEventArgs e)
 		{
-			Environment.Exit(0); // Quit
+			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
+			{
+				var dialog = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+				if (dialog == MessageBoxResult.Yes)
+				{
+					if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
+					{
+						DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
+					}
+					else
+					{
+						SaveFileDialog saveFileDialog = new()
+						{
+							FileName = $"{Global.CurrentDataBase.DataBaseInfo.Name}.datalyadb", // Set file name
+							Filter = $"{Properties.Resources.DatalyaFile}|*.datalyadb", // Set filter
+							Title = Properties.Resources.SaveAs // Set title
+						};
+
+						if (saveFileDialog.ShowDialog() ?? true)
+						{
+							DataBaseManager.Save(Global.CurrentDataBase, saveFileDialog.FileName); // Save DataBase
+						}
+					}
+				}
+				else if (dialog == MessageBoxResult.No)
+				{
+					// Don't save
+				}
+				else if (dialog == MessageBoxResult.Cancel)
+				{
+					return;
+				} 
+			}
+
+			Global.Settings.IsMaximized = WindowState == WindowState.Maximized; // Set
+			SettingsManager.Save(); // Save
+
+			Environment.Exit(0); // Quit 
 		}
 
 		private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
