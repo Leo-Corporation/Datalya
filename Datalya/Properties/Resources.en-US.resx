@@ -268,7 +268,7 @@
     <value>All Files</value>
   </data>
   <data name="CloseDBConfirmMsg" xml:space="preserve">
-    <value>Are you sure you want to close the database? Your data will be saved.</value>
+    <value>The database will close. Do you want to save your changes?</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
     <value>Export to Excel</value>

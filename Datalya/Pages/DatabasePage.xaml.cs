@@ -253,7 +253,8 @@ namespace Datalya.Pages
 		{
 			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
 			{
-				if (MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information) == MessageBoxResult.Yes)
+				var dialogResult = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+				if (dialogResult == MessageBoxResult.Yes)
 				{
 					Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime;
 					if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
@@ -275,22 +276,32 @@ namespace Datalya.Pages
 						}
 					}
 				}
+				else if (dialogResult == MessageBoxResult.No)
+				{
+					// Don't save
+				}
+				else if (dialogResult == MessageBoxResult.Cancel)
+				{
+					return; // Cancel
+				}
+
+				Global.DataBaseFilePath = ""; // Reset
+
+				DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
+				dbi.Authors.Add(Environment.UserName); // Add
+				dbi.Name = Properties.Resources.DatalyaDataBase; // Set
+
+				Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
+
+				Global.DatabasePage.InitDataBaseUI(); // Refresh UI
+				Global.CreatorPage.InitUI(); // Refresh UI
+				Global.MainWindow.RefreshName();
+				Global.MainWindow.Hide(); // Close
+				Global.HomeWindow.InitUI(); // Refresh
+				Global.HomeWindow.Show(); // Show home page
 			}
 
-			Global.DataBaseFilePath = ""; // Reset
-
-			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
-			dbi.Authors.Add(Environment.UserName); // Add
-			dbi.Name = Properties.Resources.DatalyaDataBase; // Set
-
-			Global.CurrentDataBase = new() { DataBaseInfo = dbi }; // New Database
-
-			Global.DatabasePage.InitDataBaseUI(); // Refresh UI
-			Global.CreatorPage.InitUI(); // Refresh UI
-			Global.MainWindow.RefreshName();
-			Global.MainWindow.Hide(); // Close
-			Global.HomeWindow.InitUI(); // Refresh
-			Global.HomeWindow.Show(); // Show home page
+			
 		}
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
