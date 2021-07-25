@@ -60,7 +60,21 @@ namespace Datalya
 				NotfyUpdates(); // Notify if updates are available
 			}
 
-			Global.HomeWindow.Show(); // Show
+			if (e.Args.Length == 0)
+			{
+				Global.HomeWindow.Show(); // Show 
+			}
+			else
+			{
+				if (File.Exists(e.Args[0]) && new FileInfo(e.Args[0]).Extension == ".datalyadb")
+				{
+					DataBaseManager.Open(e.Args[0]); // Open database 
+
+					Global.DatabasePage.InitUI(); // Load the UI
+					Global.CreatorPage.InitUI(); // Load the UI
+					Global.MainWindow.Show(); // Show
+				}
+			}
 		}
 
 		private async void NotfyUpdates()
