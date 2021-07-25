@@ -62,6 +62,11 @@ namespace Datalya.Classes
 		/// Recent files opened by the user.
 		/// </summary>
 		public List<DataBaseInfo> RecentFiles { get; set; }
+
+		/// <summary>
+		/// True if Datalya should start maximized.
+		/// </summary>
+		public bool IsMaximized { get; set; }
 	}
 
 	public static class SettingsManager
@@ -90,7 +95,8 @@ namespace Datalya.Classes
 					Language = "_default",
 					RecentFiles = new(),
 					CheckUpdatesOnStart = true,
-					NotifyUpdates = true
+					NotifyUpdates = true,
+					IsMaximized = false
 				}; // Create a new settings file
 
 				Save(); // Save the changes

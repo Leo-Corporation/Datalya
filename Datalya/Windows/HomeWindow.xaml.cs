@@ -124,6 +124,9 @@ namespace Datalya.Windows
 			{
 				PinedItemDisplayer.Children.Add(new PlaceholderItem(Properties.Resources.NothingToShow, Properties.Resources.NoItemsPinned, "\uF602")); // Add
 			}
+
+			// Maximize/Restore
+			WindowState = Global.Settings.IsMaximized ? WindowState.Maximized : WindowState.Normal; // Set state
 		}
 
 		private void HideAllTabs()
@@ -221,6 +224,9 @@ namespace Datalya.Windows
 
 		private void CloseBtn_Click(object sender, RoutedEventArgs e)
 		{
+			Global.Settings.IsMaximized = WindowState == WindowState.Maximized; // Set
+			SettingsManager.Save(); // Save
+
 			Environment.Exit(0); // Exit Datalya
 		}
 

@@ -205,7 +205,8 @@ namespace Datalya.Windows
 					CheckUpdatesOnStart = true,
 					Language = "_default",
 					NotifyUpdates = true,
-					RecentFiles = new()
+					RecentFiles = new(),
+					IsMaximized = false
 				}; // Create default settings
 
 				SettingsManager.Save(); // Save the changes
