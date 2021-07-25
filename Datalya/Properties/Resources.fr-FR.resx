@@ -471,4 +471,10 @@
   <data name="CannotImportTemplateBlockExists" xml:space="preserve">
     <value>Impossible d’importer un modèle car la base de données a déjà des Blocs. Supprimez les Blocs pour importer un modèle.</value>
   </data>
+  <data name="NoItemsPinned" xml:space="preserve">
+    <value>Aucun éléments ne sont épinglés.</value>
+  </data>
+  <data name="NoOpenedItems" xml:space="preserve">
+    <value>Ouvrez une base de données pour la voir apparaître ici.</value>
+  </data>
 </root>

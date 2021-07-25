@@ -451,4 +451,10 @@
   <data name="CannotImportTemplateBlockExists" xml:space="preserve">
     <value>Cannot import a template because the database already has Blocks. Clear Blocks to import a template.</value>
   </data>
+  <data name="NoItemsPinned" xml:space="preserve">
+    <value>No items pinned.</value>
+  </data>
+  <data name="NoOpenedItems" xml:space="preserve">
+    <value>Open a database to see it appear here.</value>
+  </data>
 </root>

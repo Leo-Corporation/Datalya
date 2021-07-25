@@ -781,11 +781,29 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No items pinned..
+        /// </summary>
+        public static string NoItemsPinned {
+            get {
+                return ResourceManager.GetString("NoItemsPinned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         public static string None {
             get {
                 return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open a database to see it appear here..
+        /// </summary>
+        public static string NoOpenedItems {
+            get {
+                return ResourceManager.GetString("NoOpenedItems", resourceCulture);
             }
         }
         

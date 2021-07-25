@@ -111,6 +111,17 @@ namespace Datalya.Windows
 					}
 				}
 			}
+
+			// Add placeholders if there is no item(s)
+			if (RecentItemDisplayer.Children.Count == 0)
+			{
+				RecentItemDisplayer.Children.Add(new PlaceholderItem(Properties.Resources.NothingToShow, Properties.Resources.NoOpenedItems, "\uF47F")); // Add
+			}
+
+			if (PinedItemDisplayer.Children.Count == 0)
+			{
+				PinedItemDisplayer.Children.Add(new PlaceholderItem(Properties.Resources.NothingToShow, Properties.Resources.NoItemsPinned, "\uF602")); // Add
+			}
 		}
 
 		private void HideAllTabs()
