@@ -246,6 +246,12 @@ namespace Datalya.Windows
 			if (openFileDialog.ShowDialog() ?? true)
 			{
 				DataBaseManager.Open(openFileDialog.FileName); // Open DataBase
+
+				Global.MainWindow.WindowState = WindowState; // Set
+				Global.MainWindow.Height = Height; // Set size
+				Global.MainWindow.Width = Width; // Set size
+				Global.MainWindow.Left = Left; // Set position
+				Global.MainWindow.Top = Top; // Set position
 				Global.MainWindow.Show();
 				Hide(); // Close the window
 			}

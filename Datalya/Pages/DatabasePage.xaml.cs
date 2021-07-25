@@ -297,7 +297,13 @@ namespace Datalya.Pages
 				Global.CreatorPage.InitUI(); // Refresh UI
 				Global.MainWindow.RefreshName();
 				Global.MainWindow.Hide(); // Close
+
 				Global.HomeWindow.InitUI(); // Refresh
+				Global.HomeWindow.WindowState = Global.MainWindow.WindowState; // Set
+				Global.HomeWindow.Height = Global.MainWindow.Height; // Set size
+				Global.HomeWindow.Width = Global.MainWindow.Width; // Set size
+				Global.HomeWindow.Left = Global.MainWindow.Left; // Set position
+				Global.HomeWindow.Top = Global.MainWindow.Top; // Set position
 				Global.HomeWindow.Show(); // Show home page
 			}
 

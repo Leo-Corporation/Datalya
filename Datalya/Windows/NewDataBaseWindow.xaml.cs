@@ -86,12 +86,19 @@ namespace Datalya.Windows
 			Global.CreatorPage.InitUI(); // Refresh UI
 			Global.MainWindow.RefreshName();
 			Global.MainWindow.Hide(); // Close
+
 			Global.HomeWindow.InitUI(); // Refresh
+			Global.HomeWindow.WindowState = Global.MainWindow.WindowState; // Set
 			Global.HomeWindow.Show(); // Show home page
 
 			if (showMainWindow)
 			{
 				Global.HomeWindow.Hide(); // Close/Hide 
+				Global.MainWindow.WindowState = Global.HomeWindow.WindowState; // Set
+				Global.MainWindow.Height = Global.HomeWindow.Height; // Set size
+				Global.MainWindow.Width = Global.HomeWindow.Width; // Set size
+				Global.MainWindow.Left = Global.HomeWindow.Left; // Set position
+				Global.MainWindow.Top = Global.HomeWindow.Top; // Set position
 				Global.MainWindow.Show(); // Show
 			}
 

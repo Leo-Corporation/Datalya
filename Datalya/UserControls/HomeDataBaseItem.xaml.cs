@@ -101,6 +101,12 @@ namespace Datalya.UserControls
 			if (File.Exists(DataBaseInfo.FilePath)) // If the file exists
 			{
 				DataBaseManager.Open(DataBaseInfo.FilePath); // Open DataBase
+
+				Global.MainWindow.WindowState = Global.HomeWindow.WindowState; // Set
+				Global.MainWindow.Height = Global.HomeWindow.Height; // Set size
+				Global.MainWindow.Width = Global.HomeWindow.Width; // Set size
+				Global.MainWindow.Left = Global.HomeWindow.Left; // Set position
+				Global.MainWindow.Top = Global.HomeWindow.Top; // Set position
 				Global.MainWindow.Show(); // Show
 				Global.HomeWindow.Hide(); // Hide
 			}
