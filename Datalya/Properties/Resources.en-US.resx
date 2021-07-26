@@ -492,4 +492,7 @@
   <data name="UpdatesAvailableShort" xml:space="preserve">
     <value>Updates are available for Datalya.</value>
   </data>
+  <data name="CantHaveSameItemTwice" xml:space="preserve">
+    <value>You cannot have the same choice twice.</value>
+  </data>
 </root>

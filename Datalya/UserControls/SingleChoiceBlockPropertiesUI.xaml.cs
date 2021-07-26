@@ -70,21 +70,33 @@ namespace Datalya.UserControls
 		{
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
+				// Choices
+				List<string> choices = new();
+				foreach (Grid grid in TextBoxesDisplayer.Children)
+				{
+					TextBox textBox = (TextBox)grid.Children[0];
+					if (!choices.Contains(textBox.Text))
+					{
+						choices.Add(textBox.Text); // Add choice 
+					}
+					else
+					{
+						MessageBox.Show(Properties.Resources.CantHaveSameItemTwice, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Warning); // Show error
+						return;
+					}
+				}
+
 				// Name
 				SingleChoiceBlock = new() { Name = NameTxt.Text };
 				ParentElement.NameTxt.Text = SingleChoiceBlock.Name; // Set name 
 
-				// Choices
-				foreach (Grid grid in TextBoxesDisplayer.Children)
-				{
-					TextBox textBox = (TextBox)grid.Children[0];
-					SingleChoiceBlock.Choices.Add(textBox.Text); // Add choice
-				}
+				// Choices part 2
+				SingleChoiceBlock.Choices = choices; // Set
 
 				// Var
 				ParentElement.SingleChoiceBlock = SingleChoiceBlock; // Set
 
-				Global.CreatorPage.SaveChanges(); // Save
+				Global.CreatorPage.SaveChanges(); // Save 
 			}
 		}
 

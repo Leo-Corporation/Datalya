@@ -205,6 +205,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You cannot have the same choice twice..
+        /// </summary>
+        public static string CantHaveSameItemTwice {
+            get {
+                return ResourceManager.GetString("CantHaveSameItemTwice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check update.
         /// </summary>
         public static string CheckUpdate {
