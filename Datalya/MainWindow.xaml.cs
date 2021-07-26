@@ -152,7 +152,7 @@ namespace Datalya
 			}
 		}
 
-		private void CheckButton(Button button)
+		internal void CheckButton(Button button)
 		{
 			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
 			button.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
@@ -160,7 +160,7 @@ namespace Datalya
 			CheckedButton = button; // Set the "checked" button
 		}
 
-		private void ResetAllCheckStatus()
+		internal void ResetAllCheckStatus()
 		{
 			DatabaseBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
 			DatabaseBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background

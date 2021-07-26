@@ -99,6 +99,19 @@ namespace Datalya.Windows
 				Global.MainWindow.Width = Global.HomeWindow.Width; // Set size
 				Global.MainWindow.Left = Global.HomeWindow.Left; // Set position
 				Global.MainWindow.Top = Global.HomeWindow.Top; // Set position
+
+				Global.MainWindow.ResetAllCheckStatus(); // Reset
+				if (BlockTemplate is not null)
+				{
+					Global.MainWindow.WindowContent.Content = Global.DatabasePage; // Set
+					Global.MainWindow.CheckButton(Global.MainWindow.DatabaseBtn); // Check
+				}
+				else
+				{
+					Global.MainWindow.WindowContent.Content = Global.CreatorPage; // Set
+					Global.MainWindow.CheckButton(Global.MainWindow.CreatorBtn); // Check
+				}
+
 				Global.MainWindow.Show(); // Show
 			}
 
