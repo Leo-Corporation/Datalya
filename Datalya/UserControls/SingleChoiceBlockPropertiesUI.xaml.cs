@@ -124,6 +124,7 @@ namespace Datalya.UserControls
 					Content = "\uF34D", // Set text
 					FontFamily = new(new Uri("pack://application:,,,/"), "./Fonts/#FluentSystemIcons-Regular"),
 					FontSize = 16, // Set font size
+					Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
 				}; // Create Delete button
 
 				Grid grid = new();
