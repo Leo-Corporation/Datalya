@@ -475,4 +475,28 @@
   <data name="CantHaveSameItemTwice" xml:space="preserve">
     <value>You cannot have the same choice twice.</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="WelcomeToDatalya" xml:space="preserve">
+    <value>Welcome to Datalya</value>
+  </data>
+  <data name="DatalyaDesc" xml:space="preserve">
+    <value>A simple database manager for Windows.</value>
+  </data>
+  <data name="SimpleModern" xml:space="preserve">
+    <value>Simple and modern.</value>
+  </data>
+  <data name="SimpleModernDesc" xml:space="preserve">
+    <value>Datalya is divided between two parts: The "Database" part and the "Creator" part. In the Creator, you can add "Blocks" (text input, choices, drop down...) to create your database. And in the "Database" part, you can add and edit items created from your Creator Blocks.</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Select a theme for Datalya.</value>
+  </data>
+  <data name="ChangesMadeRestartNeeded" xml:space="preserve">
+    <value>Changes may require a restart to be effective.</value>
+  </data>
 </root>

@@ -495,4 +495,28 @@
   <data name="CantHaveSameItemTwice" xml:space="preserve">
     <value>Vous ne pouvez pas avoir le même choix deux fois.</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
+  <data name="WelcomeToDatalya" xml:space="preserve">
+    <value>Bienvenue sur Datalya</value>
+  </data>
+  <data name="DatalyaDesc" xml:space="preserve">
+    <value>Un gestionnaire de base de données simple pour Windows.</value>
+  </data>
+  <data name="SimpleModern" xml:space="preserve">
+    <value>Simple et moderne.</value>
+  </data>
+  <data name="SimpleModernDesc" xml:space="preserve">
+    <value>Datalya est divisé en deux parties: la partie « Base de données » et la partie « Creator ». Dans le Creator, vous pouvez ajouter des « Blocs » (saisie de texte, choix, liste déroulante..) pour créer votre base de données. Et dans la partie « Base de données », vous pouvez ajouter et modifier des éléments créés à partir de vos blocs Creator.</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Sélectionnez un thème pour Datalya.</value>
+  </data>
+  <data name="ChangesMadeRestartNeeded" xml:space="preserve">
+    <value>Les modifications peuvent nécessiter un redémarrage pour être effectives.</value>
+  </data>
 </root>

@@ -214,6 +214,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changes may require a restart to be effective..
+        /// </summary>
+        public static string ChangesMadeRestartNeeded {
+            get {
+                return ResourceManager.GetString("ChangesMadeRestartNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check update.
         /// </summary>
         public static string CheckUpdate {
@@ -399,6 +408,15 @@ namespace Datalya.Properties {
         public static string DatalyaDataBase {
             get {
                 return ResourceManager.GetString("DatalyaDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A simple database manager for Windows..
+        /// </summary>
+        public static string DatalyaDesc {
+            get {
+                return ResourceManager.GetString("DatalyaDesc", resourceCulture);
             }
         }
         
@@ -808,6 +826,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No items pinned..
         /// </summary>
         public static string NoItemsPinned {
@@ -1033,6 +1060,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a theme for Datalya..
+        /// </summary>
+        public static string SelectTheme {
+            get {
+                return ResourceManager.GetString("SelectTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
@@ -1056,6 +1092,24 @@ namespace Datalya.Properties {
         public static string SettingsReset {
             get {
                 return ResourceManager.GetString("SettingsReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple and modern..
+        /// </summary>
+        public static string SimpleModern {
+            get {
+                return ResourceManager.GetString("SimpleModern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datalya is divided between two parts: The &quot;Database&quot; part and the &quot;Creator&quot; part. In the Creator, you can add &quot;Blocks&quot; (text input, choices, drop down...) to create your database. And in the &quot;Database&quot; part, you can add and edit items created from your Creator Blocks..
+        /// </summary>
+        public static string SimpleModernDesc {
+            get {
+                return ResourceManager.GetString("SimpleModernDesc", resourceCulture);
             }
         }
         
@@ -1186,11 +1240,29 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome back,.
         /// </summary>
         public static string WelcomeBack {
             get {
                 return ResourceManager.GetString("WelcomeBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to Datalya.
+        /// </summary>
+        public static string WelcomeToDatalya {
+            get {
+                return ResourceManager.GetString("WelcomeToDatalya", resourceCulture);
             }
         }
     }
