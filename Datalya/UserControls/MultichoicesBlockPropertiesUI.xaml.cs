@@ -83,6 +83,8 @@ namespace Datalya.UserControls
 
 				// Var
 				ParentElement.MultichoicesBlock = MultichoicesBlock; // Set
+
+				Global.CreatorPage.SaveChanges(); // Save
 			}
 		}
 

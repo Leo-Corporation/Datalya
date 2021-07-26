@@ -65,6 +65,7 @@ namespace Datalya.UserControls
 				InputBlock = new() { Name = NameTxt.Text };
 				ParentElement.NameTxt.Text = InputBlock.Name; // Set name 
 				ParentElement.InputBlock = InputBlock; // Set
+				Global.CreatorPage.SaveChanges(); // Save
 			}
 		}
 	}

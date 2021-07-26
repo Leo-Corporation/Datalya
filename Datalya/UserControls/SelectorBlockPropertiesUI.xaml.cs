@@ -83,6 +83,8 @@ namespace Datalya.UserControls
 
 				// Var
 				ParentElement.SelectorBlock = CSelectorBlock; // Set
+
+				Global.CreatorPage.SaveChanges(); // Save
 			}
 		}
 	}

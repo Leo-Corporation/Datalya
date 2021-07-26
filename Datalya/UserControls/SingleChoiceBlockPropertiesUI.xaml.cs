@@ -82,6 +82,8 @@ namespace Datalya.UserControls
 
 				// Var
 				ParentElement.SingleChoiceBlock = SingleChoiceBlock; // Set
+
+				Global.CreatorPage.SaveChanges(); // Save
 			}
 		}
 

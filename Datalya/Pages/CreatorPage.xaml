@@ -92,7 +92,7 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Button x:Name="SaveChangesBtn" Click="SaveChangesBtn_Click" Grid.Row="3" Grid.Column="0" Margin="5" Padding="5" HorizontalAlignment="Center" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Cursor="Hand">
+		<Button Visibility="Collapsed" x:Name="SaveChangesBtn" Click="SaveChangesBtn_Click" Grid.Row="3" Grid.Column="0" Margin="5" Padding="5" HorizontalAlignment="Center" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Cursor="Hand">
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="&#xF680;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
 				<TextBlock Text="{x:Static lang:Resources.Save}" FontSize="13" VerticalAlignment="Center" FontWeight="Bold"/>

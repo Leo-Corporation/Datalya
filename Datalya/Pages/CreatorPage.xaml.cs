@@ -91,6 +91,7 @@ namespace Datalya.Pages
 			{
 				Global.CurrentDataBase.ItemsContent[i].Add("");
 			}
+			SaveChanges(); // Save
 		}
 
 		private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
@@ -100,6 +101,7 @@ namespace Datalya.Pages
 			{
 				Global.CurrentDataBase.ItemsContent[i].Add("");
 			}
+			SaveChanges(); // Save
 		}
 
 		private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
@@ -109,6 +111,7 @@ namespace Datalya.Pages
 			{
 				Global.CurrentDataBase.ItemsContent[i].Add("");
 			}
+			SaveChanges(); // Save
 		}
 
 		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
@@ -118,6 +121,7 @@ namespace Datalya.Pages
 			{
 				Global.CurrentDataBase.ItemsContent[i].Add("");
 			}
+			SaveChanges(); // Save
 		}
 
 		private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
@@ -125,7 +129,7 @@ namespace Datalya.Pages
 			SaveChanges(); // Save
 		}
 
-		private void SaveChanges()
+		internal void SaveChanges()
 		{
 			try
 			{
