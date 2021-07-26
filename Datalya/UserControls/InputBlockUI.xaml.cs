@@ -46,6 +46,7 @@ namespace Datalya.UserControls
 	{
 		public InputBlock InputBlock { get; set; }
 		string ContentTxt { get; set; }
+		bool isPlaceholderShown;
 		public InputBlockUI(InputBlock inputBlock, string content = "")
 		{
 			InitializeComponent();
@@ -58,7 +59,38 @@ namespace Datalya.UserControls
 		private void InitUI()
 		{
 			NameTxt.Text = InputBlock.Name; // Set name
-			ValueTxt.Text = ContentTxt; // Set value
+			if (ContentTxt != null && ContentTxt != string.Empty) // Is from edit
+			{
+				ValueTxt.Text = ContentTxt; // Set value 
+				isPlaceholderShown = false; // Set to false
+				ValueTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set foreground
+			}
+			else
+			{
+				ValueTxt.Text = InputBlock.PlaceHolder; // Set text
+				isPlaceholderShown = true; // Set to true
+				ValueTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
+			}
+		}
+
+		private void ValueTxt_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (isPlaceholderShown)
+			{
+				ValueTxt.Text = ""; // Clear
+				isPlaceholderShown = false; // Set to false
+				ValueTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set foreground
+			}
+		}
+
+		private void ValueTxt_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (ValueTxt.Text == string.Empty)
+			{
+				ValueTxt.Text = InputBlock.PlaceHolder; // Set text
+				isPlaceholderShown = true; // Set to true
+				ValueTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
+			}
 		}
 	}
 }

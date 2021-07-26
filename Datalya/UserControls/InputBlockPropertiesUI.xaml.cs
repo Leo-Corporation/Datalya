@@ -55,6 +55,7 @@ namespace Datalya.UserControls
 			if (inputBlock is not null)
 			{
 				NameTxt.Text = inputBlock.Name; // Set
+				PlaceholderTxt.Text = inputBlock.PlaceHolder; // Set
 			}
 		}
 
@@ -62,7 +63,7 @@ namespace Datalya.UserControls
 		{
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
-				InputBlock = new() { Name = NameTxt.Text };
+				InputBlock = new() { Name = NameTxt.Text, PlaceHolder = PlaceholderTxt.Text };
 				ParentElement.NameTxt.Text = InputBlock.Name; // Set name 
 				ParentElement.InputBlock = InputBlock; // Set
 				Global.CreatorPage.SaveChanges(); // Save
