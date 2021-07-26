@@ -452,5 +452,13 @@ namespace Datalya.Pages
 				new EditWindow((List<string>)DataBaseListView.SelectedItem).Show(); // Show EditWindow
 			}
 		}
+
+		private void DataBaseListView_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.Delete)
+			{
+				DeleteBtn_Click(sender, null); 
+			}
+		}
 	}
 }
