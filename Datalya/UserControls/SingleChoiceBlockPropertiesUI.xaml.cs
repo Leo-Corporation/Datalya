@@ -62,6 +62,7 @@ namespace Datalya.UserControls
 			else
 			{
 				AddCheckBoxItem(""); // Add item
+				AddCheckBoxItem(""); // Add item
 			}
 		}
 
