@@ -221,12 +221,12 @@ namespace Datalya.Pages
 						SaveAsBtn_Click(NewDatabaseBtn, null); // Call SaveAs code
 					}
 
-					new NewDataBaseWindow().Show(); // Show
+					new NewDataBaseWindow(true).Show(); // Show
 				}
 			}
 			else
 			{
-				new NewDataBaseWindow().Show(); // Show
+				new NewDataBaseWindow(true).Show(); // Show
 			}
 		}
 
