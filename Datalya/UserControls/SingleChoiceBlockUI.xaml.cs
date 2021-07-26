@@ -67,7 +67,9 @@ namespace Datalya.UserControls
 					Content = SingleChoiceBlock.Choices[i], // Set content
 					FontWeight = FontWeights.Bold, // Set font to bold
 					VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
-					IsChecked = ContentTxt == SingleChoiceBlock.Choices[i] // Set IsChecked
+					IsChecked = ContentTxt == SingleChoiceBlock.Choices[i], // Set IsChecked
+					Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set foreground
+					Background = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) } // Set background
 				});
 			}
 		}
