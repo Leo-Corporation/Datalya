@@ -67,6 +67,8 @@ namespace Datalya.Classes
 		/// True if Datalya should start maximized.
 		/// </summary>
 		public bool IsMaximized { get; set; }
+
+		public bool IsFirstRun { get; set; }
 	}
 
 	public static class SettingsManager
@@ -96,7 +98,8 @@ namespace Datalya.Classes
 					RecentFiles = new(),
 					CheckUpdatesOnStart = true,
 					NotifyUpdates = true,
-					IsMaximized = false
+					IsMaximized = false,
+					IsFirstRun = true
 				}; // Create a new settings file
 
 				Save(); // Save the changes

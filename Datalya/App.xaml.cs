@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.Windows;
 using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
@@ -55,28 +56,35 @@ namespace Datalya
 			Global.HomeWindow = new(); // Create new HomeWindow
 			Global.MainWindow = new(); // Create new MainWindow
 
-			if (Global.Settings.CheckUpdatesOnStart && Global.Settings.NotifyUpdates)
+			if (!Global.Settings.IsFirstRun)
 			{
-				NotfyUpdates(); // Notify if updates are available
-			}
+				if (Global.Settings.CheckUpdatesOnStart && Global.Settings.NotifyUpdates)
+				{
+					NotfyUpdates(); // Notify if updates are available
+				}
 
-			if (e.Args.Length == 0)
-			{
-				Global.HomeWindow.Show(); // Show 
+				if (e.Args.Length == 0)
+				{
+					Global.HomeWindow.Show(); // Show 
+				}
+				else
+				{
+					if (File.Exists(e.Args[0]) && new FileInfo(e.Args[0]).Extension == ".datalyadb")
+					{
+						DataBaseManager.Open(e.Args[0]); // Open database 
+
+						Global.DatabasePage.InitUI(); // Load the UI
+						Global.CreatorPage.InitUI(); // Load the UI
+
+						Global.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; // Set
+						Global.MainWindow.Show(); // Show
+						Global.MainWindow.WindowStartupLocation = WindowStartupLocation.Manual; // Set
+					}
+				}
 			}
 			else
 			{
-				if (File.Exists(e.Args[0]) && new FileInfo(e.Args[0]).Extension == ".datalyadb")
-				{
-					DataBaseManager.Open(e.Args[0]); // Open database 
-
-					Global.DatabasePage.InitUI(); // Load the UI
-					Global.CreatorPage.InitUI(); // Load the UI
-
-					Global.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; // Set
-					Global.MainWindow.Show(); // Show
-					Global.MainWindow.WindowStartupLocation = WindowStartupLocation.Manual; // Set
-				}
+				new FirstRunWindow().Show(); // Show
 			}
 		}
 
