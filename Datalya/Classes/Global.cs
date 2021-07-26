@@ -26,6 +26,7 @@ using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
+using DocumentFormat.OpenXml.Wordprocessing;
 using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
@@ -102,12 +103,12 @@ namespace Datalya.Classes
 			Name = Properties.Resources.Books,
 			Blocks = new()
 			{
-				new InputBlock() { Name = Properties.Resources.Title, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.Author, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.Illustrator, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.Editor, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.N0, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.Type, BlockType = BlockType.Input }
+				new InputBlock() { Name = Properties.Resources.Title, PlaceHolder = Properties.Resources.Title, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Author, PlaceHolder = Properties.Resources.Author, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Illustrator, PlaceHolder = Properties.Resources.Illustrator, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Editor, PlaceHolder = Properties.Resources.Editor, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.N0, PlaceHolder = Properties.Resources.N0, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Type, PlaceHolder = Properties.Resources.Type, BlockType = BlockType.Input }
 			}
 		};
 
@@ -116,9 +117,9 @@ namespace Datalya.Classes
 			Name = Properties.Resources.People,
 			Blocks = new()
 			{
-				new InputBlock() { Name = Properties.Resources.FirstName, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.LastName, BlockType = BlockType.Input },
-				new InputBlock() { Name = Properties.Resources.Age, BlockType = BlockType.Input }
+				new InputBlock() { Name = Properties.Resources.FirstName, PlaceHolder = Properties.Resources.FirstName, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.LastName, PlaceHolder = Properties.Resources.LastName, BlockType = BlockType.Input },
+				new InputBlock() { Name = Properties.Resources.Age, PlaceHolder = Properties.Resources.Age, BlockType = BlockType.Input }
 			}
 		};
 
