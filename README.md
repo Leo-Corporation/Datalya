@@ -13,7 +13,7 @@
   <h3 align="center">Datalya</h3>
 
   <p align="center">
-    A database creator/manager written in C# .NET 5.
+    A modern and simple database manager for Windows written in C# .NET 5.
     <br />
     <a href="https://github.com/Leo-Corporation/Datalya/releases"><strong>Download »</strong></a>
     <br />
@@ -30,7 +30,7 @@
 Datalya is a modern database creator and management tool for Windows. It is built using WPF, .NET and C#.
 
 ## Download
-[Click here](#) to download Datalya. [NOT AVAILABLE]
+[Click here](https://bit.ly/DownloadDatalya) to download Datalya.
 
 ## Contribute
 To contribute to the project, you'll need:
