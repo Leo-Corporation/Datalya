@@ -610,6 +610,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Help is coming soon..
+        /// </summary>
+        public static string HelpComingSoon {
+            get {
+                return ResourceManager.GetString("HelpComingSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Illustrator.
         /// </summary>
         public static string Illustrator {

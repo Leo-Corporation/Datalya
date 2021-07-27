@@ -519,4 +519,7 @@
   <data name="ChangesMadeRestartNeeded" xml:space="preserve">
     <value>Les modifications peuvent nécessiter un redémarrage pour être effectives.</value>
   </data>
+  <data name="HelpComingSoon" xml:space="preserve">
+    <value>L'aide arrive bientôt.</value>
+  </data>
 </root>

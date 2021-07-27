@@ -499,4 +499,7 @@
   <data name="ChangesMadeRestartNeeded" xml:space="preserve">
     <value>Changes may require a restart to be effective.</value>
   </data>
+  <data name="HelpComingSoon" xml:space="preserve">
+    <value>Help is coming soon.</value>
+  </data>
 </root>
