@@ -522,4 +522,74 @@
   <data name="HelpComingSoon" xml:space="preserve">
     <value>L'aide arrive bientôt.</value>
   </data>
+  <data name="DataBaseEditing" xml:space="preserve">
+    <value>EDITION DE BASE DE DONNEES</value>
+  </data>
+  <data name="DataBaseManagement" xml:space="preserve">
+    <value>GESTION DE BASE DE DONNEES</value>
+  </data>
+  <data name="DeleteElement" xml:space="preserve">
+    <value>Supprimer un élément</value>
+  </data>
+  <data name="SaveDataBase" xml:space="preserve">
+    <value>Enregistrer la base de données</value>
+  </data>
+  <data name="HelpAddItem" xml:space="preserve">
+    <value>Pour ajouter un élément dans Datalya, vous devez d’abord avoir ajouté au moins un Block dans le Creator. Si cette condition est remplie, suivez ces étapes :
+1. Assurez-vous d’être dans la page « Base de données » et cliquez sur le bouton « Edition ».
+2. Cliquez sur le bouton « Ajouter ».
+3. Remplissez le formulaire et cliquez sur « Ajouter ».
+4. Vous avez ajouté un élément dans votre base de données !
+</value>
+  </data>
+  <data name="HelpEditItem" xml:space="preserve">
+    <value>Pour modifier un élément dans Datalya, suivez ces étapes :
+1. Vérifiez que vous êtes bien sur la page Base de données et allez dans « Edition ».
+2. Cliquez sur le bouton avec un crayon.
+3. Modifiez les champs que vous souhaitez.
+4. Cliquez sur le bouton « Modifier ».
+5. Vous avez modifié un élément dans Datalya.
+</value>
+  </data>
+  <data name="HelpDeleteItem" xml:space="preserve">
+    <value>Pour supprimer un ou plusieurs éléments dans Datalya, suivez ces étapes :
+1. Vérifiez que vous êtes bien sur la page Base de données, et sélectionnez ensuite le ou les éléments que vous souhaitez supprimer, en utilisant la touche Ctrl et le clic gauche en même temps.
+2. Allez dans l’onglet « Edition ».
+3. Cliquez sur l’icône « Poubelle ».
+4. Vous avez supprimé les élément(s) sélectionné(s) de votre base de données.
+
+Notez que cette opération est irréversible.
+</value>
+  </data>
+  <data name="GetStartedWithBlocks" xml:space="preserve">
+    <value>Démarrer avec les Blocks</value>
+  </data>
+  <data name="HelpCreateDataBase" xml:space="preserve">
+    <value>Pour créer une nouvelle base de données dans Datalya, suivez ces étapes :
+1. Quand vous lancez Datalya sans ouvrir un fichier, la fenêtre « Accueil » s’affiche. Depuis cette dernière, cliquez sur le bouton « Nouveau ». Si vous n’êtes pas sur la fenêtre « Accueil, mais déjà dans la fenêtre « Base de données » il y a également un bouton « Nouveau » : Cliquez dessus.
+2. Donnez un nom à la base de données.
+3. (optionnel) Vous pouvez associer un « Modèle » (Template) lors de la création de la base de données. Lorsqu’une base de données est créée avec un modèle, les Blocks sont déjà placés et vous êtes prêt à commencer l’édition. Il y a par défaut deux modèles disponibles : Livres et Personnes, mais vous pouvez importer vos propres modèles si vous le souhaitez.
+4. Cliquez sur le bouton « Créer ».
+5. Vous avez créé une base de données dans Datalya.
+</value>
+  </data>
+  <data name="HelpSaveDataBase" xml:space="preserve">
+    <value>Pour sauvegarder une base de données, suivez ces étapes :
+1. Vérifiez que vous êtes sur la page Base de données et cliquez sur l’icône « Enregistrer ».
+2. Si la base de données n’a pas été précédemment enregistrée dans un fichier, il vous sera demandé de sélectionner un emplacement et nom de fichier pour la base de données. Sinon, la base de données est automatiquement sauvegardée.
+3. La base de données a été sauvegardée.
+
+Note : Vous ne pouvez pas enregistrer une base de données vide.
+</value>
+  </data>
+  <data name="HelpGetStartedBlocks" xml:space="preserve">
+    <value>Les Blocks sont utilisés pour créer votre base de données. Il y a différents types de Blocks :
+- Block d’Entrée textuelle : C’est un champ de texte basique.
+- Block Multichoix : Un Block avec des cases à cocher.
+- Block Choix unique : Un Block avec des cases à cocher, mais une seule peut être cochée.
+- Block Sélecteur : Un menu déroulant avec différent choix.
+Vous pouvez ajouter des Blocks dans le Creator. Vous pouvez configurer un Block en cliquant sur le bouton « Configurer » une fois que vous en avez ajouté un. Tous les Blocks ont besoins d’un nom. Il agira en tant que titre du champ lors d’un ajout d’élément à votre base de données.
+Vous pouvez supprimer un Block en cliquant sur l’icône « Poubelle » à côté du bouton « Configurer ».
+</value>
+  </data>
 </root>

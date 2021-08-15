@@ -522,4 +522,74 @@
   <data name="HelpComingSoon" xml:space="preserve">
     <value>Help is coming soon.</value>
   </data>
+  <data name="DataBaseEditing" xml:space="preserve">
+    <value>DATABASE EDITION</value>
+  </data>
+  <data name="DataBaseManagement" xml:space="preserve">
+    <value>DATABASE MANAGEMENT</value>
+  </data>
+  <data name="DeleteElement" xml:space="preserve">
+    <value>Delete an element</value>
+  </data>
+  <data name="SaveDataBase" xml:space="preserve">
+    <value>Save Database</value>
+  </data>
+  <data name="HelpAddItem" xml:space="preserve">
+    <value>To add an item in Datalya, you must first have added at least one Block in the Creator. If this condition is filled, follow these steps:
+1. Make sure you are on the “Database” page and click on the “Edit” button.
+2. Click on the “Add” button.
+3. Fill the form and click on “Add”.
+4. You have added an item to your database!
+</value>
+  </data>
+  <data name="HelpEditItem" xml:space="preserve">
+    <value>To edit an item in Datalya, follow these steps:
+1. Check if you are on the Database page, and then go to “Edit”.
+2. Click on the button with a pencil.
+3. Edit the fields you want.
+4. Click on “Edit”
+5. You have edited an item in Datalya.
+</value>
+  </data>
+  <data name="HelpDeleteItem" xml:space="preserve">
+    <value>To delete one or multiple items in Datalya, follow these steps:
+1. Check if you are on the Database page, and then select the item or items you want to delete, by using the Ctrl key and the left click at the same item.
+2. Go to the “Edit” tab.
+3. Click on the “Trash” icon.
+4. You have deleted the selected item(s) from your database.
+
+Note that this operation is irreversible.
+</value>
+  </data>
+  <data name="GetStartedWithBlocks" xml:space="preserve">
+    <value>Get started with Blocks</value>
+  </data>
+  <data name="HelpCreateDataBase" xml:space="preserve">
+    <value>To create a new database in Datalya, follow these steps:
+1. When you launch Datalya without opening a file, the “Home” window shows up. From here, click on the “New” button. If you are not in the “Home window, but already in the “Database” window, there is also a “New” button: Click on it.
+2. Give the database a name.
+3. (optional) You can associate a “Template” when creating a database. When creating a database with a template, the Blocks are already placed, and you are ready to go. There is by default two templates available: Books and People, but you can import your own if you want.
+4. Click on the “Create” button.
+5. You have created a database in Datalya.
+</value>
+  </data>
+  <data name="HelpSaveDataBase" xml:space="preserve">
+    <value>To save a database, follow these steps:
+1. Check if you are on the Database page and click on the “Save” icon.
+2. If the database wasn’t previously saved to file, you will be asked to select a filename for the database. Otherwise, the database is saved automatically.
+3. The database was saved.
+
+Note: You cannot save an empty database.
+</value>
+  </data>
+  <data name="HelpGetStartedBlocks" xml:space="preserve">
+    <value>Blocks are used to shape and create your database. There is different types of Blocks:
+- Input Block: It’s a basic text field.
+- MultiChoices Block: A Block with checkboxes.
+- SingleChoice Block: A Block with checkboxes, but only one can be checked.
+- Selector Block: A dropdown with different choices.
+You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an item to your database.
+You can delete a Block by clicking the “Trash” icon next to the “Configure” button.
+</value>
+  </data>
 </root>
