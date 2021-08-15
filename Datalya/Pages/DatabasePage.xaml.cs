@@ -379,7 +379,7 @@ namespace Datalya.Pages
 
 		private void GetHelpBtn_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show(Properties.Resources.HelpComingSoon, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show message
+			new HelpWindow().Show(); // Show help
 		}
 
 		private void DuplicateItemBtn_Click(object sender, RoutedEventArgs e)
