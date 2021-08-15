@@ -161,6 +161,8 @@ namespace Datalya.Windows
 			Button button = (Button)sender; // Create button
 
 			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnHoverTabColorAnimation); // Play animation
+
 		}
 
 		private void TabLeave(object sender, MouseEventArgs e)
@@ -170,6 +172,8 @@ namespace Datalya.Windows
 			if (button != CheckedButton)
 			{
 				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+				button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnLeaveTabColorAnimation); // Play animation
+
 			}
 		}
 

@@ -141,12 +141,32 @@ namespace Datalya.Classes
 		};
 
 		/// <summary>
+		/// On mouse hover animation.
+		/// </summary>
+		public static ColorAnimation OnHoverTabColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
 		/// On mouse leave animation.
 		/// </summary>
 		public static ColorAnimation OnLeaveColorAnimation => new()
 		{
 			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
 			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
+		/// On mouse leave animation.
+		/// </summary>
+		public static ColorAnimation OnLeaveTabColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // End color
 			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
 		};
 
