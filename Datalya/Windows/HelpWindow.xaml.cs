@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Pages.Help;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,8 @@ namespace Datalya.Windows
 	/// </summary>
 	public partial class HelpWindow : Window
 	{
+		AddItemHelpPage AddItemHelpPage => new(); // Create page
+
 		public HelpWindow()
 		{
 			InitializeComponent();
@@ -108,6 +111,70 @@ namespace Datalya.Windows
 
 			MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
 			MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
+		}
+
+		private void NavigateToPage(int id)
+		{
+			ContentDisplayer.Navigate(id switch
+			{ 
+				0 => AddItemHelpPage,
+				_ => AddItemHelpPage
+			}); // Navigate
+
+			UncheckAll();
+		}
+
+		private void UncheckAll()
+		{
+			AddItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			AddItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+
+			EditItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			EditItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+
+			DeleteItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			DeleteItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+
+			CreateItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			CreateItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+
+			SaveItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+			SaveItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
+		}
+
+		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			NavigateToPage(0); // Navigate
+			AddItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			AddItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+		}
+
+		private void EditItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			NavigateToPage(1); // Navigate
+			EditItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			EditItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+		}
+
+		private void DeleteItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			NavigateToPage(2); // Navigate
+			DeleteItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			DeleteItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+		}
+
+		private void CreateItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			NavigateToPage(3); // Navigate
+			CreateItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			CreateItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+		}
+
+		private void SaveItemBtn_Click(object sender, RoutedEventArgs e)
+		{
+			NavigateToPage(4); // Navigate
+			SaveItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			SaveItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
 		}
 	}
 }
