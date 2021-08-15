@@ -44,6 +44,7 @@ namespace Datalya.Windows
 	public partial class HelpWindow : Window
 	{
 		AddItemHelpPage AddItemHelpPage => new(); // Create page
+		EditItemHelpPage EditItemHelpPage => new(); // Create page
 
 		public HelpWindow()
 		{
@@ -118,6 +119,7 @@ namespace Datalya.Windows
 			ContentDisplayer.Navigate(id switch
 			{ 
 				0 => AddItemHelpPage,
+				1 => EditItemHelpPage,
 				_ => AddItemHelpPage
 			}); // Navigate
 
