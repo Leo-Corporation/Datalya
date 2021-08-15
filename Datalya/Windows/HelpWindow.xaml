@@ -148,6 +148,7 @@
 					<TextBlock Text="{x:Static lang:Resources.DataBaseManagement}" FontSize="9" FontWeight="SemiBold" Foreground="{Binding Source={StaticResource DarkGray}}" Margin="10,10,0,0"/>
 					<Button Click="CreateItemBtn_Click" x:Name="CreateItemBtn" Content="{x:Static lang:Resources.CreateDataBase}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="5" HorizontalAlignment="Stretch" Margin="5 2" HorizontalContentAlignment="Left"/>
 					<Button Click="SaveItemBtn_Click" x:Name="SaveItemBtn" Content="{x:Static lang:Resources.SaveDataBase}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="5" HorizontalAlignment="Stretch" Margin="5 2" HorizontalContentAlignment="Left"/>
+					<Button Click="StartBlocksBtn_Click" x:Name="StartBlocksBtn" Content="{x:Static lang:Resources.GetStartedWithBlocks}" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="5" HorizontalAlignment="Stretch" Margin="5 2" HorizontalContentAlignment="Left"/>
 				</StackPanel>
 
 				<Frame x:Name="ContentDisplayer" NavigationUIVisibility="Hidden" Grid.Column="1"/>
