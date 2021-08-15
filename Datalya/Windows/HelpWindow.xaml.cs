@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
 using Datalya.Pages.Help;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,33 @@ namespace Datalya.Windows
 			StateChanged += (o, e) => RefreshState();
 			Loaded += (o, e) => RefreshState();
 			LocationChanged += (o, e) => RefreshState();
+
+			// Set home page
+			NavigateToPage(0); // Navigate
+			AddItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
+			AddItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = AddItemBtn; // Check
+		}
+		private Button CheckedButton { get; set; }
+
+		private void TabEnter(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnHoverTabColorAnimation); // Play animation
+		}
+
+		private void TabLeave(object sender, MouseEventArgs e)
+		{
+			Button button = (Button)sender; // Create button
+
+			if (button != CheckedButton)
+			{
+				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+				button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnLeaveTabColorAnimation); ; // Play animation
+			}
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -160,6 +188,8 @@ namespace Datalya.Windows
 			NavigateToPage(0); // Navigate
 			AddItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			AddItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = AddItemBtn; // Check
 		}
 
 		private void EditItemBtn_Click(object sender, RoutedEventArgs e)
@@ -167,6 +197,8 @@ namespace Datalya.Windows
 			NavigateToPage(1); // Navigate
 			EditItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			EditItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = EditItemBtn; // Check
 		}
 
 		private void DeleteItemBtn_Click(object sender, RoutedEventArgs e)
@@ -174,6 +206,8 @@ namespace Datalya.Windows
 			NavigateToPage(2); // Navigate
 			DeleteItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			DeleteItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = DeleteItemBtn; // Check
 		}
 
 		private void CreateItemBtn_Click(object sender, RoutedEventArgs e)
@@ -181,6 +215,8 @@ namespace Datalya.Windows
 			NavigateToPage(3); // Navigate
 			CreateItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			CreateItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = CreateItemBtn; // Check
 		}
 
 		private void SaveItemBtn_Click(object sender, RoutedEventArgs e)
@@ -188,6 +224,8 @@ namespace Datalya.Windows
 			NavigateToPage(4); // Navigate
 			SaveItemBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			SaveItemBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = SaveItemBtn; // Check
 		}
 
 		private void StartBlocksBtn_Click(object sender, RoutedEventArgs e)
@@ -195,6 +233,8 @@ namespace Datalya.Windows
 			NavigateToPage(5); // Navigate
 			StartBlocksBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set the background
 			StartBlocksBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the background
+
+			CheckedButton = StartBlocksBtn; // Check
 		}
 	}
 }
