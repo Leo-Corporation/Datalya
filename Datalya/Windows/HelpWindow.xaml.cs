@@ -47,6 +47,7 @@ namespace Datalya.Windows
 		EditItemHelpPage EditItemHelpPage => new(); // Create page
 		DeleteItemHelpPage DeleteItemHelpPage => new(); // Create page
 		CreateDataBaseHelpPage CreateDataBaseHelpPage => new(); // Create page
+		SaveDataBaseHelpPage SaveDataBaseHelpPage => new(); // Create page
 
 		public HelpWindow()
 		{
@@ -124,6 +125,7 @@ namespace Datalya.Windows
 				1 => EditItemHelpPage,
 				2 => DeleteItemHelpPage,
 				3 => CreateDataBaseHelpPage,
+				4 => SaveDataBaseHelpPage,
 				_ => AddItemHelpPage
 			}); // Navigate
 
