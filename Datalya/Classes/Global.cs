@@ -46,7 +46,7 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Datalya's version.
 		/// </summary>
-		public static string Version => "1.0.0.2107";
+		public static string Version => "1.1.0.2108-pre1";
 
 		/// <summary>
 		/// Last version of Datalya.
