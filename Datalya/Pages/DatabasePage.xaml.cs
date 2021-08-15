@@ -39,6 +39,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -51,6 +52,7 @@ namespace Datalya.Pages
 	public partial class DatabasePage : Page
 	{
 		private Button CheckedButton { get; set; }
+		
 		public DatabasePage()
 		{
 			InitializeComponent();
@@ -132,6 +134,7 @@ namespace Datalya.Pages
 			Button button = (Button)sender; // Create button
 
 			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnHoverColorAnimation); // Play animation
 		}
 
 		private void TabLeave(object sender, MouseEventArgs e)
@@ -141,6 +144,7 @@ namespace Datalya.Pages
 			if (button != CheckedButton)
 			{
 				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+				button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnLeaveColorAnimation); ; // Play animation
 			}
 		}
 

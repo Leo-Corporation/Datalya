@@ -36,6 +36,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Datalya.Classes
 {
@@ -123,7 +125,30 @@ namespace Datalya.Classes
 			}
 		};
 
+		/// <summary>
+		/// Block templates.
+		/// </summary>
 		public static List<BlockTemplate> BlockTemplates { get; set; }
+
+		/// <summary>
+		/// On mouse hover animation.
+		/// </summary>
+		public static ColorAnimation OnHoverColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
+		/// On mouse leave animation.
+		/// </summary>
+		public static ColorAnimation OnLeaveColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
 
 		/// <summary>
 		/// Converts byte to correct size.
