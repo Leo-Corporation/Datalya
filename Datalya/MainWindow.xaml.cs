@@ -74,7 +74,7 @@ namespace Datalya
 
 		private void CloseBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
+			if (Global.IsModified && Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
 			{
 				var dialog = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
 				if (dialog == MessageBoxResult.Yes)

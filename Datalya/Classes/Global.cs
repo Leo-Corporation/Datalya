@@ -84,6 +84,11 @@ namespace Datalya.Classes
 		public static DataBase CurrentDataBase { get; set; }
 
 		/// <summary>
+		/// True if the database was modified.
+		/// </summary>
+		public static bool IsModified { get; set; }
+
+		/// <summary>
 		/// The file path of the current <see cref="DataBase"/>.
 		/// </summary>
 		public static string DataBaseFilePath { get; set; }

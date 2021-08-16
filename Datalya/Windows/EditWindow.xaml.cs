@@ -151,6 +151,7 @@ namespace Datalya.Windows
 				}
 
 				Global.CurrentDataBase.ItemsContent[Global.CurrentDataBase.ItemsContent.IndexOf(Item)] = newItem; // Edit
+				Global.IsModified = true;
 				Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
 				Close(); // Close window 
 			}

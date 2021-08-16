@@ -335,6 +335,7 @@ namespace Datalya.Pages
 						Global.CurrentDataBase.ItemsContent.Remove((List<string>)selectedItems[i]);
 					}
 
+					Global.IsModified = true;
 					InitDataBaseUI();
 				}
 				else
@@ -363,6 +364,7 @@ namespace Datalya.Pages
 				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 				{
 					Global.CurrentDataBase.ItemsContent = new(); // Clear 
+					Global.IsModified = true;
 					InitDataBaseUI(); // Refresh UI
 				}
 			}
@@ -389,6 +391,7 @@ namespace Datalya.Pages
 				var selectedItem = DataBaseListView.SelectedItem; // Get selected item
 
 				Global.CurrentDataBase.ItemsContent.Add((List<string>)selectedItem); // Duplicate
+				Global.IsModified = true;
 				InitDataBaseUI(); // Refresh UI
 				DataBaseListView.SelectedItem = selectedItem; // Set selected item
 			}
