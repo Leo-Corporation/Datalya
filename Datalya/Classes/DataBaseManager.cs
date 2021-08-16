@@ -80,6 +80,7 @@ namespace Datalya.Classes
 				xmlSerializer.Serialize(streamWriter, dataBase); // Save
 
 				streamWriter.Dispose(); // Dispose
+				Global.IsModified = false; // Saved modifications
 			}
 			catch (Exception ex)
 			{
