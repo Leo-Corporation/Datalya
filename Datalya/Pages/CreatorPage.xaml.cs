@@ -166,6 +166,7 @@ namespace Datalya.Pages
 					}
 				}
 				Global.CurrentDataBase.Blocks = blocks;
+				Global.IsModified = true;
 			}
 			catch (Exception ex)
 			{

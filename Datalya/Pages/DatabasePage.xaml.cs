@@ -39,6 +39,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -51,6 +52,7 @@ namespace Datalya.Pages
 	public partial class DatabasePage : Page
 	{
 		private Button CheckedButton { get; set; }
+		
 		public DatabasePage()
 		{
 			InitializeComponent();
@@ -132,6 +134,7 @@ namespace Datalya.Pages
 			Button button = (Button)sender; // Create button
 
 			button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["WindowButtonsHoverForeground1"].ToString()) }; // Set the foreground
+			button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnHoverColorAnimation); // Play animation
 		}
 
 		private void TabLeave(object sender, MouseEventArgs e)
@@ -141,6 +144,7 @@ namespace Datalya.Pages
 			if (button != CheckedButton)
 			{
 				button.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground 
+				button.Background.BeginAnimation(SolidColorBrush.ColorProperty, Global.OnLeaveColorAnimation); ; // Play animation
 			}
 		}
 
@@ -158,7 +162,7 @@ namespace Datalya.Pages
 			FileRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()) }; // Set the background
 
 			EditRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
-			EditRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()) }; // Set the foreground
+			EditRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()) }; // Set the background
 
 			ExportRibBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the background
 			ExportRibBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()) }; // Set the background
@@ -251,7 +255,7 @@ namespace Datalya.Pages
 
 		private void CloseDbBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (Global.CurrentDataBase.Blocks.Count > 0 && Global.CurrentDataBase.ItemsContent.Count > 0)
+			if (Global.CurrentDataBase.Blocks.Count > 0)
 			{
 				var dialogResult = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
 				if (dialogResult == MessageBoxResult.Yes)
@@ -331,6 +335,7 @@ namespace Datalya.Pages
 						Global.CurrentDataBase.ItemsContent.Remove((List<string>)selectedItems[i]);
 					}
 
+					Global.IsModified = true;
 					InitDataBaseUI();
 				}
 				else
@@ -359,6 +364,7 @@ namespace Datalya.Pages
 				if (MessageBox.Show(Properties.Resources.DeleteAllMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 				{
 					Global.CurrentDataBase.ItemsContent = new(); // Clear 
+					Global.IsModified = true;
 					InitDataBaseUI(); // Refresh UI
 				}
 			}
@@ -375,7 +381,7 @@ namespace Datalya.Pages
 
 		private void GetHelpBtn_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show(Properties.Resources.HelpComingSoon, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show message
+			new HelpWindow().Show(); // Show help
 		}
 
 		private void DuplicateItemBtn_Click(object sender, RoutedEventArgs e)
@@ -385,6 +391,7 @@ namespace Datalya.Pages
 				var selectedItem = DataBaseListView.SelectedItem; // Get selected item
 
 				Global.CurrentDataBase.ItemsContent.Add((List<string>)selectedItem); // Duplicate
+				Global.IsModified = true;
 				InitDataBaseUI(); // Refresh UI
 				DataBaseListView.SelectedItem = selectedItem; // Set selected item
 			}

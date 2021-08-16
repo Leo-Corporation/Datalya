@@ -385,11 +385,29 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DATABASE EDITION.
+        /// </summary>
+        public static string DataBaseEditing {
+            get {
+                return ResourceManager.GetString("DataBaseEditing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The database is empty, there is nothing to delete..
         /// </summary>
         public static string DataBaseEmptyDeleteMsg {
             get {
                 return ResourceManager.GetString("DataBaseEmptyDeleteMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DATABASE MANAGEMENT.
+        /// </summary>
+        public static string DataBaseManagement {
+            get {
+                return ResourceManager.GetString("DataBaseManagement", resourceCulture);
             }
         }
         
@@ -462,6 +480,15 @@ namespace Datalya.Properties {
         public static string DeleteAllMsg {
             get {
                 return ResourceManager.GetString("DeleteAllMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete an element.
+        /// </summary>
+        public static string DeleteElement {
+            get {
+                return ResourceManager.GetString("DeleteElement", resourceCulture);
             }
         }
         
@@ -601,6 +628,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get started with Blocks.
+        /// </summary>
+        public static string GetStartedWithBlocks {
+            get {
+                return ResourceManager.GetString("GetStartedWithBlocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Help {
@@ -610,11 +646,97 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To add an item in Datalya, you must first have added at least one Block in the Creator. If this condition is filled, follow these steps:
+        ///1. Make sure you are on the “Database” page and click on the “Edit” button.
+        ///2. Click on the “Add” button.
+        ///3. Fill the form and click on “Add”.
+        ///4. You have added an item to your database!
+        ///.
+        /// </summary>
+        public static string HelpAddItem {
+            get {
+                return ResourceManager.GetString("HelpAddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help is coming soon..
         /// </summary>
         public static string HelpComingSoon {
             get {
                 return ResourceManager.GetString("HelpComingSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To create a new database in Datalya, follow these steps:
+        ///1. When you launch Datalya without opening a file, the “Home” window shows up. From here, click on the “New” button. If you are not in the “Home window, but already in the “Database” window, there is also a “New” button: Click on it.
+        ///2. Give the database a name.
+        ///3. (optional) You can associate a “Template” when creating a database. When creating a database with a template, the Blocks are already placed, and you are ready to go. There is by default  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HelpCreateDataBase {
+            get {
+                return ResourceManager.GetString("HelpCreateDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To delete one or multiple items in Datalya, follow these steps:
+        ///1. Check if you are on the Database page, and then select the item or items you want to delete, by using the Ctrl key and the left click at the same item.
+        ///2. Go to the “Edit” tab.
+        ///3. Click on the “Trash” icon.
+        ///4. You have deleted the selected item(s) from your database.
+        ///
+        ///Note that this operation is irreversible.
+        ///.
+        /// </summary>
+        public static string HelpDeleteItem {
+            get {
+                return ResourceManager.GetString("HelpDeleteItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To edit an item in Datalya, follow these steps:
+        ///1. Check if you are on the Database page, and then go to “Edit”.
+        ///2. Click on the button with a pencil.
+        ///3. Edit the fields you want.
+        ///4. Click on “Edit”
+        ///5. You have edited an item in Datalya.
+        ///.
+        /// </summary>
+        public static string HelpEditItem {
+            get {
+                return ResourceManager.GetString("HelpEditItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blocks are used to shape and create your database. There is different types of Blocks:
+        ///- Input Block: It’s a basic text field.
+        ///- MultiChoices Block: A Block with checkboxes.
+        ///- SingleChoice Block: A Block with checkboxes, but only one can be checked.
+        ///- Selector Block: A dropdown with different choices.
+        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an it [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HelpGetStartedBlocks {
+            get {
+                return ResourceManager.GetString("HelpGetStartedBlocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To save a database, follow these steps:
+        ///1. Check if you are on the Database page and click on the “Save” icon.
+        ///2. If the database wasn’t previously saved to file, you will be asked to select a filename for the database. Otherwise, the database is saved automatically.
+        ///3. The database was saved.
+        ///
+        ///Note: You cannot save an empty database.
+        ///.
+        /// </summary>
+        public static string HelpSaveDataBase {
+            get {
+                return ResourceManager.GetString("HelpSaveDataBase", resourceCulture);
             }
         }
         
@@ -1029,6 +1151,15 @@ namespace Datalya.Properties {
         public static string SaveAs {
             get {
                 return ResourceManager.GetString("SaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Database.
+        /// </summary>
+        public static string SaveDataBase {
+            get {
+                return ResourceManager.GetString("SaveDataBase", resourceCulture);
             }
         }
         

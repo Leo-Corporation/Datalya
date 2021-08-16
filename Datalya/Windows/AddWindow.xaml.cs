@@ -158,6 +158,7 @@ namespace Datalya.Windows
 			content.Add(item); // Add item
 
 			Global.CurrentDataBase.ItemsContent = content;
+			Global.IsModified = true;
 			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
 			Close(); // Close window
 		}

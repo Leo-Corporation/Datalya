@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Datalya.ico</ApplicationIcon>
-    <Version>1.0.0.2107</Version>
+    <Version>1.1.0.2108</Version>
     <Authors>Léo Corporation</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Leo-Corporation/Datalya</PackageProjectUrl>
@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.95.4" />
-    <PackageReference Include="LeoCorpLibrary" Version="3.8.0.2107" />
+    <PackageReference Include="LeoCorpLibrary" Version="3.9.0.2108" />
   </ItemGroup>
 
   <ItemGroup>

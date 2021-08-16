@@ -1,0 +1,21 @@
+﻿<Page x:Class="Datalya.Pages.Help.AddItemHelpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Datalya.Pages.Help"
+	  xmlns:lang="clr-namespace:Datalya.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" d:Background="#fff" FontFamily="..\..\Fonts\#Montserrat"
+      Title="AddItemHelpPage" Foreground="{Binding Source={StaticResource Foreground1}}">
+
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Text="{x:Static lang:Resources.AddElement}" Grid.Row="0" FontWeight="Bold" FontSize="16" Margin="10"/>
+		<TextBlock Text="{x:Static lang:Resources.HelpAddItem}" Grid.Row="1" FontSize="13" Margin="10" TextWrapping="Wrap"/>
+	</Grid>
+</Page>

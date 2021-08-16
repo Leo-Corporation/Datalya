@@ -36,6 +36,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Datalya.Classes
 {
@@ -44,7 +46,7 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Datalya's version.
 		/// </summary>
-		public static string Version => "1.0.0.2107";
+		public static string Version => "1.1.0.2108";
 
 		/// <summary>
 		/// Last version of Datalya.
@@ -80,6 +82,11 @@ namespace Datalya.Classes
 		/// The current DataBase.
 		/// </summary>
 		public static DataBase CurrentDataBase { get; set; }
+
+		/// <summary>
+		/// True if the database was modified.
+		/// </summary>
+		public static bool IsModified { get; set; }
 
 		/// <summary>
 		/// The file path of the current <see cref="DataBase"/>.
@@ -123,7 +130,50 @@ namespace Datalya.Classes
 			}
 		};
 
+		/// <summary>
+		/// Block templates.
+		/// </summary>
 		public static List<BlockTemplate> BlockTemplates { get; set; }
+
+		/// <summary>
+		/// On mouse hover animation.
+		/// </summary>
+		public static ColorAnimation OnHoverColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
+		/// On mouse hover animation.
+		/// </summary>
+		public static ColorAnimation OnHoverTabColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
+		/// On mouse leave animation.
+		/// </summary>
+		public static ColorAnimation OnLeaveColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
+
+		/// <summary>
+		/// On mouse leave animation.
+		/// </summary>
+		public static ColorAnimation OnLeaveTabColorAnimation => new()
+		{
+			From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
+			To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // End color
+			Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
+		};
 
 		/// <summary>
 		/// Converts byte to correct size.

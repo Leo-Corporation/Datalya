@@ -80,6 +80,7 @@ namespace Datalya.Classes
 				xmlSerializer.Serialize(streamWriter, dataBase); // Save
 
 				streamWriter.Dispose(); // Dispose
+				Global.IsModified = false; // Saved modifications
 			}
 			catch (Exception ex)
 			{
@@ -111,7 +112,8 @@ namespace Datalya.Classes
 
 					Global.DataBaseFilePath = filePath; // Set
 					Global.CurrentDataBase.DataBaseInfo.FilePath = filePath; // Set
-					
+					Global.IsModified = false;
+
 					if (!Global.DataBaseItemAlreadyExists(Global.CurrentDataBase.DataBaseInfo)) // Check
 					{
 						Global.Settings.RecentFiles.Add(Global.CurrentDataBase.DataBaseInfo); // Add
