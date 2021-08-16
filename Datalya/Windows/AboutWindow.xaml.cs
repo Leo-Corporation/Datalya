@@ -89,6 +89,7 @@ namespace Datalya.Windows
 		{
 			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
 				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
+				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
 				"LeoCorpLibrary - MIT License - © 2020-2021 Léo Corporation\n" +
 				"Datalya - MIT License - © 2021 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 		}
