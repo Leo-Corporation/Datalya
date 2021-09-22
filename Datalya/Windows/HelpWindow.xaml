@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Datalya.Windows"
 		mc:Ignorable="d" FontFamily="\Fonts\#Montserrat"
 		xmlns:lang="clr-namespace:Datalya.Properties" Foreground="{Binding Source={StaticResource Foreground1}}"
-		Title="{x:Static lang:Resources.About}" Height="600" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+		Title="{x:Static lang:Resources.Help}" Height="600" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
 	<WindowChrome.WindowChrome>
 		<WindowChrome CaptionHeight="32" ResizeBorderThickness="10"/>
 	</WindowChrome.WindowChrome>
