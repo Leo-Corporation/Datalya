@@ -115,6 +115,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0-9
+        ///10-19
+        ///20-29
+        ///30-39
+        ///40-49
+        ///50-59
+        ///60-69
+        ///70-79
+        ///80-89
+        ///90+.
+        /// </summary>
+        public static string AgeCategories {
+            get {
+                return ResourceManager.GetString("AgeCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Files.
         /// </summary>
         public static string AllFiles {
@@ -214,6 +232,67 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abu Dhabi
+        ///Abuja
+        ///Accra
+        ///Adamstown
+        ///Addis Ababa
+        ///Algiers
+        ///Alofi
+        ///Amman
+        ///Amsterdam
+        ///Andorra la Vella
+        ///Ankara
+        ///Antananarivo
+        ///Apia
+        ///Ashgabat
+        ///Asmara
+        ///Astana
+        ///Asunción
+        ///Athens
+        ///Avarua
+        ///Baghdad
+        ///Baku
+        ///Bamako
+        ///Bandar
+        ///Bangkok
+        ///Bangui
+        ///Banjul
+        ///Basseterre
+        ///Beijing 
+        ///Beirut
+        ///Belgrade
+        ///Belmopan
+        ///Berlin
+        ///Bern
+        ///Bishkek
+        ///Bissau 
+        ///Bogotá 
+        ///Brasília
+        ///Bratislava
+        ///Brazzaville 
+        ///Bridgetown
+        ///Brussels
+        ///Bucharest
+        ///Budapest
+        ///Buenos Aires
+        ///Bujumbura 
+        ///Cairo
+        ///Canberra
+        ///Caracas
+        ///Castries
+        ///Cayenne
+        ///Charlotte Amalie
+        ///Chisinau
+        ///Cockbu [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string CapitalCities {
+            get {
+                return ResourceManager.GetString("CapitalCities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changes may require a restart to be effective..
         /// </summary>
         public static string ChangesMadeRestartNeeded {
@@ -304,11 +383,91 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Content Collections.
+        /// </summary>
+        public static string ContentCollections {
+            get {
+                return ResourceManager.GetString("ContentCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Africa
+        ///America
+        ///Antarctica
+        ///Asia
+        ///Europe.
+        /// </summary>
+        public static string Continents {
+            get {
+                return ResourceManager.GetString("Continents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright.
         /// </summary>
         public static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Afghanistan
+        ///Albania
+        ///Algeria
+        ///Andorra
+        ///Angola
+        ///Antigua &amp; Deps
+        ///Argentina
+        ///Armenia
+        ///Australia
+        ///Austria
+        ///Azerbaijan
+        ///Bahamas
+        ///Bahrain
+        ///Bangladesh
+        ///Barbados
+        ///Belarus
+        ///Belgium
+        ///Belize
+        ///Benin
+        ///Bhutan
+        ///Bolivia
+        ///Bosnia Herzegovina
+        ///Botswana
+        ///Brazil
+        ///Brunei
+        ///Bulgaria
+        ///Burkina
+        ///Burundi
+        ///Cambodia
+        ///Cameroon
+        ///Canada
+        ///Cape Verde
+        ///Central African Rep
+        ///Chad
+        ///Chile
+        ///China
+        ///Colombia
+        ///Comoros
+        ///Congo
+        ///Congo {Democratic Rep}
+        ///Costa Rica
+        ///Croatia
+        ///Cuba
+        ///Cyprus
+        ///Czech Republic
+        ///Denmark
+        ///Djibouti
+        ///Dominica
+        ///Dominican Republic
+        ///E [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Countries {
+            get {
+                return ResourceManager.GetString("Countries", resourceCulture);
             }
         }
         
@@ -1016,6 +1175,114 @@ namespace Datalya.Properties {
         public static string NotifyUpdates {
             get {
                 return ResourceManager.GetString("NotifyUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 
+        ///2 
+        ///3 
+        ///4 
+        ///5 
+        ///6 
+        ///7 
+        ///8 
+        ///9 
+        ///10
+        ///11
+        ///12
+        ///13
+        ///14
+        ///15
+        ///16
+        ///17
+        ///18
+        ///19
+        ///20
+        ///21
+        ///22
+        ///23
+        ///24
+        ///25
+        ///26
+        ///27
+        ///28
+        ///29
+        ///30
+        ///31
+        ///32
+        ///33
+        ///34
+        ///35
+        ///36
+        ///37
+        ///38
+        ///39
+        ///40
+        ///41
+        ///42
+        ///43
+        ///44
+        ///45
+        ///46
+        ///47
+        ///48
+        ///49
+        ///50
+        ///51
+        ///52
+        ///53
+        ///54
+        ///55
+        ///56
+        ///57
+        ///58
+        ///59
+        ///60
+        ///61
+        ///62
+        ///63
+        ///64
+        ///65
+        ///66
+        ///67
+        ///68
+        ///69
+        ///70
+        ///71
+        ///72
+        ///73
+        ///74
+        ///75
+        ///76
+        ///77
+        ///78
+        ///79
+        ///80
+        ///81
+        ///82
+        ///83
+        ///84
+        ///85
+        ///86
+        ///87
+        ///88
+        ///89
+        ///90
+        ///91
+        ///92
+        ///93
+        ///94
+        ///95
+        ///96
+        ///97
+        ///98
+        ///99
+        ///100.
+        /// </summary>
+        public static string Numbers {
+            get {
+                return ResourceManager.GetString("Numbers", resourceCulture);
             }
         }
         
