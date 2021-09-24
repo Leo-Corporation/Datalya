@@ -1240,4 +1240,7 @@ Europe</value>
   <data name="Continents2" xml:space="preserve">
     <value>Continents</value>
   </data>
+  <data name="ContentCollectionsDesc" xml:space="preserve">
+    <value>Insérez rapidement une collection utile dans votre Block Sélecteur.</value>
+  </data>
 </root>

@@ -410,6 +410,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quickly insert a usefull collection to your Selector Block..
+        /// </summary>
+        public static string ContentCollectionsDesc {
+            get {
+                return ResourceManager.GetString("ContentCollectionsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Africa
         ///America
         ///Antarctica

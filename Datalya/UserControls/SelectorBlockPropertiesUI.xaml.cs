@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using Datalya.Windows;
 using LeoCorpLibrary.Extensions;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,12 @@ namespace Datalya.UserControls
 
 				Global.CreatorPage.SaveChanges(); // Save
 			}
+		}
+
+		ContentCollectionsWindow ContentCollectionsWindow => new(ChoicesTxt);
+		private void ContentCollectionsBtn_Click(object sender, RoutedEventArgs e)
+		{
+			ContentCollectionsWindow.Show();
 		}
 	}
 }
