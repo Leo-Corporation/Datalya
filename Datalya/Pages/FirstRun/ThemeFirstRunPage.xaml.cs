@@ -24,20 +24,10 @@ SOFTWARE.
 using Datalya.Classes;
 using Datalya.Enums;
 using Datalya.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Datalya.Pages.FirstRun
 {
@@ -93,7 +83,7 @@ namespace Datalya.Pages.FirstRun
 			if (currentTheme != Global.Settings.Theme)
 			{
 				MessageBox.Show(Properties.Resources.ChangesMadeRestartNeeded, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show info
-			}			
+			}
 
 			FirstRunWindow.Close(); // Close
 			Global.HomeWindow.Show(); // Show 

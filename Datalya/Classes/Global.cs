@@ -22,19 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Enums;
-using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
-using DocumentFormat.OpenXml.Wordprocessing;
 using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
