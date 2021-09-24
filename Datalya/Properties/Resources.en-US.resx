@@ -1172,4 +1172,19 @@ Europe</value>
 80-89
 90+</value>
   </data>
+  <data name="Countries2" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="CapitalCities2" xml:space="preserve">
+    <value>Capital cities</value>
+  </data>
+  <data name="AgeCategories2" xml:space="preserve">
+    <value>Age categories</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="Continents2" xml:space="preserve">
+    <value>Continents</value>
+  </data>
 </root>

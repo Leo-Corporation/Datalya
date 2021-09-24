@@ -131,6 +131,18 @@ namespace Datalya.Classes
 		};
 
 		/// <summary>
+		/// Content collections template.
+		/// </summary>
+		public static List<ContentCollection> ContentCollections => new()
+		{
+			new(Properties.Resources.Countries2, Properties.Resources.Countries),
+			new(Properties.Resources.CapitalCities2, Properties.Resources.CapitalCities),
+			new(Properties.Resources.Continents2, Properties.Resources.Continents),
+			new(Properties.Resources.Number, Properties.Resources.Numbers),
+			new(Properties.Resources.AgeCategories2, Properties.Resources.AgeCategories)
+		};
+
+		/// <summary>
 		/// Block templates.
 		/// </summary>
 		public static List<BlockTemplate> BlockTemplates { get; set; }

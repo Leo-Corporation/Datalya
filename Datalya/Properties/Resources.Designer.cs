@@ -133,6 +133,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Age categories.
+        /// </summary>
+        public static string AgeCategories2 {
+            get {
+                return ResourceManager.GetString("AgeCategories2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Files.
         /// </summary>
         public static string AllFiles {
@@ -293,6 +302,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Capital cities.
+        /// </summary>
+        public static string CapitalCities2 {
+            get {
+                return ResourceManager.GetString("CapitalCities2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changes may require a restart to be effective..
         /// </summary>
         public static string ChangesMadeRestartNeeded {
@@ -405,6 +423,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continents.
+        /// </summary>
+        public static string Continents2 {
+            get {
+                return ResourceManager.GetString("Continents2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright.
         /// </summary>
         public static string Copyright {
@@ -468,6 +495,15 @@ namespace Datalya.Properties {
         public static string Countries {
             get {
                 return ResourceManager.GetString("Countries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Countries.
+        /// </summary>
+        public static string Countries2 {
+            get {
+                return ResourceManager.GetString("Countries2", resourceCulture);
             }
         }
         
@@ -1175,6 +1211,15 @@ namespace Datalya.Properties {
         public static string NotifyUpdates {
             get {
                 return ResourceManager.GetString("NotifyUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numbers.
+        /// </summary>
+        public static string Number {
+            get {
+                return ResourceManager.GetString("Number", resourceCulture);
             }
         }
         
