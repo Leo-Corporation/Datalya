@@ -589,7 +589,7 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DATABASE EDITION.
+        ///   Looks up a localized string similar to DATABASE EDITIING.
         /// </summary>
         public static string DataBaseEditing {
             get {
