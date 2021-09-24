@@ -114,7 +114,7 @@
 					<TextBlock Text="{x:Static lang:Resources.PropertiesDesc}" TextWrapping="Wrap"/>
 				</StackPanel>
 
-				<Frame x:Name="PropertyDisplayer" NavigationUIVisibility="Hidden" Grid.Row="1" x:FieldModifier="public"/>
+				<Frame x:Name="PropertyDisplayer" NavigationUIVisibility="Hidden" Grid.Row="1" x:FieldModifier="public" VerticalAlignment="Center"/>
 			</Grid>
 		</Border>
 	</Grid>
