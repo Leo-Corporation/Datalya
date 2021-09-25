@@ -22,23 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using Datalya.Interfaces;
 using Datalya.UserControls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Datalya.Pages
 {
@@ -208,7 +197,7 @@ namespace Datalya.Pages
 				if (saveFileDialog.ShowDialog() ?? true)
 				{
 					BlockTemplateManager.Export(new() { Name = saveFileDialog.FileName, Blocks = Global.CurrentDataBase.Blocks }, saveFileDialog.FileName); // Export
-				} 
+				}
 			}
 		}
 	}

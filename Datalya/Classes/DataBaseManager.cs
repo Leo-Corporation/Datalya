@@ -25,9 +25,6 @@ using LeoCorpLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Serialization;
 
@@ -75,7 +72,7 @@ namespace Datalya.Classes
 					Global.Settings.RecentFiles[index] = dataBase1.DataBaseInfo; // Set
 				}
 				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
-				
+
 				StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
 				xmlSerializer.Serialize(streamWriter, dataBase); // Save
 

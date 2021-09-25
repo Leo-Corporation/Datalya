@@ -23,26 +23,16 @@ SOFTWARE.
 */
 using ClosedXML.Excel;
 using Datalya.Classes;
-using Datalya.Interfaces;
 using Datalya.Windows;
 using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Datalya.Pages
 {
@@ -52,7 +42,7 @@ namespace Datalya.Pages
 	public partial class DatabasePage : Page
 	{
 		private Button CheckedButton { get; set; }
-		
+
 		public DatabasePage()
 		{
 			InitializeComponent();
@@ -311,7 +301,7 @@ namespace Datalya.Pages
 				Global.HomeWindow.Show(); // Show home page
 			}
 
-			
+
 		}
 
 		private void AddItemBtn_Click(object sender, RoutedEventArgs e)
@@ -464,7 +454,7 @@ namespace Datalya.Pages
 		{
 			if (e.Key == Key.Delete)
 			{
-				DeleteBtn_Click(sender, null); 
+				DeleteBtn_Click(sender, null);
 			}
 		}
 	}

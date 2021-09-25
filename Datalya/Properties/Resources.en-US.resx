@@ -523,7 +523,7 @@
     <value>Help is coming soon.</value>
   </data>
   <data name="DataBaseEditing" xml:space="preserve">
-    <value>DATABASE EDITION</value>
+    <value>DATABASE EDITING</value>
   </data>
   <data name="DataBaseManagement" xml:space="preserve">
     <value>DATABASE MANAGEMENT</value>
@@ -591,5 +591,603 @@ Note: You cannot save an empty database.
 You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an item to your database.
 You can delete a Block by clicking the “Trash” icon next to the “Configure” button.
 </value>
+  </data>
+  <data name="ContentCollections" xml:space="preserve">
+    <value>Content Collections</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Afghanistan
+Albania
+Algeria
+Andorra
+Angola
+Antigua &amp; Deps
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Central African Rep
+Chad
+Chile
+China
+Colombia
+Comoros
+Congo
+Congo {Democratic Rep}
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+East Timor
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Fiji
+Finland
+France
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland {Republic}
+Israel
+Italy
+Ivory Coast
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea North
+Korea South
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Macedonia
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar, {Burma}
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russian Federation
+Rwanda
+St Kitts &amp; Nevis
+St Lucia
+Saint Vincent &amp; the Grenadines
+Samoa
+San Marino
+Sao Tome &amp; Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Sudan
+Spain
+Sri Lanka
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Togo
+Tonga
+Trinidad &amp; Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+United States
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe</value>
+  </data>
+  <data name="Numbers" xml:space="preserve">
+    <value>1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</value>
+  </data>
+  <data name="CapitalCities" xml:space="preserve">
+    <value>Abu Dhabi
+Abuja
+Accra
+Adamstown
+Addis Ababa
+Algiers
+Alofi
+Amman
+Amsterdam
+Andorra la Vella
+Ankara
+Antananarivo
+Apia
+Ashgabat
+Asmara
+Astana
+Asunción
+Athens
+Avarua
+Baghdad
+Baku
+Bamako
+Bandar
+Bangkok
+Bangui
+Banjul
+Basseterre
+Beijing 
+Beirut
+Belgrade
+Belmopan
+Berlin
+Bern
+Bishkek
+Bissau 
+Bogotá 
+Brasília
+Bratislava
+Brazzaville 
+Bridgetown
+Brussels
+Bucharest
+Budapest
+Buenos Aires
+Bujumbura 
+Cairo
+Canberra
+Caracas
+Castries
+Cayenne
+Charlotte Amalie
+Chisinau
+Cockburn Town
+Conakry
+Copenhagen 
+Dakar 
+Damascus
+Dhaka
+Dili
+Djibouti
+Dodoma 
+Doha
+Douglas
+Dublin
+Dushanbe
+Edinburgh
+El Aaiúntory
+Episkopi
+Cantonment
+Akrotiri
+Dhekelia
+Flying Fish Cove
+Freetown
+Funafuti
+Gaborone
+Georgetown
+Gibraltar
+Guatemala City
+Gustavia
+Hagåtña  Guam
+Hamilton
+Hanga Roa
+Hanoi 
+Harare
+Hargeisa
+Havana 
+Helsinki
+Honiara 
+Islamabad
+Jakarta
+Jamestown
+Jerusalem
+Gaza
+Juba
+Kabul
+Kampala
+Kathmandu 
+Khartoum
+Kiev
+Kigali
+King Edward Point
+Kingston
+Kingston
+Kingstown
+Kinshasa
+Kuala Lumpu
+Putrajaya 
+Kuwait City
+Libreville
+Lilongwe
+Lima
+Lisbon
+Ljubljana
+Lomé
+London
+Luanda
+Lusaka
+Luxembourg
+Madrid
+Majuro
+Malabo
+Malé
+Managua
+Manama
+Manila
+Maputo
+Marigot
+Maseru
+Mata-Utu
+Mbabane
+Lobamba
+Mexico City
+Minsk 
+Mogadishu
+Monaco 
+Monrovia 
+Montevideo 
+Moroni 
+Moscow
+Muscat
+Nairobi 
+Nassau
+Naypyidaw
+N'Djamena 
+New Delhi
+Ngerulmud
+Niamey
+Nicosia
+Nouakchott
+Nouméa
+Nukuʻalofa
+Nuuk
+Oranjestad
+Oslo
+Ottawa
+Ouagadougou
+Pago Pago
+Palikir
+Panama City
+Papeete
+Paramaribo
+Paris
+Philipsburg
+Phnom Penh
+Plymouth
+Brades Estate
+Podgorica
+Cetinje
+Port Louis
+Port Moresby 
+Port Vila
+Port-au-Prince 
+Port of Spain
+Porto-Novo
+Cotonou
+Prague
+Praia
+Pretoria
+Bloemfontein
+Cape Town
+Pristina
+Pyongyang
+Quito
+Rabat
+Reykjavík
+Riga
+Riyadh
+Road Town
+Rome
+Roseau
+Saipan
+San José
+San Juan
+San Marino
+San Salvador
+Sana'a
+Santiago
+Valparaíso
+Santo Domingo
+São Tomé
+Sarajevo
+Seoul
+Singapore
+Skopje
+Sofia
+Sri Jayawardenepura Kotte
+Colombo 
+St. George's
+St. Helier
+St. John's 
+St. Peter Port
+St. Pierre
+Stanley
+Stepanakert
+Stockholm
+Sucre
+La Paz
+Sukhumi
+Suva 
+Taipei
+Tallinn
+Tarawa Atoll
+Tashkent
+Tbilisi
+Kutaisi
+Tegucigalpa
+Tehran
+Thimphu
+Tirana
+Tiraspol
+Tokyo
+Tórshavn
+Tripoli
+Tskhinvali
+Tunis
+Ulan Bator
+Vaduz
+Valletta
+The Valley
+Vatican City
+Victoria
+Vienna 
+Vientiane 
+Vilnius
+Warsaw
+Washington D.C.
+Wellington
+West Island
+Willemstad
+Windhoek
+Yamoussoukro
+Abidjan 
+Yaoundé
+Yaren
+Yerevan
+Zagreb</value>
+  </data>
+  <data name="Continents" xml:space="preserve">
+    <value>Africa
+America
+Antarctica
+Asia
+Europe</value>
+  </data>
+  <data name="AgeCategories" xml:space="preserve">
+    <value>0-9
+10-19
+20-29
+30-39
+40-49
+50-59
+60-69
+70-79
+80-89
+90+</value>
+  </data>
+  <data name="Countries2" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="CapitalCities2" xml:space="preserve">
+    <value>Capital cities</value>
+  </data>
+  <data name="AgeCategories2" xml:space="preserve">
+    <value>Age categories</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="Continents2" xml:space="preserve">
+    <value>Continents</value>
+  </data>
+  <data name="ContentCollectionsDesc" xml:space="preserve">
+    <value>Quickly insert a usefull collection to your Selector Block.</value>
   </data>
 </root>

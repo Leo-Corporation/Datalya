@@ -21,37 +21,57 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Classes;
+using Datalya.UserControls;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.Windows
 {
 	/// <summary>
-	/// Interaction logic for SelectorBlock.xaml
+	/// Interaction logic for ContentCollectionsWindow.xaml
 	/// </summary>
-	public partial class SelectorBlock : UserControl
+	public partial class ContentCollectionsWindow : Window
 	{
-		public Classes.SelectorBlock CSelectorBlock { get; set; }
-		string ContentTxt { get; set; }
-		public SelectorBlock(Classes.SelectorBlock selectorBlock, string content = "")
+		TextBox TextBox { get; init; }
+		public ContentCollectionsWindow(TextBox textBox)
 		{
 			InitializeComponent();
-			CSelectorBlock = selectorBlock; // Set value
-			ContentTxt = content; // Set value
+			TextBox = textBox;
 
 			InitUI();
 		}
 
 		private void InitUI()
 		{
-			NameTxt.Text = CSelectorBlock.Name; // Set text
-
-			// Load combobox
-			for (int i = 0; i < CSelectorBlock.Choices.Count; i++)
+			for (int i = 0; i < Global.ContentCollections.Count; i++)
 			{
-				ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
+				ItemDisplayer.Children.Add(new ContentCollectionItem(Global.ContentCollections[i], (ContentCollection contentCollection) => { SelectCollection(contentCollection); }));
+			}
+		}
+
+		private void SelectCollection(ContentCollection contentCollection)
+		{
+			for (int i = 0; i < ItemDisplayer.Children.Count; i++)
+			{
+				if (((ContentCollectionItem)ItemDisplayer.Children[i]).ContentCollection == contentCollection)
+				{
+					TextBox.Text = contentCollection.Content; // Set text
+					break;
+				}
 			}
 
-			ItemComboBox.SelectedItem = ContentTxt; // Set
+			Close();
+		}
+
+		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+		{
+			WindowState = WindowState.Minimized; // Minimize
+		}
+
+		private void CloseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
 		}
 	}
 }

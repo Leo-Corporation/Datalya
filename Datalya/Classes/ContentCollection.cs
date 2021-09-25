@@ -21,37 +21,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.Classes
 {
-	/// <summary>
-	/// Interaction logic for SelectorBlock.xaml
-	/// </summary>
-	public partial class SelectorBlock : UserControl
+	public class ContentCollection
 	{
-		public Classes.SelectorBlock CSelectorBlock { get; set; }
-		string ContentTxt { get; set; }
-		public SelectorBlock(Classes.SelectorBlock selectorBlock, string content = "")
+		/// <summary>
+		/// The name of the <see cref="ContentCollection"/>.
+		/// </summary>
+		public string Name { get; init; }
+
+		/// <summary>
+		/// The text, the content of the <see cref="ContentCollection"/>.
+		/// </summary>
+		public string Content { get; init; }
+
+		public ContentCollection(string name, string content)
 		{
-			InitializeComponent();
-			CSelectorBlock = selectorBlock; // Set value
-			ContentTxt = content; // Set value
-
-			InitUI();
-		}
-
-		private void InitUI()
-		{
-			NameTxt.Text = CSelectorBlock.Name; // Set text
-
-			// Load combobox
-			for (int i = 0; i < CSelectorBlock.Choices.Count; i++)
-			{
-				ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
-			}
-
-			ItemComboBox.SelectedItem = ContentTxt; // Set
+			Name = name; // Set variable
+			Content = content; // Set variable
 		}
 	}
 }

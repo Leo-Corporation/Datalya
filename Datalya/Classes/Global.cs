@@ -22,19 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Enums;
-using Datalya.Interfaces;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
-using DocumentFormat.OpenXml.Wordprocessing;
 using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -46,7 +41,7 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Datalya's version.
 		/// </summary>
-		public static string Version => "1.1.0.2108";
+		public static string Version => "1.2.0.2109";
 
 		/// <summary>
 		/// Last version of Datalya.
@@ -128,6 +123,18 @@ namespace Datalya.Classes
 				new InputBlock() { Name = Properties.Resources.LastName, PlaceHolder = Properties.Resources.LastName, BlockType = BlockType.Input },
 				new InputBlock() { Name = Properties.Resources.Age, PlaceHolder = Properties.Resources.Age, BlockType = BlockType.Input }
 			}
+		};
+
+		/// <summary>
+		/// Content collections template.
+		/// </summary>
+		public static List<ContentCollection> ContentCollections => new()
+		{
+			new(Properties.Resources.Countries2, Properties.Resources.Countries),
+			new(Properties.Resources.CapitalCities2, Properties.Resources.CapitalCities),
+			new(Properties.Resources.Continents2, Properties.Resources.Continents),
+			new(Properties.Resources.Number, Properties.Resources.Numbers),
+			new(Properties.Resources.AgeCategories2, Properties.Resources.AgeCategories)
 		};
 
 		/// <summary>

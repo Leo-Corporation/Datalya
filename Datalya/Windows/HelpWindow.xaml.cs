@@ -24,18 +24,10 @@ SOFTWARE.
 using Datalya.Classes;
 using Datalya.Pages.Help;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Datalya.Windows
 {
@@ -149,7 +141,7 @@ namespace Datalya.Windows
 		private void NavigateToPage(int id)
 		{
 			ContentDisplayer.Navigate(id switch
-			{ 
+			{
 				0 => AddItemHelpPage,
 				1 => EditItemHelpPage,
 				2 => DeleteItemHelpPage,
