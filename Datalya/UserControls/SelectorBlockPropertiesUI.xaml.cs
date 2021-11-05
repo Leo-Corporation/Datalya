@@ -57,6 +57,12 @@ namespace Datalya.UserControls
 
 		private void SaveBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (string.IsNullOrEmpty(ChoicesTxt.Text) || string.IsNullOrWhiteSpace(ChoicesTxt.Text))
+			{
+				MessageBox.Show(Properties.Resources.PleaseAddItemSelectorBlock, $"{Properties.Resources.DatalyaCreator} - {Properties.Resources.Selector}", MessageBoxButton.OK, MessageBoxImage.Error);
+				return; // Stop
+			}
+
 			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 			{
 				// Name

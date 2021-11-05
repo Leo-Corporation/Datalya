@@ -1190,4 +1190,10 @@ Europe</value>
   <data name="ContentCollectionsDesc" xml:space="preserve">
     <value>Quickly insert a usefull collection to your Selector Block.</value>
   </data>
+  <data name="PleaseAddItemSelectorBlock" xml:space="preserve">
+    <value>Please add at least one choice to the Selector Block.</value>
+  </data>
+  <data name="DatalyaCreator" xml:space="preserve">
+    <value>Datalya Creator</value>
+  </data>
 </root>

@@ -178,7 +178,7 @@
     <value>Choix unique</value>
   </data>
   <data name="Selector" xml:space="preserve">
-    <value>Selecteur</value>
+    <value>Sélecteur</value>
   </data>
   <data name="Properties" xml:space="preserve">
     <value>Propriétés</value>
@@ -310,7 +310,7 @@
     <value>Exporter en tant que modèle</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Selectionner</value>
+    <value>Sélectionner</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
@@ -1242,5 +1242,11 @@ Europe</value>
   </data>
   <data name="ContentCollectionsDesc" xml:space="preserve">
     <value>Insérez rapidement une collection utile dans votre Block Sélecteur.</value>
+  </data>
+  <data name="PleaseAddItemSelectorBlock" xml:space="preserve">
+    <value>Veuillez ajouter au moins un choix au Block Sélecteur.</value>
+  </data>
+  <data name="DatalyaCreator" xml:space="preserve">
+    <value>Créateur Datalya</value>
   </data>
 </root>

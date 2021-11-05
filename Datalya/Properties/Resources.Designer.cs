@@ -625,6 +625,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Datalya Creator.
+        /// </summary>
+        public static string DatalyaCreator {
+            get {
+                return ResourceManager.GetString("DatalyaCreator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DatalyaDataBase.
         /// </summary>
         public static string DatalyaDataBase {
@@ -1382,6 +1391,15 @@ namespace Datalya.Properties {
         public static string Placeholder {
             get {
                 return ResourceManager.GetString("Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please add at least one choice to the Selector Block..
+        /// </summary>
+        public static string PleaseAddItemSelectorBlock {
+            get {
+                return ResourceManager.GetString("PleaseAddItemSelectorBlock", resourceCulture);
             }
         }
         
