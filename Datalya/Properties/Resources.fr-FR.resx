@@ -1244,7 +1244,7 @@ Europe</value>
     <value>Insérez rapidement une collection utile dans votre Block Sélecteur.</value>
   </data>
   <data name="PleaseAddItemSelectorBlock" xml:space="preserve">
-    <value>Veuillez ajouter au moins un choix au Block Sélecteur.</value>
+    <value>Veuillez ajouter au moins un choix au Bloc Sélecteur.</value>
   </data>
   <data name="DatalyaCreator" xml:space="preserve">
     <value>Créateur Datalya</value>
