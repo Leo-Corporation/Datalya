@@ -503,7 +503,7 @@
     <value>Help is coming soon.</value>
   </data>
   <data name="DataBaseEditing" xml:space="preserve">
-    <value>DATABASE EDITIING</value>
+    <value>DATABASE EDITION</value>
   </data>
   <data name="DataBaseManagement" xml:space="preserve">
     <value>DATABASE MANAGEMENT</value>
@@ -1169,5 +1169,23 @@ Europe</value>
   </data>
   <data name="ContentCollectionsDesc" xml:space="preserve">
     <value>Quickly insert a usefull collection to your Selector Block.</value>
+  </data>
+  <data name="PleaseAddItemSelectorBlock" xml:space="preserve">
+    <value>Please add at least one choice to the Selector Block.</value>
+  </data>
+  <data name="DatalyaCreator" xml:space="preserve">
+    <value>Datalya Creator</value>
+  </data>
+  <data name="ConfirmDeleteBlockMsg" xml:space="preserve">
+    <value>Are you sure you want to delete this Block? This operation is irreversible.</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ShowDeleteBlockConfirmMessage" xml:space="preserve">
+    <value>Show a warning message before deleting a Block</value>
+  </data>
+  <data name="AboutDatalya" xml:space="preserve">
+    <value>About Datalya</value>
   </data>
 </root>

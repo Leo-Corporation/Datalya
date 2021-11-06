@@ -70,6 +70,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Datalya.
+        /// </summary>
+        public static string AboutDatalya {
+            get {
+                return ResourceManager.GetString("AboutDatalya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Actions.
         /// </summary>
         public static string Actions {
@@ -401,6 +410,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this Block? This operation is irreversible..
+        /// </summary>
+        public static string ConfirmDeleteBlockMsg {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteBlockMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content Collections.
         /// </summary>
         public static string ContentCollections {
@@ -589,7 +607,7 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DATABASE EDITIING.
+        ///   Looks up a localized string similar to DATABASE EDITION.
         /// </summary>
         public static string DataBaseEditing {
             get {
@@ -621,6 +639,15 @@ namespace Datalya.Properties {
         public static string Datalya {
             get {
                 return ResourceManager.GetString("Datalya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datalya Creator.
+        /// </summary>
+        public static string DatalyaCreator {
+            get {
+                return ResourceManager.GetString("DatalyaCreator", resourceCulture);
             }
         }
         
@@ -1098,6 +1125,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Messages.
+        /// </summary>
+        public static string Messages {
+            get {
+                return ResourceManager.GetString("Messages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimize.
         /// </summary>
         public static string Minimize {
@@ -1386,6 +1422,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please add at least one choice to the Selector Block..
+        /// </summary>
+        public static string PleaseAddItemSelectorBlock {
+            get {
+                return ResourceManager.GetString("PleaseAddItemSelectorBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Properties.
         /// </summary>
         public static string Properties {
@@ -1553,6 +1598,15 @@ namespace Datalya.Properties {
         public static string SettingsReset {
             get {
                 return ResourceManager.GetString("SettingsReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a warning message before deleting a Block.
+        /// </summary>
+        public static string ShowDeleteBlockConfirmMessage {
+            get {
+                return ResourceManager.GetString("ShowDeleteBlockConfirmMessage", resourceCulture);
             }
         }
         

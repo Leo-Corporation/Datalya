@@ -68,7 +68,10 @@ namespace Datalya.Classes
 
 			if (!fromNew)
 			{
-				Global.CurrentDataBase.Blocks = template.Blocks; // Set 
+				for (int i = 0; i < template.Blocks.Count; i++)
+				{
+					Global.CurrentDataBase.Blocks.Add(template.Blocks[i]); // Set 
+				}
 			}
 			else
 			{

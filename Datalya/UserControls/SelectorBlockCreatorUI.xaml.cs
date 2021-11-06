@@ -54,6 +54,14 @@ namespace Datalya.UserControls
 		{
 			try
 			{
+				if (Global.Settings.DisplayDeleteBlockMessage.Value)
+				{
+					if (MessageBox.Show(Properties.Resources.ConfirmDeleteBlockMsg, Properties.Resources.DatalyaCreator, MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+					{
+						return; // Cancel
+					}
+				}
+
 				int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
 
 				if (Global.CreatorPage.PropertyDisplayer.Content == SelectorBlockPropertiesUI)

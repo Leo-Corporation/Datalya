@@ -49,6 +49,7 @@ namespace Datalya.Windows
 			// Checkboxes
 			CheckUpdateOnStartChk.IsChecked = Global.Settings.CheckUpdatesOnStart; // Set
 			NotifyUpdateChk.IsChecked = Global.Settings.NotifyUpdates; // Set
+			DeleteBlockMessageConfirmChk.IsChecked = Global.Settings.DisplayDeleteBlockMessage.Value; // Set
 
 			// Load RadioButtons
 			DarkRadioBtn.IsChecked = Global.Settings.Theme == Theme.Dark; // Change IsChecked property
@@ -198,7 +199,8 @@ namespace Datalya.Windows
 					NotifyUpdates = true,
 					RecentFiles = new(),
 					IsMaximized = false,
-					IsFirstRun = false // Default is true but would be useless
+					IsFirstRun = false, // Default is true but would be useless
+					DisplayDeleteBlockMessage = true
 				}; // Create default settings
 
 				SettingsManager.Save(); // Save the changes
@@ -238,6 +240,29 @@ namespace Datalya.Windows
 		{
 			Global.Settings.NotifyUpdates = NotifyUpdateChk.IsChecked.Value; // Set
 			SettingsManager.Save(); // Save changes
+		}
+
+		private void DeleteBlockMessageConfirmChk_Checked(object sender, RoutedEventArgs e)
+		{
+			Global.Settings.DisplayDeleteBlockMessage = DeleteBlockMessageConfirmChk.IsChecked.Value; // Set
+			SettingsManager.Save(); // Save changes
+		}
+
+		private void AboutLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			AboutWindow aboutWindow = new();
+			aboutWindow.Show();
+			aboutWindow.Focus();
+			aboutWindow.Topmost = true;
+		}
+
+		private void SeeLicensesLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
+				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
+				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
+				"LeoCorpLibrary - MIT License - © 2020-2021 Léo Corporation\n" +
+				"Datalya - MIT License - © 2021 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 		}
 	}
 }

@@ -178,7 +178,7 @@
     <value>Choix unique</value>
   </data>
   <data name="Selector" xml:space="preserve">
-    <value>Selecteur</value>
+    <value>Sélecteur</value>
   </data>
   <data name="Properties" xml:space="preserve">
     <value>Propriétés</value>
@@ -310,7 +310,7 @@
     <value>Exporter en tant que modèle</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Selectionner</value>
+    <value>Sélectionner</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
@@ -1242,5 +1242,23 @@ Europe</value>
   </data>
   <data name="ContentCollectionsDesc" xml:space="preserve">
     <value>Insérez rapidement une collection utile dans votre Block Sélecteur.</value>
+  </data>
+  <data name="PleaseAddItemSelectorBlock" xml:space="preserve">
+    <value>Veuillez ajouter au moins un choix au Bloc Sélecteur.</value>
+  </data>
+  <data name="DatalyaCreator" xml:space="preserve">
+    <value>Créateur Datalya</value>
+  </data>
+  <data name="ConfirmDeleteBlockMsg" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce Bloc ? Cette opération est irréversible.</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ShowDeleteBlockConfirmMessage" xml:space="preserve">
+    <value>Afficher un message d'avertissement avant de supprimer un Bloc</value>
+  </data>
+  <data name="AboutDatalya" xml:space="preserve">
+    <value>A propos de Datalya</value>
   </data>
 </root>

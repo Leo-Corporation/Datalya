@@ -65,7 +65,15 @@ namespace Datalya.Classes
 		/// </summary>
 		public bool IsMaximized { get; set; }
 
+		/// <summary>
+		/// True if Datalya should display the "First Run" experience.
+		/// </summary>
 		public bool IsFirstRun { get; set; }
+
+		/// <summary>
+		/// True if Datalya should display a warning message when deleting a Block.
+		/// </summary>
+		public bool? DisplayDeleteBlockMessage { get; set; }
 	}
 
 	public static class SettingsManager
@@ -96,7 +104,8 @@ namespace Datalya.Classes
 					CheckUpdatesOnStart = true,
 					NotifyUpdates = true,
 					IsMaximized = false,
-					IsFirstRun = true
+					IsFirstRun = true,
+					DisplayDeleteBlockMessage = true
 				}; // Create a new settings file
 
 				Save(); // Save the changes
