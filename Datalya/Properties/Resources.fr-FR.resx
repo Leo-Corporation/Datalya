@@ -1258,4 +1258,7 @@ Europe</value>
   <data name="ShowDeleteBlockConfirmMessage" xml:space="preserve">
     <value>Afficher un message d'avertissement avant de supprimer un Bloc</value>
   </data>
+  <data name="AboutDatalya" xml:space="preserve">
+    <value>A propos de Datalya</value>
+  </data>
 </root>

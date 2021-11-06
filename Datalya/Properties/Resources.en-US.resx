@@ -1205,4 +1205,7 @@ Europe</value>
   <data name="ShowDeleteBlockConfirmMessage" xml:space="preserve">
     <value>Show a warning message before deleting a Block</value>
   </data>
+  <data name="AboutDatalya" xml:space="preserve">
+    <value>About Datalya</value>
+  </data>
 </root>

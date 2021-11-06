@@ -70,6 +70,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Datalya.
+        /// </summary>
+        public static string AboutDatalya {
+            get {
+                return ResourceManager.GetString("AboutDatalya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Actions.
         /// </summary>
         public static string Actions {
