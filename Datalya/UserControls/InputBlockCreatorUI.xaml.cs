@@ -55,30 +55,35 @@ namespace Datalya.UserControls
 		{
 			try
 			{
-				if (MessageBox.Show(Properties.Resources.ConfirmDeleteBlockMsg, Properties.Resources.DatalyaCreator, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+				if (Global.Settings.DisplayDeleteBlockMessage.Value)
 				{
-					int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
-
-					if (Global.CreatorPage.PropertyDisplayer.Content == InputBlockPropertiesUI)
+					if (MessageBox.Show(Properties.Resources.ConfirmDeleteBlockMsg, Properties.Resources.DatalyaCreator, MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
 					{
-						Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
+						return; // Cancel
 					}
-
-					if (Global.CurrentDataBase.ItemsContent.Count > 0)
-					{
-						for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
-						{
-							Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
-						}
-					}
-
-					if (Global.CurrentDataBase.Blocks.Count > index)
-					{
-						Global.CurrentDataBase.Blocks.RemoveAt(index); // Remove item 
-					}
-
-					Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block 
 				}
+
+				int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
+
+				if (Global.CreatorPage.PropertyDisplayer.Content == InputBlockPropertiesUI)
+				{
+					Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
+				}
+
+				if (Global.CurrentDataBase.ItemsContent.Count > 0)
+				{
+					for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
+					{
+						Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
+					}
+				}
+
+				if (Global.CurrentDataBase.Blocks.Count > index)
+				{
+					Global.CurrentDataBase.Blocks.RemoveAt(index); // Remove item 
+				}
+
+				Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block 
 			}
 			catch { }
 		}

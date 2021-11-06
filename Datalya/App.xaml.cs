@@ -41,6 +41,9 @@ namespace Datalya
 			Global.ChangeTheme(); // Change theme
 			Global.ChangeLanguage(); // Change language
 
+			// Check settings
+			CheckSettings();
+
 			Global.CurrentDataBase = new() { DataBaseInfo = new() { Name = Datalya.Properties.Resources.DatalyaDataBase } }; // Create default database
 			Global.BlockTemplates = new(); // Create new List
 			Global.BlockTemplates.Add(Global.BooksTemplate); // Add template
@@ -103,6 +106,16 @@ namespace Datalya
 				notifyIcon.ShowBalloonTip(5000, Datalya.Properties.Resources.Datalya, Datalya.Properties.Resources.UpdatesAvailableShort, System.Windows.Forms.ToolTipIcon.Info);
 				notifyIcon.Visible = false; // Hide
 			}
+		}
+
+		private void CheckSettings()
+		{
+			if (!Global.Settings.DisplayDeleteBlockMessage.HasValue)
+			{
+				Global.Settings.DisplayDeleteBlockMessage = true;
+			}
+
+			SettingsManager.Save(); // Save changes
 		}
 	}
 }

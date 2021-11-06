@@ -1116,6 +1116,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Messages.
+        /// </summary>
+        public static string Messages {
+            get {
+                return ResourceManager.GetString("Messages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimize.
         /// </summary>
         public static string Minimize {
@@ -1580,6 +1589,15 @@ namespace Datalya.Properties {
         public static string SettingsReset {
             get {
                 return ResourceManager.GetString("SettingsReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a warning message before deleting a Block.
+        /// </summary>
+        public static string ShowDeleteBlockConfirmMessage {
+            get {
+                return ResourceManager.GetString("ShowDeleteBlockConfirmMessage", resourceCulture);
             }
         }
         

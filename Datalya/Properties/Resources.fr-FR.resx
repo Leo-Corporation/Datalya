@@ -1252,4 +1252,10 @@ Europe</value>
   <data name="ConfirmDeleteBlockMsg" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer ce Bloc ? Cette opération est irréversible.</value>
   </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ShowDeleteBlockConfirmMessage" xml:space="preserve">
+    <value>Afficher un message d'avertissement avant de supprimer un Bloc</value>
+  </data>
 </root>

@@ -49,6 +49,7 @@ namespace Datalya.Windows
 			// Checkboxes
 			CheckUpdateOnStartChk.IsChecked = Global.Settings.CheckUpdatesOnStart; // Set
 			NotifyUpdateChk.IsChecked = Global.Settings.NotifyUpdates; // Set
+			DeleteBlockMessageConfirmChk.IsChecked = Global.Settings.DisplayDeleteBlockMessage.Value; // Set
 
 			// Load RadioButtons
 			DarkRadioBtn.IsChecked = Global.Settings.Theme == Theme.Dark; // Change IsChecked property
@@ -198,7 +199,8 @@ namespace Datalya.Windows
 					NotifyUpdates = true,
 					RecentFiles = new(),
 					IsMaximized = false,
-					IsFirstRun = false // Default is true but would be useless
+					IsFirstRun = false, // Default is true but would be useless
+					DisplayDeleteBlockMessage = true
 				}; // Create default settings
 
 				SettingsManager.Save(); // Save the changes
@@ -237,6 +239,12 @@ namespace Datalya.Windows
 		private void NotifyUpdateChk_Checked(object sender, RoutedEventArgs e)
 		{
 			Global.Settings.NotifyUpdates = NotifyUpdateChk.IsChecked.Value; // Set
+			SettingsManager.Save(); // Save changes
+		}
+
+		private void DeleteBlockMessageConfirmChk_Checked(object sender, RoutedEventArgs e)
+		{
+			Global.Settings.DisplayDeleteBlockMessage = DeleteBlockMessageConfirmChk.IsChecked.Value; // Set
 			SettingsManager.Save(); // Save changes
 		}
 	}

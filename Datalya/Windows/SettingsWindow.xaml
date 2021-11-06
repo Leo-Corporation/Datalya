@@ -195,7 +195,11 @@
 								</StackPanel>
 							</Button>
 						</StackPanel>
-						<TextBlock Text="{x:Static lang:Resources.Data}" FontWeight="Bold" FontSize="16"/>
+
+						<TextBlock Text="{x:Static lang:Resources.Messages}" FontWeight="Bold" FontSize="16" Margin="0 5"/>
+						<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="DeleteBlockMessageConfirmChk" Checked="DeleteBlockMessageConfirmChk_Checked" Unchecked="DeleteBlockMessageConfirmChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.ShowDeleteBlockConfirmMessage}" FontWeight="Bold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center"/>
+
+						<TextBlock Text="{x:Static lang:Resources.Data}" FontWeight="Bold" FontSize="16" Margin="0,5,0,2"/>
 						<TextBlock x:Name="ResetSettingsLink" Text="{x:Static lang:Resources.ResetData}" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="ResetSettingsLink_MouseLeftButtonDown">
 							<TextBlock.TextDecorations>
 								<TextDecoration/>
