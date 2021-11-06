@@ -247,5 +247,22 @@ namespace Datalya.Windows
 			Global.Settings.DisplayDeleteBlockMessage = DeleteBlockMessageConfirmChk.IsChecked.Value; // Set
 			SettingsManager.Save(); // Save changes
 		}
+
+		private void AboutLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			AboutWindow aboutWindow = new();
+			aboutWindow.Show();
+			aboutWindow.Focus();
+			aboutWindow.Topmost = true;
+		}
+
+		private void SeeLicensesLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
+				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
+				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
+				"LeoCorpLibrary - MIT License - © 2020-2021 Léo Corporation\n" +
+				"Datalya - MIT License - © 2021 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+		}
 	}
 }

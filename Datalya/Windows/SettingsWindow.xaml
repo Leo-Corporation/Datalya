@@ -205,6 +205,18 @@
 								<TextDecoration/>
 							</TextBlock.TextDecorations>
 						</TextBlock>
+
+						<TextBlock Text="{x:Static lang:Resources.AboutDatalya}" FontWeight="Bold" FontSize="16" Margin="0,5,0,2"/>
+						<TextBlock x:Name="AboutLink" Text="{x:Static lang:Resources.About}" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="AboutLink_MouseLeftButtonDown">
+							<TextBlock.TextDecorations>
+								<TextDecoration/>
+							</TextBlock.TextDecorations>
+						</TextBlock>
+						<TextBlock x:Name="SeeLicensesLink" Text="{x:Static lang:Resources.Licenses}" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="SeeLicensesLink_MouseLeftButtonDown">
+							<TextBlock.TextDecorations>
+								<TextDecoration/>
+							</TextBlock.TextDecorations>
+						</TextBlock>
 					</StackPanel>
 				</ScrollViewer>
 			</Grid>
