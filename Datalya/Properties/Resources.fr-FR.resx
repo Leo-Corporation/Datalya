@@ -1249,4 +1249,7 @@ Europe</value>
   <data name="DatalyaCreator" xml:space="preserve">
     <value>Créateur Datalya</value>
   </data>
+  <data name="ConfirmDeleteBlockMsg" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce Bloc ? Cette opération est irréversible.</value>
+  </data>
 </root>

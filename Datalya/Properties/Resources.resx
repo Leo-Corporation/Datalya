@@ -1176,4 +1176,7 @@ Europe</value>
   <data name="DatalyaCreator" xml:space="preserve">
     <value>Datalya Creator</value>
   </data>
+  <data name="ConfirmDeleteBlockMsg" xml:space="preserve">
+    <value>Are you sure you want to delete this Block? This operation is irreversible.</value>
+  </data>
 </root>

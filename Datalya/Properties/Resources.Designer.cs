@@ -401,6 +401,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this Block? This operation is irreversible..
+        /// </summary>
+        public static string ConfirmDeleteBlockMsg {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteBlockMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content Collections.
         /// </summary>
         public static string ContentCollections {
