@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.95.4" />
-    <PackageReference Include="LeoCorpLibrary" Version="4.0.0.2111" />
+    <PackageReference Include="LeoCorpLibrary" Version="4.1.0.2112" />
   </ItemGroup>
 
   <ItemGroup>
