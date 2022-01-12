@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 

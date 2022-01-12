@@ -37,12 +37,18 @@ namespace Datalya.Windows
 	{
 		internal BlockTemplate BlockTemplate { get; set; }
 		bool showMainWindow = false;
-		public NewDataBaseWindow(bool closeHome = false)
+		bool showTemplatesWindow = false;
+		public NewDataBaseWindow(bool closeHome = false, bool showTemplates = false)
 		{
 			InitializeComponent();
 			showMainWindow = closeHome; // Set
+			showTemplatesWindow = showTemplates;
 
 			InitUI();
+			if (showTemplatesWindow)
+			{
+				new TemplateWindow(this).Show();
+			}
 		}
 
 		internal void InitUI()

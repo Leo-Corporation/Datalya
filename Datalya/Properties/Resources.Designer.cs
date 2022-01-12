@@ -972,6 +972,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Illustrator.
         /// </summary>
         public static string Illustrator {
@@ -1688,6 +1697,15 @@ namespace Datalya.Properties {
         public static string TemplateAlreadyImported {
             get {
                 return ResourceManager.GetString("TemplateAlreadyImported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Templates.
+        /// </summary>
+        public static string Templates {
+            get {
+                return ResourceManager.GetString("Templates", resourceCulture);
             }
         }
         

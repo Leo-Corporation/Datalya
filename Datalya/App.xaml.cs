@@ -40,6 +40,7 @@ namespace Datalya
 			SettingsManager.Load(); // Load settings
 			Global.ChangeTheme(); // Change theme
 			Global.ChangeLanguage(); // Change language
+			Global.CreateJumpLists(); // Create jumplist
 
 			// Check settings
 			CheckSettings();
@@ -67,16 +68,37 @@ namespace Datalya
 				}
 				else
 				{
-					if (File.Exists(e.Args[0]) && new FileInfo(e.Args[0]).Extension == ".datalyadb")
+					if (e.Args[0] == "/action" && e.Args[1] != null)
 					{
-						DataBaseManager.Open(e.Args[0]); // Open database 
+						switch (e.Args[1])
+						{
+							case "0":
+								Global.HomeWindow.Show(); // Show 
+								break;
+							case "1":
+								Global.HomeWindow.NewDbBtn_Click(null, null);
+								break;
+							case "2":
+								Global.HomeWindow.NewDbBtn_Click(this, null);
+								break;
+							default:
+								Global.HomeWindow.Show(); // Show 
+								break;
+						}
+					}
+					else
+					{
+						if (File.Exists(e.Args[0]) && new FileInfo(e.Args[0]).Extension == ".datalyadb")
+						{
+							DataBaseManager.Open(e.Args[0]); // Open database 
 
-						Global.DatabasePage.InitUI(); // Load the UI
-						Global.CreatorPage.InitUI(); // Load the UI
+							Global.DatabasePage.InitUI(); // Load the UI
+							Global.CreatorPage.InitUI(); // Load the UI
 
-						Global.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; // Set
-						Global.MainWindow.Show(); // Show
-						Global.MainWindow.WindowStartupLocation = WindowStartupLocation.Manual; // Set
+							Global.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; // Set
+							Global.MainWindow.Show(); // Show
+							Global.MainWindow.WindowStartupLocation = WindowStartupLocation.Manual; // Set
+						}
 					}
 				}
 			}

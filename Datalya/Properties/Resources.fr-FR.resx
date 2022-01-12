@@ -1267,4 +1267,10 @@ Europe</value>
   <data name="Preview" xml:space="preserve">
     <value>Aperçu</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Modèles</value>
+  </data>
 </root>
