@@ -24,7 +24,9 @@ SOFTWARE.
 using Datalya.Classes;
 using LeoCorpLibrary;
 using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Datalya.Windows
 {
@@ -39,6 +41,51 @@ namespace Datalya.Windows
 		{
 			InitializeComponent();
 			showMainWindow = closeHome; // Set
+
+			InitUI();
+		}
+
+		internal void InitUI()
+		{
+			try
+			{
+				// Clear
+				DataBaseGridView.Columns.Clear();
+				DataBaseListView.ItemsSource = null; // Bind
+				DataBaseListView.Visibility = Visibility.Collapsed; // Hide
+				DataBasePreviewTxt.Visibility = Visibility.Collapsed; // Hide
+
+				if (BlockTemplate is not null && BlockTemplate.Blocks.Count > 0)
+				{
+					DataBaseListView.Visibility = Visibility.Visible; // Show the list view if there are items to display
+					DataBasePreviewTxt.Visibility = Visibility.Visible; // Show the text as well if there items
+
+					// Columns
+					for (int i = 0; i < BlockTemplate.Blocks.Count; i++) // Add columns
+					{
+						DataBaseGridView.Columns.Add(new() { Header = BlockTemplate.Blocks[i].Name, DisplayMemberBinding = new Binding($"Item[{i}]") });
+					}
+
+					// Rows
+					List<List<string>> items = new(); // Collection of rows
+					for (int i = 0; i < 2; i++) // Two rows
+					{
+						List<string> item = new();
+						for (int j = 0; j < BlockTemplate.Blocks.Count; j++) // For each column
+						{
+							item.Add(Properties.Resources.Item); // Add a new item with the text "Element" to the current row
+						}
+
+						items.Add(item); // Add row to the list view items
+					}
+
+					DataBaseListView.ItemsSource = items; // Show items in the list view
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, Properties.Resources.ErrorOccured, MessageBoxButton.OK, MessageBoxImage.Error); // Show error message
+			}
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -116,6 +163,7 @@ namespace Datalya.Windows
 		{
 			BlockTemplate = null; // Clear
 			TemplateNameTxt.Text = Properties.Resources.None; // Set text
+			InitUI();
 		}
 	}
 }

@@ -54,6 +54,7 @@ namespace Datalya.UserControls
 		{
 			TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
 			TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
+			TemplateWindow.NewDataBaseWindow.InitUI();
 			TemplateWindow.Close(); // Close
 		}
 	}
