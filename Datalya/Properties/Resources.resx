@@ -1188,4 +1188,10 @@ Europe</value>
   <data name="AboutDatalya" xml:space="preserve">
     <value>About Datalya</value>
   </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
 </root>
