@@ -24,7 +24,9 @@ SOFTWARE.
 using Datalya.Classes;
 using LeoCorpLibrary;
 using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Datalya.Windows
 {
@@ -34,11 +36,63 @@ namespace Datalya.Windows
 	public partial class NewDataBaseWindow : Window
 	{
 		internal BlockTemplate BlockTemplate { get; set; }
-		bool showMainWindow = false;
-		public NewDataBaseWindow(bool closeHome = false)
+
+		readonly bool showMainWindow = false;
+		readonly bool showTemplatesWindow = false;
+		public NewDataBaseWindow(bool closeHome = false, bool showTemplates = false)
 		{
 			InitializeComponent();
 			showMainWindow = closeHome; // Set
+			showTemplatesWindow = showTemplates;
+
+			InitUI();
+			if (showTemplatesWindow)
+			{
+				new TemplateWindow(this).Show();
+			}
+		}
+
+		internal void InitUI()
+		{
+			try
+			{
+				// Clear
+				DataBaseGridView.Columns.Clear();
+				DataBaseListView.ItemsSource = null; // Bind
+				DataBaseListView.Visibility = Visibility.Collapsed; // Hide
+				DataBasePreviewTxt.Visibility = Visibility.Collapsed; // Hide
+
+				if (BlockTemplate is not null && BlockTemplate.Blocks.Count > 0)
+				{
+					DataBaseListView.Visibility = Visibility.Visible; // Show the list view if there are items to display
+					DataBasePreviewTxt.Visibility = Visibility.Visible; // Show the text as well if there items
+
+					// Columns
+					for (int i = 0; i < BlockTemplate.Blocks.Count; i++) // Add columns
+					{
+						DataBaseGridView.Columns.Add(new() { Header = BlockTemplate.Blocks[i].Name, DisplayMemberBinding = new Binding($"Item[{i}]") });
+					}
+
+					// Rows
+					List<List<string>> items = new(); // Collection of rows
+					for (int i = 0; i < 2; i++) // Two rows
+					{
+						List<string> item = new();
+						for (int j = 0; j < BlockTemplate.Blocks.Count; j++) // For each column
+						{
+							item.Add(Properties.Resources.Item); // Add a new item with the text "Element" to the current row
+						}
+
+						items.Add(item); // Add row to the list view items
+					}
+
+					DataBaseListView.ItemsSource = items; // Show items in the list view
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, Properties.Resources.ErrorOccured, MessageBoxButton.OK, MessageBoxImage.Error); // Show error message
+			}
 		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -116,6 +170,7 @@ namespace Datalya.Windows
 		{
 			BlockTemplate = null; // Clear
 			TemplateNameTxt.Text = Properties.Resources.None; // Set text
+			InitUI();
 		}
 	}
 }

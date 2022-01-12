@@ -29,10 +29,12 @@ using LeoCorpLibrary;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Shell;
 
 namespace Datalya.Classes
 {
@@ -41,7 +43,7 @@ namespace Datalya.Classes
 		/// <summary>
 		/// Datalya's version.
 		/// </summary>
-		public static string Version => "1.3.0.2111";
+		public static string Version => "1.4.0.2201";
 
 		/// <summary>
 		/// Last version of Datalya.
@@ -252,7 +254,7 @@ namespace Datalya.Classes
 
 		public static bool IsSystemThemeDark()
 		{
-			if (Env.WindowsVersion != WindowsVersion.Windows10)
+			if (Env.WindowsVersion != WindowsVersion.Windows10 && Env.WindowsVersion != WindowsVersion.Windows11)
 			{
 				return false; // Avoid errors on older OSs
 			}
@@ -282,6 +284,42 @@ namespace Datalya.Classes
 				default: // No language
 					break;
 			}
+		}
+
+		public static void CreateJumpLists()
+		{
+			JumpList jumpList = new();
+
+			jumpList.JumpItems.Add(new JumpTask()
+			{
+				Title = Properties.Resources.Home,
+				Arguments = "/action 0",
+				Description = Properties.Resources.Home,
+				CustomCategory = Properties.Resources.Actions,
+				IconResourcePath = Assembly.GetEntryAssembly().Location
+			}); // Create the "Home" jumplist
+
+			jumpList.JumpItems.Add(new JumpTask()
+			{
+				Title = Properties.Resources.New + "...",
+				Arguments = "/action 1",
+				Description = Properties.Resources.New + "...",
+				CustomCategory = Properties.Resources.Actions,
+				IconResourcePath = Assembly.GetEntryAssembly().Location
+			}); // Create the "New database" jumplist
+
+			jumpList.JumpItems.Add(new JumpTask()
+			{
+				Title = Properties.Resources.Template,
+				Arguments = "/action 2",
+				Description = Properties.Resources.Template,
+				CustomCategory = Properties.Resources.Actions,
+				IconResourcePath = Assembly.GetEntryAssembly().Location
+			}); // Create the "Templates" jumplist
+
+			jumpList.ShowRecentCategory = true;
+
+			JumpList.SetJumpList(Application.Current, jumpList);
 		}
 	}
 }

@@ -34,7 +34,7 @@ Datalya is a modern database creator and management tool for Windows. It is buil
 
 ## Contribute
 To contribute to the project, you'll need:
-- Visual Studio 2019 v16.8 or higher
+- Visual Studio 2022 v17.0 or higher
   - .NET Desktop Developpement
   - Git
 - .NET 5

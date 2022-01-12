@@ -44,7 +44,10 @@ namespace Datalya.Windows
 
 		private void InitUI()
 		{
+			Topmost = true; // Always on top
+
 			TemplateDisplayer.Children.Clear(); // Clear
+
 			for (int i = 0; i < Global.BlockTemplates.Count; i++)
 			{
 				TemplateDisplayer.Children.Add(new TemplateItem(Global.BlockTemplates[i], this)); // Add new item

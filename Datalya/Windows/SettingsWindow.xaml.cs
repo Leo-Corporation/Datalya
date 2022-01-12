@@ -187,31 +187,6 @@ namespace Datalya.Windows
 			CheckedBorder.BorderBrush = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set color
 		}
 
-		private void ResetSettingsLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-			if (MessageBox.Show(Properties.Resources.ResetSettingsConfirmMsg, Properties.Resources.Settings, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-			{
-				Global.Settings = new()
-				{
-					Theme = Theme.System,
-					CheckUpdatesOnStart = true,
-					Language = "_default",
-					NotifyUpdates = true,
-					RecentFiles = new(),
-					IsMaximized = false,
-					IsFirstRun = false, // Default is true but would be useless
-					DisplayDeleteBlockMessage = true
-				}; // Create default settings
-
-				SettingsManager.Save(); // Save the changes
-				InitUI(); // Reload the page
-
-				MessageBox.Show(Properties.Resources.SettingsReset, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
-				Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe");
-				Environment.Exit(0); // Quit
-			}
-		}
-
 		private void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			LangApplyBtn.Visibility = Visibility.Visible; // Visible
@@ -248,7 +223,32 @@ namespace Datalya.Windows
 			SettingsManager.Save(); // Save changes
 		}
 
-		private void AboutLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		private void ResetSettingsLink_Click(object sender, RoutedEventArgs e)
+		{
+			if (MessageBox.Show(Properties.Resources.ResetSettingsConfirmMsg, Properties.Resources.Settings, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+			{
+				Global.Settings = new()
+				{
+					Theme = Theme.System,
+					CheckUpdatesOnStart = true,
+					Language = "_default",
+					NotifyUpdates = true,
+					RecentFiles = new(),
+					IsMaximized = false,
+					IsFirstRun = false, // Default is true but would be useless
+					DisplayDeleteBlockMessage = true
+				}; // Create default settings
+
+				SettingsManager.Save(); // Save the changes
+				InitUI(); // Reload the page
+
+				MessageBox.Show(Properties.Resources.SettingsReset, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+				Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe");
+				Environment.Exit(0); // Quit
+			}
+		}
+
+		private void AboutLink_Click(object sender, RoutedEventArgs e)
 		{
 			AboutWindow aboutWindow = new();
 			aboutWindow.Show();
@@ -256,13 +256,13 @@ namespace Datalya.Windows
 			aboutWindow.Topmost = true;
 		}
 
-		private void SeeLicensesLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		private void SeeLicensesLink_Click(object sender, RoutedEventArgs e)
 		{
 			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
 				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
 				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
-				"LeoCorpLibrary - MIT License - © 2020-2021 Léo Corporation\n" +
-				"Datalya - MIT License - © 2021 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+				"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
+				"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 		}
 	}
 }

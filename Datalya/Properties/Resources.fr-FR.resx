@@ -1261,4 +1261,16 @@ Europe</value>
   <data name="AboutDatalya" xml:space="preserve">
     <value>A propos de Datalya</value>
   </data>
+  <data name="Item" xml:space="preserve">
+    <value>Element</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Modèles</value>
+  </data>
 </root>
