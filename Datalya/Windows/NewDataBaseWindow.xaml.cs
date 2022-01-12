@@ -36,8 +36,9 @@ namespace Datalya.Windows
 	public partial class NewDataBaseWindow : Window
 	{
 		internal BlockTemplate BlockTemplate { get; set; }
-		bool showMainWindow = false;
-		bool showTemplatesWindow = false;
+
+		readonly bool showMainWindow = false;
+		readonly bool showTemplatesWindow = false;
 		public NewDataBaseWindow(bool closeHome = false, bool showTemplates = false)
 		{
 			InitializeComponent();

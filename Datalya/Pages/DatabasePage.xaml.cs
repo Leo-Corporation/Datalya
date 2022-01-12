@@ -402,37 +402,35 @@ namespace Datalya.Pages
 
 					if (saveFileDialog.ShowDialog() ?? true)
 					{
-						using (var workbook = new XLWorkbook())
+						using var workbook = new XLWorkbook();
+						var worksheet = workbook.Worksheets.Add(Global.CurrentDataBase.DataBaseInfo.Name);
+
+						// Populate cells
+						// Headers
+						for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 						{
-							var worksheet = workbook.Worksheets.Add(Global.CurrentDataBase.DataBaseInfo.Name);
-
-							// Populate cells
-							// Headers
-							for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
-							{
-								worksheet.Cell(1, i + 1).Value = Global.CurrentDataBase.Blocks[i].Name; // Set the header in the first row
-								worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
-								worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
-								worksheet.Cell(1, i + 1).Style.Font.Bold = true; // Bold
-							}
-
-							// Add auto filter
-							worksheet.RangeUsed().SetAutoFilter();
-
-							// Content
-							for (int i = 1; i <= Global.CurrentDataBase.ItemsContent.Count; i++)
-							{
-								for (int j = 1; j <= Global.CurrentDataBase.ItemsContent[i - 1].Count; j++) // For each item
-								{
-									worksheet.Cell(i + 1, j).Value = Global.CurrentDataBase.ItemsContent[i - 1][j - 1]; // Set item value
-									worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
-									worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
-									worksheet.Column(j).AdjustToContents(); // Set width
-								}
-							}
-
-							workbook.SaveAs(saveFileDialog.FileName); // Save
+							worksheet.Cell(1, i + 1).Value = Global.CurrentDataBase.Blocks[i].Name; // Set the header in the first row
+							worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
+							worksheet.Cell(1, i + 1).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
+							worksheet.Cell(1, i + 1).Style.Font.Bold = true; // Bold
 						}
+
+						// Add auto filter
+						worksheet.RangeUsed().SetAutoFilter();
+
+						// Content
+						for (int i = 1; i <= Global.CurrentDataBase.ItemsContent.Count; i++)
+						{
+							for (int j = 1; j <= Global.CurrentDataBase.ItemsContent[i - 1].Count; j++) // For each item
+							{
+								worksheet.Cell(i + 1, j).Value = Global.CurrentDataBase.ItemsContent[i - 1][j - 1]; // Set item value
+								worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin); // Thin border
+								worksheet.Cell(i + 1, j).Style.Border.SetOutsideBorderColor(XLColor.Black); // Black border
+								worksheet.Column(j).AdjustToContents(); // Set width
+							}
+						}
+
+						workbook.SaveAs(saveFileDialog.FileName); // Save
 					}
 				}
 			}

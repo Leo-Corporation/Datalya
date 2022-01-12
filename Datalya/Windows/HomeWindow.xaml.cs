@@ -228,7 +228,7 @@ namespace Datalya.Windows
 			Environment.Exit(0); // Exit Datalya
 		}
 
-		internal void NewDbBtn_Click(object sender, RoutedEventArgs e )
+		internal void NewDbBtn_Click(object sender, RoutedEventArgs e)
 		{
 			new NewDataBaseWindow(true, sender is App).Show(); // Show
 		}

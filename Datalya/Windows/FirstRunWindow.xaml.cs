@@ -31,9 +31,9 @@ namespace Datalya.Windows
 	/// </summary>
 	public partial class FirstRunWindow : Window
 	{
-		WelcomeFirstRunPage welcomeFirstRunPage;
-		IntroFirstRunPage introFirstRunPage;
-		ThemeFirstRunPage themeFirstRunPage;
+		readonly WelcomeFirstRunPage welcomeFirstRunPage;
+		readonly IntroFirstRunPage introFirstRunPage;
+		readonly ThemeFirstRunPage themeFirstRunPage;
 
 		public FirstRunWindow()
 		{
