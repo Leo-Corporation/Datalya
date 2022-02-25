@@ -29,136 +29,133 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for EditWindow.xaml
+/// </summary>
+public partial class EditWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for EditWindow.xaml
-	/// </summary>
-	public partial class EditWindow : Window
+	List<string> Item { get; set; }
+	public EditWindow(List<string> item)
 	{
-		List<string> Item { get; set; }
-		public EditWindow(List<string> item)
-		{
-			InitializeComponent();
-			Item = item; // Set value
+		InitializeComponent();
+		Item = item; // Set value
 
-			InitUI(); // Load the UI
-		}
+		InitUI(); // Load the UI
+	}
 
-		private void InitUI()
+	private void InitUI()
+	{
+		try
 		{
-			try
+			for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 			{
-				for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
+				if (i > Item.Count - 1) // If new fields added
 				{
-					if (i > Item.Count - 1) // If new fields added
-					{
-						Item.Add(""); // Set
-					}
-
-					BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
-					{
-						BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
-						BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
-						BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
-						BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
-						_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
-					}); // Add
+					Item.Add(""); // Set
 				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+
+				BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
+				{
+					BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
+				}); // Add
 			}
 		}
-
-		private void EditBtn_Click(object sender, RoutedEventArgs e)
+		catch (Exception ex)
 		{
-			if (Global.CurrentDataBase.ItemsContent.Contains(Item))
-			{
-				List<Classes.Block> blocks = new();
+			MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
 
-				foreach (UIElement uIElement in BlockDisplayer.Children)
+	private void EditBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (Global.CurrentDataBase.ItemsContent.Contains(Item))
+		{
+			List<Classes.Block> blocks = new();
+
+			foreach (UIElement uIElement in BlockDisplayer.Children)
+			{
+				if (uIElement is InputBlockUI inputBlockUI)
 				{
-					if (uIElement is InputBlockUI inputBlockUI)
+					if (inputBlockUI.ValueTxt.Text is not null)
 					{
-						if (inputBlockUI.ValueTxt.Text is not null)
-						{
-							InputBlock i = new() { Name = inputBlockUI.InputBlock.Name };
-							i.BlockValue = inputBlockUI.ValueTxt.Text;
-							blocks.Add(i); // Add item 
-						}
+						InputBlock i = new() { Name = inputBlockUI.InputBlock.Name };
+						i.BlockValue = inputBlockUI.ValueTxt.Text;
+						blocks.Add(i); // Add item 
 					}
-					else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
+				}
+				else if (uIElement is MultichoicesBlockUI multichoicesBlockUI)
+				{
+					MultichoicesBlock multichoicesBlock = new() { Name = multichoicesBlockUI.MultichoicesBlock.Name };
+					for (int i = 0; i < multichoicesBlockUI.CheckBoxesDisplayer.Children.Count; i++)
 					{
-						MultichoicesBlock multichoicesBlock = new() { Name = multichoicesBlockUI.MultichoicesBlock.Name };
-						for (int i = 0; i < multichoicesBlockUI.CheckBoxesDisplayer.Children.Count; i++)
+						if (multichoicesBlockUI.CheckBoxesDisplayer.Children[i] is CheckBox checkBox)
 						{
-							if (multichoicesBlockUI.CheckBoxesDisplayer.Children[i] is CheckBox)
+							if (checkBox.IsChecked.Value)
 							{
-								CheckBox checkBox = (CheckBox)multichoicesBlockUI.CheckBoxesDisplayer.Children[i];
-								if (checkBox.IsChecked.Value)
-								{
-									multichoicesBlock.SelectedChoices.Add(checkBox.Content.ToString());
-								}
+								multichoicesBlock.SelectedChoices.Add(checkBox.Content.ToString());
 							}
 						}
+					}
 
-						blocks.Add(multichoicesBlock);
-					}
-					else if (uIElement is UserControls.SelectorBlock selectorBlock)
+					blocks.Add(multichoicesBlock);
+				}
+				else if (uIElement is UserControls.SelectorBlock selectorBlock)
+				{
+					Classes.SelectorBlock cSelector = new() { Name = selectorBlock.CSelectorBlock.Name };
+					if (selectorBlock.ItemComboBox.SelectedItem is not null)
 					{
-						Classes.SelectorBlock cSelector = new() { Name = selectorBlock.CSelectorBlock.Name };
-						if (selectorBlock.ItemComboBox.SelectedItem is not null)
-						{
-							cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
-							blocks.Add(cSelector);
-						}
+						cSelector.BlockValue = selectorBlock.ItemComboBox.SelectedItem.ToString();
+						blocks.Add(cSelector);
 					}
-					else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
+				}
+				else if (uIElement is SingleChoiceBlockUI singleChoiceBlockUI)
+				{
+					SingleChoiceBlock singleChoiceBlock = new() { Name = singleChoiceBlockUI.SingleChoiceBlock.Name };
+					for (int i = 0; i < singleChoiceBlockUI.RadioButtonsDisplayer.Children.Count; i++)
 					{
-						SingleChoiceBlock singleChoiceBlock = new() { Name = singleChoiceBlockUI.SingleChoiceBlock.Name };
-						for (int i = 0; i < singleChoiceBlockUI.RadioButtonsDisplayer.Children.Count; i++)
+						if (singleChoiceBlockUI.RadioButtonsDisplayer.Children[i] is RadioButton radioButton)
 						{
-							if (singleChoiceBlockUI.RadioButtonsDisplayer.Children[i] is RadioButton)
+							if (radioButton.IsChecked.Value)
 							{
-								RadioButton radioButton = (RadioButton)singleChoiceBlockUI.RadioButtonsDisplayer.Children[i];
-								if (radioButton.IsChecked.Value)
-								{
-									singleChoiceBlock.BlockValue = radioButton.Content.ToString(); // Set
-								}
+								singleChoiceBlock.BlockValue = radioButton.Content.ToString(); // Set
 							}
 						}
-
-						blocks.Add(singleChoiceBlock);
 					}
-				}
 
-				List<string> newItem = new();
-				for (int i = 0; i < blocks.Count; i++)
-				{
-					newItem.Add(blocks[i].ToString()); // Add item
+					blocks.Add(singleChoiceBlock);
 				}
-
-				Global.CurrentDataBase.ItemsContent[Global.CurrentDataBase.ItemsContent.IndexOf(Item)] = newItem; // Edit
-				Global.IsModified = true;
-				Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
-				Close(); // Close window 
 			}
-			else
+
+			List<string> newItem = new();
+			for (int i = 0; i < blocks.Count; i++)
 			{
-				MessageBox.Show(Properties.Resources.CantEditItemDeletedMsg, Properties.Resources.EditElement, MessageBoxButton.OK, MessageBoxImage.Error);
+				newItem.Add(blocks[i].ToString()); // Add item
 			}
-		}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize
+			Global.CurrentDataBase.ItemsContent[Global.CurrentDataBase.ItemsContent.IndexOf(Item)] = newItem; // Edit
+			Global.IsModified = true;
+			Global.DatabasePage.InitDataBaseUI(); // Refresh database UI
+			Close(); // Close window 
 		}
+		else
+		{
+			MessageBox.Show(Properties.Resources.CantEditItemDeletedMsg, Properties.Resources.EditElement, MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize
+	}
+
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close();
 	}
 }

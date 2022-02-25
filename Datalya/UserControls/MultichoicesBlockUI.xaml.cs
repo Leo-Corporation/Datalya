@@ -28,45 +28,44 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for MultichoicesBlockUI.xaml
+/// </summary>
+public partial class MultichoicesBlockUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for MultichoicesBlockUI.xaml
-	/// </summary>
-	public partial class MultichoicesBlockUI : UserControl
+	public MultichoicesBlock MultichoicesBlock { get; set; }
+	string ContentTxt { get; set; }
+	public MultichoicesBlockUI(MultichoicesBlock multichoicesBlock, string content = "")
 	{
-		public MultichoicesBlock MultichoicesBlock { get; set; }
-		string ContentTxt { get; set; }
-		public MultichoicesBlockUI(MultichoicesBlock multichoicesBlock, string content = "")
+		InitializeComponent();
+		MultichoicesBlock = multichoicesBlock; // Set
+		ContentTxt = content; // Set
+
+		InitUI();
+	}
+
+	private void InitUI()
+	{
+		NameTxt.Text = MultichoicesBlock.Name; // Set text
+
+		string[] selectedChoices = ContentTxt.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries); // Split
+
+		// Add Checkboxes
+		for (int i = 0; i < MultichoicesBlock.Choices.Count; i++) // For each choice
 		{
-			InitializeComponent();
-			MultichoicesBlock = multichoicesBlock; // Set
-			ContentTxt = content; // Set
-
-			InitUI();
-		}
-
-		private void InitUI()
-		{
-			NameTxt.Text = MultichoicesBlock.Name; // Set text
-
-			string[] selectedChoices = ContentTxt.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries); // Split
-
-			// Add Checkboxes
-			for (int i = 0; i < MultichoicesBlock.Choices.Count; i++) // For each choice
+			CheckBoxesDisplayer.Children.Add(new CheckBox()
 			{
-				CheckBoxesDisplayer.Children.Add(new CheckBox()
-				{
-					Style = FindResource("CheckBoxStyle1") as Style, // Set style
-					BorderThickness = new(2), // Set border thickness
-					Content = MultichoicesBlock.Choices[i], // Set content
-					FontWeight = FontWeights.Bold, // Set font to bold
-					VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
-					IsChecked = selectedChoices.Contains(MultichoicesBlock.Choices[i]), // Set IsChecked
-					Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set foreground
-					Background = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) } // Set background
-				});
-			}
+				Style = FindResource("CheckBoxStyle1") as Style, // Set style
+				BorderThickness = new(2), // Set border thickness
+				Content = MultichoicesBlock.Choices[i], // Set content
+				FontWeight = FontWeights.Bold, // Set font to bold
+				VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
+				IsChecked = selectedChoices.Contains(MultichoicesBlock.Choices[i]), // Set IsChecked
+				Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set foreground
+				Background = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) } // Set background
+			});
 		}
 	}
 }

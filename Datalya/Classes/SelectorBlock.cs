@@ -25,26 +25,25 @@ using Datalya.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+[Serializable]
+public class SelectorBlock : Block
 {
-	[Serializable]
-	public class SelectorBlock : Block
+	/// <summary>
+	/// Possible choices.
+	/// </summary>
+	public List<string> Choices { get; set; }
+
+	public string BlockValue { get; set; }
+
+	public SelectorBlock()
 	{
-		/// <summary>
-		/// Possible choices.
-		/// </summary>
-		public List<string> Choices { get; set; }
-
-		public string BlockValue { get; set; }
-
-		public SelectorBlock()
-		{
-			Choices = new();
-			BlockType = BlockType.Selector; // Set
-		}
-
-		public void ChangeName(string name) => Name = name;
-
-		public override string ToString() => BlockValue;
+		Choices = new();
+		BlockType = BlockType.Selector; // Set
 	}
+
+	public void ChangeName(string name) => Name = name;
+
+	public override string ToString() => BlockValue;
 }

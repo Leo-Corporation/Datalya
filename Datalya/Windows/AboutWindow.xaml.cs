@@ -26,61 +26,60 @@ using LeoCorpLibrary;
 using System;
 using System.Windows;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for AboutWindow.xaml
+/// </summary>
+public partial class AboutWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for AboutWindow.xaml
-	/// </summary>
-	public partial class AboutWindow : Window
+	public AboutWindow()
 	{
-		public AboutWindow()
-		{
-			InitializeComponent();
-			InitUI(); // Load the UI
-		}
+		InitializeComponent();
+		InitUI(); // Load the UI
+	}
 
-		private void InitUI()
-		{
-			VersionTxt.Text = $"{Properties.Resources.Version} {Global.Version}"; // Set text
-		}
+	private void InitUI()
+	{
+		VersionTxt.Text = $"{Properties.Resources.Version} {Global.Version}"; // Set text
+	}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize the window
-		}
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize the window
+	}
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close(); // Close the window
+	}
 
-		private async void UpdateBtn_Click(object sender, RoutedEventArgs e)
+	private async void UpdateBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (await NetworkConnection.IsAvailableAsync())
 		{
-			if (await NetworkConnection.IsAvailableAsync())
+			string lastVer = await Update.GetLastVersionAsync(Global.LastVersionLink); // Get last version
+			if (Update.IsAvailable(Global.Version, lastVer))
 			{
-				string lastVer = await Update.GetLastVersionAsync(Global.LastVersionLink); // Get last version
-				if (Update.IsAvailable(Global.Version, lastVer))
+				if (MessageBox.Show(Properties.Resources.UpdatesAvailable, $"{Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
 				{
-					if (MessageBox.Show(Properties.Resources.UpdatesAvailable, $"{Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
-					{
-						Env.ExecuteAsAdmin(AppDomain.CurrentDomain.BaseDirectory + @"\Xalyus Updater.exe"); // Execute as admin
-						Environment.Exit(0); // Close
-					}
-				}
-				else
-				{
-					MessageBox.Show(Properties.Resources.UpToDate, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show messgae
+					Env.ExecuteAsAdmin(AppDomain.CurrentDomain.BaseDirectory + @"\Xalyus Updater.exe"); // Execute as admin
+					Environment.Exit(0); // Close
 				}
 			}
+			else
+			{
+				MessageBox.Show(Properties.Resources.UpToDate, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show messgae
+			}
 		}
+	}
 
-		private void LicensesBtn_Click(object sender, RoutedEventArgs e)
-		{
-			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
-				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
-				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
-				"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
-				"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
-		}
+	private void LicensesBtn_Click(object sender, RoutedEventArgs e)
+	{
+		MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
+			"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
+			"ClosedXML - MIT License - © 2016 ClosedXML\n" +
+			"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
+			"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 	}
 }

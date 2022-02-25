@@ -26,57 +26,56 @@ using Datalya.UserControls;
 using Microsoft.Win32;
 using System.Windows;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for TemplateWindow.xaml
+/// </summary>
+public partial class TemplateWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for TemplateWindow.xaml
-	/// </summary>
-	public partial class TemplateWindow : Window
+	internal NewDataBaseWindow NewDataBaseWindow { get; init; }
+	public TemplateWindow(NewDataBaseWindow newDataBaseWindow)
 	{
-		internal NewDataBaseWindow NewDataBaseWindow { get; init; }
-		public TemplateWindow(NewDataBaseWindow newDataBaseWindow)
+		InitializeComponent();
+		NewDataBaseWindow = newDataBaseWindow; // Set
+
+		InitUI(); // Load the UI
+	}
+
+	private void InitUI()
+	{
+		Topmost = true; // Always on top
+
+		TemplateDisplayer.Children.Clear(); // Clear
+
+		for (int i = 0; i < Global.BlockTemplates.Count; i++)
 		{
-			InitializeComponent();
-			NewDataBaseWindow = newDataBaseWindow; // Set
-
-			InitUI(); // Load the UI
+			TemplateDisplayer.Children.Add(new TemplateItem(Global.BlockTemplates[i], this)); // Add new item
 		}
+	}
 
-		private void InitUI()
+	private void ImportTemplate_Click(object sender, RoutedEventArgs e)
+	{
+		OpenFileDialog openFileDialog = new()
 		{
-			Topmost = true; // Always on top
+			Filter = $"{Properties.Resources.Template}|*.datalyabt",
+			Title = Properties.Resources.ImportTemplate
+		}; // Create OpenFileDialog
 
-			TemplateDisplayer.Children.Clear(); // Clear
-
-			for (int i = 0; i < Global.BlockTemplates.Count; i++)
-			{
-				TemplateDisplayer.Children.Add(new TemplateItem(Global.BlockTemplates[i], this)); // Add new item
-			}
-		}
-
-		private void ImportTemplate_Click(object sender, RoutedEventArgs e)
+		if (openFileDialog.ShowDialog() ?? true)
 		{
-			OpenFileDialog openFileDialog = new()
-			{
-				Filter = $"{Properties.Resources.Template}|*.datalyabt",
-				Title = Properties.Resources.ImportTemplate
-			}; // Create OpenFileDialog
-
-			if (openFileDialog.ShowDialog() ?? true)
-			{
-				BlockTemplateManager.Import(openFileDialog.FileName, true); // Import
-				InitUI(); // Refresh UI
-			}
+			BlockTemplateManager.Import(openFileDialog.FileName, true); // Import
+			InitUI(); // Refresh UI
 		}
+	}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize
-		}
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize
+	}
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close(); // Close the window
 	}
 }

@@ -29,124 +29,123 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for MultichoicesBlockPropertiesUI.xaml
+/// </summary>
+public partial class MultichoicesBlockPropertiesUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for MultichoicesBlockPropertiesUI.xaml
-	/// </summary>
-	public partial class MultichoicesBlockPropertiesUI : UserControl
+	private MultichoicesBlockCreatorUI ParentElement { get; init; }
+	internal MultichoicesBlock MultichoicesBlock { get; set; }
+
+	public MultichoicesBlockPropertiesUI(MultichoicesBlockCreatorUI multichoicesBlockCreatorUI, MultichoicesBlock multichoicesBlock)
 	{
-		private MultichoicesBlockCreatorUI ParentElement { get; init; }
-		internal MultichoicesBlock MultichoicesBlock { get; set; }
+		InitializeComponent();
+		ParentElement = multichoicesBlockCreatorUI; // Set
 
-		public MultichoicesBlockPropertiesUI(MultichoicesBlockCreatorUI multichoicesBlockCreatorUI, MultichoicesBlock multichoicesBlock)
+		if (multichoicesBlock is not null && multichoicesBlock.Choices is not null)
 		{
-			InitializeComponent();
-			ParentElement = multichoicesBlockCreatorUI; // Set
-
-			if (multichoicesBlock is not null && multichoicesBlock.Choices is not null)
+			NameTxt.Text = multichoicesBlock.Name; // Set text
+			for (int i = 0; i < multichoicesBlock.Choices.Count; i++)
 			{
-				NameTxt.Text = multichoicesBlock.Name; // Set text
-				for (int i = 0; i < multichoicesBlock.Choices.Count; i++)
-				{
-					AddCheckBoxItem(multichoicesBlock.Choices[i]); // Add
-				}
-			}
-			else
-			{
-				AddCheckBoxItem(""); // Add item
-				AddCheckBoxItem(""); // Add item
+				AddCheckBoxItem(multichoicesBlock.Choices[i]); // Add
 			}
 		}
-
-		private void SaveBtn_Click(object sender, RoutedEventArgs e)
-		{
-			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
-			{
-				// Choices
-				List<string> choices = new();
-				foreach (Grid grid in TextBoxesDisplayer.Children)
-				{
-					TextBox textBox = (TextBox)grid.Children[0];
-					if (!choices.Contains(textBox.Text))
-					{
-						choices.Add(textBox.Text); // Add choice 
-					}
-					else
-					{
-						MessageBox.Show(Properties.Resources.CantHaveSameItemTwice, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Warning); // Show error
-						return;
-					}
-				}
-
-				// Name
-				MultichoicesBlock = new() { Name = NameTxt.Text };
-				ParentElement.NameTxt.Text = MultichoicesBlock.Name; // Set name
-
-				// Choices part 2
-				MultichoicesBlock.Choices = choices; // Set
-
-				// Var
-				ParentElement.MultichoicesBlock = MultichoicesBlock; // Set
-
-				Global.CreatorPage.SaveChanges(); // Save
-			}
-		}
-
-		private void AddBtn_Click(object sender, RoutedEventArgs e)
+		else
 		{
 			AddCheckBoxItem(""); // Add item
+			AddCheckBoxItem(""); // Add item
 		}
+	}
 
-		internal void AddCheckBoxItem(string text)
+	private void SaveBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 		{
-			try
+			// Choices
+			List<string> choices = new();
+			foreach (Grid grid in TextBoxesDisplayer.Children)
 			{
-				TextBox textBox = new()
+				TextBox textBox = (TextBox)grid.Children[0];
+				if (!choices.Contains(textBox.Text))
 				{
-					Style = FindResource("RegularTextBoxStyle") as Style, // Define style
-					Padding = new(7), // Set padding
-					Margin = new(10, 5, 10, 5), // Set marginn
-					BorderThickness = new(0), // Remove border
-					Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
-					Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
-					FontWeight = FontWeights.Bold, // Set font to bold
-					TextAlignment = TextAlignment.Left, // Left text alignment
-					VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
-					Text = text // Set text
-				}; // Create textbox
-
-				Button button = new()
+					choices.Add(textBox.Text); // Add choice 
+				}
+				else
 				{
-					Style = FindResource("RegularButtonStyle") as Style, // Define style
-					Padding = new(10, 5, 10, 5), // Set padding
-					Margin = new(0, 5, 10, 5), // Set margin
-					BorderThickness = new(0), // Remove border
-					Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
-					HorizontalAlignment = HorizontalAlignment.Center, // Set horizontal alignment
-					VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
-					Cursor = Cursors.Hand, // Set cursor
-					Content = "\uF34D", // Set text
-					FontFamily = new(new Uri("pack://application:,,,/"), "./Fonts/#FluentSystemIcons-Regular"),
-					FontSize = 16, // Set font size
-					Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
-				}; // Create Delete button
-
-				Grid grid = new();
-				grid.ColumnDefinitions.Add(new()); // Create col definitions
-				grid.ColumnDefinitions.Add(new() { Width = GridLength.Auto }); // Create col definitions
-
-				grid.Children.Add(textBox); // Add control
-				grid.Children.Add(button); // Add control
-
-				textBox.SetValue(Grid.ColumnProperty, 0); // Set col
-				button.SetValue(Grid.ColumnProperty, 1); // Set col
-
-				button.Click += (o, e) => TextBoxesDisplayer.Children.Remove(grid); // Remove
-
-				TextBoxesDisplayer.Children.Add(grid); // Add
+					MessageBox.Show(Properties.Resources.CantHaveSameItemTwice, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Warning); // Show error
+					return;
+				}
 			}
-			catch { }
+
+			// Name
+			MultichoicesBlock = new() { Name = NameTxt.Text };
+			ParentElement.NameTxt.Text = MultichoicesBlock.Name; // Set name
+
+			// Choices part 2
+			MultichoicesBlock.Choices = choices; // Set
+
+			// Var
+			ParentElement.MultichoicesBlock = MultichoicesBlock; // Set
+
+			Global.CreatorPage.SaveChanges(); // Save
 		}
+	}
+
+	private void AddBtn_Click(object sender, RoutedEventArgs e)
+	{
+		AddCheckBoxItem(""); // Add item
+	}
+
+	internal void AddCheckBoxItem(string text)
+	{
+		try
+		{
+			TextBox textBox = new()
+			{
+				Style = FindResource("RegularTextBoxStyle") as Style, // Define style
+				Padding = new(7), // Set padding
+				Margin = new(10, 5, 10, 5), // Set marginn
+				BorderThickness = new(0), // Remove border
+				Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
+				Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
+				FontWeight = FontWeights.Bold, // Set font to bold
+				TextAlignment = TextAlignment.Left, // Left text alignment
+				VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
+				Text = text // Set text
+			}; // Create textbox
+
+			Button button = new()
+			{
+				Style = FindResource("RegularButtonStyle") as Style, // Define style
+				Padding = new(10, 5, 10, 5), // Set padding
+				Margin = new(0, 5, 10, 5), // Set margin
+				BorderThickness = new(0), // Remove border
+				Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }, // Set the background
+				HorizontalAlignment = HorizontalAlignment.Center, // Set horizontal alignment
+				VerticalAlignment = VerticalAlignment.Center, // Set vertical alignment
+				Cursor = Cursors.Hand, // Set cursor
+				Content = "\uF34D", // Set text
+				FontFamily = new(new Uri("pack://application:,,,/"), "./Fonts/#FluentSystemIcons-Regular"),
+				FontSize = 16, // Set font size
+				Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set the foreground
+			}; // Create Delete button
+
+			Grid grid = new();
+			grid.ColumnDefinitions.Add(new()); // Create col definitions
+			grid.ColumnDefinitions.Add(new() { Width = GridLength.Auto }); // Create col definitions
+
+			grid.Children.Add(textBox); // Add control
+			grid.Children.Add(button); // Add control
+
+			textBox.SetValue(Grid.ColumnProperty, 0); // Set col
+			button.SetValue(Grid.ColumnProperty, 1); // Set col
+
+			button.Click += (o, e) => TextBoxesDisplayer.Children.Remove(grid); // Remove
+
+			TextBoxesDisplayer.Children.Add(grid); // Add
+		}
+		catch { }
 	}
 }

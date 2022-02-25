@@ -22,28 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 
-namespace Datalya.Enums
+namespace Datalya.Enums;
+
+public enum BlockType
 {
-	public enum BlockType
-	{
-		/// <summary>
-		/// A text field.
-		/// </summary>
-		Input,
+	/// <summary>
+	/// A text field.
+	/// </summary>
+	Input,
 
-		/// <summary>
-		/// Choices with checkboxes.
-		/// </summary>
-		Multichoices,
+	/// <summary>
+	/// Choices with checkboxes.
+	/// </summary>
+	Multichoices,
 
-		/// <summary>
-		/// Choicess with radiobuttons.
-		/// </summary>
-		SingleChoice,
+	/// <summary>
+	/// Choicess with radiobuttons.
+	/// </summary>
+	SingleChoice,
 
-		/// <summary>
-		/// Choices within a ComboBox.
-		/// </summary>
-		Selector
-	}
+	/// <summary>
+	/// Choices within a ComboBox.
+	/// </summary>
+	Selector
 }

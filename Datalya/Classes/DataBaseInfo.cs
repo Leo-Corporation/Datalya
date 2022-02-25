@@ -23,19 +23,19 @@ SOFTWARE.
 */
 using System.Collections.Generic;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+/// <summary>
+/// Informations of a <see cref="DataBase"/>.
+/// </summary>
+public class DataBaseInfo
 {
-	/// <summary>
-	/// Informations of a <see cref="DataBase"/>.
-	/// </summary>
-	public class DataBaseInfo
-	{
-		public string Name { get; set; }
-		public int Size { get; set; }
-		public int LastEditTime { get; set; }
-		public int CreationTime { get; set; }
-		public List<string> Authors { get; set; }
-		public string FilePath { get; set; }
-		public bool IsPinned { get; set; }
-	}
+	public string Name { get; set; }
+	public int Size { get; set; }
+	public int LastEditTime { get; set; }
+	public int CreationTime { get; set; }
+	public List<string> Authors { get; set; }
+	public string FilePath { get; set; }
+	public bool IsPinned { get; set; }
+	public string Version { get; set; }
 }

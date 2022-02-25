@@ -28,66 +28,65 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for SelectorBlockPropertiesUI.xaml
+/// </summary>
+public partial class SelectorBlockPropertiesUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for SelectorBlockPropertiesUI.xaml
-	/// </summary>
-	public partial class SelectorBlockPropertiesUI : UserControl
+	private SelectorBlockCreatorUI ParentElement { get; init; }
+	internal Classes.SelectorBlock CSelectorBlock { get; set; }
+	public SelectorBlockPropertiesUI(SelectorBlockCreatorUI selectorBlockCreatorUI, Classes.SelectorBlock s)
 	{
-		private SelectorBlockCreatorUI ParentElement { get; init; }
-		internal Classes.SelectorBlock CSelectorBlock { get; set; }
-		public SelectorBlockPropertiesUI(SelectorBlockCreatorUI selectorBlockCreatorUI, Classes.SelectorBlock s)
+		InitializeComponent();
+		ParentElement = selectorBlockCreatorUI; // Set
+
+		if (s is not null)
 		{
-			InitializeComponent();
-			ParentElement = selectorBlockCreatorUI; // Set
-
-			if (s is not null)
+			NameTxt.Text = s.Name; // Set text
+			string choices = "";
+			for (int i = 0; i < s.Choices.Count; i++)
 			{
-				NameTxt.Text = s.Name; // Set text
-				string choices = "";
-				for (int i = 0; i < s.Choices.Count; i++)
-				{
-					choices += s.Choices[i] + "\n"; // Add
-				}
-
-				ChoicesTxt.Text = choices; // Set text
-			}
-		}
-
-		private void SaveBtn_Click(object sender, RoutedEventArgs e)
-		{
-			if (string.IsNullOrEmpty(ChoicesTxt.Text) || string.IsNullOrWhiteSpace(ChoicesTxt.Text))
-			{
-				MessageBox.Show(Properties.Resources.PleaseAddItemSelectorBlock, $"{Properties.Resources.DatalyaCreator} - {Properties.Resources.Selector}", MessageBoxButton.OK, MessageBoxImage.Error);
-				return; // Stop
+				choices += s.Choices[i] + "\n"; // Add
 			}
 
-			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
-			{
-				// Name
-				CSelectorBlock = new() { Name = NameTxt.Text };
-				ParentElement.NameTxt.Text = CSelectorBlock.Name; // Set name 
-
-				// Choices
-				string[] lines = ChoicesTxt.Text.Split(new string[] { "\n", "\r", "\r\n" }, StringSplitOptions.RemoveEmptyEntries); // Split
-				var filledLines = lines.RemoveItem(string.Empty); // Remove
-				for (int i = 0; i < filledLines.Length; i++)
-				{
-					CSelectorBlock.Choices.Add(filledLines[i]); // Add
-				}
-
-				// Var
-				ParentElement.SelectorBlock = CSelectorBlock; // Set
-
-				Global.CreatorPage.SaveChanges(); // Save
-			}
+			ChoicesTxt.Text = choices; // Set text
 		}
+	}
 
-		ContentCollectionsWindow ContentCollectionsWindow => new(ChoicesTxt);
-		private void ContentCollectionsBtn_Click(object sender, RoutedEventArgs e)
+	private void SaveBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (string.IsNullOrEmpty(ChoicesTxt.Text) || string.IsNullOrWhiteSpace(ChoicesTxt.Text))
 		{
-			ContentCollectionsWindow.Show();
+			MessageBox.Show(Properties.Resources.PleaseAddItemSelectorBlock, $"{Properties.Resources.DatalyaCreator} - {Properties.Resources.Selector}", MessageBoxButton.OK, MessageBoxImage.Error);
+			return; // Stop
 		}
+
+		if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
+		{
+			// Name
+			CSelectorBlock = new() { Name = NameTxt.Text };
+			ParentElement.NameTxt.Text = CSelectorBlock.Name; // Set name 
+
+			// Choices
+			string[] lines = ChoicesTxt.Text.Split(new string[] { "\n", "\r", "\r\n" }, StringSplitOptions.RemoveEmptyEntries); // Split
+			var filledLines = lines.RemoveItem(string.Empty); // Remove
+			for (int i = 0; i < filledLines.Length; i++)
+			{
+				CSelectorBlock.Choices.Add(filledLines[i]); // Add
+			}
+
+			// Var
+			ParentElement.SelectorBlock = CSelectorBlock; // Set
+
+			Global.CreatorPage.SaveChanges(); // Save
+		}
+	}
+
+	ContentCollectionsWindow ContentCollectionsWindow => new(ChoicesTxt);
+	private void ContentCollectionsBtn_Click(object sender, RoutedEventArgs e)
+	{
+		ContentCollectionsWindow.Show();
 	}
 }

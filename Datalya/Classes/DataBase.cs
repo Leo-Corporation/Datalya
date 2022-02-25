@@ -23,20 +23,19 @@ SOFTWARE.
 */
 using System.Collections.Generic;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+/// <summary>
+/// A DataBase.
+/// </summary>
+public class DataBase
 {
-	/// <summary>
-	/// A DataBase.
-	/// </summary>
-	public class DataBase
+	public List<Block> Blocks { get; set; }
+	public List<List<string>> ItemsContent { get; set; }
+	public DataBaseInfo DataBaseInfo { get; set; }
+	public DataBase()
 	{
-		public List<Block> Blocks { get; set; }
-		public List<List<string>> ItemsContent { get; set; }
-		public DataBaseInfo DataBaseInfo { get; set; }
-		public DataBase()
-		{
-			Blocks = new(); // Create List
-			ItemsContent = new(); // Create List
-		}
+		Blocks = new(); // Create List
+		ItemsContent = new(); // Create List
 	}
 }

@@ -26,81 +26,80 @@ using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+/// <summary>
+/// Template for <see cref="Block"/>.
+/// </summary>
+public class BlockTemplate
 {
 	/// <summary>
-	/// Template for <see cref="Block"/>.
+	/// Name of the template.
 	/// </summary>
-	public class BlockTemplate
-	{
-		/// <summary>
-		/// Name of the template.
-		/// </summary>
-		public string Name { get; set; }
-
-		/// <summary>
-		/// Blocks of the template.
-		/// </summary>
-		public List<Block> Blocks { get; set; }
-	}
+	public string Name { get; set; }
 
 	/// <summary>
-	/// Manages <see cref="BlockTemplate"/>.
+	/// Blocks of the template.
 	/// </summary>
-	public static class BlockTemplateManager
+	public List<Block> Blocks { get; set; }
+}
+
+/// <summary>
+/// Manages <see cref="BlockTemplate"/>.
+/// </summary>
+public static class BlockTemplateManager
+{
+	/// <summary>
+	/// Imports a <see cref="BlockTemplate"/>.
+	/// </summary>
+	/// <param name="filePath"></param>
+	public static void Import(string filePath, bool fromNew = false)
 	{
-		/// <summary>
-		/// Imports a <see cref="BlockTemplate"/>.
-		/// </summary>
-		/// <param name="filePath"></param>
-		public static void Import(string filePath, bool fromNew = false)
+		if (!File.Exists(filePath))
 		{
-			if (!File.Exists(filePath))
+			MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+			return;
+		}
+
+		XmlSerializer xmlSerializer = new(typeof(BlockTemplate)); // Create XML Serializer
+		StreamReader streamReader = new(filePath); // Where the file is going to be read
+
+		var template = (BlockTemplate)xmlSerializer.Deserialize(streamReader); // Deserialize
+
+		if (!fromNew)
+		{
+			for (int i = 0; i < template.Blocks.Count; i++)
 			{
-				MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
+				Global.CurrentDataBase.Blocks.Add(template.Blocks[i]); // Set 
 			}
-
-			XmlSerializer xmlSerializer = new(typeof(BlockTemplate)); // Create XML Serializer
-			StreamReader streamReader = new(filePath); // Where the file is going to be read
-
-			var template = (BlockTemplate)xmlSerializer.Deserialize(streamReader); // Deserialize
-
-			if (!fromNew)
+		}
+		else
+		{
+			if (!Global.BlockTemplates.Contains(template))
 			{
-				for (int i = 0; i < template.Blocks.Count; i++)
-				{
-					Global.CurrentDataBase.Blocks.Add(template.Blocks[i]); // Set 
-				}
+				Global.BlockTemplates.Add(template); // Add 
 			}
 			else
 			{
-				if (!Global.BlockTemplates.Contains(template))
-				{
-					Global.BlockTemplates.Add(template); // Add 
-				}
-				else
-				{
-					MessageBox.Show(Properties.Resources.TemplateAlreadyImported, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show message
-				}
+				MessageBox.Show(Properties.Resources.TemplateAlreadyImported, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show message
 			}
-			Global.CreatorPage.InitUI();
-
-			streamReader.Dispose(); // Dispose
 		}
+		Global.CreatorPage.InitUI();
 
-		/// <summary>
-		/// Exports a <see cref="BlockTemplate"/> in a file.
-		/// </summary>
-		/// <param name="blockTemplate"></param>
-		/// <param name="filePath"></param>
-		public static void Export(BlockTemplate blockTemplate, string filePath)
-		{
-			XmlSerializer xmlSerializer = new(typeof(BlockTemplate)); // Create XML Serializer
-			StreamWriter streamWriter = new(filePath); // Where the file is going to be written
+		streamReader.Dispose(); // Dispose
+	}
 
-			xmlSerializer.Serialize(streamWriter, blockTemplate); // Write file
-			streamWriter.Dispose(); // Dispose
-		}
+	/// <summary>
+	/// Exports a <see cref="BlockTemplate"/> in a file.
+	/// </summary>
+	/// <param name="blockTemplate"></param>
+	/// <param name="filePath"></param>
+	public static void Export(BlockTemplate blockTemplate, string filePath)
+	{
+		XmlSerializer xmlSerializer = new(typeof(BlockTemplate)); // Create XML Serializer
+		StreamWriter streamWriter = new(filePath); // Where the file is going to be written
+
+		xmlSerializer.Serialize(streamWriter, blockTemplate); // Write file
+		streamWriter.Dispose(); // Dispose
 	}
 }

@@ -22,26 +22,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 
-namespace Datalya.Enums
+namespace Datalya.Enums;
+
+/// <summary>
+/// Datalya's themes.
+/// </summary>
+public enum Theme
 {
 	/// <summary>
-	/// Datalya's themes.
+	/// Dark theme.
 	/// </summary>
-	public enum Theme
-	{
-		/// <summary>
-		/// Dark theme.
-		/// </summary>
-		Dark,
+	Dark,
 
-		/// <summary>
-		/// Light theme.
-		/// </summary>
-		Light,
+	/// <summary>
+	/// Light theme.
+	/// </summary>
+	Light,
 
-		/// <summary>
-		/// System theme.
-		/// </summary>
-		System
-	}
+	/// <summary>
+	/// System theme.
+	/// </summary>
+	System
 }

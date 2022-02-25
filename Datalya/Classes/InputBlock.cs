@@ -24,23 +24,22 @@ SOFTWARE.
 using Datalya.Enums;
 using System;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+[Serializable]
+public class InputBlock : Block
 {
-	[Serializable]
-	public class InputBlock : Block
+	public string BlockValue { get; set; }
+
+	public string PlaceHolder { get; set; }
+
+	public InputBlock()
 	{
-		public string BlockValue { get; set; }
-
-		public string PlaceHolder { get; set; }
-
-		public InputBlock()
-		{
-			BlockType = BlockType.Input; // Set
-		}
-
-		public void ChangeName(string name) => Name = name;
-
-		public override string ToString() => BlockValue;
-
+		BlockType = BlockType.Input; // Set
 	}
+
+	public void ChangeName(string name) => Name = name;
+
+	public override string ToString() => BlockValue;
+
 }

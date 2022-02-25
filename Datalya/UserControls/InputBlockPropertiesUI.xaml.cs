@@ -25,37 +25,36 @@ using Datalya.Classes;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for InputBlockPropertiesUI.xaml
+/// </summary>
+public partial class InputBlockPropertiesUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for InputBlockPropertiesUI.xaml
-	/// </summary>
-	public partial class InputBlockPropertiesUI : UserControl
+	private InputBlockCreatorUI ParentElement { get; init; }
+	internal InputBlock InputBlock { get; set; }
+	public InputBlockPropertiesUI(InputBlockCreatorUI inputBlockCreatorUI, InputBlock inputBlock)
 	{
-		private InputBlockCreatorUI ParentElement { get; init; }
-		internal InputBlock InputBlock { get; set; }
-		public InputBlockPropertiesUI(InputBlockCreatorUI inputBlockCreatorUI, InputBlock inputBlock)
-		{
-			InitializeComponent();
-			InputBlock = inputBlock; // Set
-			ParentElement = inputBlockCreatorUI; // Set
+		InitializeComponent();
+		InputBlock = inputBlock; // Set
+		ParentElement = inputBlockCreatorUI; // Set
 
-			if (inputBlock is not null)
-			{
-				NameTxt.Text = inputBlock.Name; // Set
-				PlaceholderTxt.Text = inputBlock.PlaceHolder; // Set
-			}
+		if (inputBlock is not null)
+		{
+			NameTxt.Text = inputBlock.Name; // Set
+			PlaceholderTxt.Text = inputBlock.PlaceHolder; // Set
 		}
+	}
 
-		private void SaveBtn_Click(object sender, RoutedEventArgs e)
+	private void SaveBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 		{
-			if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
-			{
-				InputBlock = new() { Name = NameTxt.Text, PlaceHolder = PlaceholderTxt.Text };
-				ParentElement.NameTxt.Text = InputBlock.Name; // Set name 
-				ParentElement.InputBlock = InputBlock; // Set
-				Global.CreatorPage.SaveChanges(); // Save
-			}
+			InputBlock = new() { Name = NameTxt.Text, PlaceHolder = PlaceholderTxt.Text };
+			ParentElement.NameTxt.Text = InputBlock.Name; // Set name 
+			ParentElement.InputBlock = InputBlock; // Set
+			Global.CreatorPage.SaveChanges(); // Save
 		}
 	}
 }
