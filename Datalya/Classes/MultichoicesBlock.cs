@@ -25,41 +25,40 @@ using Datalya.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+[Serializable]
+public class MultichoicesBlock : Block
 {
-	[Serializable]
-	public class MultichoicesBlock : Block
+
+	/// <summary>
+	/// Possible choices.
+	/// </summary>
+	public List<string> Choices { get; set; }
+
+	public List<string> SelectedChoices { get; set; }
+
+	public string BlockValue { get; set; }
+
+	public MultichoicesBlock()
 	{
+		Choices = new();
+		SelectedChoices = new();
+		BlockType = BlockType.Multichoices; // Set
+	}
 
-		/// <summary>
-		/// Possible choices.
-		/// </summary>
-		public List<string> Choices { get; set; }
+	public void ChangeName(string name) => Name = name;
 
-		public List<string> SelectedChoices { get; set; }
+	public override string ToString()
+	{
+		string result = ""; // Final result string
 
-		public string BlockValue { get; set; }
-
-		public MultichoicesBlock()
+		for (int i = 0; i < SelectedChoices.Count; i++)
 		{
-			Choices = new();
-			SelectedChoices = new();
-			BlockType = BlockType.Multichoices; // Set
+			string s = i == SelectedChoices.Count - 1 ? "" : ", "; // Set
+			result += $"{SelectedChoices[i]}{s}"; // Add text to string
 		}
-
-		public void ChangeName(string name) => Name = name;
-
-		public override string ToString()
-		{
-			string result = ""; // Final result string
-
-			for (int i = 0; i < SelectedChoices.Count; i++)
-			{
-				string s = i == SelectedChoices.Count - 1 ? "" : ", "; // Set
-				result += $"{SelectedChoices[i]}{s}"; // Add text to string
-			}
-			BlockValue = result;
-			return result;
-		}
+		BlockValue = result;
+		return result;
 	}
 }

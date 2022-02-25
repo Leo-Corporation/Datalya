@@ -23,35 +23,34 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for SelectorBlock.xaml
+/// </summary>
+public partial class SelectorBlock : UserControl
 {
-	/// <summary>
-	/// Interaction logic for SelectorBlock.xaml
-	/// </summary>
-	public partial class SelectorBlock : UserControl
+	public Classes.SelectorBlock CSelectorBlock { get; set; }
+	string ContentTxt { get; set; }
+	public SelectorBlock(Classes.SelectorBlock selectorBlock, string content = "")
 	{
-		public Classes.SelectorBlock CSelectorBlock { get; set; }
-		string ContentTxt { get; set; }
-		public SelectorBlock(Classes.SelectorBlock selectorBlock, string content = "")
-		{
-			InitializeComponent();
-			CSelectorBlock = selectorBlock; // Set value
-			ContentTxt = content; // Set value
+		InitializeComponent();
+		CSelectorBlock = selectorBlock; // Set value
+		ContentTxt = content; // Set value
 
-			InitUI();
+		InitUI();
+	}
+
+	private void InitUI()
+	{
+		NameTxt.Text = CSelectorBlock.Name; // Set text
+
+		// Load combobox
+		for (int i = 0; i < CSelectorBlock.Choices.Count; i++)
+		{
+			ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
 		}
 
-		private void InitUI()
-		{
-			NameTxt.Text = CSelectorBlock.Name; // Set text
-
-			// Load combobox
-			for (int i = 0; i < CSelectorBlock.Choices.Count; i++)
-			{
-				ItemComboBox.Items.Add(CSelectorBlock.Choices[i]); // Add
-			}
-
-			ItemComboBox.SelectedItem = ContentTxt; // Set
-		}
+		ItemComboBox.SelectedItem = ContentTxt; // Set
 	}
 }

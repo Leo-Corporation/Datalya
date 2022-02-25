@@ -23,16 +23,15 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.Pages.Help
+namespace Datalya.Pages.Help;
+
+/// <summary>
+/// Interaction logic for DeleteItemHelpPage.xaml
+/// </summary>
+public partial class DeleteItemHelpPage : Page
 {
-	/// <summary>
-	/// Interaction logic for DeleteItemHelpPage.xaml
-	/// </summary>
-	public partial class DeleteItemHelpPage : Page
+	public DeleteItemHelpPage()
 	{
-		public DeleteItemHelpPage()
-		{
-			InitializeComponent();
-		}
+		InitializeComponent();
 	}
 }

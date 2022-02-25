@@ -26,67 +26,64 @@ using LeoCorpLibrary;
 using System;
 using System.Windows;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for DataBaseInfoWindow.xaml
+/// </summary>
+public partial class DataBaseInfoWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for DataBaseInfoWindow.xaml
-	/// </summary>
-	public partial class DataBaseInfoWindow : Window
+	public DataBaseInfoWindow()
 	{
-		public DataBaseInfoWindow()
+		InitializeComponent();
+		InitUI(); // Load the UI
+	}
+
+	private void InitUI()
+	{
+		// Name
+		DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
+
+		// Size
+
+		Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out double size, out UnitType unitType);
+		string unit = unitType switch
 		{
-			InitializeComponent();
-			InitUI(); // Load the UI
-		}
+			UnitType.Byte => Properties.Resources.Bytes, // Set text
+			UnitType.Kilobyte => Properties.Resources.Ko, // Set text
+			UnitType.Megabyte => Properties.Resources.Mo, // Set text
+			_ => Properties.Resources.Ko // Set text
+		}; // Set unit text
 
-		private void InitUI()
+		SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
+
+		// Last Edit
+		var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
+		LastEditTxt.Text = date.ToString("g"); // Set text
+
+		// Creation time
+		var date1 = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
+		CreationTxt.Text = date1.ToString("g"); // Set text
+
+		// Authors
+		for (int i = 0; i < Global.CurrentDataBase.DataBaseInfo.Authors.Count; i++)
 		{
-			// Name
-			DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
-
-			// Size
-			double size;
-			UnitType unitType;
-
-			Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out size, out unitType);
-			string unit = unitType switch
-			{
-				UnitType.Byte => Properties.Resources.Bytes, // Set text
-				UnitType.Kilobyte => Properties.Resources.Ko, // Set text
-				UnitType.Megabyte => Properties.Resources.Mo, // Set text
-				_ => Properties.Resources.Ko // Set text
-			}; // Set unit text
-
-			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
-
-			// Last Edit
-			var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
-			LastEditTxt.Text = date.ToString("g"); // Set text
-
-			// Creation time
-			var date1 = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
-			CreationTxt.Text = date1.ToString("g"); // Set text
-
-			// Authors
-			for (int i = 0; i < Global.CurrentDataBase.DataBaseInfo.Authors.Count; i++)
-			{
-				AuthorsTxt.Text += Global.CurrentDataBase.DataBaseInfo.Authors[i] + "\n"; // Set text
-			}
+			AuthorsTxt.Text += Global.CurrentDataBase.DataBaseInfo.Authors[i] + "\n"; // Set text
 		}
+	}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize
-		}
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize
+	}
 
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close(); // Close the window
+	}
 
-		private void CloseWindowBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
+	private void CloseWindowBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close(); // Close the window
 	}
 }

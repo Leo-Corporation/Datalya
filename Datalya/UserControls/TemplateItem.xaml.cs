@@ -26,36 +26,35 @@ using Datalya.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for TemplateItem.xaml
+/// </summary>
+public partial class TemplateItem : UserControl
 {
-	/// <summary>
-	/// Interaction logic for TemplateItem.xaml
-	/// </summary>
-	public partial class TemplateItem : UserControl
+	BlockTemplate BlockTemplate { get; set; }
+	TemplateWindow TemplateWindow { get; init; }
+	public TemplateItem(BlockTemplate blockTemplate, TemplateWindow templateWindow)
 	{
-		BlockTemplate BlockTemplate { get; set; }
-		TemplateWindow TemplateWindow { get; init; }
-		public TemplateItem(BlockTemplate blockTemplate, TemplateWindow templateWindow)
-		{
-			InitializeComponent();
-			BlockTemplate = blockTemplate; // Set
-			TemplateWindow = templateWindow; // Set
+		InitializeComponent();
+		BlockTemplate = blockTemplate; // Set
+		TemplateWindow = templateWindow; // Set
 
-			InitUI(); // Load the UI
-		}
+		InitUI(); // Load the UI
+	}
 
-		private void InitUI()
-		{
-			NameTxt.Text = BlockTemplate.Name; // Set text
-			ShortTxt.Text = BlockTemplate.Name[0].ToString().ToUpper() + BlockTemplate.Name[1].ToString(); // Set text
-		}
+	private void InitUI()
+	{
+		NameTxt.Text = BlockTemplate.Name; // Set text
+		ShortTxt.Text = BlockTemplate.Name[0].ToString().ToUpper() + BlockTemplate.Name[1].ToString(); // Set text
+	}
 
-		private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
-			TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
-			TemplateWindow.NewDataBaseWindow.InitUI();
-			TemplateWindow.Close(); // Close
-		}
+	private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+	{
+		TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
+		TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
+		TemplateWindow.NewDataBaseWindow.InitUI();
+		TemplateWindow.Close(); // Close
 	}
 }

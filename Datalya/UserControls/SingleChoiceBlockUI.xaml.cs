@@ -26,41 +26,40 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for SingleChoiceBlockUI.xaml
+/// </summary>
+public partial class SingleChoiceBlockUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for SingleChoiceBlockUI.xaml
-	/// </summary>
-	public partial class SingleChoiceBlockUI : UserControl
+	public SingleChoiceBlock SingleChoiceBlock { get; set; }
+	string ContentTxt { get; set; }
+	public SingleChoiceBlockUI(SingleChoiceBlock singleChoiceBlock, string content = "")
 	{
-		public SingleChoiceBlock SingleChoiceBlock { get; set; }
-		string ContentTxt { get; set; }
-		public SingleChoiceBlockUI(SingleChoiceBlock singleChoiceBlock, string content = "")
+		InitializeComponent();
+		SingleChoiceBlock = singleChoiceBlock; // Set value
+		ContentTxt = content; // Set value
+
+		InitUI();
+	}
+
+	private void InitUI()
+	{
+		NameTxt.Text = SingleChoiceBlock.Name; // Set text
+
+		for (int i = 0; i < SingleChoiceBlock.Choices.Count; i++)
 		{
-			InitializeComponent();
-			SingleChoiceBlock = singleChoiceBlock; // Set value
-			ContentTxt = content; // Set value
-
-			InitUI();
-		}
-
-		private void InitUI()
-		{
-			NameTxt.Text = SingleChoiceBlock.Name; // Set text
-
-			for (int i = 0; i < SingleChoiceBlock.Choices.Count; i++)
+			RadioButtonsDisplayer.Children.Add(new RadioButton()
 			{
-				RadioButtonsDisplayer.Children.Add(new RadioButton()
-				{
-					Style = FindResource("RadioButtonStyle1") as Style, // Set style
-					Content = SingleChoiceBlock.Choices[i], // Set content
-					FontWeight = FontWeights.Bold, // Set font to bold
-					VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
-					IsChecked = ContentTxt == SingleChoiceBlock.Choices[i], // Set IsChecked
-					Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set foreground
-					Background = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) } // Set background
-				});
-			}
+				Style = FindResource("RadioButtonStyle1") as Style, // Set style
+				Content = SingleChoiceBlock.Choices[i], // Set content
+				FontWeight = FontWeights.Bold, // Set font to bold
+				VerticalContentAlignment = VerticalAlignment.Center, // Set vertical alignment
+				IsChecked = ContentTxt == SingleChoiceBlock.Choices[i], // Set IsChecked
+				Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }, // Set foreground
+				Background = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) } // Set background
+			});
 		}
 	}
 }

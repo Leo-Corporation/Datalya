@@ -28,108 +28,107 @@ using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+/// <summary>
+/// Methods to manage a <see cref="DataBase"/>.
+/// </summary>
+public static class DataBaseManager
 {
 	/// <summary>
-	/// Methods to manage a <see cref="DataBase"/>.
+	/// Saves a spceified <see cref="DataBase"/> in a file.
 	/// </summary>
-	public static class DataBaseManager
+	/// <param name="dataBase"></param>
+	public static void Save(DataBase dataBase, string filePath)
 	{
-		/// <summary>
-		/// Saves a spceified <see cref="DataBase"/> in a file.
-		/// </summary>
-		/// <param name="dataBase"></param>
-		public static void Save(DataBase dataBase, string filePath)
+		try
 		{
-			try
-			{
-				dataBase.DataBaseInfo.FilePath = filePath; // Set
+			dataBase.DataBaseInfo.FilePath = filePath; // Set
 
-				// Get size
-				if (File.Exists(filePath))
+			// Get size
+			if (File.Exists(filePath))
+			{
+				FileInfo fileInfo = new(filePath); // Create fileinfo 
+				dataBase.DataBaseInfo.Size = (int)fileInfo.Length; // Set
+			}
+
+			DataBase dataBase1 = dataBase; // Set value
+			dataBase1.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+
+			if (!Global.DataBaseItemAlreadyExists(dataBase.DataBaseInfo)) // Check
+			{
+				Global.Settings.RecentFiles.Add(dataBase.DataBaseInfo); // Add
+				SettingsManager.Save();
+			}
+			else
+			{
+				List<string> files = new();
+				for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
 				{
-					FileInfo fileInfo = new(filePath); // Create fileinfo 
-					dataBase.DataBaseInfo.Size = (int)fileInfo.Length; // Set
+					files.Add(Global.Settings.RecentFiles[i].FilePath);
 				}
 
-				DataBase dataBase1 = dataBase; // Set value
-				dataBase1.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+				int index = files.IndexOf(filePath);
+				Global.Settings.RecentFiles[index] = dataBase1.DataBaseInfo; // Set
+			}
+			XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
 
-				if (!Global.DataBaseItemAlreadyExists(dataBase.DataBaseInfo)) // Check
+			StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
+			xmlSerializer.Serialize(streamWriter, dataBase); // Save
+
+			streamWriter.Dispose(); // Dispose
+			Global.IsModified = false; // Saved modifications
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
+
+	/// <summary>
+	/// Opens a specified <see cref="DataBase"/> from a file path.
+	/// </summary>
+	/// <param name="filePath"></param>
+	public static void Open(string filePath)
+	{
+		try
+		{
+			if (File.Exists(filePath))
+			{
+				XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
+				StreamReader streamReader = new(filePath); // The location of the file
+
+				Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
+				streamReader.Dispose(); // Dispose
+
+				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+				if (string.IsNullOrEmpty(Global.CurrentDataBase.DataBaseInfo.Version))
 				{
-					Global.Settings.RecentFiles.Add(dataBase.DataBaseInfo); // Add
+					Global.CurrentDataBase.DataBaseInfo.Version = Global.Version;
+				}
+
+				Global.DatabasePage.InitDataBaseUI(); // Refresh database view
+				Global.CreatorPage.InitUI(); // Refresh creator view
+				Global.MainWindow.RefreshName(); // Refresh database name
+
+				Global.DataBaseFilePath = filePath; // Set
+				Global.CurrentDataBase.DataBaseInfo.FilePath = filePath; // Set
+				Global.IsModified = false;
+
+				if (!Global.DataBaseItemAlreadyExists(Global.CurrentDataBase.DataBaseInfo)) // Check
+				{
+					Global.Settings.RecentFiles.Add(Global.CurrentDataBase.DataBaseInfo); // Add
 					SettingsManager.Save();
 				}
-				else
-				{
-					List<string> files = new();
-					for (int i = 0; i < Global.Settings.RecentFiles.Count; i++)
-					{
-						files.Add(Global.Settings.RecentFiles[i].FilePath);
-					}
-
-					int index = files.IndexOf(filePath);
-					Global.Settings.RecentFiles[index] = dataBase1.DataBaseInfo; // Set
-				}
-				XmlSerializer xmlSerializer = new(dataBase1.GetType()); // XML Serializer
-
-				StreamWriter streamWriter = new(filePath); // The place where the file is gonna be written
-				xmlSerializer.Serialize(streamWriter, dataBase); // Save
-
-				streamWriter.Dispose(); // Dispose
-				Global.IsModified = false; // Saved modifications
 			}
-			catch (Exception ex)
+			else
 			{
-				MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
 			}
 		}
-
-		/// <summary>
-		/// Opens a specified <see cref="DataBase"/> from a file path.
-		/// </summary>
-		/// <param name="filePath"></param>
-		public static void Open(string filePath)
+		catch (Exception ex)
 		{
-			try
-			{
-				if (File.Exists(filePath))
-				{
-					XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
-					StreamReader streamReader = new(filePath); // The location of the file
-
-					Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
-					streamReader.Dispose(); // Dispose
-
-					Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
-					if (string.IsNullOrEmpty(Global.CurrentDataBase.DataBaseInfo.Version))
-					{
-						Global.CurrentDataBase.DataBaseInfo.Version = Global.Version;
-					}
-
-					Global.DatabasePage.InitDataBaseUI(); // Refresh database view
-					Global.CreatorPage.InitUI(); // Refresh creator view
-					Global.MainWindow.RefreshName(); // Refresh database name
-
-					Global.DataBaseFilePath = filePath; // Set
-					Global.CurrentDataBase.DataBaseInfo.FilePath = filePath; // Set
-					Global.IsModified = false;
-
-					if (!Global.DataBaseItemAlreadyExists(Global.CurrentDataBase.DataBaseInfo)) // Check
-					{
-						Global.Settings.RecentFiles.Add(Global.CurrentDataBase.DataBaseInfo); // Add
-						SettingsManager.Save();
-					}
-				}
-				else
-				{
-					MessageBox.Show(Properties.Resources.FileNotFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Show message
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
-			}
+			MessageBox.Show($"{Properties.Resources.Error}\n{ex.Message}", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error);
 		}
 	}
 }

@@ -23,16 +23,15 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.Pages.Help
+namespace Datalya.Pages.Help;
+
+/// <summary>
+/// Interaction logic for AddItemHelpPage.xaml
+/// </summary>
+public partial class AddItemHelpPage : Page
 {
-	/// <summary>
-	/// Interaction logic for AddItemHelpPage.xaml
-	/// </summary>
-	public partial class AddItemHelpPage : Page
+	public AddItemHelpPage()
 	{
-		public AddItemHelpPage()
-		{
-			InitializeComponent();
-		}
+		InitializeComponent();
 	}
 }

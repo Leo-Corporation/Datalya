@@ -29,12 +29,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Xalyus_Updater
+namespace Xalyus_Updater;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
-	public partial class App : Application
-	{
-	}
 }

@@ -23,16 +23,15 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for EmptyPropertyUI.xaml
+/// </summary>
+public partial class EmptyPropertyUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for EmptyPropertyUI.xaml
-	/// </summary>
-	public partial class EmptyPropertyUI : UserControl
+	public EmptyPropertyUI()
 	{
-		public EmptyPropertyUI()
-		{
-			InitializeComponent();
-		}
+		InitializeComponent();
 	}
 }

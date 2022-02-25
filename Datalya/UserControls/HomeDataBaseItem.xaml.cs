@@ -29,77 +29,74 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for HomeDataBaseItem.xaml
+/// </summary>
+public partial class HomeDataBaseItem : UserControl
 {
-	/// <summary>
-	/// Interaction logic for HomeDataBaseItem.xaml
-	/// </summary>
-	public partial class HomeDataBaseItem : UserControl
+	DataBaseInfo DataBaseInfo { get; init; }
+	public HomeDataBaseItem(DataBaseInfo dataBase)
 	{
-		DataBaseInfo DataBaseInfo { get; init; }
-		public HomeDataBaseItem(DataBaseInfo dataBase)
+		InitializeComponent();
+		DataBaseInfo = dataBase; // Set value
+
+		InitUI(); // Load the UI
+	}
+
+	private void InitUI()
+	{
+		NameTxt.Text = DataBaseInfo.Name; // Set text
+		LastEditTxt.Text = Env.UnixTimeToDateTime(DataBaseInfo.LastEditTime).ToString("g"); // Set text
+
+		// Size
+
+		Global.ConvertByteToCorrectSize(DataBaseInfo.Size, out double size, out UnitType unitType);
+		string unit = unitType switch
 		{
-			InitializeComponent();
-			DataBaseInfo = dataBase; // Set value
+			UnitType.Byte => Properties.Resources.Bytes, // Set text
+			UnitType.Kilobyte => Properties.Resources.Ko, // Set text
+			UnitType.Megabyte => Properties.Resources.Mo, // Set text
+			_ => Properties.Resources.Ko // Set text
+		}; // Set unit text
 
-			InitUI(); // Load the UI
-		}
+		SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text
+		PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
+		PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
+	}
 
-		private void InitUI()
+	private void PinBtn_Click(object sender, RoutedEventArgs e)
+	{
+		DataBaseInfo.IsPinned = !DataBaseInfo.IsPinned; // Set value
+		PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
+		PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
+
+		Global.Settings.RecentFiles[Global.Settings.RecentFiles.IndexOf(DataBaseInfo)] = DataBaseInfo;
+		SettingsManager.Save();
+		Global.HomeWindow.InitUI(); // Refresh
+	}
+
+	private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Global.Settings.RecentFiles.Remove(DataBaseInfo); // Remove
+		SettingsManager.Save();
+		Global.HomeWindow.InitUI(); // Refresh
+	}
+
+	private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+	{
+		if (File.Exists(DataBaseInfo.FilePath)) // If the file exists
 		{
-			NameTxt.Text = DataBaseInfo.Name; // Set text
-			LastEditTxt.Text = Env.UnixTimeToDateTime(DataBaseInfo.LastEditTime).ToString("g"); // Set text
+			DataBaseManager.Open(DataBaseInfo.FilePath); // Open DataBase
 
-			// Size
-			double size;
-			UnitType unitType;
-
-			Global.ConvertByteToCorrectSize(DataBaseInfo.Size, out size, out unitType);
-			string unit = unitType switch
-			{
-				UnitType.Byte => Properties.Resources.Bytes, // Set text
-				UnitType.Kilobyte => Properties.Resources.Ko, // Set text
-				UnitType.Megabyte => Properties.Resources.Mo, // Set text
-				_ => Properties.Resources.Ko // Set text
-			}; // Set unit text
-
-			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text
-			PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
-			PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
-		}
-
-		private void PinBtn_Click(object sender, RoutedEventArgs e)
-		{
-			DataBaseInfo.IsPinned = !DataBaseInfo.IsPinned; // Set value
-			PinBtn.Content = DataBaseInfo.IsPinned ? "\uF604" : "\uF602"; // Set text
-			PinToolTip.Content = DataBaseInfo.IsPinned ? Properties.Resources.Unpin : Properties.Resources.Pin; // Set content
-
-			Global.Settings.RecentFiles[Global.Settings.RecentFiles.IndexOf(DataBaseInfo)] = DataBaseInfo;
-			SettingsManager.Save();
-			Global.HomeWindow.InitUI(); // Refresh
-		}
-
-		private void RemoveBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Global.Settings.RecentFiles.Remove(DataBaseInfo); // Remove
-			SettingsManager.Save();
-			Global.HomeWindow.InitUI(); // Refresh
-		}
-
-		private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			if (File.Exists(DataBaseInfo.FilePath)) // If the file exists
-			{
-				DataBaseManager.Open(DataBaseInfo.FilePath); // Open DataBase
-
-				Global.MainWindow.WindowState = Global.HomeWindow.WindowState; // Set
-				Global.MainWindow.Height = Global.HomeWindow.Height; // Set size
-				Global.MainWindow.Width = Global.HomeWindow.Width; // Set size
-				Global.MainWindow.Left = Global.HomeWindow.Left; // Set position
-				Global.MainWindow.Top = Global.HomeWindow.Top; // Set position
-				Global.MainWindow.Show(); // Show
-				Global.HomeWindow.Hide(); // Hide
-			}
+			Global.MainWindow.WindowState = Global.HomeWindow.WindowState; // Set
+			Global.MainWindow.Height = Global.HomeWindow.Height; // Set size
+			Global.MainWindow.Width = Global.HomeWindow.Width; // Set size
+			Global.MainWindow.Left = Global.HomeWindow.Left; // Set position
+			Global.MainWindow.Top = Global.HomeWindow.Top; // Set position
+			Global.MainWindow.Show(); // Show
+			Global.HomeWindow.Hide(); // Hide
 		}
 	}
 }

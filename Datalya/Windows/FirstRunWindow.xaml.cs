@@ -24,42 +24,41 @@ SOFTWARE.
 using Datalya.Pages.FirstRun;
 using System.Windows;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for FirstRunWindow.xaml
+/// </summary>
+public partial class FirstRunWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for FirstRunWindow.xaml
-	/// </summary>
-	public partial class FirstRunWindow : Window
+	readonly WelcomeFirstRunPage welcomeFirstRunPage;
+	readonly IntroFirstRunPage introFirstRunPage;
+	readonly ThemeFirstRunPage themeFirstRunPage;
+
+	public FirstRunWindow()
 	{
-		readonly WelcomeFirstRunPage welcomeFirstRunPage;
-		readonly IntroFirstRunPage introFirstRunPage;
-		readonly ThemeFirstRunPage themeFirstRunPage;
+		InitializeComponent();
 
-		public FirstRunWindow()
+		welcomeFirstRunPage = new(this);
+		introFirstRunPage = new(this);
+		themeFirstRunPage = new(this);
+
+		ChangePage(0); // Show welcome page
+	}
+
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close();
+	}
+
+	public void ChangePage(int id)
+	{
+		PageFrame.Content = id switch
 		{
-			InitializeComponent();
-
-			welcomeFirstRunPage = new(this);
-			introFirstRunPage = new(this);
-			themeFirstRunPage = new(this);
-
-			ChangePage(0); // Show welcome page
-		}
-
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
-
-		public void ChangePage(int id)
-		{
-			PageFrame.Content = id switch
-			{
-				0 => welcomeFirstRunPage,
-				1 => introFirstRunPage,
-				2 => themeFirstRunPage,
-				_ => welcomeFirstRunPage
-			}; // Set content
-		}
+			0 => welcomeFirstRunPage,
+			1 => introFirstRunPage,
+			2 => themeFirstRunPage,
+			_ => welcomeFirstRunPage
+		}; // Set content
 	}
 }

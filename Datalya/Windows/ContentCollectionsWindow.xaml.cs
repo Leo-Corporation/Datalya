@@ -26,52 +26,51 @@ using Datalya.UserControls;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for ContentCollectionsWindow.xaml
+/// </summary>
+public partial class ContentCollectionsWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for ContentCollectionsWindow.xaml
-	/// </summary>
-	public partial class ContentCollectionsWindow : Window
+	TextBox TextBox { get; init; }
+	public ContentCollectionsWindow(TextBox textBox)
 	{
-		TextBox TextBox { get; init; }
-		public ContentCollectionsWindow(TextBox textBox)
-		{
-			InitializeComponent();
-			TextBox = textBox;
+		InitializeComponent();
+		TextBox = textBox;
 
-			InitUI();
+		InitUI();
+	}
+
+	private void InitUI()
+	{
+		for (int i = 0; i < Global.ContentCollections.Count; i++)
+		{
+			ItemDisplayer.Children.Add(new ContentCollectionItem(Global.ContentCollections[i], (ContentCollection contentCollection) => { SelectCollection(contentCollection); }));
 		}
+	}
 
-		private void InitUI()
+	private void SelectCollection(ContentCollection contentCollection)
+	{
+		for (int i = 0; i < ItemDisplayer.Children.Count; i++)
 		{
-			for (int i = 0; i < Global.ContentCollections.Count; i++)
+			if (((ContentCollectionItem)ItemDisplayer.Children[i]).ContentCollection == contentCollection)
 			{
-				ItemDisplayer.Children.Add(new ContentCollectionItem(Global.ContentCollections[i], (ContentCollection contentCollection) => { SelectCollection(contentCollection); }));
+				TextBox.Text = contentCollection.Content; // Set text
+				break;
 			}
 		}
 
-		private void SelectCollection(ContentCollection contentCollection)
-		{
-			for (int i = 0; i < ItemDisplayer.Children.Count; i++)
-			{
-				if (((ContentCollectionItem)ItemDisplayer.Children[i]).ContentCollection == contentCollection)
-				{
-					TextBox.Text = contentCollection.Content; // Set text
-					break;
-				}
-			}
+		Close();
+	}
 
-			Close();
-		}
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize
+	}
 
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize
-		}
-
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close();
 	}
 }

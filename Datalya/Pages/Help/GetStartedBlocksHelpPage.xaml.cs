@@ -23,16 +23,15 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.Pages.Help
+namespace Datalya.Pages.Help;
+
+/// <summary>
+/// Interaction logic for GetStartedBlocksHelpPage.xaml
+/// </summary>
+public partial class GetStartedBlocksHelpPage : Page
 {
-	/// <summary>
-	/// Interaction logic for GetStartedBlocksHelpPage.xaml
-	/// </summary>
-	public partial class GetStartedBlocksHelpPage : Page
+	public GetStartedBlocksHelpPage()
 	{
-		public GetStartedBlocksHelpPage()
-		{
-			InitializeComponent();
-		}
+		InitializeComponent();
 	}
 }

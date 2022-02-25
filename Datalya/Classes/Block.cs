@@ -25,23 +25,22 @@ using Datalya.Enums;
 using System;
 using System.Xml.Serialization;
 
-namespace Datalya.Classes
-{
-	[XmlInclude(typeof(InputBlock))]
-	[XmlInclude(typeof(MultichoicesBlock))]
-	[XmlInclude(typeof(SingleChoiceBlock))]
-	[XmlInclude(typeof(SelectorBlock))]
-	[Serializable]
-	public class Block
-	{
-		/// <summary>
-		/// The <see cref="Enums.BlockType"/> of the block.
-		/// </summary>
-		public BlockType BlockType { get; set; }
+namespace Datalya.Classes;
 
-		/// <summary>
-		/// The name given by the user to the block.
-		/// </summary>
-		public string Name { get; set; }
-	}
+[XmlInclude(typeof(InputBlock))]
+[XmlInclude(typeof(MultichoicesBlock))]
+[XmlInclude(typeof(SingleChoiceBlock))]
+[XmlInclude(typeof(SelectorBlock))]
+[Serializable]
+public class Block
+{
+	/// <summary>
+	/// The <see cref="Enums.BlockType"/> of the block.
+	/// </summary>
+	public BlockType BlockType { get; set; }
+
+	/// <summary>
+	/// The name given by the user to the block.
+	/// </summary>
+	public string Name { get; set; }
 }

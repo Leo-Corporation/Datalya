@@ -23,31 +23,30 @@ SOFTWARE.
 */
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for PlaceholderItem.xaml
+/// </summary>
+public partial class PlaceholderItem : UserControl
 {
-	/// <summary>
-	/// Interaction logic for PlaceholderItem.xaml
-	/// </summary>
-	public partial class PlaceholderItem : UserControl
+	public string Title { get; set; }
+	public string Description { get; set; }
+	public string Icon { get; set; }
+	public PlaceholderItem(string title, string description, string icon)
 	{
-		public string Title { get; set; }
-		public string Description { get; set; }
-		public string Icon { get; set; }
-		public PlaceholderItem(string title, string description, string icon)
-		{
-			InitializeComponent();
-			Title = title; // Set value
-			Description = description; // Set value
-			Icon = icon; // Set value
+		InitializeComponent();
+		Title = title; // Set value
+		Description = description; // Set value
+		Icon = icon; // Set value
 
-			InitUI(); // Load the UI
-		}
+		InitUI(); // Load the UI
+	}
 
-		private void InitUI()
-		{
-			TitleTxt.Text = Title; // Set text
-			DescriptionTxt.Text = Description; // Set text
-			IconTxt.Text = Icon; // Set text
-		}
+	private void InitUI()
+	{
+		TitleTxt.Text = Title; // Set text
+		DescriptionTxt.Text = Description; // Set text
+		IconTxt.Text = Icon; // Set text
 	}
 }

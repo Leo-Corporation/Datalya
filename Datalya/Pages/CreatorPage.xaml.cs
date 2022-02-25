@@ -29,168 +29,167 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.Pages
+namespace Datalya.Pages;
+
+/// <summary>
+/// Interaction logic for CreatorPage.xaml
+/// </summary>
+public partial class CreatorPage : Page
 {
-	/// <summary>
-	/// Interaction logic for CreatorPage.xaml
-	/// </summary>
-	public partial class CreatorPage : Page
+	public CreatorPage()
 	{
-		public CreatorPage()
+		InitializeComponent();
+		Global.EmptyPropertyUI = new();
+
+		InitUI();
+	}
+
+	internal void InitUI()
+	{
+		// Clear
+		BlockDisplayer.Children.Clear(); // Clear
+
+		PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
+
+		// Load Blocks
+		for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
 		{
-			InitializeComponent();
-			Global.EmptyPropertyUI = new();
-
-			InitUI();
-		}
-
-		internal void InitUI()
-		{
-			// Clear
-			BlockDisplayer.Children.Clear(); // Clear
-
-			PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
-
-			// Load Blocks
-			for (int i = 0; i < Global.CurrentDataBase.Blocks.Count; i++)
+			if (Global.CurrentDataBase.Blocks[i] is InputBlock inputBlock)
 			{
-				if (Global.CurrentDataBase.Blocks[i] is InputBlock inputBlock)
-				{
-					BlockDisplayer.Children.Add(new InputBlockCreatorUI(inputBlock)); // Add item
-				}
-				else if (Global.CurrentDataBase.Blocks[i] is MultichoicesBlock multichoicesBlock)
-				{
-					BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI(multichoicesBlock)); // Add item
-				}
-				else if (Global.CurrentDataBase.Blocks[i] is SingleChoiceBlock singleChoiceBlock)
-				{
-					BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI(singleChoiceBlock)); // Add item
-				}
-				else if (Global.CurrentDataBase.Blocks[i] is Classes.SelectorBlock s)
-				{
-					BlockDisplayer.Children.Add(new SelectorBlockCreatorUI(s));
-				}
+				BlockDisplayer.Children.Add(new InputBlockCreatorUI(inputBlock)); // Add item
+			}
+			else if (Global.CurrentDataBase.Blocks[i] is MultichoicesBlock multichoicesBlock)
+			{
+				BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI(multichoicesBlock)); // Add item
+			}
+			else if (Global.CurrentDataBase.Blocks[i] is SingleChoiceBlock singleChoiceBlock)
+			{
+				BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI(singleChoiceBlock)); // Add item
+			}
+			else if (Global.CurrentDataBase.Blocks[i] is Classes.SelectorBlock s)
+			{
+				BlockDisplayer.Children.Add(new SelectorBlockCreatorUI(s));
 			}
 		}
+	}
 
-		private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
+	private void ImputBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		BlockDisplayer.Children.Add(new InputBlockCreatorUI()); // Add block
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
 		{
-			BlockDisplayer.Children.Add(new InputBlockCreatorUI()); // Add block
-			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
-			{
-				Global.CurrentDataBase.ItemsContent[i].Add("");
-			}
-			SaveChanges(); // Save
+			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
+		SaveChanges(); // Save
+	}
 
-		private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
+	private void MultichoicesBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI()); // Add block
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
 		{
-			BlockDisplayer.Children.Add(new MultichoicesBlockCreatorUI()); // Add block
-			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
-			{
-				Global.CurrentDataBase.ItemsContent[i].Add("");
-			}
-			SaveChanges(); // Save
+			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
+		SaveChanges(); // Save
+	}
 
-		private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
+	private void SingleChoiceBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI()); // Add block
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
 		{
-			BlockDisplayer.Children.Add(new SingleChoiceBlockCreatorUI()); // Add block
-			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
-			{
-				Global.CurrentDataBase.ItemsContent[i].Add("");
-			}
-			SaveChanges(); // Save
+			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
+		SaveChanges(); // Save
+	}
 
-		private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
+	private void SelectorBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		BlockDisplayer.Children.Add(new SelectorBlockCreatorUI()); // Add block
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
 		{
-			BlockDisplayer.Children.Add(new SelectorBlockCreatorUI()); // Add block
-			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
-			{
-				Global.CurrentDataBase.ItemsContent[i].Add("");
-			}
-			SaveChanges(); // Save
+			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
+		SaveChanges(); // Save
+	}
 
-		private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
-		{
-			SaveChanges(); // Save
-		}
+	private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
+	{
+		SaveChanges(); // Save
+	}
 
-		internal void SaveChanges()
+	internal void SaveChanges()
+	{
+		try
 		{
-			try
+			List<Classes.Block> blocks = new();
+			foreach (UIElement uIElement in BlockDisplayer.Children)
 			{
-				List<Classes.Block> blocks = new();
-				foreach (UIElement uIElement in BlockDisplayer.Children)
+				if (uIElement is InputBlockCreatorUI inputCreatorUI)
 				{
-					if (uIElement is InputBlockCreatorUI inputCreatorUI)
+					if (inputCreatorUI.InputBlock is not null)
 					{
-						if (inputCreatorUI.InputBlock is not null)
-						{
-							blocks.Add(inputCreatorUI.InputBlock); // Add item 
-						}
-					}
-					else if (uIElement is MultichoicesBlockCreatorUI multichoicesBlockCreatorUI)
-					{
-						if (multichoicesBlockCreatorUI.MultichoicesBlock is not null)
-						{
-							blocks.Add(multichoicesBlockCreatorUI.MultichoicesBlock); // Add item 
-						}
-					}
-					else if (uIElement is SelectorBlockCreatorUI selectorBlockCreatorUI)
-					{
-						if (selectorBlockCreatorUI.SelectorBlock is not null)
-						{
-							blocks.Add(selectorBlockCreatorUI.SelectorBlock); // Add item 
-						}
-					}
-					else if (uIElement is SingleChoiceBlockCreatorUI choiceBlockCreatorUI)
-					{
-						if (choiceBlockCreatorUI.SingleChoiceBlock is not null)
-						{
-							blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item 
-						}
+						blocks.Add(inputCreatorUI.InputBlock); // Add item 
 					}
 				}
-				Global.CurrentDataBase.Blocks = blocks;
-				Global.IsModified = true;
+				else if (uIElement is MultichoicesBlockCreatorUI multichoicesBlockCreatorUI)
+				{
+					if (multichoicesBlockCreatorUI.MultichoicesBlock is not null)
+					{
+						blocks.Add(multichoicesBlockCreatorUI.MultichoicesBlock); // Add item 
+					}
+				}
+				else if (uIElement is SelectorBlockCreatorUI selectorBlockCreatorUI)
+				{
+					if (selectorBlockCreatorUI.SelectorBlock is not null)
+					{
+						blocks.Add(selectorBlockCreatorUI.SelectorBlock); // Add item 
+					}
+				}
+				else if (uIElement is SingleChoiceBlockCreatorUI choiceBlockCreatorUI)
+				{
+					if (choiceBlockCreatorUI.SingleChoiceBlock is not null)
+					{
+						blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item 
+					}
+				}
 			}
-			catch (Exception ex)
-			{
-				MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
-			}
+			Global.CurrentDataBase.Blocks = blocks;
+			Global.IsModified = true;
 		}
-
-		private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
+		catch (Exception ex)
 		{
-			OpenFileDialog openFileDialog = new()
+			MessageBox.Show($"{Properties.Resources.ErrorOccured}\n{ex.Message}", Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
+
+	private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		OpenFileDialog openFileDialog = new()
+		{
+			Filter = $"{Properties.Resources.Template}|*.datalyabt",
+			Title = Properties.Resources.ImportTemplate
+		}; // Create OpenFileDialog
+
+		if (openFileDialog.ShowDialog() ?? true)
+		{
+			BlockTemplateManager.Import(openFileDialog.FileName); // Import
+		}
+	}
+
+	private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (Global.CurrentDataBase.Blocks.Count > 0)
+		{
+			SaveFileDialog saveFileDialog = new()
 			{
 				Filter = $"{Properties.Resources.Template}|*.datalyabt",
-				Title = Properties.Resources.ImportTemplate
-			}; // Create OpenFileDialog
+				Title = Properties.Resources.ExportAsTemplate
+			};
 
-			if (openFileDialog.ShowDialog() ?? true)
+			if (saveFileDialog.ShowDialog() ?? true)
 			{
-				BlockTemplateManager.Import(openFileDialog.FileName); // Import
-			}
-		}
-
-		private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)
-		{
-			if (Global.CurrentDataBase.Blocks.Count > 0)
-			{
-				SaveFileDialog saveFileDialog = new()
-				{
-					Filter = $"{Properties.Resources.Template}|*.datalyabt",
-					Title = Properties.Resources.ExportAsTemplate
-				};
-
-				if (saveFileDialog.ShowDialog() ?? true)
-				{
-					BlockTemplateManager.Export(new() { Name = saveFileDialog.FileName, Blocks = Global.CurrentDataBase.Blocks }, saveFileDialog.FileName); // Export
-				}
+				BlockTemplateManager.Export(new() { Name = saveFileDialog.FileName, Blocks = Global.CurrentDataBase.Blocks }, saveFileDialog.FileName); // Export
 			}
 		}
 	}

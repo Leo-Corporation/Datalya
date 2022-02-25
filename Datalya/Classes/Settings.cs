@@ -28,108 +28,107 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+/// <summary>
+/// Settings of Datalya
+/// </summary>
+public class Settings
 {
 	/// <summary>
-	/// Settings of Datalya
+	/// The <see cref="Enum.Theme"/> of Datalya.
 	/// </summary>
-	public class Settings
+	public Theme Theme { get; set; }
+
+	/// <summary>
+	/// The language of Datalya
+	/// </summary>
+	public string Language { get; set; }
+
+	/// <summary>
+	/// True if Datalya should check updates on start.
+	/// </summary>
+	public bool CheckUpdatesOnStart { get; set; }
+
+	/// <summary>
+	/// True if Datalya should notify updates on start.
+	/// </summary>
+	public bool NotifyUpdates { get; set; }
+
+	/// <summary>
+	/// Recent files opened by the user.
+	/// </summary>
+	public List<DataBaseInfo> RecentFiles { get; set; }
+
+	/// <summary>
+	/// True if Datalya should start maximized.
+	/// </summary>
+	public bool IsMaximized { get; set; }
+
+	/// <summary>
+	/// True if Datalya should display the "First Run" experience.
+	/// </summary>
+	public bool IsFirstRun { get; set; }
+
+	/// <summary>
+	/// True if Datalya should display a warning message when deleting a Block.
+	/// </summary>
+	public bool? DisplayDeleteBlockMessage { get; set; }
+}
+
+public static class SettingsManager
+{
+	/// <summary>
+	/// Loads Datalya settings.
+	/// </summary>
+	public static void Load()
 	{
-		/// <summary>
-		/// The <see cref="Enum.Theme"/> of Datalya.
-		/// </summary>
-		public Theme Theme { get; set; }
+		string path = Env.AppDataPath + @"\Léo Corporation\Datalya\Settings.xml"; // The path of the settings file
 
-		/// <summary>
-		/// The language of Datalya
-		/// </summary>
-		public string Language { get; set; }
+		if (File.Exists(path)) // If the file exist
+		{
+			XmlSerializer xmlSerializer = new(typeof(Settings)); // XML Serializer
+			StreamReader streamReader = new(path); // Where the file is going to be read
 
-		/// <summary>
-		/// True if Datalya should check updates on start.
-		/// </summary>
-		public bool CheckUpdatesOnStart { get; set; }
+			Global.Settings = (Settings)xmlSerializer.Deserialize(streamReader); // Read
 
-		/// <summary>
-		/// True if Datalya should notify updates on start.
-		/// </summary>
-		public bool NotifyUpdates { get; set; }
+			streamReader.Dispose();
+		}
+		else
+		{
+			Global.Settings = new Settings
+			{
+				Theme = Theme.System,
+				Language = "_default",
+				RecentFiles = new(),
+				CheckUpdatesOnStart = true,
+				NotifyUpdates = true,
+				IsMaximized = false,
+				IsFirstRun = true,
+				DisplayDeleteBlockMessage = true
+			}; // Create a new settings file
 
-		/// <summary>
-		/// Recent files opened by the user.
-		/// </summary>
-		public List<DataBaseInfo> RecentFiles { get; set; }
-
-		/// <summary>
-		/// True if Datalya should start maximized.
-		/// </summary>
-		public bool IsMaximized { get; set; }
-
-		/// <summary>
-		/// True if Datalya should display the "First Run" experience.
-		/// </summary>
-		public bool IsFirstRun { get; set; }
-
-		/// <summary>
-		/// True if Datalya should display a warning message when deleting a Block.
-		/// </summary>
-		public bool? DisplayDeleteBlockMessage { get; set; }
+			Save(); // Save the changes
+		}
 	}
 
-	public static class SettingsManager
+	/// <summary>
+	/// Saves Datalya settings.
+	/// </summary>
+	public static void Save()
 	{
-		/// <summary>
-		/// Loads Datalya settings.
-		/// </summary>
-		public static void Load()
+		string path = Env.AppDataPath + @"\Léo Corporation\Datalya\Settings.xml"; // The path of the settings file
+
+		XmlSerializer xmlSerializer = new(typeof(Settings)); // Create XML Serializer
+
+		if (!Directory.Exists(Env.AppDataPath + @"\Léo Corporation\Datalya")) // If the directory doesn't exist
 		{
-			string path = Env.AppDataPath + @"\Léo Corporation\Datalya\Settings.xml"; // The path of the settings file
-
-			if (File.Exists(path)) // If the file exist
-			{
-				XmlSerializer xmlSerializer = new(typeof(Settings)); // XML Serializer
-				StreamReader streamReader = new(path); // Where the file is going to be read
-
-				Global.Settings = (Settings)xmlSerializer.Deserialize(streamReader); // Read
-
-				streamReader.Dispose();
-			}
-			else
-			{
-				Global.Settings = new Settings
-				{
-					Theme = Theme.System,
-					Language = "_default",
-					RecentFiles = new(),
-					CheckUpdatesOnStart = true,
-					NotifyUpdates = true,
-					IsMaximized = false,
-					IsFirstRun = true,
-					DisplayDeleteBlockMessage = true
-				}; // Create a new settings file
-
-				Save(); // Save the changes
-			}
+			Directory.CreateDirectory(Env.AppDataPath + @"\Léo Corporation\Datalya"); // Create the directory
 		}
 
-		/// <summary>
-		/// Saves Datalya settings.
-		/// </summary>
-		public static void Save()
-		{
-			string path = Env.AppDataPath + @"\Léo Corporation\Datalya\Settings.xml"; // The path of the settings file
+		StreamWriter streamWriter = new(path); // The place where the file is going to be written
+		xmlSerializer.Serialize(streamWriter, Global.Settings);
 
-			XmlSerializer xmlSerializer = new(typeof(Settings)); // Create XML Serializer
-
-			if (!Directory.Exists(Env.AppDataPath + @"\Léo Corporation\Datalya")) // If the directory doesn't exist
-			{
-				Directory.CreateDirectory(Env.AppDataPath + @"\Léo Corporation\Datalya"); // Create the directory
-			}
-
-			StreamWriter streamWriter = new(path); // The place where the file is going to be written
-			xmlSerializer.Serialize(streamWriter, Global.Settings);
-
-			streamWriter.Dispose();
-		}
+		streamWriter.Dispose();
 	}
 }

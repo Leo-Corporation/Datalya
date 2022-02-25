@@ -31,238 +31,237 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Datalya.Windows
+namespace Datalya.Windows;
+
+/// <summary>
+/// Interaction logic for SettingsWindow.xaml
+/// </summary>
+public partial class SettingsWindow : Window
 {
-	/// <summary>
-	/// Interaction logic for SettingsWindow.xaml
-	/// </summary>
-	public partial class SettingsWindow : Window
+	public SettingsWindow()
 	{
-		public SettingsWindow()
+		InitializeComponent();
+		InitUI(); // Load the UI
+	}
+
+	private void InitUI()
+	{
+		// Checkboxes
+		CheckUpdateOnStartChk.IsChecked = Global.Settings.CheckUpdatesOnStart; // Set
+		NotifyUpdateChk.IsChecked = Global.Settings.NotifyUpdates; // Set
+		DeleteBlockMessageConfirmChk.IsChecked = Global.Settings.DisplayDeleteBlockMessage.Value; // Set
+
+		// Load RadioButtons
+		DarkRadioBtn.IsChecked = Global.Settings.Theme == Theme.Dark; // Change IsChecked property
+		LightRadioBtn.IsChecked = Global.Settings.Theme == Theme.Light; // Change IsChecked property
+		SystemRadioBtn.IsChecked = Global.Settings.Theme == Theme.System; // Change IsChecked property
+
+		// Borders
+		if (DarkRadioBtn.IsChecked.Value)
 		{
-			InitializeComponent();
-			InitUI(); // Load the UI
-		}
-
-		private void InitUI()
-		{
-			// Checkboxes
-			CheckUpdateOnStartChk.IsChecked = Global.Settings.CheckUpdatesOnStart; // Set
-			NotifyUpdateChk.IsChecked = Global.Settings.NotifyUpdates; // Set
-			DeleteBlockMessageConfirmChk.IsChecked = Global.Settings.DisplayDeleteBlockMessage.Value; // Set
-
-			// Load RadioButtons
-			DarkRadioBtn.IsChecked = Global.Settings.Theme == Theme.Dark; // Change IsChecked property
-			LightRadioBtn.IsChecked = Global.Settings.Theme == Theme.Light; // Change IsChecked property
-			SystemRadioBtn.IsChecked = Global.Settings.Theme == Theme.System; // Change IsChecked property
-
-			// Borders
-			if (DarkRadioBtn.IsChecked.Value)
-			{
-				CheckedBorder = DarkBorder; // Set
-			}
-			else if (LightRadioBtn.IsChecked.Value)
-			{
-				CheckedBorder = LightBorder; // Set
-			}
-			else if (SystemRadioBtn.IsChecked.Value)
-			{
-				CheckedBorder = SystemBorder; // Set
-			}
-			RefreshBorders();
-
-			// LangComboBox
-			LangComboBox.Items.Add(Properties.Resources.Default); // Add
-			for (int i = 0; i < Global.LanguageList.Count; i++) // For each language
-			{
-				LangComboBox.Items.Add(Global.LanguageList[i]); // Add language
-			}
-
-			LangComboBox.SelectedIndex = (Global.Settings.Language == "_default") ? 0 : Global.LanguageCodeList.IndexOf(Global.Settings.Language) + 1;
-
-			// Apply buttons
-			LangApplyBtn.Visibility = Visibility.Hidden; // Hide
-			ThemeApplyBtn.Visibility = Visibility.Hidden; // Hide
-		}
-
-		private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized; // Minimize
-		}
-
-		private void CloseBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Close(); // Close the window
-		}
-
-		Border CheckedBorder { get; set; }
-		private void Border_MouseEnter(object sender, MouseEventArgs e)
-		{
-			Border border = (Border)sender;
-			border.BorderBrush = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set color
-		}
-
-		private void Border_MouseLeave(object sender, MouseEventArgs e)
-		{
-			Border border = (Border)sender;
-			if (border != CheckedBorder)
-			{
-				border.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
-			}
-		}
-
-		private void LightRadioBtn_Checked(object sender, RoutedEventArgs e)
-		{
-			ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
-		}
-
-		private void DarkRadioBtn_Checked(object sender, RoutedEventArgs e)
-		{
-			ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
-		}
-
-		private void SystemRadioBtn_Checked(object sender, RoutedEventArgs e)
-		{
-			ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
-		}
-
-		private void ThemeApplyBtn_Click(object sender, RoutedEventArgs e)
-		{
-			if (DarkRadioBtn.IsChecked.Value)
-			{
-				Global.Settings.Theme = Theme.Dark; // Set theme to dark
-			}
-			else if (LightRadioBtn.IsChecked.Value)
-			{
-				Global.Settings.Theme = Theme.Light; // Set theme to light
-			}
-			else if (SystemRadioBtn.IsChecked.Value)
-			{
-				Global.Settings.Theme = Theme.System; // Set theme to system
-			}
-
-			SettingsManager.Save(); // Save changes
-			DisplayRestartMessage(); // Inform user
-		}
-
-		/// <summary>
-		/// Restarts Datalya.
-		/// </summary>
-		private void DisplayRestartMessage()
-		{
-			if (MessageBox.Show(Properties.Resources.NeedRestartToApplyChanges, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-			{
-				Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe"); // Start
-				Environment.Exit(0); // Close
-			}
-		}
-
-		private void LightBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			LightRadioBtn.IsChecked = true; // Set IsChecked
-			CheckedBorder = LightBorder; // Set
-			RefreshBorders();
-		}
-
-		private void DarkBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			DarkRadioBtn.IsChecked = true; // Set IsChecked
 			CheckedBorder = DarkBorder; // Set
-			RefreshBorders();
 		}
-
-		private void SystemBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		else if (LightRadioBtn.IsChecked.Value)
 		{
-			SystemRadioBtn.IsChecked = true; // Set IsChecked
+			CheckedBorder = LightBorder; // Set
+		}
+		else if (SystemRadioBtn.IsChecked.Value)
+		{
 			CheckedBorder = SystemBorder; // Set
-			RefreshBorders();
+		}
+		RefreshBorders();
+
+		// LangComboBox
+		LangComboBox.Items.Add(Properties.Resources.Default); // Add
+		for (int i = 0; i < Global.LanguageList.Count; i++) // For each language
+		{
+			LangComboBox.Items.Add(Global.LanguageList[i]); // Add language
 		}
 
-		private void RefreshBorders()
-		{
-			LightBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
-			DarkBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
-			SystemBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
+		LangComboBox.SelectedIndex = (Global.Settings.Language == "_default") ? 0 : Global.LanguageCodeList.IndexOf(Global.Settings.Language) + 1;
 
-			CheckedBorder.BorderBrush = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set color
+		// Apply buttons
+		LangApplyBtn.Visibility = Visibility.Hidden; // Hide
+		ThemeApplyBtn.Visibility = Visibility.Hidden; // Hide
+	}
+
+	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+	{
+		WindowState = WindowState.Minimized; // Minimize
+	}
+
+	private void CloseBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Close(); // Close the window
+	}
+
+	Border CheckedBorder { get; set; }
+	private void Border_MouseEnter(object sender, MouseEventArgs e)
+	{
+		Border border = (Border)sender;
+		border.BorderBrush = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set color
+	}
+
+	private void Border_MouseLeave(object sender, MouseEventArgs e)
+	{
+		Border border = (Border)sender;
+		if (border != CheckedBorder)
+		{
+			border.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
+		}
+	}
+
+	private void LightRadioBtn_Checked(object sender, RoutedEventArgs e)
+	{
+		ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
+	}
+
+	private void DarkRadioBtn_Checked(object sender, RoutedEventArgs e)
+	{
+		ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
+	}
+
+	private void SystemRadioBtn_Checked(object sender, RoutedEventArgs e)
+	{
+		ThemeApplyBtn.Visibility = Visibility.Visible; // Show the ThemeApplyBtn button
+	}
+
+	private void ThemeApplyBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (DarkRadioBtn.IsChecked.Value)
+		{
+			Global.Settings.Theme = Theme.Dark; // Set theme to dark
+		}
+		else if (LightRadioBtn.IsChecked.Value)
+		{
+			Global.Settings.Theme = Theme.Light; // Set theme to light
+		}
+		else if (SystemRadioBtn.IsChecked.Value)
+		{
+			Global.Settings.Theme = Theme.System; // Set theme to system
 		}
 
-		private void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			LangApplyBtn.Visibility = Visibility.Visible; // Visible
-		}
+		SettingsManager.Save(); // Save changes
+		DisplayRestartMessage(); // Inform user
+	}
 
-		private void LangApplyBtn_Click(object sender, RoutedEventArgs e)
+	/// <summary>
+	/// Restarts Datalya.
+	/// </summary>
+	private void DisplayRestartMessage()
+	{
+		if (MessageBox.Show(Properties.Resources.NeedRestartToApplyChanges, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
 		{
-			Global.Settings.Language = LangComboBox.Text switch
+			Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe"); // Start
+			Environment.Exit(0); // Close
+		}
+	}
+
+	private void LightBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+	{
+		LightRadioBtn.IsChecked = true; // Set IsChecked
+		CheckedBorder = LightBorder; // Set
+		RefreshBorders();
+	}
+
+	private void DarkBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+	{
+		DarkRadioBtn.IsChecked = true; // Set IsChecked
+		CheckedBorder = DarkBorder; // Set
+		RefreshBorders();
+	}
+
+	private void SystemBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+	{
+		SystemRadioBtn.IsChecked = true; // Set IsChecked
+		CheckedBorder = SystemBorder; // Set
+		RefreshBorders();
+	}
+
+	private void RefreshBorders()
+	{
+		LightBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
+		DarkBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
+		SystemBorder.BorderBrush = new SolidColorBrush() { Color = Colors.Transparent }; // Set color 
+
+		CheckedBorder.BorderBrush = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()) }; // Set color
+	}
+
+	private void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		LangApplyBtn.Visibility = Visibility.Visible; // Visible
+	}
+
+	private void LangApplyBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Global.Settings.Language = LangComboBox.Text switch
+		{
+			"English (United States)" => Global.LanguageCodeList[0], // Set the settings value
+			"Français (France)" => Global.LanguageCodeList[1], // Set the settings value
+			_ => "_default" // Set the settings value
+		};
+		SettingsManager.Save(); // Save the changes
+		LangApplyBtn.Visibility = Visibility.Hidden; // Hide
+		DisplayRestartMessage();
+	}
+
+	private void CheckUpdateOnStartChk_Checked(object sender, RoutedEventArgs e)
+	{
+		Global.Settings.CheckUpdatesOnStart = CheckUpdateOnStartChk.IsChecked.Value; // Set
+		SettingsManager.Save(); // Save changes
+	}
+
+	private void NotifyUpdateChk_Checked(object sender, RoutedEventArgs e)
+	{
+		Global.Settings.NotifyUpdates = NotifyUpdateChk.IsChecked.Value; // Set
+		SettingsManager.Save(); // Save changes
+	}
+
+	private void DeleteBlockMessageConfirmChk_Checked(object sender, RoutedEventArgs e)
+	{
+		Global.Settings.DisplayDeleteBlockMessage = DeleteBlockMessageConfirmChk.IsChecked.Value; // Set
+		SettingsManager.Save(); // Save changes
+	}
+
+	private void ResetSettingsLink_Click(object sender, RoutedEventArgs e)
+	{
+		if (MessageBox.Show(Properties.Resources.ResetSettingsConfirmMsg, Properties.Resources.Settings, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+		{
+			Global.Settings = new()
 			{
-				"English (United States)" => Global.LanguageCodeList[0], // Set the settings value
-				"Français (France)" => Global.LanguageCodeList[1], // Set the settings value
-				_ => "_default" // Set the settings value
-			};
+				Theme = Theme.System,
+				CheckUpdatesOnStart = true,
+				Language = "_default",
+				NotifyUpdates = true,
+				RecentFiles = new(),
+				IsMaximized = false,
+				IsFirstRun = false, // Default is true but would be useless
+				DisplayDeleteBlockMessage = true
+			}; // Create default settings
+
 			SettingsManager.Save(); // Save the changes
-			LangApplyBtn.Visibility = Visibility.Hidden; // Hide
-			DisplayRestartMessage();
+			InitUI(); // Reload the page
+
+			MessageBox.Show(Properties.Resources.SettingsReset, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+			Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe");
+			Environment.Exit(0); // Quit
 		}
+	}
 
-		private void CheckUpdateOnStartChk_Checked(object sender, RoutedEventArgs e)
-		{
-			Global.Settings.CheckUpdatesOnStart = CheckUpdateOnStartChk.IsChecked.Value; // Set
-			SettingsManager.Save(); // Save changes
-		}
+	private void AboutLink_Click(object sender, RoutedEventArgs e)
+	{
+		AboutWindow aboutWindow = new();
+		aboutWindow.Show();
+		aboutWindow.Focus();
+		aboutWindow.Topmost = true;
+	}
 
-		private void NotifyUpdateChk_Checked(object sender, RoutedEventArgs e)
-		{
-			Global.Settings.NotifyUpdates = NotifyUpdateChk.IsChecked.Value; // Set
-			SettingsManager.Save(); // Save changes
-		}
-
-		private void DeleteBlockMessageConfirmChk_Checked(object sender, RoutedEventArgs e)
-		{
-			Global.Settings.DisplayDeleteBlockMessage = DeleteBlockMessageConfirmChk.IsChecked.Value; // Set
-			SettingsManager.Save(); // Save changes
-		}
-
-		private void ResetSettingsLink_Click(object sender, RoutedEventArgs e)
-		{
-			if (MessageBox.Show(Properties.Resources.ResetSettingsConfirmMsg, Properties.Resources.Settings, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-			{
-				Global.Settings = new()
-				{
-					Theme = Theme.System,
-					CheckUpdatesOnStart = true,
-					Language = "_default",
-					NotifyUpdates = true,
-					RecentFiles = new(),
-					IsMaximized = false,
-					IsFirstRun = false, // Default is true but would be useless
-					DisplayDeleteBlockMessage = true
-				}; // Create default settings
-
-				SettingsManager.Save(); // Save the changes
-				InitUI(); // Reload the page
-
-				MessageBox.Show(Properties.Resources.SettingsReset, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
-				Process.Start(Directory.GetCurrentDirectory() + @"\Datalya.exe");
-				Environment.Exit(0); // Quit
-			}
-		}
-
-		private void AboutLink_Click(object sender, RoutedEventArgs e)
-		{
-			AboutWindow aboutWindow = new();
-			aboutWindow.Show();
-			aboutWindow.Focus();
-			aboutWindow.Topmost = true;
-		}
-
-		private void SeeLicensesLink_Click(object sender, RoutedEventArgs e)
-		{
-			MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
-				"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
-				"ClosedXML - MIT License - © 2016 ClosedXML\n" +
-				"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
-				"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
-		}
+	private void SeeLicensesLink_Click(object sender, RoutedEventArgs e)
+	{
+		MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
+			"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
+			"ClosedXML - MIT License - © 2016 ClosedXML\n" +
+			"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
+			"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 	}
 }

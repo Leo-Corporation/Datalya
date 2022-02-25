@@ -22,24 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 
-namespace Datalya.Classes
+namespace Datalya.Classes;
+
+public class ContentCollection
 {
-	public class ContentCollection
+	/// <summary>
+	/// The name of the <see cref="ContentCollection"/>.
+	/// </summary>
+	public string Name { get; init; }
+
+	/// <summary>
+	/// The text, the content of the <see cref="ContentCollection"/>.
+	/// </summary>
+	public string Content { get; init; }
+
+	public ContentCollection(string name, string content)
 	{
-		/// <summary>
-		/// The name of the <see cref="ContentCollection"/>.
-		/// </summary>
-		public string Name { get; init; }
-
-		/// <summary>
-		/// The text, the content of the <see cref="ContentCollection"/>.
-		/// </summary>
-		public string Content { get; init; }
-
-		public ContentCollection(string name, string content)
-		{
-			Name = name; // Set variable
-			Content = content; // Set variable
-		}
+		Name = name; // Set variable
+		Content = content; // Set variable
 	}
 }

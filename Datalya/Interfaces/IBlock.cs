@@ -24,31 +24,30 @@ SOFTWARE.
 using Datalya.Enums;
 using System;
 
-namespace Datalya.Interfaces
+namespace Datalya.Interfaces;
+
+[Obsolete("Use the Block class instead")]
+public interface IBlock
 {
-	[Obsolete("Use the Block class instead")]
-	public interface IBlock
-	{
 
-		/// <summary>
-		/// The name given by the user to the block.
-		/// </summary>
-		public string Name { get; set; }
+	/// <summary>
+	/// The name given by the user to the block.
+	/// </summary>
+	public string Name { get; set; }
 
-		/// <summary>
-		/// The <see cref="Enums.BlockType"/> of the block.
-		/// </summary>
-		public BlockType BlockType { get; }
+	/// <summary>
+	/// The <see cref="Enums.BlockType"/> of the block.
+	/// </summary>
+	public BlockType BlockType { get; }
 
-		/// <summary>
-		/// The value of the block
-		/// </summary>
-		public string BlockValue { get; set; }
+	/// <summary>
+	/// The value of the block
+	/// </summary>
+	public string BlockValue { get; set; }
 
-		/// <summary>
-		/// Changes the name.
-		/// </summary>
-		/// <param name="name">The new name.</param>
-		public void ChangeName(string name);
-	}
+	/// <summary>
+	/// Changes the name.
+	/// </summary>
+	/// <param name="name">The new name.</param>
+	public void ChangeName(string name);
 }

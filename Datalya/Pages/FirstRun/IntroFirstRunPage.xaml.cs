@@ -25,23 +25,22 @@ using Datalya.Windows;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.Pages.FirstRun
-{
-	/// <summary>
-	/// Interaction logic for IntroFirstRunPage.xaml
-	/// </summary>
-	public partial class IntroFirstRunPage : Page
-	{
-		FirstRunWindow FirstRunWindow { get; init; }
-		public IntroFirstRunPage(FirstRunWindow firstRunWindow)
-		{
-			InitializeComponent();
-			FirstRunWindow = firstRunWindow; // Set
-		}
+namespace Datalya.Pages.FirstRun;
 
-		private void NextBtn_Click(object sender, RoutedEventArgs e)
-		{
-			FirstRunWindow.ChangePage(2); // Next
-		}
+/// <summary>
+/// Interaction logic for IntroFirstRunPage.xaml
+/// </summary>
+public partial class IntroFirstRunPage : Page
+{
+	FirstRunWindow FirstRunWindow { get; init; }
+	public IntroFirstRunPage(FirstRunWindow firstRunWindow)
+	{
+		InitializeComponent();
+		FirstRunWindow = firstRunWindow; // Set
+	}
+
+	private void NextBtn_Click(object sender, RoutedEventArgs e)
+	{
+		FirstRunWindow.ChangePage(2); // Next
 	}
 }

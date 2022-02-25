@@ -25,68 +25,67 @@ using Datalya.Classes;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Datalya.UserControls
+namespace Datalya.UserControls;
+
+/// <summary>
+/// Interaction logic for SingleChoiceBlockCreatorUI.xaml
+/// </summary>
+public partial class SingleChoiceBlockCreatorUI : UserControl
 {
-	/// <summary>
-	/// Interaction logic for SingleChoiceBlockCreatorUI.xaml
-	/// </summary>
-	public partial class SingleChoiceBlockCreatorUI : UserControl
+	SingleChoiceBlockPropertiesUI SingleChoiceBlockPropertiesUI { get; init; }
+	internal SingleChoiceBlock SingleChoiceBlock { get; set; }
+	public SingleChoiceBlockCreatorUI(SingleChoiceBlock singleChoiceBlock = null)
 	{
-		SingleChoiceBlockPropertiesUI SingleChoiceBlockPropertiesUI { get; init; }
-		internal SingleChoiceBlock SingleChoiceBlock { get; set; }
-		public SingleChoiceBlockCreatorUI(SingleChoiceBlock singleChoiceBlock = null)
+		InitializeComponent();
+		SingleChoiceBlock = singleChoiceBlock; // Sett
+
+		SingleChoiceBlockPropertiesUI = new(this, SingleChoiceBlock);
+
+		if (singleChoiceBlock is not null)
 		{
-			InitializeComponent();
-			SingleChoiceBlock = singleChoiceBlock; // Sett
+			NameTxt.Text = singleChoiceBlock.Name; // Set text
+		}
+	}
 
-			SingleChoiceBlockPropertiesUI = new(this, SingleChoiceBlock);
+	private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Global.CreatorPage.PropertyDisplayer.Content = SingleChoiceBlockPropertiesUI; // Set frame's content
+	}
 
-			if (singleChoiceBlock is not null)
+	private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+	{
+		try
+		{
+			if (Global.Settings.DisplayDeleteBlockMessage.Value)
 			{
-				NameTxt.Text = singleChoiceBlock.Name; // Set text
+				if (MessageBox.Show(Properties.Resources.ConfirmDeleteBlockMsg, Properties.Resources.DatalyaCreator, MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+				{
+					return; // Cancel
+				}
 			}
-		}
 
-		private void ConfigureBtn_Click(object sender, RoutedEventArgs e)
-		{
-			Global.CreatorPage.PropertyDisplayer.Content = SingleChoiceBlockPropertiesUI; // Set frame's content
-		}
+			int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
 
-		private void DeleteBtn_Click(object sender, RoutedEventArgs e)
-		{
-			try
+			if (Global.CreatorPage.PropertyDisplayer.Content == SingleChoiceBlockPropertiesUI)
 			{
-				if (Global.Settings.DisplayDeleteBlockMessage.Value)
-				{
-					if (MessageBox.Show(Properties.Resources.ConfirmDeleteBlockMsg, Properties.Resources.DatalyaCreator, MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
-					{
-						return; // Cancel
-					}
-				}
-
-				int index = Global.CreatorPage.BlockDisplayer.Children.IndexOf(this); // Get index
-
-				if (Global.CreatorPage.PropertyDisplayer.Content == SingleChoiceBlockPropertiesUI)
-				{
-					Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
-				}
-
-				if (Global.CurrentDataBase.ItemsContent.Count > 0)
-				{
-					for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
-					{
-						Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
-					}
-				}
-
-				if (Global.CurrentDataBase.Blocks.Count > index)
-				{
-					Global.CurrentDataBase.Blocks.RemoveAt(index); // Remove item 
-				}
-
-				Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block
+				Global.CreatorPage.PropertyDisplayer.Content = Global.EmptyPropertyUI; // Set content
 			}
-			catch { }
+
+			if (Global.CurrentDataBase.ItemsContent.Count > 0)
+			{
+				for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
+				{
+					Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
+				}
+			}
+
+			if (Global.CurrentDataBase.Blocks.Count > index)
+			{
+				Global.CurrentDataBase.Blocks.RemoveAt(index); // Remove item 
+			}
+
+			Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block
 		}
+		catch { }
 	}
 }
