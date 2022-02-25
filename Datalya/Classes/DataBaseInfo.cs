@@ -37,5 +37,6 @@ namespace Datalya.Classes
 		public List<string> Authors { get; set; }
 		public string FilePath { get; set; }
 		public bool IsPinned { get; set; }
+		public string Version { get; set; }
 	}
 }

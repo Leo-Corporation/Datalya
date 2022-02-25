@@ -102,6 +102,10 @@ namespace Datalya.Classes
 					streamReader.Dispose(); // Dispose
 
 					Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+					if (string.IsNullOrEmpty(Global.CurrentDataBase.DataBaseInfo.Version))
+					{
+						Global.CurrentDataBase.DataBaseInfo.Version = Global.Version;
+					}
 
 					Global.DatabasePage.InitDataBaseUI(); // Refresh database view
 					Global.CreatorPage.InitUI(); // Refresh creator view
