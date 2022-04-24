@@ -1273,4 +1273,7 @@ Europe</value>
   <data name="Templates" xml:space="preserve">
     <value>Modèles</value>
   </data>
+  <data name="NewerVersionDatabaseMsg" xml:space="preserve">
+    <value>Cette base de données a été créée dans une version plus récente de Datalya, elle peut ne pas être compatible avec cette version. Voulez-vous continuer ?</value>
+  </data>
 </root>

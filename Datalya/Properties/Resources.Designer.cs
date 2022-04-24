@@ -1215,6 +1215,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This database was created in a newer version of Datalya, it may nit be compatible with this version. Do you want to continue?.
+        /// </summary>
+        public static string NewerVersionDatabaseMsg {
+            get {
+                return ResourceManager.GetString("NewerVersionDatabaseMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {

@@ -26,6 +26,8 @@ using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
 using LeoCorpLibrary;
+using LeoCorpLibrary.Enums;
+using LeoCorpLibrary.Extensions;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -43,7 +45,7 @@ public static class Global
 	/// <summary>
 	/// Datalya's version.
 	/// </summary>
-	public static string Version => "1.4.1.2202";
+	public static string Version => "1.4.2.2204";
 
 	/// <summary>
 	/// Last version of Datalya.
@@ -320,5 +322,16 @@ public static class Global
 		jumpList.ShowRecentCategory = true;
 
 		JumpList.SetJumpList(Application.Current, jumpList);
+	}
+
+	public static bool IsVersionGreaterThanActual(string version)
+	{
+		string[] numbers = version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+		int ver = int.Parse(numbers.UnSplit(""));
+
+		string[] numCurrentVer = Version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+		int currentVer = int.Parse(numCurrentVer.UnSplit(""));
+
+		return ver > currentVer;
 	}
 }
