@@ -98,7 +98,17 @@ public static class DataBaseManager
 				XmlSerializer xmlSerializer = new(typeof(DataBase)); // XML Serializer
 				StreamReader streamReader = new(filePath); // The location of the file
 
-				Global.CurrentDataBase = (DataBase)xmlSerializer.Deserialize(streamReader); // Read the database
+				var db = (DataBase)xmlSerializer.Deserialize(streamReader); // Deserialize
+
+				if (Global.IsVersionGreaterThanActual(db.DataBaseInfo.Version))
+				{
+					if (MessageBox.Show(Properties.Resources.NewerVersionDatabaseMsg, Properties.Resources.Datalya, MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+					{
+						return;
+					}
+				}
+			
+				Global.CurrentDataBase = db; // Read the database
 				streamReader.Dispose(); // Dispose
 
 				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
