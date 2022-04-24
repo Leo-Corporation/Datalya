@@ -26,6 +26,7 @@ using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
 using LeoCorpLibrary;
+using LeoCorpLibrary.Enums;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
