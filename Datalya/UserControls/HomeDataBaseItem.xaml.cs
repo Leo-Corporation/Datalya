@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using LeoCorpLibrary;
+using LeoCorpLibrary.Enums;
 using System;
 using System.IO;
 using System.Windows;
