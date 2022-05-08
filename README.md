@@ -30,7 +30,7 @@
 Datalya is a modern database creator and management tool for Windows. It is built using WPF, .NET and C#.
 
 ## Download
-[Click here](https://bit.ly/DownloadDatalya) to download Datalya.
+[Click here](https://tinyurl.com/DownloadDatalya) to download Datalya.
 
 ## Contribute
 To contribute to the project, you'll need:
