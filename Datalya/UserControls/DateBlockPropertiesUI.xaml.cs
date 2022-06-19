@@ -40,12 +40,13 @@ public partial class DateBlockPropertiesUI : UserControl
 		InitializeComponent();
 		DateBlock = dateBlock; // Set
 		ParentElement = dateBlockCreatorUI; // Set
+		UseDefaultDateChk.IsChecked = true; // Set
 
 		if (dateBlock is not null)
 		{
 			NameTxt.Text = dateBlock.Name; // Set text
 			UseDefaultDateChk.IsChecked = dateBlock.UseDefaultDate; // Set the check state
-			DefaultDatePicker.DisplayDate = Env.UnixTimeToDateTime(dateBlock.DefaultDate ?? Env.UnixTime); // Set the date
+			DefaultDatePicker.DisplayDate = Env.UnixTimeToDateTime(dateBlock.DefaultDate); // Set the date
 		}
 	}
 
@@ -55,8 +56,13 @@ public partial class DateBlockPropertiesUI : UserControl
 		{
 			DateBlock = new() { Name = NameTxt.Text, UseDefaultDate = UseDefaultDateChk.IsChecked.Value, DefaultDate = DefaultDatePicker.DisplayDate.Second };
 			ParentElement.NameTxt.Text = DateBlock.Name; // Set name 
-			ParentElement.Date = InputBlock; // Set
+			ParentElement.DateBlock = DateBlock; // Set
 			Global.CreatorPage.SaveChanges(); // Save
 		}
+	}
+
+	private void UseDefaultDateChk_Checked(object sender, RoutedEventArgs e)
+	{
+		DefaultDatePicker.IsEnabled = !UseDefaultDateChk.IsChecked.Value;
 	}
 }
