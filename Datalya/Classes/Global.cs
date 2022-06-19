@@ -326,12 +326,27 @@ public static class Global
 
 	public static bool IsVersionGreaterThanActual(string version)
 	{
-		string[] numbers = version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
-		int ver = int.Parse(numbers.UnSplit(""));
+		try
+		{
+			string[] numbers = version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+			int ver = int.Parse(numbers.UnSplit(""));
 
-		string[] numCurrentVer = Version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
-		int currentVer = int.Parse(numCurrentVer.UnSplit(""));
+			string[] numCurrentVer = Version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+			int currentVer = int.Parse(numCurrentVer.UnSplit(""));
 
-		return ver > currentVer;
+			return ver > currentVer;
+		}
+		catch
+		{
+			CurrentDataBase.DataBaseInfo.Version = Version;
+			return false;
+		}
+	}
+
+	public static long ConvertToUnixTime(DateTime datetime)
+	{
+		DateTime sTime = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+		return (long)(datetime - sTime).TotalSeconds;
 	}
 }
