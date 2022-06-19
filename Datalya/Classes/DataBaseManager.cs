@@ -107,7 +107,7 @@ public static class DataBaseManager
 						return;
 					}
 				}
-			
+
 				Global.CurrentDataBase = db; // Read the database
 				streamReader.Dispose(); // Dispose
 

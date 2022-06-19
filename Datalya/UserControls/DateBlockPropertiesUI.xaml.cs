@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using LeoCorpLibrary;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,7 +34,7 @@ public partial class DateBlockPropertiesUI : UserControl
 {
 	private DateBlockCreatorUI ParentElement { get; init; }
 	internal DateBlock DateBlock { get; set; }
-	
+
 	public DateBlockPropertiesUI(DateBlockCreatorUI dateBlockCreatorUI, DateBlock dateBlock)
 	{
 		InitializeComponent();

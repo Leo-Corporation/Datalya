@@ -60,7 +60,7 @@ public partial class DatabasePage : Page
 			DatabaseMenuTabs.Help => HelpRibBtn,
 			_ => FileRibBtn
 		}); // Check
-		
+
 		FileTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.File ? Visibility.Visible : Visibility.Collapsed; // Show
 		EditTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Edit ? Visibility.Visible : Visibility.Collapsed; // Show
 		ExportTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Export ? Visibility.Visible : Visibility.Collapsed; // Show

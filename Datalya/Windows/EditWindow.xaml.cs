@@ -55,7 +55,7 @@ public partial class EditWindow : Window
 				{
 					Item.Add(""); // Set
 				}
-				
+
 				BlockDisplayer.Children.Add(Global.CurrentDataBase.Blocks[i].BlockType switch
 				{
 					BlockType.Input => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
@@ -128,7 +128,7 @@ public partial class EditWindow : Window
 							}
 						}
 					}
-					
+
 					blocks.Add(singleChoiceBlock);
 				}
 				else if (uIElement is DateBlockUI dateBlockUI)

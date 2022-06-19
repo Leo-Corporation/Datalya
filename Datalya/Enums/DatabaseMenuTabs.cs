@@ -21,13 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-namespace Datalya.Enums
+namespace Datalya.Enums;
+
+public enum DatabaseMenuTabs
 {
-	public enum DatabaseMenuTabs
-    {
-		File,
-		Edit,
-		Export,
-		Help
-    }
+	File,
+	Edit,
+	Export,
+	Help
 }
