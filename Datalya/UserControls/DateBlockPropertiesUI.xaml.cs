@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using LeoCorpLibrary;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -46,7 +47,8 @@ public partial class DateBlockPropertiesUI : UserControl
 		{
 			NameTxt.Text = dateBlock.Name; // Set text
 			UseDefaultDateChk.IsChecked = dateBlock.UseDefaultDate; // Set the check state
-			DefaultDatePicker.DisplayDate = Env.UnixTimeToDateTime(dateBlock.DefaultDate); // Set the date
+			DefaultDatePicker.DisplayDate = DateTime.Parse(dateBlock.DefaultDate); // Set the date
+			DefaultDatePicker.SelectedDate = DateTime.Parse(dateBlock.DefaultDate); // Set the date
 		}
 	}
 
@@ -54,7 +56,7 @@ public partial class DateBlockPropertiesUI : UserControl
 	{
 		if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 		{
-			DateBlock = new() { Name = NameTxt.Text, UseDefaultDate = UseDefaultDateChk.IsChecked.Value, DefaultDate = DefaultDatePicker.DisplayDate.Second };
+			DateBlock = new() { Name = NameTxt.Text, UseDefaultDate = UseDefaultDateChk.IsChecked.Value, DefaultDate =DefaultDatePicker.SelectedDate.Value.ToString("d") };
 			ParentElement.NameTxt.Text = DateBlock.Name; // Set name 
 			ParentElement.DateBlock = DateBlock; // Set
 			Global.CreatorPage.SaveChanges(); // Save

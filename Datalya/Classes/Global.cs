@@ -342,11 +342,4 @@ public static class Global
 			return false;
 		}
 	}
-
-	public static long ConvertToUnixTime(DateTime datetime)
-	{
-		DateTime sTime = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-		return (long)(datetime - sTime).TotalSeconds;
-	}
 }

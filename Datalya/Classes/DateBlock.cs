@@ -31,7 +31,7 @@ public class DateBlock : Block
 
 	public bool UseDefaultDate { get; set; }
 
-	public int DefaultDate { get; set; }
+	public string DefaultDate { get; set; }
 
 	public DateBlock()
 	{

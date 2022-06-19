@@ -55,8 +55,8 @@ public partial class DateBlockUI : UserControl
 		}
 		else
 		{
-			DateDisplayerPicker.DisplayDate = DateTime.Now; // Set
-			DateDisplayerPicker.SelectedDate = DateTime.Now; // Set
+			DateDisplayerPicker.DisplayDate = DateBlock.UseDefaultDate ? DateTime.Now : DateTime.Parse(DateBlock.DefaultDate); // Set
+			DateDisplayerPicker.SelectedDate = DateBlock.UseDefaultDate ? DateTime.Now : DateTime.Parse(DateBlock.DefaultDate); // Set
 		}
 	}
 }
