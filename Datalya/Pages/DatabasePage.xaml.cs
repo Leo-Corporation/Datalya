@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using ClosedXML.Excel;
 using Datalya.Classes;
+using Datalya.Enums;
 using Datalya.Windows;
 using LeoCorpLibrary;
 using Microsoft.Win32;
@@ -51,8 +52,19 @@ public partial class DatabasePage : Page
 
 	internal void InitUI()
 	{
-		CheckButton(FileRibBtn); // Check
-		FileTab.Visibility = Visibility.Visible; // Show
+		CheckButton(Global.Settings.DefaultMenuTab switch
+		{
+			DatabaseMenuTabs.File => FileRibBtn,
+			DatabaseMenuTabs.Edit => EditRibBtn,
+			DatabaseMenuTabs.Export => ExportRibBtn,
+			DatabaseMenuTabs.Help => HelpRibBtn,
+			_ => FileRibBtn
+		}); // Check
+		
+		FileTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.File ? Visibility.Visible : Visibility.Collapsed; // Show
+		EditTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Edit ? Visibility.Visible : Visibility.Collapsed; // Show
+		ExportTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Export ? Visibility.Visible : Visibility.Collapsed; // Show
+		HelpTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Help ? Visibility.Visible : Visibility.Collapsed; // Show
 
 		InitDataBaseUI(); // Init database UI
 	}

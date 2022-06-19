@@ -1285,4 +1285,10 @@ Europe</value>
   <data name="UseDefaultDate" xml:space="preserve">
     <value>Utiliser la date par défaut</value>
   </data>
+  <data name="DefaultTab" xml:space="preserve">
+    <value>Onglet par défaut</value>
+  </data>
+  <data name="DefaultTabDesc" xml:space="preserve">
+    <value>Onglet par défaut en mode « Base de données ».</value>
+  </data>
 </root>

@@ -80,6 +80,9 @@ public partial class SettingsWindow : Window
 
 		LangComboBox.SelectedIndex = (Global.Settings.Language == "_default") ? 0 : Global.LanguageCodeList.IndexOf(Global.Settings.Language) + 1;
 
+		// Default tab ComboBox
+		DefaultTabComboBox.SelectedIndex = (int)Global.Settings.DefaultMenuTab; // Select the correct item
+
 		// Apply buttons
 		LangApplyBtn.Visibility = Visibility.Hidden; // Hide
 		ThemeApplyBtn.Visibility = Visibility.Hidden; // Hide
@@ -236,7 +239,8 @@ public partial class SettingsWindow : Window
 				RecentFiles = new(),
 				IsMaximized = false,
 				IsFirstRun = false, // Default is true but would be useless
-				DisplayDeleteBlockMessage = true
+				DisplayDeleteBlockMessage = true,
+				DefaultMenuTab = DatabaseMenuTabs.File
 			}; // Create default settings
 
 			SettingsManager.Save(); // Save the changes
@@ -263,5 +267,11 @@ public partial class SettingsWindow : Window
 			"ClosedXML - MIT License - © 2016 ClosedXML\n" +
 			"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
 			"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+	}
+
+	private void DefaultTabComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		Global.Settings.DefaultMenuTab = (DatabaseMenuTabs)DefaultTabComboBox.SelectedIndex; // Set
+		SettingsManager.Save(); // Save changes
 	}
 }

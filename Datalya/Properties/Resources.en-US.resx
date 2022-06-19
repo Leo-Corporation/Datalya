@@ -1232,4 +1232,10 @@ Europe</value>
   <data name="UseDefaultDate" xml:space="preserve">
     <value>Use default date</value>
   </data>
+  <data name="DefaultTab" xml:space="preserve">
+    <value>Default tab</value>
+  </data>
+  <data name="DefaultTabDesc" xml:space="preserve">
+    <value>Default tab in "Database" mode.</value>
+  </data>
 </root>

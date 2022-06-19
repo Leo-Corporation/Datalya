@@ -137,6 +137,11 @@ public partial class App : Application
 			Global.Settings.DisplayDeleteBlockMessage = true;
 		}
 
+		if (!Global.Settings.DefaultMenuTab.HasValue)
+		{
+			Global.Settings.DefaultMenuTab = 0;
+		}
+
 		SettingsManager.Save(); // Save changes
 	}
 }

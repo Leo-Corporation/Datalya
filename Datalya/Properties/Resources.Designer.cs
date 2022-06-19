@@ -706,6 +706,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default tab.
+        /// </summary>
+        public static string DefaultTab {
+            get {
+                return ResourceManager.GetString("DefaultTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default tab in &quot;Database&quot; mode..
+        /// </summary>
+        public static string DefaultTabDesc {
+            get {
+                return ResourceManager.GetString("DefaultTabDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
