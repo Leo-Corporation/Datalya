@@ -56,7 +56,7 @@ public partial class DateBlockPropertiesUI : UserControl
 	{
 		if (!string.IsNullOrEmpty(NameTxt.Text) && !string.IsNullOrWhiteSpace(NameTxt.Text))
 		{
-			DateBlock = new() { Name = NameTxt.Text, UseDefaultDate = UseDefaultDateChk.IsChecked.Value, DefaultDate = UseDefaultDateChk.IsChecked.Value ? "" : DefaultDatePicker.SelectedDate.Value.ToString("d") };
+			DateBlock = new() { Name = NameTxt.Text, UseDefaultDate = UseDefaultDateChk.IsChecked.Value, DefaultDate = UseDefaultDateChk.IsChecked.Value ? DateTime.Now.ToString("d") : DefaultDatePicker.SelectedDate.Value.ToString("d") };
 			ParentElement.NameTxt.Text = DateBlock.Name; // Set name 
 			ParentElement.DateBlock = DateBlock; // Set
 			Global.CreatorPage.SaveChanges(); // Save

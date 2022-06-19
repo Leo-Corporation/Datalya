@@ -26,7 +26,20 @@
             <CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="UseDefaultDateChk" BorderThickness="2" Content="{x:Static lang:Resources.UseDefaultDate}" FontWeight="Bold" Margin="10 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center" FontSize="10" Checked="UseDefaultDateChk_Checked" Unchecked="UseDefaultDateChk_Checked"/>
 
             <TextBlock Text="{x:Static lang:Resources.Date}" FontWeight="Bold" Margin="10,0,0,0"/>
-            <DatePicker x:Name="DefaultDatePicker" Margin="10 2"></DatePicker>
+            <DatePicker Style="{DynamicResource DatePickerStyle}" x:Name="DefaultDatePicker" Margin="10 2" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}" FontWeight="SemiBold" Foreground="{Binding Source={StaticResource Foreground1}}">
+                <DatePicker.Resources>
+                    <Style TargetType="{x:Type DatePickerTextBox}">
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <TextBox x:Name="PART_TextBox" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderThickness="0"
+                                    Text="{Binding Path=Text, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" VerticalAlignment="Center" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
         </StackPanel>
 
 		<Button x:Name="SaveBtn" Grid.Row="1" Click="SaveBtn_Click" Padding="5" Margin="10" HorizontalAlignment="Center" Style="{DynamicResource TabButtonStyle}" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" BorderThickness="0" Cursor="Hand">
