@@ -1203,4 +1203,13 @@ Europe</value>
   <data name="NewerVersionDatabaseMsg" xml:space="preserve">
     <value>This database was created in a newer version of Datalya, it may nit be compatible with this version. Do you want to continue?</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateDefaultValue" xml:space="preserve">
+    <value>Default date value</value>
+  </data>
+  <data name="UseDefaultDate" xml:space="preserve">
+    <value>Use default date</value>
+  </data>
 </root>

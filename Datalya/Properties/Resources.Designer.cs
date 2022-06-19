@@ -679,6 +679,24 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default date value.
+        /// </summary>
+        public static string DateDefaultValue {
+            get {
+                return ResourceManager.GetString("DateDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Default {
@@ -1787,6 +1805,15 @@ namespace Datalya.Properties {
         public static string UpToDate {
             get {
                 return ResourceManager.GetString("UpToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use default date.
+        /// </summary>
+        public static string UseDefaultDate {
+            get {
+                return ResourceManager.GetString("UseDefaultDate", resourceCulture);
             }
         }
         
