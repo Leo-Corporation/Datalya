@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Enums;
-using System;
 
 namespace Datalya.Classes;
 
@@ -32,7 +31,7 @@ public class DateBlock : Block
 
 	public bool UseDefaultDate { get; set; }
 
-	public int? DefaultDate { get; set; }
+	public int DefaultDate { get; set; }
 
 	public DateBlock()
 	{
