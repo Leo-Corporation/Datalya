@@ -21,33 +21,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using Datalya.Enums;
+using System;
 
-namespace Datalya.Enums;
+namespace Datalya.Classes;
 
-public enum BlockType
+public class DateBlock : Block
 {
-	/// <summary>
-	/// A text field.
-	/// </summary>
-	Input,
+	public string BlockValue { get; set; }
 
-	/// <summary>
-	/// Choices with checkboxes.
-	/// </summary>
-	Multichoices,
+	public bool UseDefaultDate { get; set; }
 
-	/// <summary>
-	/// Choicess with radiobuttons.
-	/// </summary>
-	SingleChoice,
+	public int? DefaultDate { get; set; }
 
-	/// <summary>
-	/// Choices within a ComboBox.
-	/// </summary>
-	Selector,
-	
-	/// <summary>
-	/// A date field.
-	/// </summary>
-	Date
+	public DateBlock()
+	{
+		BlockType = BlockType.Date; // Set
+	}
+
+	public void ChangeName(string name) => Name = name;
+
+	public override string ToString() => BlockValue;
 }
