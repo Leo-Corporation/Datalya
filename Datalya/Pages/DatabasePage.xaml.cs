@@ -240,7 +240,10 @@ public partial class DatabasePage : Page
 
 	private void InfoBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new DataBaseInfoWindow().Show(); // Show infos
+		if (Global.CurrentDataBase is not null && Global.CurrentDataBase.DataBaseInfo is not null)
+		{
+			new DataBaseInfoWindow().Show(); // Show infos 
+		}
 	}
 
 	private void CloseDbBtn_Click(object sender, RoutedEventArgs e)
