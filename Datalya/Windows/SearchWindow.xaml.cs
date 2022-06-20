@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -63,31 +64,38 @@ public partial class SearchWindow : Window
 
 	private void SearchBtn_Click(object sender, RoutedEventArgs e)
 	{
-		if (string.IsNullOrEmpty(ValueTxt.Text))
+		try
 		{
-			MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Display error message
-			return;
-		}
-		
-		int j = FieldComboBox.SelectedIndex; // Get the selected field
-		List<List<string>> results = new(); // Create a new list of results
-
-		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item in the database
-		{
-			if (Global.CurrentDataBase.ItemsContent[i][j].ToLower().Contains(ValueTxt.Text.ToLower())) // If the item contains the text
+			if (string.IsNullOrEmpty(ValueTxt.Text))
 			{
-				results.Add(Global.CurrentDataBase.ItemsContent[i]); // Add the item to the results
+				MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Display error message
+				return;
 			}
-		}
 
-		// Check if there are any results
-		if (results.Count <= 0) // If there is no results
+			int j = FieldComboBox.SelectedIndex; // Get the selected field
+			List<List<string>> results = new(); // Create a new list of results
+
+			for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item in the database
+			{
+				if (Global.CurrentDataBase.ItemsContent[i][j].ToLower().Contains(ValueTxt.Text.ToLower())) // If the item contains the text
+				{
+					results.Add(Global.CurrentDataBase.ItemsContent[i]); // Add the item to the results
+				}
+			}
+
+			// Check if there are any results
+			if (results.Count <= 0) // If there is no results
+			{
+				MessageBox.Show(Properties.Resources.NoResultsFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show a message box
+				return; // Stop the search process
+			}
+
+			Global.DatabasePage.HighlightSearchResults(results); // Show the search results
+			Close(); // Close the window
+		}
+		catch (Exception ex)
 		{
-			MessageBox.Show(Properties.Resources.NoResultsFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show a message box
-			return; // Stop the search process
+			MessageBox.Show(ex.Message, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Error); // Display error message
 		}
-
-		Global.DatabasePage.HighlightSearchResults(results); // Show the search results
-		Close(); // Close the window
 	}
 }
