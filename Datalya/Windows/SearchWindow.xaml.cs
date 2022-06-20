@@ -45,6 +45,8 @@ public partial class SearchWindow : Window
 		{
 			FieldComboBox.Items.Add(Global.CurrentDataBase.Blocks[i].Name); // Add each field to the ComboBox
 		}
+
+		FieldComboBox.SelectedIndex = 0; // Select the first item
 	}
 
 	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
