@@ -1011,7 +1011,8 @@ namespace Datalya.Properties {
         ///- MultiChoices Block: A Block with checkboxes.
         ///- SingleChoice Block: A Block with checkboxes, but only one can be checked.
         ///- Selector Block: A dropdown with different choices.
-        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an it [rest of string was truncated]&quot;;.
+        ///- Date Block: A Block with a date picker.
+        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HelpGetStartedBlocks {
             get {

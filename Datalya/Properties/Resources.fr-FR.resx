@@ -588,6 +588,7 @@ Note : Vous ne pouvez pas enregistrer une base de données vide.
 - Block Multichoix : Un Block avec des cases à cocher.
 - Block Choix unique : Un Block avec des cases à cocher, mais une seule peut être cochée.
 - Block Sélecteur : Un menu déroulant avec différent choix.
+- Block Date : Un Block avec un sélecteur de date.
 Vous pouvez ajouter des Blocks dans le Creator. Vous pouvez configurer un Block en cliquant sur le bouton « Configurer » une fois que vous en avez ajouté un. Tous les Blocks ont besoins d’un nom. Il agira en tant que titre du champ lors d’un ajout d’élément à votre base de données.
 Vous pouvez supprimer un Block en cliquant sur l’icône « Poubelle » à côté du bouton « Configurer ».
 </value>
