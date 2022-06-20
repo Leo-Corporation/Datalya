@@ -107,6 +107,10 @@ public static class DataBaseManager
 						return;
 					}
 				}
+				else
+				{
+					db.DataBaseInfo.Version = Global.Version;
+				}
 
 				Global.CurrentDataBase = db; // Read the database
 				streamReader.Dispose(); // Dispose
