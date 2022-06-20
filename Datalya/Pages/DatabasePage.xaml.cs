@@ -470,4 +470,9 @@ public partial class DatabasePage : Page
 			DeleteBtn_Click(sender, null);
 		}
 	}
+
+	private void SearchBtn_Click(object sender, RoutedEventArgs e)
+	{
+		new SearchWindow().Show(); // Show search window
+	}
 }
