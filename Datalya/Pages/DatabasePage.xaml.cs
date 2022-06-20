@@ -76,6 +76,10 @@ public partial class DatabasePage : Page
 			// Clear
 			DataBaseGridView.Columns.Clear();
 			DataBaseListView.ItemsSource = null; // Bind
+			searchModeEnabled = false; // Disable search mode
+
+			SearchBtnTxt.Text = Properties.Resources.Search; // Set text
+			SearchIconTxt.Text = "\uF690"; // Set text
 
 			if (Global.CurrentDataBase.Blocks.Count > 0)
 			{
@@ -471,8 +475,29 @@ public partial class DatabasePage : Page
 		}
 	}
 
+	bool searchModeEnabled = false;
 	private void SearchBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new SearchWindow().Show(); // Show search window
+		if (!searchModeEnabled) // If search mode is disabled
+		{
+			new SearchWindow().Show(); // Show search window 
+		}
+		else
+		{
+			DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind to the original collection
+
+			SearchBtnTxt.Text = Properties.Resources.Search; // Set text
+			SearchIconTxt.Text = "\uF690"; // Set text
+			searchModeEnabled = false; // Disable search mode
+		}
+	}
+
+	internal void HighlightSearchResults(List<List<string>> results)
+	{
+		DataBaseListView.ItemsSource = results; // Bind
+		searchModeEnabled = true; // Enable search mode
+
+		SearchBtnTxt.Text = Properties.Resources.ExitSearch; // Set text
+		SearchIconTxt.Text = "\uF36A"; // Set text
 	}
 }

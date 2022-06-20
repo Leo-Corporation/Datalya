@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace Datalya.Windows;
@@ -62,6 +63,24 @@ public partial class SearchWindow : Window
 
 	private void SearchBtn_Click(object sender, RoutedEventArgs e)
 	{
+		int j = FieldComboBox.SelectedIndex; // Get the selected field
+		List<List<string>> results = new(); // Create a new list of results
 
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item in the database
+		{
+			if (Global.CurrentDataBase.ItemsContent[i][j].ToLower().Contains(ValueTxt.Text.ToLower())) // If the item contains the text
+			{
+				results.Add(Global.CurrentDataBase.ItemsContent[i]); // Add the item to the results
+			}
+		}
+
+		// Check if there are any results
+		if (results.Count <= 0) // If there is no results
+		{
+			//TODO: Show message to the user
+		}
+
+		Global.DatabasePage.HighlightSearchResults(results); // Show the search results
+		Close(); // Close the window
 	}
 }
