@@ -1291,4 +1291,19 @@ Europe</value>
   <data name="DefaultTabDesc" xml:space="preserve">
     <value>Onglet par défaut en mode « Base de données ».</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchDesc" xml:space="preserve">
+    <value>Rechercher un élément dans la base de données.</value>
+  </data>
+  <data name="ExitSearch" xml:space="preserve">
+    <value>Fermer la recherche</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Requête</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Champ</value>
+  </data>
 </root>

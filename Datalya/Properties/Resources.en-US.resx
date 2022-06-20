@@ -1238,4 +1238,19 @@ Europe</value>
   <data name="DefaultTabDesc" xml:space="preserve">
     <value>Default tab in "Database" mode.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchDesc" xml:space="preserve">
+    <value>Search an item in the database.</value>
+  </data>
+  <data name="ExitSearch" xml:space="preserve">
+    <value>Exit search</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
 </root>

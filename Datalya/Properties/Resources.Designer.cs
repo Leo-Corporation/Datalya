@@ -841,6 +841,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit search.
+        /// </summary>
+        public static string ExitSearch {
+            get {
+                return ResourceManager.GetString("ExitSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Export {
@@ -864,6 +873,15 @@ namespace Datalya.Properties {
         public static string ExportToExcel {
             get {
                 return ResourceManager.GetString("ExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field.
+        /// </summary>
+        public static string Field {
+            get {
+                return ResourceManager.GetString("Field", resourceCulture);
             }
         }
         
@@ -1548,6 +1566,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        public static string Request {
+            get {
+                return ResourceManager.GetString("Request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset data.
         /// </summary>
         public static string ResetData {
@@ -1598,6 +1625,24 @@ namespace Datalya.Properties {
         public static string SaveDataBase {
             get {
                 return ResourceManager.GetString("SaveDataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search an item in the database..
+        /// </summary>
+        public static string SearchDesc {
+            get {
+                return ResourceManager.GetString("SearchDesc", resourceCulture);
             }
         }
         
