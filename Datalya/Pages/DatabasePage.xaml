@@ -74,7 +74,17 @@
 							<ToolTip Content="{x:Static lang:Resources.Info}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 						</Button.ToolTip>
 					</Button>
-					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="CloseDbBtn" Click="CloseDbBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+                    <Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="SearchBtn" Click="SearchBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="SearchIconTxt" Text="&#xF690;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
+                            <TextBlock x:Name="SearchBtnTxt" Text="{x:Static lang:Resources.Search}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <Button.ToolTip>
+                            <ToolTip Content="{x:Static lang:Resources.SearchDesc}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="CloseDbBtn" Click="CloseDbBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
 							<TextBlock Text="&#xF384;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
 							<TextBlock Text="{x:Static lang:Resources.CloseDataBase}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>

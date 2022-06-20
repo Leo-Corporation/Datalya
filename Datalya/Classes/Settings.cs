@@ -74,6 +74,11 @@ public class Settings
 	/// True if Datalya should display a warning message when deleting a Block.
 	/// </summary>
 	public bool? DisplayDeleteBlockMessage { get; set; }
+
+	/// <summary>
+	/// The efault tab that sould be selected when opening Datalya.
+	/// </summary>
+	public DatabaseMenuTabs? DefaultMenuTab { get; set; }
 }
 
 public static class SettingsManager
@@ -105,7 +110,8 @@ public static class SettingsManager
 				NotifyUpdates = true,
 				IsMaximized = false,
 				IsFirstRun = true,
-				DisplayDeleteBlockMessage = true
+				DisplayDeleteBlockMessage = true,
+				DefaultMenuTab = DatabaseMenuTabs.File
 			}; // Create a new settings file
 
 			Save(); // Save the changes

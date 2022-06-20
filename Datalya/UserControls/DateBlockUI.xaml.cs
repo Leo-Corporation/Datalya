@@ -21,27 +21,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using Datalya.Enums;
+using Datalya.Classes;
 using System;
-using System.Xml.Serialization;
+using System.Windows.Controls;
 
-namespace Datalya.Classes;
-
-[XmlInclude(typeof(InputBlock))]
-[XmlInclude(typeof(MultichoicesBlock))]
-[XmlInclude(typeof(SingleChoiceBlock))]
-[XmlInclude(typeof(SelectorBlock))]
-[XmlInclude(typeof(DateBlock))]
-[Serializable]
-public class Block
+namespace Datalya.UserControls;
+/// <summary>
+/// Interaction logic for DateBlockUI.xaml
+/// </summary>
+public partial class DateBlockUI : UserControl
 {
-	/// <summary>
-	/// The <see cref="Enums.BlockType"/> of the block.
-	/// </summary>
-	public BlockType BlockType { get; set; }
+	public DateBlock DateBlock { get; set; }
+	string DateValue { get; set; }
 
-	/// <summary>
-	/// The name given by the user to the block.
-	/// </summary>
-	public string Name { get; set; }
+	public DateBlockUI(DateBlock dateBlock, string dateValue = null)
+	{
+		InitializeComponent();
+		DateBlock = dateBlock; // Set
+		DateValue = dateValue; // Set
+
+		InitUI();
+	}
+
+	private void InitUI()
+	{
+		NameTxt.Text = DateBlock.Name; // Set
+		if (!string.IsNullOrWhiteSpace(DateValue) && !string.IsNullOrEmpty(DateValue))
+		{
+			DateDisplayerPicker.DisplayDate = DateTime.Parse(DateValue); // Set
+			DateDisplayerPicker.SelectedDate = DateTime.Parse(DateValue); // Set 
+		}
+		else
+		{
+			DateDisplayerPicker.DisplayDate = DateBlock.UseDefaultDate ? DateTime.Now : DateTime.Parse(DateBlock.DefaultDate); // Set
+			DateDisplayerPicker.SelectedDate = DateBlock.UseDefaultDate ? DateTime.Now : DateTime.Parse(DateBlock.DefaultDate); // Set
+		}
+	}
 }

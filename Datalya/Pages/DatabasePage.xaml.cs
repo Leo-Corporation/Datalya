@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using ClosedXML.Excel;
 using Datalya.Classes;
+using Datalya.Enums;
 using Datalya.Windows;
 using LeoCorpLibrary;
 using Microsoft.Win32;
@@ -51,8 +52,19 @@ public partial class DatabasePage : Page
 
 	internal void InitUI()
 	{
-		CheckButton(FileRibBtn); // Check
-		FileTab.Visibility = Visibility.Visible; // Show
+		CheckButton(Global.Settings.DefaultMenuTab switch
+		{
+			DatabaseMenuTabs.File => FileRibBtn,
+			DatabaseMenuTabs.Edit => EditRibBtn,
+			DatabaseMenuTabs.Export => ExportRibBtn,
+			DatabaseMenuTabs.Help => HelpRibBtn,
+			_ => FileRibBtn
+		}); // Check
+
+		FileTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.File ? Visibility.Visible : Visibility.Collapsed; // Show
+		EditTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Edit ? Visibility.Visible : Visibility.Collapsed; // Show
+		ExportTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Export ? Visibility.Visible : Visibility.Collapsed; // Show
+		HelpTab.Visibility = Global.Settings.DefaultMenuTab == DatabaseMenuTabs.Help ? Visibility.Visible : Visibility.Collapsed; // Show
 
 		InitDataBaseUI(); // Init database UI
 	}
@@ -64,6 +76,10 @@ public partial class DatabasePage : Page
 			// Clear
 			DataBaseGridView.Columns.Clear();
 			DataBaseListView.ItemsSource = null; // Bind
+			searchModeEnabled = false; // Disable search mode
+
+			SearchBtnTxt.Text = Properties.Resources.Search; // Set text
+			SearchIconTxt.Text = "\uF690"; // Set text
 
 			if (Global.CurrentDataBase.Blocks.Count > 0)
 			{
@@ -240,7 +256,10 @@ public partial class DatabasePage : Page
 
 	private void InfoBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new DataBaseInfoWindow().Show(); // Show infos
+		if (Global.CurrentDataBase is not null && Global.CurrentDataBase.DataBaseInfo is not null)
+		{
+			new DataBaseInfoWindow().Show(); // Show infos 
+		}
 	}
 
 	private void CloseDbBtn_Click(object sender, RoutedEventArgs e)
@@ -454,5 +473,31 @@ public partial class DatabasePage : Page
 		{
 			DeleteBtn_Click(sender, null);
 		}
+	}
+
+	bool searchModeEnabled = false;
+	private void SearchBtn_Click(object sender, RoutedEventArgs e)
+	{
+		if (!searchModeEnabled) // If search mode is disabled
+		{
+			new SearchWindow().Show(); // Show search window 
+		}
+		else
+		{
+			DataBaseListView.ItemsSource = Global.CurrentDataBase.ItemsContent; // Bind to the original collection
+
+			SearchBtnTxt.Text = Properties.Resources.Search; // Set text
+			SearchIconTxt.Text = "\uF690"; // Set text
+			searchModeEnabled = false; // Disable search mode
+		}
+	}
+
+	internal void HighlightSearchResults(List<List<string>> results)
+	{
+		DataBaseListView.ItemsSource = results; // Bind
+		searchModeEnabled = true; // Enable search mode
+
+		SearchBtnTxt.Text = Properties.Resources.ExitSearch; // Set text
+		SearchIconTxt.Text = "\uF36A"; // Set text
 	}
 }

@@ -21,27 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using Datalya.Enums;
-using System;
-using System.Xml.Serialization;
+namespace Datalya.Enums;
 
-namespace Datalya.Classes;
-
-[XmlInclude(typeof(InputBlock))]
-[XmlInclude(typeof(MultichoicesBlock))]
-[XmlInclude(typeof(SingleChoiceBlock))]
-[XmlInclude(typeof(SelectorBlock))]
-[XmlInclude(typeof(DateBlock))]
-[Serializable]
-public class Block
+public enum DatabaseMenuTabs
 {
-	/// <summary>
-	/// The <see cref="Enums.BlockType"/> of the block.
-	/// </summary>
-	public BlockType BlockType { get; set; }
-
-	/// <summary>
-	/// The name given by the user to the block.
-	/// </summary>
-	public string Name { get; set; }
+	File,
+	Edit,
+	Export,
+	Help
 }

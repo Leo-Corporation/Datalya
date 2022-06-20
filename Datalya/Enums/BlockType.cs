@@ -44,5 +44,10 @@ public enum BlockType
 	/// <summary>
 	/// Choices within a ComboBox.
 	/// </summary>
-	Selector
+	Selector,
+
+	/// <summary>
+	/// A date field.
+	/// </summary>
+	Date
 }

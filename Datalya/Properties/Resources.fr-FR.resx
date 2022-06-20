@@ -588,6 +588,7 @@ Note : Vous ne pouvez pas enregistrer une base de données vide.
 - Block Multichoix : Un Block avec des cases à cocher.
 - Block Choix unique : Un Block avec des cases à cocher, mais une seule peut être cochée.
 - Block Sélecteur : Un menu déroulant avec différent choix.
+- Block Date : Un Block avec un sélecteur de date.
 Vous pouvez ajouter des Blocks dans le Creator. Vous pouvez configurer un Block en cliquant sur le bouton « Configurer » une fois que vous en avez ajouté un. Tous les Blocks ont besoins d’un nom. Il agira en tant que titre du champ lors d’un ajout d’élément à votre base de données.
 Vous pouvez supprimer un Block en cliquant sur l’icône « Poubelle » à côté du bouton « Configurer ».
 </value>
@@ -1275,5 +1276,44 @@ Europe</value>
   </data>
   <data name="NewerVersionDatabaseMsg" xml:space="preserve">
     <value>Cette base de données a été créée dans une version plus récente de Datalya, elle peut ne pas être compatible avec cette version. Voulez-vous continuer ?</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateDefaultValue" xml:space="preserve">
+    <value>Valeur de date par défaut</value>
+  </data>
+  <data name="UseDefaultDate" xml:space="preserve">
+    <value>Utiliser la date par défaut</value>
+  </data>
+  <data name="DefaultTab" xml:space="preserve">
+    <value>Onglet par défaut</value>
+  </data>
+  <data name="DefaultTabDesc" xml:space="preserve">
+    <value>Onglet par défaut en mode « Base de données ».</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchDesc" xml:space="preserve">
+    <value>Rechercher un élément dans la base de données.</value>
+  </data>
+  <data name="ExitSearch" xml:space="preserve">
+    <value>Fermer la recherche</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Requête</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Champ</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>Aucun résultat n'a été trouvé.</value>
+  </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Veuillez fournir une demande valide.</value>
+  </data>
+  <data name="SelectFieldMsg" xml:space="preserve">
+    <value>Veuillez sélectionner un champ.</value>
   </data>
 </root>

@@ -42,34 +42,41 @@ public partial class DataBaseInfoWindow : Window
 
 	private void InitUI()
 	{
-		// Name
-		DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
-
-		// Size
-
-		Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out double size, out UnitType unitType);
-		string unit = unitType switch
+		try
 		{
-			UnitType.Byte => Properties.Resources.Bytes, // Set text
-			UnitType.Kilobyte => Properties.Resources.Ko, // Set text
-			UnitType.Megabyte => Properties.Resources.Mo, // Set text
-			_ => Properties.Resources.Ko // Set text
-		}; // Set unit text
+			// Name
+			DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 
-		SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
+			// Size
 
-		// Last Edit
-		var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
-		LastEditTxt.Text = date.ToString("g"); // Set text
+			Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out double size, out UnitType unitType);
+			string unit = unitType switch
+			{
+				UnitType.Byte => Properties.Resources.Bytes, // Set text
+				UnitType.Kilobyte => Properties.Resources.Ko, // Set text
+				UnitType.Megabyte => Properties.Resources.Mo, // Set text
+				_ => Properties.Resources.Ko // Set text
+			}; // Set unit text
 
-		// Creation time
-		var date1 = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
-		CreationTxt.Text = date1.ToString("g"); // Set text
+			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
 
-		// Authors
-		for (int i = 0; i < Global.CurrentDataBase.DataBaseInfo.Authors.Count; i++)
+			// Last Edit
+			var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
+			LastEditTxt.Text = date.ToString("g"); // Set text
+
+			// Creation time
+			var date1 = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
+			CreationTxt.Text = date1.ToString("g"); // Set text
+
+			// Authors
+			for (int i = 0; i < Global.CurrentDataBase.DataBaseInfo.Authors.Count; i++)
+			{
+				AuthorsTxt.Text += Global.CurrentDataBase.DataBaseInfo.Authors[i] + "\n"; // Set text
+			}
+		}
+		catch
 		{
-			AuthorsTxt.Text += Global.CurrentDataBase.DataBaseInfo.Authors[i] + "\n"; // Set text
+
 		}
 	}
 

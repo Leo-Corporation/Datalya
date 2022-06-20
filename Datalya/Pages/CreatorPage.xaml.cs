@@ -70,6 +70,10 @@ public partial class CreatorPage : Page
 			{
 				BlockDisplayer.Children.Add(new SelectorBlockCreatorUI(s));
 			}
+			else if (Global.CurrentDataBase.Blocks[i] is DateBlock dateBlock)
+			{
+				BlockDisplayer.Children.Add(new DateBlockCreatorUI(dateBlock));
+			}
 		}
 	}
 
@@ -153,6 +157,13 @@ public partial class CreatorPage : Page
 						blocks.Add(choiceBlockCreatorUI.SingleChoiceBlock); // Add item 
 					}
 				}
+				else if (uIElement is DateBlockCreatorUI dateBlockCreatorUI)
+				{
+					if (dateBlockCreatorUI.DateBlock is not null)
+					{
+						blocks.Add(dateBlockCreatorUI.DateBlock); // Add item 
+					}
+				}
 			}
 			Global.CurrentDataBase.Blocks = blocks;
 			Global.IsModified = true;
@@ -192,5 +203,15 @@ public partial class CreatorPage : Page
 				BlockTemplateManager.Export(new() { Name = saveFileDialog.FileName, Blocks = Global.CurrentDataBase.Blocks }, saveFileDialog.FileName); // Export
 			}
 		}
+	}
+
+	private void DateBlockBtn_Click(object sender, RoutedEventArgs e)
+	{
+		BlockDisplayer.Children.Add(new DateBlockCreatorUI()); // Add block
+		for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++)
+		{
+			Global.CurrentDataBase.ItemsContent[i].Add("");
+		}
+		SaveChanges(); // Save
 	}
 }

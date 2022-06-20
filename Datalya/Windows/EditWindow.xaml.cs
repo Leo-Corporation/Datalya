@@ -62,6 +62,7 @@ public partial class EditWindow : Window
 					BlockType.Multichoices => new MultichoicesBlockUI((MultichoicesBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					BlockType.Date => new DateBlockUI((DateBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
 				}); // Add
 			}
@@ -129,6 +130,12 @@ public partial class EditWindow : Window
 					}
 
 					blocks.Add(singleChoiceBlock);
+				}
+				else if (uIElement is DateBlockUI dateBlockUI)
+				{
+					DateBlock dateBlock = new() { Name = dateBlockUI.DateBlock.Name };
+					dateBlock.BlockValue = dateBlockUI.DateDisplayerPicker.SelectedDate.Value.ToString("d"); // Set					
+					blocks.Add(dateBlock);
 				}
 			}
 

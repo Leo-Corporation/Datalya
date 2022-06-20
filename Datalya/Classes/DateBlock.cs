@@ -22,26 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Enums;
-using System;
-using System.Xml.Serialization;
 
 namespace Datalya.Classes;
 
-[XmlInclude(typeof(InputBlock))]
-[XmlInclude(typeof(MultichoicesBlock))]
-[XmlInclude(typeof(SingleChoiceBlock))]
-[XmlInclude(typeof(SelectorBlock))]
-[XmlInclude(typeof(DateBlock))]
-[Serializable]
-public class Block
+public class DateBlock : Block
 {
-	/// <summary>
-	/// The <see cref="Enums.BlockType"/> of the block.
-	/// </summary>
-	public BlockType BlockType { get; set; }
+	public string BlockValue { get; set; }
 
-	/// <summary>
-	/// The name given by the user to the block.
-	/// </summary>
-	public string Name { get; set; }
+	public bool UseDefaultDate { get; set; }
+
+	public string DefaultDate { get; set; }
+
+	public DateBlock()
+	{
+		BlockType = BlockType.Date; // Set
+	}
+
+	public void ChangeName(string name) => Name = name;
+
+	public override string ToString() => BlockValue;
 }

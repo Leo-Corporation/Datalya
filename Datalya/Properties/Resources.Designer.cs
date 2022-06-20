@@ -679,11 +679,47 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default date value.
+        /// </summary>
+        public static string DateDefaultValue {
+            get {
+                return ResourceManager.GetString("DateDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Default {
             get {
                 return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default tab.
+        /// </summary>
+        public static string DefaultTab {
+            get {
+                return ResourceManager.GetString("DefaultTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default tab in &quot;Database&quot; mode..
+        /// </summary>
+        public static string DefaultTabDesc {
+            get {
+                return ResourceManager.GetString("DefaultTabDesc", resourceCulture);
             }
         }
         
@@ -778,6 +814,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please provide a valid request..
+        /// </summary>
+        public static string EmptyField {
+            get {
+                return ResourceManager.GetString("EmptyField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -805,6 +850,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit search.
+        /// </summary>
+        public static string ExitSearch {
+            get {
+                return ResourceManager.GetString("ExitSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Export {
@@ -828,6 +882,15 @@ namespace Datalya.Properties {
         public static string ExportToExcel {
             get {
                 return ResourceManager.GetString("ExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field.
+        /// </summary>
+        public static string Field {
+            get {
+                return ResourceManager.GetString("Field", resourceCulture);
             }
         }
         
@@ -948,7 +1011,8 @@ namespace Datalya.Properties {
         ///- MultiChoices Block: A Block with checkboxes.
         ///- SingleChoice Block: A Block with checkboxes, but only one can be checked.
         ///- Selector Block: A dropdown with different choices.
-        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an it [rest of string was truncated]&quot;;.
+        ///- Date Block: A Block with a date picker.
+        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HelpGetStartedBlocks {
             get {
@@ -1260,6 +1324,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No results were found..
+        /// </summary>
+        public static string NoResultsFound {
+            get {
+                return ResourceManager.GetString("NoResultsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nothing to show.
         /// </summary>
         public static string NothingToShow {
@@ -1512,6 +1585,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        public static string Request {
+            get {
+                return ResourceManager.GetString("Request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset data.
         /// </summary>
         public static string ResetData {
@@ -1566,11 +1648,38 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search an item in the database..
+        /// </summary>
+        public static string SearchDesc {
+            get {
+                return ResourceManager.GetString("SearchDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a field..
+        /// </summary>
+        public static string SelectFieldMsg {
+            get {
+                return ResourceManager.GetString("SelectFieldMsg", resourceCulture);
             }
         }
         
@@ -1787,6 +1896,15 @@ namespace Datalya.Properties {
         public static string UpToDate {
             get {
                 return ResourceManager.GetString("UpToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use default date.
+        /// </summary>
+        public static string UseDefaultDate {
+            get {
+                return ResourceManager.GetString("UseDefaultDate", resourceCulture);
             }
         }
         

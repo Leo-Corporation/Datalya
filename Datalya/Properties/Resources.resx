@@ -568,6 +568,7 @@ Note: You cannot save an empty database.
 - MultiChoices Block: A Block with checkboxes.
 - SingleChoice Block: A Block with checkboxes, but only one can be checked.
 - Selector Block: A dropdown with different choices.
+- Date Block: A Block with a date picker.
 You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an item to your database.
 You can delete a Block by clicking the “Trash” icon next to the “Configure” button.
 </value>
@@ -1202,5 +1203,44 @@ Europe</value>
   </data>
   <data name="NewerVersionDatabaseMsg" xml:space="preserve">
     <value>This database was created in a newer version of Datalya, it may nit be compatible with this version. Do you want to continue?</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateDefaultValue" xml:space="preserve">
+    <value>Default date value</value>
+  </data>
+  <data name="UseDefaultDate" xml:space="preserve">
+    <value>Use default date</value>
+  </data>
+  <data name="DefaultTab" xml:space="preserve">
+    <value>Default tab</value>
+  </data>
+  <data name="DefaultTabDesc" xml:space="preserve">
+    <value>Default tab in "Database" mode.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchDesc" xml:space="preserve">
+    <value>Search an item in the database.</value>
+  </data>
+  <data name="ExitSearch" xml:space="preserve">
+    <value>Exit search</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>No results were found.</value>
+  </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Please provide a valid request.</value>
+  </data>
+  <data name="SelectFieldMsg" xml:space="preserve">
+    <value>Please select a field.</value>
   </data>
 </root>

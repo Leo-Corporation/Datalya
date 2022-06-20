@@ -45,7 +45,7 @@ public static class Global
 	/// <summary>
 	/// Datalya's version.
 	/// </summary>
-	public static string Version => "1.4.2.2204";
+	public static string Version => "1.5.0.2206";
 
 	/// <summary>
 	/// Last version of Datalya.
@@ -326,12 +326,20 @@ public static class Global
 
 	public static bool IsVersionGreaterThanActual(string version)
 	{
-		string[] numbers = version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
-		int ver = int.Parse(numbers.UnSplit(""));
+		try
+		{
+			string[] numbers = version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+			int ver = int.Parse(numbers.UnSplit(""));
 
-		string[] numCurrentVer = Version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
-		int currentVer = int.Parse(numCurrentVer.UnSplit(""));
+			string[] numCurrentVer = Version.Split(new string[] { "." }, StringSplitOptions.None)[0..2];
+			int currentVer = int.Parse(numCurrentVer.UnSplit(""));
 
-		return ver > currentVer;
+			return ver > currentVer;
+		}
+		catch
+		{
+			CurrentDataBase.DataBaseInfo.Version = Version;
+			return false;
+		}
 	}
 }
