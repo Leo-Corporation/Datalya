@@ -13,7 +13,7 @@
   <h1 align="center">Datalya</h3>
 
   <p align="center">
-    A modern and simple database manager for Windows written in C# .NET 5.
+    A modern and simple database manager for Windows written in C# .NET 6.
     <br />
     <a href="https://github.com/Leo-Corporation/Datalya/releases"><strong>Download »</strong></a>
     <br />
@@ -37,7 +37,7 @@ To contribute to the project, you'll need:
 - Visual Studio 2022 v17.0 or higher
   - .NET Desktop Developpement
   - Git
-- .NET 5
+- .NET 6
 - Inno Setup (*optionnal*)
 
 [Click here](https://github.com/Leo-Corporation/Datalya/blob/master/CONTRIBUTING.md) to see the full guidelines.
