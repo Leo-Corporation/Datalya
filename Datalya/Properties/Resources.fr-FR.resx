@@ -1306,4 +1306,7 @@ Europe</value>
   <data name="Field" xml:space="preserve">
     <value>Champ</value>
   </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>Aucun résultat n'a été trouvé.</value>
+  </data>
 </root>

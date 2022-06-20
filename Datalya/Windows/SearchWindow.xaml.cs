@@ -77,7 +77,8 @@ public partial class SearchWindow : Window
 		// Check if there are any results
 		if (results.Count <= 0) // If there is no results
 		{
-			//TODO: Show message to the user
+			MessageBox.Show(Properties.Resources.NoResultsFound, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Show a message box
+			return; // Stop the search process
 		}
 
 		Global.DatabasePage.HighlightSearchResults(results); // Show the search results

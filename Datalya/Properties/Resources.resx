@@ -1233,4 +1233,7 @@ Europe</value>
   <data name="Field" xml:space="preserve">
     <value>Field</value>
   </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>No results were found.</value>
+  </data>
 </root>

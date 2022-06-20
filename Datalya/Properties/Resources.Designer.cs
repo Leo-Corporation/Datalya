@@ -1314,6 +1314,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No results were found..
+        /// </summary>
+        public static string NoResultsFound {
+            get {
+                return ResourceManager.GetString("NoResultsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nothing to show.
         /// </summary>
         public static string NothingToShow {
