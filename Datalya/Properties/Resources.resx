@@ -1236,4 +1236,10 @@ Europe</value>
   <data name="NoResultsFound" xml:space="preserve">
     <value>No results were found.</value>
   </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Please provide a valid request.</value>
+  </data>
+  <data name="SelectFieldMsg" xml:space="preserve">
+    <value>Please select a field.</value>
+  </data>
 </root>

@@ -814,6 +814,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please provide a valid request..
+        /// </summary>
+        public static string EmptyField {
+            get {
+                return ResourceManager.GetString("EmptyField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -1661,6 +1670,15 @@ namespace Datalya.Properties {
         public static string Select {
             get {
                 return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a field..
+        /// </summary>
+        public static string SelectFieldMsg {
+            get {
+                return ResourceManager.GetString("SelectFieldMsg", resourceCulture);
             }
         }
         

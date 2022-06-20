@@ -1309,4 +1309,10 @@ Europe</value>
   <data name="NoResultsFound" xml:space="preserve">
     <value>Aucun résultat n'a été trouvé.</value>
   </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Veuillez fournir une demande valide.</value>
+  </data>
+  <data name="SelectFieldMsg" xml:space="preserve">
+    <value>Veuillez sélectionner un champ.</value>
+  </data>
 </root>

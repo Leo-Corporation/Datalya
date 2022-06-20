@@ -63,6 +63,12 @@ public partial class SearchWindow : Window
 
 	private void SearchBtn_Click(object sender, RoutedEventArgs e)
 	{
+		if (string.IsNullOrEmpty(ValueTxt.Text))
+		{
+			MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information); // Display error message
+			return;
+		}
+		
 		int j = FieldComboBox.SelectedIndex; // Get the selected field
 		List<List<string>> results = new(); // Create a new list of results
 
