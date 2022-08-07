@@ -362,9 +362,7 @@ public static class Global
 				{
 					for (int i = 0; i < CurrentDataBase.ItemsContent.Count; i++) // For each item
 					{
-						string tempObject = CurrentDataBase.ItemsContent[i][currentIndex - 1]; // Get previous object
-						CurrentDataBase.ItemsContent[i][currentIndex - 1] = CurrentDataBase.ItemsContent[i][currentIndex]; // Swap
-						CurrentDataBase.ItemsContent[i][currentIndex] = tempObject; // Swap
+						(CurrentDataBase.ItemsContent[i][currentIndex], CurrentDataBase.ItemsContent[i][currentIndex - 1]) = (CurrentDataBase.ItemsContent[i][currentIndex - 1], CurrentDataBase.ItemsContent[i][currentIndex]); // Get previous object
 					}
 				}
 
@@ -397,9 +395,7 @@ public static class Global
 				{
 					for (int i = 0; i < CurrentDataBase.ItemsContent.Count; i++) // For each item
 					{
-						string tempObject = CurrentDataBase.ItemsContent[i][currentIndex + 1]; // Get next object
-						CurrentDataBase.ItemsContent[i][currentIndex + 1] = CurrentDataBase.ItemsContent[i][currentIndex]; // Swap
-						CurrentDataBase.ItemsContent[i][currentIndex] = tempObject; // Swap
+						(CurrentDataBase.ItemsContent[i][currentIndex], CurrentDataBase.ItemsContent[i][currentIndex + 1]) = (CurrentDataBase.ItemsContent[i][currentIndex + 1], CurrentDataBase.ItemsContent[i][currentIndex]); // Get next object
 					}
 				}
 
