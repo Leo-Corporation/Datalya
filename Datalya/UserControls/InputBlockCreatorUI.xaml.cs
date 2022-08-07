@@ -87,4 +87,14 @@ public partial class InputBlockCreatorUI : UserControl
 		}
 		catch { }
 	}
+
+	private void MoveUpBtn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
+
+	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
+	{
+
+	}
 }
