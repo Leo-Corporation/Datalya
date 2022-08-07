@@ -90,7 +90,7 @@ public partial class MultichoicesBlockCreatorUI : UserControl
 
 	private void MoveUpBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockUp(MultichoicesBlock); // Move up
 	}
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)

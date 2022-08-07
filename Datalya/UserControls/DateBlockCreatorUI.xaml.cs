@@ -89,7 +89,7 @@ public partial class DateBlockCreatorUI : UserControl
 
 	private void MoveUpBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockUp(DateBlock); // Move up
 	}
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)

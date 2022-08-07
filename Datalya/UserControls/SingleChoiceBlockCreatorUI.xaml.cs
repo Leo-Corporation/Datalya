@@ -91,7 +91,7 @@ public partial class SingleChoiceBlockCreatorUI : UserControl
 
 	private void MoveUpBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockUp(SingleChoiceBlock); // Move up
 	}
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
