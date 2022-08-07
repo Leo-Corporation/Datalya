@@ -87,4 +87,9 @@ public partial class MultichoicesBlockCreatorUI : UserControl
 		}
 		catch { }
 	}
+
+	private void MoveUpBtn_Click()
+	{
+
+	}
 }
