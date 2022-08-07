@@ -88,4 +88,9 @@ public partial class SingleChoiceBlockCreatorUI : UserControl
 		}
 		catch { }
 	}
+
+	private void MoveUpBtn_Click()
+	{
+
+	}
 }
