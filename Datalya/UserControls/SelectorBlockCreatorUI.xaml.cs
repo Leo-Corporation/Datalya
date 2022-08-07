@@ -86,4 +86,9 @@ public partial class SelectorBlockCreatorUI : UserControl
 		}
 		catch { }
 	}
+
+	private void MoveUpBtn_Click()
+	{
+
+	}
 }
