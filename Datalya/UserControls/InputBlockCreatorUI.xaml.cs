@@ -95,6 +95,6 @@ public partial class InputBlockCreatorUI : UserControl
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockDown(InputBlock); // Move down
 	}
 }

@@ -371,4 +371,31 @@ public static class Global
 		}
 	}
 
+	public static void MoveBlockDown(Block block)
+	{
+		int currentIndex = CurrentDataBase.Blocks.IndexOf(block); // Get current index
+		if (currentIndex != CurrentDataBase.Blocks.Count - 1) // If the block isn't the last one
+		{
+			// Part 1: Swap the Block
+			Block tempBlock = CurrentDataBase.Blocks[currentIndex + 1]; // Get next block
+
+			// Swap tempBlock and the current block
+			CurrentDataBase.Blocks[currentIndex + 1] = block;
+			CurrentDataBase.Blocks[currentIndex] = tempBlock;
+
+			// Part 2: Swap the ItemsContent
+			if (CurrentDataBase.ItemsContent.Count > 0)
+			{
+				for (int i = 0; i < CurrentDataBase.ItemsContent.Count; i++) // For each item
+				{
+					string tempObject = CurrentDataBase.ItemsContent[i][currentIndex + 1]; // Get next object
+					CurrentDataBase.ItemsContent[i][currentIndex + 1] = CurrentDataBase.ItemsContent[i][currentIndex]; // Swap
+					CurrentDataBase.ItemsContent[i][currentIndex] = tempObject; // Swap
+				}
+			}
+
+			// Part 3: Update the UI
+			CreatorPage.InitUI(); // Update UI
+		}
+	}
 }

@@ -94,6 +94,6 @@ public partial class SelectorBlockCreatorUI : UserControl
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockDown(SelectorBlock); // Move down
 	}
 }

@@ -94,6 +94,6 @@ public partial class DateBlockCreatorUI : UserControl
 
 	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		Global.MoveBlockDown(DateBlock); // Move down
 	}
 }
