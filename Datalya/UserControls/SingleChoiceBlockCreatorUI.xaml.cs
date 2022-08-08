@@ -75,6 +75,10 @@ public partial class SingleChoiceBlockCreatorUI : UserControl
 			{
 				for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
 				{
+					if (Global.CurrentDataBase.ItemsContent[i].Count - 1 < index)
+					{
+						continue;
+					}
 					Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
 				}
 			}
