@@ -147,7 +147,7 @@
 				</StackPanel>
 
 				<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-					<WrapPanel x:Name="TemplateDisplayer"></WrapPanel>
+					<StackPanel x:Name="TemplateDisplayer"></StackPanel>
 				</ScrollViewer>
 			</Grid>
 		</Grid>

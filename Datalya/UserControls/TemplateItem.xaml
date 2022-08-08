@@ -5,11 +5,8 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:local="clr-namespace:Datalya.UserControls"
 			 mc:Ignorable="d" Foreground="{Binding Source={StaticResource Foreground1}}"
-			 Height="150" Width="200" FontFamily="..\Fonts\#Montserrat">
-	<Border MouseLeftButtonUp="Border_MouseLeftButtonUp" Cursor="Hand" Margin="2" CornerRadius="10" BorderThickness="5" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}">
-		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-			<TextBlock x:Name="ShortTxt" d:Text="Bo" FontSize="46" FontWeight="Bold" HorizontalAlignment="Center"/>
-			<TextBlock x:Name="NameTxt" d:Text="Books" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
-		</StackPanel>
+			 Height="45" Width="600" FontFamily="..\Fonts\#Montserrat" HorizontalAlignment="Center">
+    <Border x:Name="BorderContent" Padding="10 0" MouseLeftButtonUp="Border_MouseLeftButtonUp" Cursor="Hand" Margin="2" CornerRadius="10" Background="{Binding Source={StaticResource Background3}}">
+		<TextBlock x:Name="NameTxt" d:Text="Books" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
 	</Border>
 </UserControl>

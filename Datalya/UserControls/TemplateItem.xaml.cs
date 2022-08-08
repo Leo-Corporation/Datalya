@@ -25,6 +25,7 @@ using Datalya.Classes;
 using Datalya.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Datalya.UserControls;
 
@@ -47,7 +48,8 @@ public partial class TemplateItem : UserControl
 	private void InitUI()
 	{
 		NameTxt.Text = BlockTemplate.Name; // Set text
-		ShortTxt.Text = BlockTemplate.Name[0].ToString().ToUpper() + BlockTemplate.Name[1].ToString(); // Set text
+		MouseEnter += (o, e) => { BorderContent.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background2"].ToString()) }; };
+		MouseLeave += (o, e) => { BorderContent.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background3"].ToString()) }; };
 	}
 
 	private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
