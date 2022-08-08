@@ -3,7 +3,7 @@
 
 #define MyAppName "Datalya"
 #define MyAppVersion "1.6.0.2208"
-#define MyAppFullVersion "1.6.0.2208-rc1"
+#define MyAppFullVersion "1.6.0.2208"
 #define MyAppPublisher "Léo Corporation"
 #define MyAppURL "https://leocorporation.dev/"
 #define MyAppExeName "Datalya.exe"
