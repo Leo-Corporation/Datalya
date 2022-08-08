@@ -74,6 +74,10 @@ public partial class InputBlockCreatorUI : UserControl
 			{
 				for (int i = 0; i < Global.CurrentDataBase.ItemsContent.Count; i++) // For each item
 				{
+					if (Global.CurrentDataBase.ItemsContent[i].Count - 1 < index)
+					{
+						continue;
+					}
 					Global.CurrentDataBase.ItemsContent[i].RemoveAt(index); // Remove item
 				}
 			}
@@ -86,5 +90,15 @@ public partial class InputBlockCreatorUI : UserControl
 			Global.CreatorPage.BlockDisplayer.Children.Remove(this); // Remove current block 
 		}
 		catch { }
+	}
+
+	private void MoveUpBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Global.MoveBlockUp(InputBlock); // Move up
+	}
+
+	private void MoveDownBtn_Click(object sender, RoutedEventArgs e)
+	{
+		Global.MoveBlockDown(InputBlock); // Move down
 	}
 }

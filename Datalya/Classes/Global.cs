@@ -45,7 +45,7 @@ public static class Global
 	/// <summary>
 	/// Datalya's version.
 	/// </summary>
-	public static string Version => "1.5.0.2206";
+	public static string Version => "1.6.0.2208";
 
 	/// <summary>
 	/// Last version of Datalya.
@@ -151,8 +151,8 @@ public static class Global
 	/// </summary>
 	public static ColorAnimation OnHoverColorAnimation => new()
 	{
-		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // Start color
-		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["LightBackground"].ToString()), // Start color
+		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["AccentColor"].ToString()), // End color
 		Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
 	};
 
@@ -161,8 +161,8 @@ public static class Global
 	/// </summary>
 	public static ColorAnimation OnHoverTabColorAnimation => new()
 	{
-		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // Start color
-		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // End color
+		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["Background1"].ToString()), // Start color
+		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["AccentColor"].ToString()), // End color
 		Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
 	};
 
@@ -171,8 +171,8 @@ public static class Global
 	/// </summary>
 	public static ColorAnimation OnLeaveColorAnimation => new()
 	{
-		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
-		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["LightBackground"].ToString()), // End color
+		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["AccentColor"].ToString()), // Start color
+		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["LightBackground"].ToString()), // End color
 		Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
 	};
 
@@ -181,8 +181,8 @@ public static class Global
 	/// </summary>
 	public static ColorAnimation OnLeaveTabColorAnimation => new()
 	{
-		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["AccentColor"].ToString()), // Start color
-		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()), // End color
+		From = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["AccentColor"].ToString()), // Start color
+		To = (System.Windows.Media.Color)ColorConverter.ConvertFromString(Application.Current.Resources["Background1"].ToString()), // End color
 		Duration = new(TimeSpan.FromSeconds(0.3d)) // Duration
 	};
 
@@ -228,7 +228,7 @@ public static class Global
 	/// </summary>
 	public static void ChangeTheme()
 	{
-		App.Current.Resources.MergedDictionaries.Clear(); // Clear all resources
+		Application.Current.Resources.MergedDictionaries.Clear(); // Clear all resources
 		ResourceDictionary resourceDictionary = new(); // Create a resource dictionary
 
 		switch (Settings.Theme)
@@ -251,7 +251,7 @@ public static class Global
 				break;
 		}
 
-		App.Current.Resources.MergedDictionaries.Add(resourceDictionary); // Add the dictionary
+		Application.Current.Resources.MergedDictionaries.Add(resourceDictionary); // Add the dictionary
 	}
 
 	public static bool IsSystemThemeDark()
@@ -340,6 +340,72 @@ public static class Global
 		{
 			CurrentDataBase.DataBaseInfo.Version = Version;
 			return false;
+		}
+	}
+
+	public static void MoveBlockUp(Block block)
+	{
+		try
+		{
+			int currentIndex = CurrentDataBase.Blocks.IndexOf(block); // Get current index
+			if (currentIndex != 0) // If the block isn't the first one
+			{
+				// Part 1: Swap the Block
+				Block tempBlock = CurrentDataBase.Blocks[currentIndex - 1]; // Get previous block
+
+				// Swap tempBlock and the current block
+				CurrentDataBase.Blocks[currentIndex - 1] = block;
+				CurrentDataBase.Blocks[currentIndex] = tempBlock;
+
+				// Part 2: Swap the ItemsContent
+				if (CurrentDataBase.ItemsContent.Count > 0)
+				{
+					for (int i = 0; i < CurrentDataBase.ItemsContent.Count; i++) // For each item
+					{
+						(CurrentDataBase.ItemsContent[i][currentIndex], CurrentDataBase.ItemsContent[i][currentIndex - 1]) = (CurrentDataBase.ItemsContent[i][currentIndex - 1], CurrentDataBase.ItemsContent[i][currentIndex]); // Get previous object
+					}
+				}
+
+				// Part 3: Update the UI
+				CreatorPage.InitUI(); // Update UI
+			}
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message, Properties.Resources.ErrorOccured, MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
+
+	public static void MoveBlockDown(Block block)
+	{
+		try
+		{
+			int currentIndex = CurrentDataBase.Blocks.IndexOf(block); // Get current index
+			if (currentIndex != CurrentDataBase.Blocks.Count - 1) // If the block isn't the last one
+			{
+				// Part 1: Swap the Block
+				Block tempBlock = CurrentDataBase.Blocks[currentIndex + 1]; // Get next block
+
+				// Swap tempBlock and the current block
+				CurrentDataBase.Blocks[currentIndex + 1] = block;
+				CurrentDataBase.Blocks[currentIndex] = tempBlock;
+
+				// Part 2: Swap the ItemsContent
+				if (CurrentDataBase.ItemsContent.Count > 0)
+				{
+					for (int i = 0; i < CurrentDataBase.ItemsContent.Count; i++) // For each item
+					{
+						(CurrentDataBase.ItemsContent[i][currentIndex], CurrentDataBase.ItemsContent[i][currentIndex + 1]) = (CurrentDataBase.ItemsContent[i][currentIndex + 1], CurrentDataBase.ItemsContent[i][currentIndex]); // Get next object
+					}
+				}
+
+				// Part 3: Update the UI
+				CreatorPage.InitUI(); // Update UI
+			}
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message, Properties.Resources.ErrorOccured, MessageBoxButton.OK, MessageBoxImage.Error);
 		}
 	}
 }

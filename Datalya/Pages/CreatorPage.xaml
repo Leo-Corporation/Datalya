@@ -7,7 +7,7 @@
 	  xmlns:lang="clr-namespace:Datalya.Properties"
 	  FontFamily="..\Fonts\#Montserrat" Foreground="{Binding Source={StaticResource Foreground1}}"
 	  mc:Ignorable="d" 
-	  d:DesignHeight="450" d:DesignWidth="800"
+	  d:DesignHeight="450" d:DesignWidth="1000"
 	  Title="CreatorPage">
 
 	<Grid Margin="10,10,0,0">
@@ -71,23 +71,50 @@
 					</Button.ToolTip>
 				</Button>
 
-                <Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="DateBlockBtn" Click="DateBlockBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xF22B;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="{x:Static lang:Resources.Date}" FontSize="13" VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <Button.ToolTip>
-                        <ToolTip Content="{x:Static lang:Resources.Date}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
-                    </Button.ToolTip>
-                </Button>
+				<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="DateBlockBtn" Click="DateBlockBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="&#xF22B;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
+						<TextBlock Text="{x:Static lang:Resources.Date}" FontSize="13" VerticalAlignment="Center"/>
+					</StackPanel>
+					<Button.ToolTip>
+						<ToolTip Content="{x:Static lang:Resources.Date}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+					</Button.ToolTip>
+				</Button>
 
-                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
+				<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
 
 				<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="ImportBlockBtn" Click="ImportBlockBtn_Click" Content="&#xF151;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
 					<Button.ToolTip>
 						<ToolTip Content="{x:Static lang:Resources.ImportTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 					</Button.ToolTip>
 				</Button>
+				<Popup StaysOpen="False" PopupAnimation="Slide" x:Name="ImportPopup" AllowsTransparency="True" PlacementTarget="{Binding ElementName=ImportBlockBtn}">
+					<Border Margin="10" CornerRadius="5" Background="{Binding Source={StaticResource Background3}}">
+						<Border.Effect>
+							<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="15" Opacity="0.2" RenderingBias="Quality"/>
+						</Border.Effect>
+						<StackPanel>
+							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="BrowseTemplateBtn" Click="BrowseTemplateBtn_Click"  Padding="5" Margin="5,5,5,0" Style="{DynamicResource RegularButtonStyle}" Background="Transparent" Cursor="Hand" BorderThickness="0" FontSize="18">
+								<Button.ToolTip>
+									<ToolTip Content="{x:Static lang:Resources.ImportTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+								</Button.ToolTip>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="&#xF42F;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
+									<TextBlock Text="{x:Static lang:Resources.Browse}" FontSize="13" VerticalAlignment="Center"/>
+								</StackPanel>
+							</Button>
+							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="UseTemplateBtn" Click="UseTemplateBtn_Click" Padding="5" Margin="5,1,5,5" Style="{DynamicResource RegularButtonStyle}" Background="Transparent" Cursor="Hand" BorderThickness="0" FontSize="18">
+								<Button.ToolTip>
+									<ToolTip Content="{x:Static lang:Resources.ImportExistingTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+								</Button.ToolTip>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="&#xF15A;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center"/>
+									<TextBlock Text="{x:Static lang:Resources.ImportExistingTemplate}" FontSize="13" VerticalAlignment="Center"/>
+								</StackPanel>
+							</Button>
+						</StackPanel>
+					</Border>
+				</Popup>
 				<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="ExportBlockBtn" Click="ExportBlockBtn_Click" Content="&#xF1A5;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
 					<Button.ToolTip>
 						<ToolTip Content="{x:Static lang:Resources.ExportAsTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>

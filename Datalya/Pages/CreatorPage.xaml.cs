@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.UserControls;
+using Datalya.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -176,16 +177,7 @@ public partial class CreatorPage : Page
 
 	private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
 	{
-		OpenFileDialog openFileDialog = new()
-		{
-			Filter = $"{Properties.Resources.Template}|*.datalyabt",
-			Title = Properties.Resources.ImportTemplate
-		}; // Create OpenFileDialog
-
-		if (openFileDialog.ShowDialog() ?? true)
-		{
-			BlockTemplateManager.Import(openFileDialog.FileName); // Import
-		}
+		ImportPopup.IsOpen = !ImportPopup.IsOpen; // Open or close popup
 	}
 
 	private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)
@@ -213,5 +205,27 @@ public partial class CreatorPage : Page
 			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
 		SaveChanges(); // Save
+	}
+
+	private void BrowseTemplateBtn_Click(object sender, RoutedEventArgs e)
+	{
+		OpenFileDialog openFileDialog = new()
+		{
+			Filter = $"{Properties.Resources.Template}|*.datalyabt",
+			Title = Properties.Resources.ImportTemplate
+		}; // Create OpenFileDialog
+
+		ImportPopup.IsOpen = false; // Close the popup so that other interactions aren't "blocked"		
+
+		if (openFileDialog.ShowDialog() ?? true)
+		{
+			BlockTemplateManager.Import(openFileDialog.FileName); // Import
+		}
+	}
+
+	private void UseTemplateBtn_Click(object sender, RoutedEventArgs e)
+	{
+		new TemplateWindow(true).Show(); // Open template window
+		ImportPopup.IsOpen = false; // Close the popup so that other interactions aren't "blocked"
 	}
 }

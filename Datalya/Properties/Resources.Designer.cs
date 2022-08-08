@@ -196,6 +196,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse.
+        /// </summary>
+        public static string Browse {
+            get {
+                return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bytes.
         /// </summary>
         public static string Bytes {
@@ -1050,6 +1059,15 @@ namespace Datalya.Properties {
         public static string Illustrator {
             get {
                 return ResourceManager.GetString("Illustrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import exisitng template.
+        /// </summary>
+        public static string ImportExistingTemplate {
+            get {
+                return ResourceManager.GetString("ImportExistingTemplate", resourceCulture);
             }
         }
         

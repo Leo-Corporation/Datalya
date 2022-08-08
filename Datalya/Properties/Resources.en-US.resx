@@ -1263,4 +1263,10 @@ Europe</value>
   <data name="SelectFieldMsg" xml:space="preserve">
     <value>Please select a field.</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="ImportExistingTemplate" xml:space="preserve">
+    <value>Import exisitng template</value>
+  </data>
 </root>

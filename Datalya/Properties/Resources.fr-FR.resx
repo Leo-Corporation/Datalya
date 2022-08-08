@@ -1316,4 +1316,10 @@ Europe</value>
   <data name="SelectFieldMsg" xml:space="preserve">
     <value>Veuillez sélectionner un champ.</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Parcourir</value>
+  </data>
+  <data name="ImportExistingTemplate" xml:space="preserve">
+    <value>Importer un modèle existant</value>
+  </data>
 </root>
