@@ -176,16 +176,7 @@ public partial class CreatorPage : Page
 
 	private void ImportBlockBtn_Click(object sender, RoutedEventArgs e)
 	{
-		OpenFileDialog openFileDialog = new()
-		{
-			Filter = $"{Properties.Resources.Template}|*.datalyabt",
-			Title = Properties.Resources.ImportTemplate
-		}; // Create OpenFileDialog
-
-		if (openFileDialog.ShowDialog() ?? true)
-		{
-			BlockTemplateManager.Import(openFileDialog.FileName); // Import
-		}
+		ImportPopup.IsOpen = !ImportPopup.IsOpen; // Open or close popup
 	}
 
 	private void ExportBlockBtn_Click(object sender, RoutedEventArgs e)
@@ -213,5 +204,24 @@ public partial class CreatorPage : Page
 			Global.CurrentDataBase.ItemsContent[i].Add("");
 		}
 		SaveChanges(); // Save
+	}
+
+	private void BrowseTemplateBtn_Click(object sender, RoutedEventArgs e)
+	{
+		OpenFileDialog openFileDialog = new()
+		{
+			Filter = $"{Properties.Resources.Template}|*.datalyabt",
+			Title = Properties.Resources.ImportTemplate
+		}; // Create OpenFileDialog
+
+		if (openFileDialog.ShowDialog() ?? true)
+		{
+			BlockTemplateManager.Import(openFileDialog.FileName); // Import
+		}
+	}
+
+	private void UseTemplateBtn_Click(object sender, RoutedEventArgs e)
+	{
+
 	}
 }
