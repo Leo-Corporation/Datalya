@@ -215,6 +215,8 @@ public partial class CreatorPage : Page
 			Title = Properties.Resources.ImportTemplate
 		}; // Create OpenFileDialog
 
+		ImportPopup.IsOpen = false; // Close the popup so that other interactions aren't "blocked"		
+
 		if (openFileDialog.ShowDialog() ?? true)
 		{
 			BlockTemplateManager.Import(openFileDialog.FileName); // Import
@@ -224,5 +226,6 @@ public partial class CreatorPage : Page
 	private void UseTemplateBtn_Click(object sender, RoutedEventArgs e)
 	{
 		new TemplateWindow(true).Show(); // Open template window
+		ImportPopup.IsOpen = false; // Close the popup so that other interactions aren't "blocked"
 	}
 }
