@@ -52,9 +52,22 @@ public partial class TemplateItem : UserControl
 
 	private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 	{
-		TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
-		TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
-		TemplateWindow.NewDataBaseWindow.InitUI();
-		TemplateWindow.Close(); // Close
+		if (!TemplateWindow.IsFromCreator)
+		{
+			TemplateWindow.NewDataBaseWindow.BlockTemplate = BlockTemplate; // Set value
+			TemplateWindow.NewDataBaseWindow.TemplateNameTxt.Text = BlockTemplate.Name; // Set text
+			TemplateWindow.NewDataBaseWindow.InitUI();
+			TemplateWindow.Close(); // Close 
+		}
+		else
+		{
+			for (int i = 0; i < BlockTemplate.Blocks.Count; i++)
+			{
+				Global.CurrentDataBase.Blocks.Add(BlockTemplate.Blocks[i]); // Add block
+			}
+			Global.CreatorPage.InitUI(); // Refresh
+			Global.DatabasePage.InitUI(); // Refresh
+			TemplateWindow.Close(); // Close 
+		}
 	}
 }

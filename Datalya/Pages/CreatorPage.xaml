@@ -94,7 +94,7 @@
 							<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="15" Opacity="0.2" RenderingBias="Quality"/>
 						</Border.Effect>
 						<StackPanel>
-							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="BrowseTemplateBtn" Click="BrowseTemplateBtn_Click"  Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
+							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="BrowseTemplateBtn" Click="BrowseTemplateBtn_Click"  Padding="5" Margin="5,5,5,0" Style="{DynamicResource RegularButtonStyle}" Background="Transparent" Cursor="Hand" BorderThickness="0" FontSize="18">
 								<Button.ToolTip>
 									<ToolTip Content="{x:Static lang:Resources.ImportTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 								</Button.ToolTip>
@@ -103,7 +103,7 @@
 									<TextBlock Text="{x:Static lang:Resources.Browse}" FontSize="13" VerticalAlignment="Center"/>
 								</StackPanel>
 							</Button>
-							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="UseTemplateBtn" Click="UseTemplateBtn_Click" Padding="5" Margin="5" Style="{DynamicResource RegularButtonStyle}" Background="{Binding Source={StaticResource LightBackground}}" Cursor="Hand" BorderThickness="0" FontSize="18">
+							<Button Foreground="{Binding Source={StaticResource Foreground1}}" HorizontalContentAlignment="Stretch" x:Name="UseTemplateBtn" Click="UseTemplateBtn_Click" Padding="5" Margin="5,1,5,5" Style="{DynamicResource RegularButtonStyle}" Background="Transparent" Cursor="Hand" BorderThickness="0" FontSize="18">
 								<Button.ToolTip>
 									<ToolTip Content="{x:Static lang:Resources.ImportExistingTemplate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
 								</Button.ToolTip>

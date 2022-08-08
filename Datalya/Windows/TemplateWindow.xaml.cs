@@ -34,10 +34,19 @@ namespace Datalya.Windows;
 public partial class TemplateWindow : Window
 {
 	internal NewDataBaseWindow NewDataBaseWindow { get; init; }
+	internal bool IsFromCreator { get; init; } = false;
 	public TemplateWindow(NewDataBaseWindow newDataBaseWindow)
 	{
 		InitializeComponent();
 		NewDataBaseWindow = newDataBaseWindow; // Set
+
+		InitUI(); // Load the UI
+	}
+
+	public TemplateWindow(bool isFromCreator)
+	{
+		InitializeComponent();
+		IsFromCreator = isFromCreator; // Set
 
 		InitUI(); // Load the UI
 	}

@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.UserControls;
+using Datalya.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -222,6 +223,6 @@ public partial class CreatorPage : Page
 
 	private void UseTemplateBtn_Click(object sender, RoutedEventArgs e)
 	{
-
+		new TemplateWindow(true).Show(); // Open template window
 	}
 }
