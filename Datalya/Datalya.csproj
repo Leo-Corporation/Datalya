@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Datalya.ico</ApplicationIcon>
-    <Version>1.6.0.2208</Version>
+    <Version>1.6.1.2208</Version>
     <Authors>Léo Corporation</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Leo-Corporation/Datalya</PackageProjectUrl>
@@ -17,9 +17,8 @@
   <ItemGroup>
     <None Remove="DatalyaSplashScreen.png" />
     <None Remove="Fonts\FluentSystemIcons-Regular.ttf" />
-    <None Remove="Fonts\Montserrat-Bold.ttf" />
-    <None Remove="Fonts\Montserrat-Regular.ttf" />
-    <None Remove="Fonts\Montserrat-SemiBold.ttf" />
+    <None Remove="Fonts\Hauora-ExtraBold.ttf" />
+    <None Remove="Fonts\Hauora-Regular.ttf" />
     <None Remove="Images\DarkTheme.png" />
     <None Remove="Images\Datalya.png" />
     <None Remove="Images\LightTheme.png" />
@@ -35,13 +34,10 @@
     <Resource Include="Fonts\FluentSystemIcons-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fonts\Montserrat-Bold.ttf">
+    <Resource Include="Fonts\Hauora-ExtraBold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fonts\Montserrat-Regular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\Montserrat-SemiBold.ttf">
+    <Resource Include="Fonts\Hauora-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\DarkTheme.png">

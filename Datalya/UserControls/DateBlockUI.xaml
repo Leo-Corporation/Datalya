@@ -1,24 +1,14 @@
-﻿<UserControl x:Class="Datalya.UserControls.DateBlockUI"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Datalya.UserControls"
-             xmlns:lang="clr-namespace:Datalya.Properties"
-			 FontFamily="..\Fonts\#Montserrat" Foreground="{Binding Source={StaticResource Foreground1}}"
-			 mc:Ignorable="d" 
-			 d:DesignHeight="100" d:DesignWidth="350">
+﻿<UserControl x:Class="Datalya.UserControls.DateBlockUI" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Datalya.UserControls" xmlns:lang="clr-namespace:Datalya.Properties" FontFamily="..\Fonts\#Hauora" Foreground="{Binding Source={StaticResource Foreground1}}" mc:Ignorable="d" d:DesignHeight="100" d:DesignWidth="350">
     <Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
         <StackPanel Orientation="Vertical">
-            <TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="Bold" FontSize="13" Margin="2" VerticalAlignment="Center"/>
+            <TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="ExtraBold" FontSize="13" Margin="2" VerticalAlignment="Center" />
             <DatePicker Style="{DynamicResource DatePickerStyle}" x:Name="DateDisplayerPicker" Margin="10 2" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}" FontWeight="SemiBold" Foreground="{Binding Source={StaticResource Foreground1}}">
                 <DatePicker.Resources>
                     <Style TargetType="{x:Type DatePickerTextBox}">
                         <Setter Property="Control.Template">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <TextBox x:Name="PART_TextBox" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderThickness="0"
-                                    Text="{Binding Path=Text, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" VerticalAlignment="Center" />
+                                    <TextBox x:Name="PART_TextBox" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderThickness="0" Text="{Binding Path=Text, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" VerticalAlignment="Center" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

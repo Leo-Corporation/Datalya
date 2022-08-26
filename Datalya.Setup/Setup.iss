@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Datalya"
-#define MyAppVersion "1.6.0.2208"
-#define MyAppFullVersion "1.6.0.2208"
+#define MyAppVersion "1.6.1.2208"
+#define MyAppFullVersion "1.6.1.2208"
 #define MyAppPublisher "Léo Corporation"
 #define MyAppURL "https://leocorporation.dev/"
 #define MyAppExeName "Datalya.exe"
