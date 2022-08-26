@@ -1,97 +1,87 @@
-﻿<Page x:Class="Datalya.Pages.DatabasePage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Datalya.Pages"
-	  xmlns:lang="clr-namespace:Datalya.Properties"
-	  FontFamily="..\Fonts\#Montserrat"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Foreground="{Binding Source={StaticResource Foreground1}}"
-      Title="DatabasePage">
+﻿<Page x:Class="Datalya.Pages.DatabasePage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Datalya.Pages" xmlns:lang="clr-namespace:Datalya.Properties" FontFamily="..\Fonts\#Hauora" mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" Foreground="{Binding Source={StaticResource Foreground1}}" Title="DatabasePage">
 
-    <Grid>
+	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition/>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
 		</Grid.RowDefinitions>
 
 		<Border Grid.Row="0" Margin="20" MaxWidth="750" Background="{Binding Source={StaticResource LightBackground}}" CornerRadius="5">
 			<Border.Effect>
-				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality"/>
+				<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="20" Opacity="0.2" RenderingBias="Quality" />
 			</Border.Effect>
 
 			<Grid>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto"/>
-					<RowDefinition/>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
 				</Grid.RowDefinitions>
 				<StackPanel Orientation="Horizontal" Grid.Row="0">
-					<Button x:Name="FileRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.File}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="FileRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
-					<Button x:Name="EditRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Edit}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="EditRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
-					<Button x:Name="ExportRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Export}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="ExportRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
-					<Button x:Name="HelpRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Help}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="Bold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="HelpRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave"/>
+					<Button x:Name="FileRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.File}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="ExtraBold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="FileRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave" />
+					<Button x:Name="EditRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Edit}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="ExtraBold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="EditRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave" />
+					<Button x:Name="ExportRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Export}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="ExtraBold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="ExportRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave" />
+					<Button x:Name="HelpRibBtn" Background="{Binding Source={StaticResource LightBackground}}" Padding="5" Margin="5" Content="{x:Static lang:Resources.Help}" Foreground="{Binding Source={StaticResource Foreground1}}" FontWeight="ExtraBold" BorderThickness="0" Style="{DynamicResource TabButtonStyle}" Click="HelpRibBtn_Click" Cursor="Hand" MouseEnter="TabEnter" MouseLeave="TabLeave" />
 				</StackPanel>
-				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="FileTab" Grid.Row="1" >
+				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="FileTab" Grid.Row="1">
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="SaveBtn" Click="SaveBtn_Click" Content="&#xF680;" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="16">
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Save}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Save}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="SaveAsBtn" Click="SaveAsBtn_Click" Content="&#xFC52;" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="16">
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.SaveAs}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.SaveAs}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="NewDatabaseBtn" Click="NewDatabaseBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF379;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.New}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF379;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.New}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.New}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.New}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="OpenDbBtn" Click="OpenDbBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF42F;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.Open}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF42F;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.Open}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Open}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Open}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
-					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
+					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}" />
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="InfoBtn" Click="InfoBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF4A4;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.Info}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF4A4;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.Info}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
-						
+
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Info}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Info}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
-                    <Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="SearchBtn" Click="SearchBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="SearchIconTxt" Text="&#xF690;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-                            <TextBlock x:Name="SearchBtnTxt" Text="{x:Static lang:Resources.Search}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
-                        </StackPanel>
-
-                        <Button.ToolTip>
-                            <ToolTip Content="{x:Static lang:Resources.SearchDesc}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="CloseDbBtn" Click="CloseDbBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="SearchBtn" Click="SearchBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF384;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.CloseDataBase}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock x:Name="SearchIconTxt" Text="&#xF690;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock x:Name="SearchBtnTxt" Text="{x:Static lang:Resources.Search}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.CloseDataBase}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.SearchDesc}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
+						</Button.ToolTip>
+					</Button>
+					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="CloseDbBtn" Click="CloseDbBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="&#xF384;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.CloseDataBase}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
+						</StackPanel>
+
+						<Button.ToolTip>
+							<ToolTip Content="{x:Static lang:Resources.CloseDataBase}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 				</StackPanel>
@@ -99,12 +89,12 @@
 				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="ExportTab" Grid.Row="1">
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="ExportDbExcelBtn" Click="ExportDbExcelBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xFBC9;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.ExportToExcel}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xFBC9;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.ExportToExcel}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.ExportToExcel}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.ExportToExcel}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 				</StackPanel>
@@ -112,49 +102,49 @@
 				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="EditTab" Grid.Row="1">
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="AddItemBtn" Click="AddItemBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF10A;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.Add}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF10A;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.Add}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Add}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Add}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="EditBtn" Click="EditBtn_Click" Content="&#xF3DE;" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="16">
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.EditShort}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.EditShort}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 
-					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
+					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}" />
 
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="DeleteBtn" Click="DeleteBtn_Click" Content="&#xF34D;" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontSize="16">
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Delete}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Delete}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="DeleteAllBtn" Click="DeleteAllBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xFBF5;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.DeleteAll}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xFBF5;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.DeleteAll}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.DeleteAll}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.DeleteAll}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
-					
-					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}"/>
+
+					<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,7,5,7" Background="{Binding Source={StaticResource Background2}}" />
 
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="DuplicateItemBtn" Click="DuplicateItemBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF381;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.Duplicate}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF381;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.Duplicate}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Duplicate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Duplicate}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 				</StackPanel>
@@ -162,22 +152,22 @@
 				<StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="HelpTab" Grid.Row="1">
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="GetHelpBtn" Click="GetHelpBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF63E;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.Help}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF63E;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.Help}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.Help}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.Help}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 					<Button Foreground="{Binding Source={StaticResource Foreground1}}" x:Name="AboutBtn" Click="AboutBtn_Click" Padding="5" Margin="2" Style="{DynamicResource RegularButtonStyle}" BorderThickness="0" Background="Transparent" FontSize="16">
 						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="&#xF4A4;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular"/>
-							<TextBlock Text="{x:Static lang:Resources.About}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center"/>
+							<TextBlock Text="&#xF4A4;" Margin="0 0 5 0" FontFamily="..\Fonts\#FluentSystemIcons-Regular" />
+							<TextBlock Text="{x:Static lang:Resources.About}" FontWeight="Normal" FontSize="12" VerticalAlignment="Center" />
 						</StackPanel>
 
 						<Button.ToolTip>
-							<ToolTip Content="{x:Static lang:Resources.About}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}"/>
+							<ToolTip Content="{x:Static lang:Resources.About}" Background="{Binding Source={StaticResource Background1}}" Foreground="{Binding Source={StaticResource Foreground1}}" />
 						</Button.ToolTip>
 					</Button>
 				</StackPanel>
@@ -187,27 +177,27 @@
 		<ListView x:Name="DataBaseListView" KeyUp="DataBaseListView_KeyUp" MouseDoubleClick="DataBaseListView_MouseDoubleClick" Grid.Row="1" BorderBrush="{Binding Source={StaticResource Gray}}" Background="{Binding Source={StaticResource Background1}}" BorderThickness="0 1 0 0">
 			<ListView.Resources>
 				<Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">
-					<Setter Property="Width" Value="18"/>
-					<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}"/>
+					<Setter Property="Width" Value="18" />
+					<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}" />
 					<Setter Property="Template">
 						<Setter.Value>
 							<ControlTemplate TargetType="{x:Type Thumb}">
 								<Border Padding="{TemplateBinding Padding}" Background="Transparent">
-									<Rectangle HorizontalAlignment="Center" Width="3" Fill="{TemplateBinding Background}"/>
+									<Rectangle HorizontalAlignment="Center" Width="3" Fill="{TemplateBinding Background}" />
 								</Border>
 							</ControlTemplate>
 						</Setter.Value>
 					</Setter>
 				</Style>
 			</ListView.Resources>
-			
+
 			<ListView.View>
 				<GridView x:Name="DataBaseGridView">
 					<GridView.ColumnHeaderContainerStyle>
 						<Style TargetType="GridViewColumnHeader">
-							<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}"/>
-							<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}"/>
-							<Setter Property="BorderThickness" Value="0"/>
+							<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}" />
+							<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}" />
+							<Setter Property="BorderThickness" Value="0" />
 							<Setter Property="OverridesDefaultStyle" Value="True" />
 
 							<Setter Property="Template">
@@ -220,14 +210,14 @@
 														<Style TargetType="Border">
 															<Style.Triggers>
 																<Trigger Property="IsMouseOver" Value="True">
-																	<Setter Property="Background" Value="{Binding Source={StaticResource Gray}}"/>
+																	<Setter Property="Background" Value="{Binding Source={StaticResource Gray}}" />
 																</Trigger>
 															</Style.Triggers>
 														</Style>
 													</Border.Style>
-													<TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Width="{TemplateBinding Width}" TextAlignment="Center"/>
+													<TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Width="{TemplateBinding Width}" TextAlignment="Center" />
 												</Border>
-												<Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{StaticResource GridViewColumnHeaderGripper}"/>
+												<Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Right" Margin="0,0,-9,0" Style="{StaticResource GridViewColumnHeaderGripper}" />
 											</Grid>
 										</Border>
 									</ControlTemplate>
@@ -237,40 +227,40 @@
 					</GridView.ColumnHeaderContainerStyle>
 				</GridView>
 			</ListView.View>
-			
+
 			<!-- Styles -->
-			
+
 			<ListView.ItemContainerStyle>
 				<Style TargetType="ListViewItem">
 					<Setter Property="Template">
 						<Setter.Value>
 							<ControlTemplate TargetType="ListViewItem">
 								<Border CornerRadius="5" Background="{TemplateBinding Background}">
-									<GridViewRowPresenter Grid.RowSpan="2" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+									<GridViewRowPresenter Grid.RowSpan="2" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</Border>
 							</ControlTemplate>
 						</Setter.Value>
 					</Setter>
-					
-					<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}"/>
-					<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}"/>
-					<Setter Property="BorderThickness" Value="0"/>
-					<Setter Property="FontFamily" Value="..\Fonts\#Montserrat"/>
-					<Setter Property="Padding" Value="3"/>
+
+					<Setter Property="Background" Value="{Binding Source={StaticResource Background1}}" />
+					<Setter Property="Foreground" Value="{Binding Source={StaticResource Foreground1}}" />
+					<Setter Property="BorderThickness" Value="0" />
+					<Setter Property="FontFamily" Value="..\Fonts\#Hauora" />
+					<Setter Property="Padding" Value="3" />
 
 					<Style.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
-							<Setter Property="Background" Value="{Binding Source={StaticResource AccentColor}}"/>
-							<Setter Property="Foreground" Value="{Binding Source={StaticResource WindowButtonsHoverForeground1}}"/>
+							<Setter Property="Background" Value="{Binding Source={StaticResource AccentColor}}" />
+							<Setter Property="Foreground" Value="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" />
 						</Trigger>
 
 						<Trigger Property="IsSelected" Value="True">
-							<Setter Property="Background" Value="{Binding Source={StaticResource AccentColor}}"/>
-							<Setter Property="Foreground" Value="{Binding Source={StaticResource WindowButtonsHoverForeground1}}"/>
+							<Setter Property="Background" Value="{Binding Source={StaticResource AccentColor}}" />
+							<Setter Property="Foreground" Value="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" />
 						</Trigger>
 					</Style.Triggers>
 				</Style>
 			</ListView.ItemContainerStyle>
 		</ListView>
-    </Grid>
+	</Grid>
 </Page>
