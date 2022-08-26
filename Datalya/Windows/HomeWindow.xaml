@@ -67,7 +67,7 @@
 	</Window.Resources>
 
 	<Window.Effect>
-		<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="10" Opacity="0.4" RenderingBias="Quality" />
+		<DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="10" Opacity="0.4" RenderingBias="Performance" />
 	</Window.Effect>
 
 
