@@ -385,7 +385,7 @@ public partial class DatabasePage : Page
 
 	private void AboutBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new AboutWindow().Show(); // Show about window
+		Global.MainWindow.SettingsBtn_Click(sender, e);
 	}
 
 	private void GetHelpBtn_Click(object sender, RoutedEventArgs e)
