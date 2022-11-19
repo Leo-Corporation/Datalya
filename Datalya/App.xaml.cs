@@ -55,7 +55,7 @@ public partial class App : Application
 		Global.DatabasePage = new(); // Create new Database page
 		Global.CreatorPage = new(); // Create new Creator page
 		Global.SettingsPage = new(); // Create new Settings page
-		Global.HomeSettingsPage = new(); // Create new Settings page
+		Global.HomeSettingsPage = new(true); // Create new Settings page
 		Global.HomeWindow = new(); // Create new HomeWindow
 		Global.MainWindow = new(); // Create new MainWindow
 

@@ -22,6 +22,22 @@
 
 		<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
 			<StackPanel Margin="10">
+				<Border MinWidth="400" Grid.Row="1" Margin="5" Padding="20" CornerRadius="5" Background="{Binding Source={StaticResource Background4}}" HorizontalAlignment="Center">
+					<Border.Effect>
+						<DropShadowEffect Color="{Binding Source={StaticResource LightAccentColor2}}" Opacity="0.5" ShadowDepth="0" BlurRadius="15"/>
+					</Border.Effect>
+					<StackPanel>
+						<TextBlock Text="{x:Static lang:Resources.Datalya}" FontSize="32" FontWeight="Bold" Foreground="{Binding Source={StaticResource AccentColor}}" HorizontalAlignment="Center"/>
+
+						<TextBlock d:Text="7.0.0.2208" FontSize="11" x:Name="VersionTxt" HorizontalAlignment="Center"/>
+						<TextBlock Text="{x:Static lang:Resources.UpToDate}" FontSize="11" x:Name="UpdateTxt" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<StackPanel	Orientation="Horizontal" HorizontalAlignment="Center">
+							<Button x:Name="CheckUpdateBtn" Click="CheckUpdateBtn_Click" Cursor="Hand" Content="{x:Static lang:Resources.CheckUpdate}" Margin="5 10" Padding="5" BorderThickness="0" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" FontWeight="ExtraBold" Style="{DynamicResource TabButtonStyle}" HorizontalAlignment="Center"/>
+							<Button BorderThickness="0" Content="&#xF4A4;" x:Name="SeeLicensesLink" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="ExtraBold" Cursor="Hand" Click="SeeLicensesLink_Click" HorizontalAlignment="Left" Padding="5" Style="{DynamicResource RegularButtonStyle}" Background="{x:Null}" VerticalAlignment="Center"/>
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
 				<Expander Style="{DynamicResource ExpanderStyle1}" Margin="10,10,10,0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}">
 					<Expander.Header>
 						<StackPanel Margin="10 15" Orientation="Horizontal">
@@ -182,12 +198,6 @@
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="&#xF583;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontWeight="Regular" Margin="0,0,10,0" VerticalAlignment="Center" />
 						<TextBlock Text="{x:Static lang:Resources.About}" VerticalAlignment="Center" />
-					</StackPanel>
-				</Button>
-				<Button x:Name="SeeLicensesLink" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="ExtraBold" Cursor="Hand" Click="SeeLicensesLink_Click" HorizontalAlignment="Left" Padding="5" Style="{DynamicResource LinkButtonStyle}" Background="{x:Null}">
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="&#xF583;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontWeight="Regular" Margin="0,0,10,0" VerticalAlignment="Center" />
-						<TextBlock Text="{x:Static lang:Resources.Licenses}" VerticalAlignment="Center" />
 					</StackPanel>
 				</Button>
 			</StackPanel>
