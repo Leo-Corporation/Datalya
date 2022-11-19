@@ -158,6 +158,9 @@ public partial class MainWindow : Window
 
 		CreatorBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
 		CreatorBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+
+		SettingsBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+		SettingsBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
 	}
 
 	private void DatabaseBtn_Click(object sender, RoutedEventArgs e)
@@ -220,6 +223,8 @@ public partial class MainWindow : Window
 
 	private void SettingsBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new SettingsWindow().Show(); // Show
+		ResetAllCheckStatus(); // Reset
+		CheckButton(SettingsBtn); // Check
+		WindowContent.Navigate(Global.SettingsPage); // Navigate
 	}
 }

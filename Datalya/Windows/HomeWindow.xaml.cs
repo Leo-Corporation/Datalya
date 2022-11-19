@@ -121,6 +121,9 @@ public partial class HomeWindow : Window
 
 		// Maximize/Restore
 		WindowState = Global.Settings.IsMaximized ? WindowState.Maximized : WindowState.Normal; // Set state
+
+		// Settings
+		SettingsFrame.Navigate(Global.HomeSettingsPage);
 	}
 
 	private void HideAllTabs()
@@ -277,8 +280,24 @@ public partial class HomeWindow : Window
 		PinnedScroll.Visibility = Visibility.Visible; // Show
 	}
 
+	bool toggled = false;
 	private void SettingsBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new SettingsWindow().Show(); // Show
+		if (!toggled)
+		{
+			CheckButton(SettingsBtn); // Check 
+			Global.HomeSettingsPage.InitUI();
+			SettingsFrame.Visibility = Visibility.Visible;
+			HomeGrid.Visibility = Visibility.Collapsed;
+		}
+		else
+		{
+			SettingsBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+			SettingsBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+
+			SettingsFrame.Visibility = Visibility.Collapsed;
+			HomeGrid.Visibility = Visibility.Visible;
+		}
+		toggled = !toggled;
 	}
 }

@@ -73,6 +73,12 @@ public static class Global
 	public static HomeWindow HomeWindow { get; set; }
 
 	/// <summary>
+	/// The settings page of Datalya.
+	/// </summary>
+	public static SettingsPage SettingsPage { get; set; }
+	public static SettingsPage HomeSettingsPage { get; set; }
+
+	/// <summary>
 	/// Placeholder when there is no Block selected.
 	/// </summary>
 	internal static EmptyPropertyUI EmptyPropertyUI { get; set; }

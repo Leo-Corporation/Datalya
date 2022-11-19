@@ -1,0 +1,120 @@
+﻿<Page x:Class="Datalya.Pages.SettingsPage"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:local="clr-namespace:Datalya.Pages" FontFamily="..\Fonts\#Hauora"
+	  xmlns:lang="clr-namespace:Datalya.Properties"
+	  mc:Ignorable="d" Foreground="{Binding Source={StaticResource Foreground1}}"
+	  d:DesignHeight="450" d:DesignWidth="800"
+	  Title="SettingsPage">
+
+	<Grid Grid.Row="1">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<StackPanel Margin="10" Grid.Row="0">
+			<TextBlock Text="{x:Static lang:Resources.Settings}" FontWeight="ExtraBold" FontSize="36" />
+			<TextBlock Text="{x:Static lang:Resources.SettingsDesc}" FontSize="15" />
+		</StackPanel>
+
+		<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+			<StackPanel Margin="10">
+				<TextBlock Text="{x:Static lang:Resources.Updates}" FontWeight="ExtraBold" FontSize="16" Margin="0 5" />
+				<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="CheckUpdateOnStartChk" Checked="CheckUpdateOnStartChk_Checked" Unchecked="CheckUpdateOnStartChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.CheckUpdateOnStart}" FontWeight="ExtraBold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center" />
+				<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="NotifyUpdateChk" Checked="NotifyUpdateChk_Checked" Unchecked="NotifyUpdateChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.NotifyUpdates}" FontWeight="ExtraBold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center" />
+
+				<TextBlock Text="{x:Static lang:Resources.Theme}" FontWeight="ExtraBold" FontSize="16" Margin="0 5" />
+				<StackPanel Orientation="Horizontal" Margin="0 5">
+					<Border x:Name="LightBorder" CornerRadius="10" Margin="5" Background="{Binding Source={StaticResource Background1}}" BorderThickness="3" BorderBrush="{x:Null}" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Cursor="Hand" MouseLeftButtonUp="LightBorder_MouseLeftButtonUp">
+						<StackPanel Orientation="Vertical">
+							<Rectangle RadiusX="10" RadiusY="10" Width="100" Height="100" HorizontalAlignment="Center">
+								<Rectangle.Fill>
+									<ImageBrush ImageSource="..\Images\LightTheme.png" />
+								</Rectangle.Fill>
+							</Rectangle>
+							<RadioButton Style="{DynamicResource RadioButtonStyle1}" x:Name="LightRadioBtn" Checked="LightRadioBtn_Checked" GroupName="ThemeRadioGroup" Content="{x:Static lang:Resources.Light}" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderBrush="{Binding Source={StaticResource AccentColor}}" FontWeight="ExtraBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" />
+						</StackPanel>
+					</Border>
+					<Border x:Name="DarkBorder" CornerRadius="10" Margin="5" Background="{Binding Source={StaticResource Background1}}" BorderThickness="3" BorderBrush="{x:Null}" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Cursor="Hand" MouseLeftButtonUp="DarkBorder_MouseLeftButtonUp">
+						<StackPanel Orientation="Vertical">
+							<Rectangle RadiusX="10" RadiusY="10" Width="100" Height="100" HorizontalAlignment="Center">
+								<Rectangle.Fill>
+									<ImageBrush ImageSource="..\Images\DarkTheme.png" />
+								</Rectangle.Fill>
+							</Rectangle>
+							<RadioButton Style="{DynamicResource RadioButtonStyle1}" x:Name="DarkRadioBtn" Checked="DarkRadioBtn_Checked" GroupName="ThemeRadioGroup" Content="{x:Static lang:Resources.Dark}" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderBrush="{Binding Source={StaticResource AccentColor}}" FontWeight="ExtraBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" />
+						</StackPanel>
+					</Border>
+					<Border x:Name="SystemBorder" CornerRadius="10" Margin="5" Background="{Binding Source={StaticResource Background1}}" BorderThickness="3" BorderBrush="{x:Null}" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Cursor="Hand" MouseLeftButtonUp="SystemBorder_MouseLeftButtonUp">
+						<StackPanel Orientation="Vertical">
+							<Rectangle RadiusX="10" RadiusY="10" Width="100" Height="100" HorizontalAlignment="Center">
+								<Rectangle.Fill>
+									<ImageBrush ImageSource="..\Images\SystemTheme.png" />
+								</Rectangle.Fill>
+							</Rectangle>
+							<RadioButton Style="{DynamicResource RadioButtonStyle1}" x:Name="SystemRadioBtn" Checked="SystemRadioBtn_Checked" GroupName="ThemeRadioGroup" Content="{x:Static lang:Resources.System}" Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" BorderBrush="{Binding Source={StaticResource AccentColor}}" FontWeight="ExtraBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2,0,2" />
+						</StackPanel>
+					</Border>
+					<Button x:Name="ThemeApplyBtn" BorderThickness="0" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Padding="10,5,10,5" Style="{StaticResource TabButtonStyle}" FontWeight="ExtraBold" Cursor="Hand" VerticalAlignment="Center" Click="ThemeApplyBtn_Click" Visibility="Hidden" Margin="5 0">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="&#xF295;" FontWeight="Regular" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center" />
+							<TextBlock Text="{x:Static lang:Resources.Apply}" VerticalAlignment="Center" />
+						</StackPanel>
+					</Button>
+				</StackPanel>
+
+				<TextBlock Text="{x:Static lang:Resources.Language}" FontWeight="ExtraBold" FontSize="16" />
+				<TextBlock Text="{x:Static lang:Resources.LanguageDesc}" FontSize="14" />
+				<StackPanel Orientation="Horizontal">
+					<ComboBox x:Name="LangComboBox" SelectionChanged="LangComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle1}" BorderThickness="3" Margin="2" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="5 6" />
+					<Button x:Name="LangApplyBtn" BorderThickness="0" Background="{Binding Source={StaticResource AccentColor}}" Foreground="{Binding Source={StaticResource WindowButtonsHoverForeground1}}" Padding="10,5,10,5" Style="{StaticResource TabButtonStyle}" FontWeight="ExtraBold" Cursor="Hand" VerticalAlignment="Center" Click="LangApplyBtn_Click" Visibility="Hidden" Margin="5 0">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="&#xF295;" FontWeight="Regular" FontFamily="..\Fonts\#FluentSystemIcons-Regular" Margin="0,0,5,0" VerticalAlignment="Center" />
+							<TextBlock Text="{x:Static lang:Resources.Apply}" VerticalAlignment="Center" />
+						</StackPanel>
+					</Button>
+				</StackPanel>
+
+				<TextBlock Text="{x:Static lang:Resources.DefaultTab}" FontWeight="ExtraBold" FontSize="16" />
+				<TextBlock Text="{x:Static lang:Resources.DefaultTabDesc}" FontSize="14" />
+				<StackPanel Orientation="Horizontal">
+					<ComboBox x:Name="DefaultTabComboBox" SelectionChanged="DefaultTabComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle1}" BorderThickness="3" Margin="2" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="{Binding Source={StaticResource Foreground1}}" Padding="5 6">
+						<ComboBoxItem Content="{x:Static lang:Resources.File}" />
+						<ComboBoxItem Content="{x:Static lang:Resources.Edit}" />
+						<ComboBoxItem Content="{x:Static lang:Resources.Export}" />
+						<ComboBoxItem Content="{x:Static lang:Resources.Help}" />
+					</ComboBox>
+
+				</StackPanel>
+
+				<TextBlock Text="{x:Static lang:Resources.Messages}" FontWeight="ExtraBold" FontSize="16" Margin="0 5" />
+				<CheckBox Foreground="{Binding Source={StaticResource Foreground1}}" Background="{Binding Source={StaticResource Background1}}" x:Name="DeleteBlockMessageConfirmChk" Checked="DeleteBlockMessageConfirmChk_Checked" Unchecked="DeleteBlockMessageConfirmChk_Checked" BorderThickness="3" Content="{x:Static lang:Resources.ShowDeleteBlockConfirmMessage}" FontWeight="ExtraBold" Margin="5 2" Style="{DynamicResource CheckBoxStyle1}" VerticalContentAlignment="Center" />
+
+				<TextBlock Text="{x:Static lang:Resources.Data}" FontWeight="ExtraBold" FontSize="16" Margin="0,5,0,2" />
+				<Button x:Name="ResetSettingsLink" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="ExtraBold" Cursor="Hand" Click="ResetSettingsLink_Click" HorizontalAlignment="Left" Padding="5" Style="{DynamicResource LinkButtonStyle}" Background="{x:Null}">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="&#xF583;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontWeight="Regular" Margin="0,0,10,0" VerticalAlignment="Center" />
+						<TextBlock Text="{x:Static lang:Resources.ResetData}" VerticalAlignment="Center" />
+					</StackPanel>
+				</Button>
+
+				<TextBlock Text="{x:Static lang:Resources.AboutDatalya}" FontWeight="ExtraBold" FontSize="16" Margin="0,5,0,2" />
+				<Button x:Name="AboutLink" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="ExtraBold" Cursor="Hand" HorizontalAlignment="Left" Padding="5" Style="{DynamicResource LinkButtonStyle}" Background="{x:Null}">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="&#xF583;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontWeight="Regular" Margin="0,0,10,0" VerticalAlignment="Center" />
+						<TextBlock Text="{x:Static lang:Resources.About}" VerticalAlignment="Center" />
+					</StackPanel>
+				</Button>
+				<Button x:Name="SeeLicensesLink" Foreground="{Binding Source={StaticResource AccentColor}}" FontSize="14" FontWeight="ExtraBold" Cursor="Hand" Click="SeeLicensesLink_Click" HorizontalAlignment="Left" Padding="5" Style="{DynamicResource LinkButtonStyle}" Background="{x:Null}">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="&#xF583;" FontFamily="..\Fonts\#FluentSystemIcons-Regular" FontWeight="Regular" Margin="0,0,10,0" VerticalAlignment="Center" />
+						<TextBlock Text="{x:Static lang:Resources.Licenses}" VerticalAlignment="Center" />
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</Page>
