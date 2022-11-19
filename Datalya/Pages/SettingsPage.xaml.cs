@@ -108,13 +108,14 @@ public partial class SettingsPage : Page
 		// If updates are available
 		// Update the UI
 		CheckUpdateBtn.Content = Properties.Resources.Install;
-		UpdateTxt.Text = Properties.Resources.UpdatesAvailable;
+		UpdateTxt.Text = Properties.Resources.UpdatesAvailableShort;
 
 		// Show notification
 		if (FromHome || !Global.Settings.NotifyUpdates) return;
 		notifyIcon.Visible = true; // Show
-		notifyIcon.ShowBalloonTip(5000, Properties.Resources.DatalyaFile, Properties.Resources.UpdatesAvailable, System.Windows.Forms.ToolTipIcon.Info);
+		notifyIcon.ShowBalloonTip(5000, Properties.Resources.DatalyaFile, Properties.Resources.UpdatesAvailableShort, System.Windows.Forms.ToolTipIcon.Info);
 		notifyIcon.Visible = false; // Hide
+		notifyIcon.BalloonTipClicked += (o, e) => CheckUpdateBtn_Click(o, null);
 	}
 
 	Border CheckedBorder { get; set; }
@@ -291,9 +292,9 @@ public partial class SettingsPage : Page
 		string lastVersion = await Update.GetLastVersionAsync(Global.LastVersionLink);
 		if (Update.IsAvailable(Global.Version, lastVersion))
 		{
-			UpdateTxt.Text = Properties.Resources.UpdatesAvailable;
+			UpdateTxt.Text = Properties.Resources.UpdatesAvailableShort;
 
-			if (MessageBox.Show(Properties.Resources.Install, $"{Properties.Resources.InstallVersion} {lastVersion}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.No)
+			if (MessageBox.Show(Properties.Resources.UpdatesAvailable, $"{Properties.Resources.InstallVersion} {lastVersion}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.No)
 			{
 				return;
 			}
