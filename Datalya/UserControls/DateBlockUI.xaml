@@ -2,7 +2,7 @@
     <Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
         <StackPanel Orientation="Vertical">
             <TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="ExtraBold" FontSize="13" Margin="2" VerticalAlignment="Center" />
-            <DatePicker Style="{DynamicResource DatePickerStyle}" x:Name="DateDisplayerPicker" Margin="10 2" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}" FontWeight="SemiBold" Foreground="{Binding Source={StaticResource Foreground1}}">
+            <DatePicker Style="{DynamicResource DatePickerStyle}" x:Name="DateDisplayerPicker" BorderBrush="{Binding Source={StaticResource AccentColor}}" Background="{Binding Source={StaticResource Background1}}" FontWeight="SemiBold" Foreground="{Binding Source={StaticResource Foreground1}}">
                 <DatePicker.Resources>
                     <Style TargetType="{x:Type DatePickerTextBox}">
                         <Setter Property="Control.Template">
