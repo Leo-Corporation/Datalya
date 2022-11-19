@@ -585,7 +585,7 @@ ConverterParameter={x:Static DataGridHeadersVisibility.Row},
 					</Setter.Value>
 				</Setter>
 			</Style>
-			<SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
+			<SolidColorBrush x:Key="TextBox.Static.Background" Color="{Binding Source={StaticResource Background1}}"/>
 			<Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
 				<Setter Property="OverridesDefaultStyle" Value="true"/>
 				<Setter Property="AllowDrop" Value="true"/>
@@ -594,7 +594,8 @@ ConverterParameter={x:Static DataGridHeadersVisibility.Row},
 				<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 				<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
 				<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-				<Setter Property="Template">
+                <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+                <Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type TextBox}">
 							<ScrollViewer x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
@@ -609,7 +610,7 @@ ConverterParameter={x:Static DataGridHeadersVisibility.Row},
 			<SolidColorBrush x:Key="ComboBox.Static.Border" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="Transparent"/>
-			<SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
+            <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="{Binding Source={StaticResource AccentColor}}"/>
 			<SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
 			<SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
 			<LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">

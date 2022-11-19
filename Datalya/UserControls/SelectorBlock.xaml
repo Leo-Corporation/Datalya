@@ -2,7 +2,7 @@
 	<Border CornerRadius="10" Padding="10" Margin="5" Background="{Binding Source={StaticResource Background1}}">
 		<StackPanel Orientation="Vertical">
 			<TextBlock d:Text="Name" x:Name="NameTxt" FontWeight="ExtraBold" FontSize="13" Margin="2" VerticalAlignment="Center" />
-			<ComboBox Background="{Binding Source={StaticResource Background1}}" Style="{DynamicResource ComboBoxStyle1}" Name="ItemComboBox" BorderBrush="{x:Null}" BorderThickness="2" Foreground="{Binding Source={StaticResource Foreground1}}" />
+			<ComboBox IsEditable="True" TextBoxBase.TextChanged="ItemComboBox_TextChanged" MaxDropDownHeight="100" GotFocus="ItemComboBox_GotFocus" Background="{Binding Source={StaticResource Background1}}" Style="{DynamicResource ComboBoxStyle1}" IsTextSearchEnabled="True" Name="ItemComboBox" BorderBrush="{x:Null}" BorderThickness="2" Foreground="{Binding Source={StaticResource Foreground1}}" />
 		</StackPanel>
 	</Border>
 </UserControl>
