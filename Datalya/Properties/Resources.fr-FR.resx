@@ -1322,4 +1322,13 @@ Europe</value>
   <data name="ImportExistingTemplate" xml:space="preserve">
     <value>Importer un modèle existant</value>
   </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Changer le thème de Datalya.</value>
+  </data>
+  <data name="MessagesDesc" xml:space="preserve">
+    <value>Sélectionnez les messages à afficher.</value>
+  </data>
+  <data name="UpdatesDesc" xml:space="preserve">
+    <value>Paramètres de mise à jour.</value>
+  </data>
 </root>
