@@ -44,7 +44,7 @@ public static class Global
 	/// <summary>
 	/// Datalya's version.
 	/// </summary>
-	public static string Version => "1.7.0.2211-pre1";
+	public static string Version => "1.7.0.2211-rc1";
 
 	/// <summary>
 	/// Last version of Datalya.

@@ -6,12 +6,13 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Datalya.ico</ApplicationIcon>
-    <Version>1.7.0.2211-pre1</Version>
+    <Version>1.7.0.2211-rc1</Version>
     <Authors>Léo Corporation</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Leo-Corporation/Datalya</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Leo-Corporation/Datalya</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Copyright>© 2022</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
