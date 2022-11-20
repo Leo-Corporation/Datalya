@@ -338,6 +338,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change the theme of Datalya..
+        /// </summary>
+        public static string ChangeTheme {
+            get {
+                return ResourceManager.GetString("ChangeTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check update.
         /// </summary>
         public static string CheckUpdate {
@@ -1234,6 +1243,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select messages to be shown..
+        /// </summary>
+        public static string MessagesDesc {
+            get {
+                return ResourceManager.GetString("MessagesDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimize.
         /// </summary>
         public static string Minimize {
@@ -1905,6 +1923,15 @@ namespace Datalya.Properties {
         public static string UpdatesAvailableShort {
             get {
                 return ResourceManager.GetString("UpdatesAvailableShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update settings..
+        /// </summary>
+        public static string UpdatesDesc {
+            get {
+                return ResourceManager.GetString("UpdatesDesc", resourceCulture);
             }
         }
         

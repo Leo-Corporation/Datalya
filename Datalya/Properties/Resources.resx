@@ -1249,4 +1249,13 @@ Europe</value>
   <data name="ImportExistingTemplate" xml:space="preserve">
     <value>Import exisitng template</value>
   </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Change the theme of Datalya.</value>
+  </data>
+  <data name="MessagesDesc" xml:space="preserve">
+    <value>Select messages to be shown.</value>
+  </data>
+  <data name="UpdatesDesc" xml:space="preserve">
+    <value>Update settings.</value>
+  </data>
 </root>

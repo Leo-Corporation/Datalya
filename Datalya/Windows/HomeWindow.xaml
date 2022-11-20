@@ -72,7 +72,7 @@
 
 
 	<Border Name="WindowBorder" Margin="10" BorderThickness="0" Background="{Binding Source={StaticResource Background1}}" CornerRadius="5">
-		<Grid VerticalAlignment="Top">
+		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="*" />
@@ -112,7 +112,7 @@
 				</Grid>
 			</Border>
 
-			<Grid Grid.Row="1">
+			<Grid x:Name="HomeGrid" Grid.Row="1">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto" />
 					<RowDefinition Height="Auto" />
@@ -148,24 +148,31 @@
 						<RowDefinition />
 					</Grid.RowDefinitions>
 
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<TextBox LostFocus="SearchTxt_LostFocus" GotFocus="SearchTxt_GotFocus" Style="{DynamicResource RegularTextBoxStyle}" Padding="7" Margin="0,5,0,5" BorderThickness="0" Background="{Binding Source={StaticResource Background2}}" Foreground="{Binding Source={StaticResource Foreground1}}" d:Text="Placeholder" FontWeight="ExtraBold" TextAlignment="Center" x:FieldModifier="public" x:Name="SearchTxt" Grid.Column="1" VerticalAlignment="Center" Width="200" TextChanged="SearchTxt_TextChanged" HorizontalAlignment="Left"/>
+
 					<StackPanel Margin="30 10" Orientation="Horizontal" Grid.Row="0">
 						<Button x:Name="RecentTabBtn" Click="RecentTabBtn_Click" Content="{x:Static lang:Resources.Recent}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="ExtraBold" FontSize="14" MouseEnter="TabEnter" MouseLeave="TabLeave" Cursor="Hand" />
 						<Button x:Name="PinedTabBtn" Click="PinedTabBtn_Click" Content="{x:Static lang:Resources.Pined}" Padding="10 7" Margin="5 0" Style="{DynamicResource TabButtonStyle}" BorderThickness="0" Background="Transparent" FontWeight="ExtraBold" FontSize="14" MouseEnter="TabEnter" MouseLeave="TabLeave" Cursor="Hand" />
 					</StackPanel>
 
-					<ScrollViewer x:Name="RecentScroll" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+					<ScrollViewer x:Name="RecentScroll" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="2">
 						<StackPanel x:Name="RecentItemDisplayer" Grid.Row="1" Margin="30 0">
 							<!-- Items loaded on start -->
 						</StackPanel>
 					</ScrollViewer>
 
-					<ScrollViewer x:Name="PinnedScroll" Visibility="Collapsed" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+					<ScrollViewer x:Name="PinnedScroll" Visibility="Collapsed" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="2">
 						<StackPanel x:Name="PinedItemDisplayer" Visibility="Collapsed" Grid.Row="1" Margin="30 0">
 							<!-- Items loaded on start -->
 						</StackPanel>
 					</ScrollViewer>
 				</Grid>
 			</Grid>
+			<Frame x:Name="SettingsFrame" Visibility="Collapsed" Grid.Row="1"/>
 		</Grid>
 	</Border>
 </Window>

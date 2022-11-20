@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
-using LeoCorpLibrary;
+using PeyrSharp.Env;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,7 +53,7 @@ public static class DataBaseManager
 			}
 
 			DataBase dataBase1 = dataBase; // Set value
-			dataBase1.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+			dataBase1.DataBaseInfo.LastEditTime = Sys.UnixTime; // Set
 
 			if (!Global.DataBaseItemAlreadyExists(dataBase.DataBaseInfo)) // Check
 			{
@@ -115,7 +115,7 @@ public static class DataBaseManager
 				Global.CurrentDataBase = db; // Read the database
 				streamReader.Dispose(); // Dispose
 
-				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime; // Set
+				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Sys.UnixTime; // Set
 				if (string.IsNullOrEmpty(Global.CurrentDataBase.DataBaseInfo.Version))
 				{
 					Global.CurrentDataBase.DataBaseInfo.Version = Global.Version;

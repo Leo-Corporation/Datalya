@@ -23,7 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Windows;
-using LeoCorpLibrary;
+using PeyrSharp.Env;
 using System;
 using System.IO;
 using System.Windows;
@@ -46,12 +46,16 @@ public partial class App : Application
 		CheckSettings();
 
 		Global.CurrentDataBase = new() { DataBaseInfo = new() { Name = Datalya.Properties.Resources.DatalyaDataBase } }; // Create default database
-		Global.BlockTemplates = new(); // Create new List
-		Global.BlockTemplates.Add(Global.BooksTemplate); // Add template
-		Global.BlockTemplates.Add(Global.PeopleTemplate); // Add template
+		Global.BlockTemplates = new()
+		{
+			Global.BooksTemplate, // Add template
+			Global.PeopleTemplate // Add template
+		}; // Create new List
 
 		Global.DatabasePage = new(); // Create new Database page
 		Global.CreatorPage = new(); // Create new Creator page
+		Global.SettingsPage = new(); // Create new Settings page
+		Global.HomeSettingsPage = new(true); // Create new Settings page
 		Global.HomeWindow = new(); // Create new HomeWindow
 		Global.MainWindow = new(); // Create new MainWindow
 
@@ -119,7 +123,7 @@ public partial class App : Application
 			{
 				if (MessageBox.Show(Datalya.Properties.Resources.UpdatesAvailable, $"{Datalya.Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
 				{
-					Env.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
+					Sys.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
 					Environment.Exit(0); // Close
 				}
 			};

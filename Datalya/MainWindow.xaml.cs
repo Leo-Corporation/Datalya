@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using Datalya.Windows;
 using Microsoft.Win32;
 using System;
 using System.Windows;
@@ -158,6 +157,9 @@ public partial class MainWindow : Window
 
 		CreatorBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
 		CreatorBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
+
+		SettingsBtn.Foreground = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set the foreground
+		SettingsBtn.Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Background1"].ToString()) }; // Set the background
 	}
 
 	private void DatabaseBtn_Click(object sender, RoutedEventArgs e)
@@ -218,8 +220,10 @@ public partial class MainWindow : Window
 		MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
 	}
 
-	private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+	internal void SettingsBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new SettingsWindow().Show(); // Show
+		ResetAllCheckStatus(); // Reset
+		CheckButton(SettingsBtn); // Check
+		WindowContent.Navigate(Global.SettingsPage); // Navigate
 	}
 }

@@ -5,6 +5,7 @@
 	<sys:String x:Key="Background1">#0A0A1E</sys:String>
 	<sys:String x:Key="Background2">#141428</sys:String>
 	<sys:String x:Key="Background3">#0d0d21</sys:String>
+    <sys:String x:Key="Background4">#141428</sys:String>
 	<sys:String x:Key="LightBackground">#141428</sys:String>
 	<sys:String x:Key="Foreground1">#FFFFFF</sys:String>
 	<sys:String x:Key="WindowButtonsHover1">#141428</sys:String>
@@ -12,6 +13,7 @@
 	<sys:String x:Key="WindowButtonsHoverForeground1">#ffffff</sys:String>
 	<sys:String x:Key="AccentColor">#005FFF</sys:String>
 	<sys:String x:Key="LightAccentColor">#cce5ff</sys:String>
+    <sys:String x:Key="LightAccentColor2">#002566</sys:String>
 	<sys:String x:Key="Gray">#5A5A6E</sys:String>
 	<sys:String x:Key="DarkGray">#646464</sys:String>
 

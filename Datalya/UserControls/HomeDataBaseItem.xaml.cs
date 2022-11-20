@@ -22,8 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using LeoCorpLibrary;
-using LeoCorpLibrary.Enums;
+using PeyrSharp.Enums;
 using System;
 using System.IO;
 using System.Windows;
@@ -37,7 +36,7 @@ namespace Datalya.UserControls;
 /// </summary>
 public partial class HomeDataBaseItem : UserControl
 {
-	DataBaseInfo DataBaseInfo { get; init; }
+	internal DataBaseInfo DataBaseInfo { get; init; }
 	public HomeDataBaseItem(DataBaseInfo dataBase)
 	{
 		InitializeComponent();
@@ -49,16 +48,16 @@ public partial class HomeDataBaseItem : UserControl
 	private void InitUI()
 	{
 		NameTxt.Text = DataBaseInfo.Name; // Set text
-		LastEditTxt.Text = Env.UnixTimeToDateTime(DataBaseInfo.LastEditTime).ToString("g"); // Set text
+		LastEditTxt.Text = Global.UnixTimeToDateTime(DataBaseInfo.LastEditTime).ToString("g"); // Set text
 
 		// Size
 
-		Global.ConvertByteToCorrectSize(DataBaseInfo.Size, out double size, out UnitType unitType);
+		Global.ConvertByteToCorrectSize(DataBaseInfo.Size, out double size, out StorageUnits unitType);
 		string unit = unitType switch
 		{
-			UnitType.Byte => Properties.Resources.Bytes, // Set text
-			UnitType.Kilobyte => Properties.Resources.Ko, // Set text
-			UnitType.Megabyte => Properties.Resources.Mo, // Set text
+			StorageUnits.Byte => Properties.Resources.Bytes, // Set text
+			StorageUnits.Kilobyte => Properties.Resources.Ko, // Set text
+			StorageUnits.Megabyte => Properties.Resources.Mo, // Set text
 			_ => Properties.Resources.Ko // Set text
 		}; // Set unit text
 

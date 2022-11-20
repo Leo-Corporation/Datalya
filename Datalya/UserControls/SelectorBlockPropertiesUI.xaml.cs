@@ -23,7 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Windows;
-using LeoCorpLibrary.Extensions;
+using PeyrSharp.Extensions;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -71,7 +71,7 @@ public partial class SelectorBlockPropertiesUI : UserControl
 
 			// Choices
 			string[] lines = ChoicesTxt.Text.Split(new string[] { "\n", "\r", "\r\n" }, StringSplitOptions.RemoveEmptyEntries); // Split
-			var filledLines = lines.RemoveItem(string.Empty); // Remove
+			var filledLines = lines.RemoveElement(string.Empty); // Remove
 			for (int i = 0; i < filledLines.Length; i++)
 			{
 				CSelectorBlock.Choices.Add(filledLines[i]); // Add

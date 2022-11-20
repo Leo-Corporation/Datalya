@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using LeoCorpLibrary;
+using PeyrSharp.Env;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -114,7 +114,7 @@ public partial class NewDataBaseWindow : Window
 	{
 		Global.DataBaseFilePath = ""; // Reset
 
-		DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0, Version = Global.Version };
+		DataBaseInfo dbi = new() { Authors = new(), CreationTime = Sys.UnixTime, LastEditTime = Sys.UnixTime, Size = 0, Version = Global.Version };
 		dbi.Authors.Add(Environment.UserName); // Add
 		dbi.Name = NameTxt.Text; // Set text
 

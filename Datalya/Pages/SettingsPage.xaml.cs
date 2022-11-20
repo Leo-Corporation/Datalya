@@ -23,6 +23,8 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Enums;
+using PeyrSharp.Core;
+using PeyrSharp.Env;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -31,21 +33,28 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Datalya.Windows;
-
+namespace Datalya.Pages;
 /// <summary>
-/// Interaction logic for SettingsWindow.xaml
+/// Interaction logic for SettingsPage.xaml
 /// </summary>
-public partial class SettingsWindow : Window
+public partial class SettingsPage : Page
 {
-	public SettingsWindow()
+	private bool FromHome { get; init; }
+	public SettingsPage(bool fromHome = false)
 	{
 		InitializeComponent();
-		InitUI(); // Load the UI
+		FromHome = fromHome;
+
+		InitUI();
 	}
 
-	private void InitUI()
+	readonly System.Windows.Forms.NotifyIcon notifyIcon = new();
+
+	internal async void InitUI()
 	{
+		// About section
+		VersionTxt.Text = Global.Version; // Update the current version label
+
 		// Checkboxes
 		CheckUpdateOnStartChk.IsChecked = Global.Settings.CheckUpdatesOnStart; // Set
 		NotifyUpdateChk.IsChecked = Global.Settings.NotifyUpdates; // Set
@@ -72,6 +81,7 @@ public partial class SettingsWindow : Window
 		RefreshBorders();
 
 		// LangComboBox
+		LangComboBox.Items.Clear();
 		LangComboBox.Items.Add(Properties.Resources.Default); // Add
 		for (int i = 0; i < Global.LanguageList.Count; i++) // For each language
 		{
@@ -86,16 +96,27 @@ public partial class SettingsWindow : Window
 		// Apply buttons
 		LangApplyBtn.Visibility = Visibility.Hidden; // Hide
 		ThemeApplyBtn.Visibility = Visibility.Hidden; // Hide
-	}
 
-	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
-	{
-		WindowState = WindowState.Minimized; // Minimize
-	}
+		// Check for updates
+		if (!Global.Settings.CheckUpdatesOnStart) return;
+		try
+		{
+			if (!await Internet.IsAvailableAsync()) return;
+			if (!Update.IsAvailable(Global.Version, await Update.GetLastVersionAsync(Global.LastVersionLink))) return;
+		}
+		catch { return; }
 
-	private void CloseBtn_Click(object sender, RoutedEventArgs e)
-	{
-		Close(); // Close the window
+		// If updates are available
+		// Update the UI
+		CheckUpdateBtn.Content = Properties.Resources.Install;
+		UpdateTxt.Text = Properties.Resources.UpdatesAvailableShort;
+
+		// Show notification
+		if (FromHome || !Global.Settings.NotifyUpdates) return;
+		notifyIcon.Visible = true; // Show
+		notifyIcon.ShowBalloonTip(5000, Properties.Resources.DatalyaFile, Properties.Resources.UpdatesAvailableShort, System.Windows.Forms.ToolTipIcon.Info);
+		notifyIcon.Visible = false; // Hide
+		notifyIcon.BalloonTipClicked += (o, e) => CheckUpdateBtn_Click(o, null);
 	}
 
 	Border CheckedBorder { get; set; }
@@ -252,14 +273,6 @@ public partial class SettingsWindow : Window
 		}
 	}
 
-	private void AboutLink_Click(object sender, RoutedEventArgs e)
-	{
-		AboutWindow aboutWindow = new();
-		aboutWindow.Show();
-		aboutWindow.Focus();
-		aboutWindow.Topmost = true;
-	}
-
 	private void SeeLicensesLink_Click(object sender, RoutedEventArgs e)
 	{
 		MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
@@ -273,5 +286,28 @@ public partial class SettingsWindow : Window
 	{
 		Global.Settings.DefaultMenuTab = (DatabaseMenuTabs)DefaultTabComboBox.SelectedIndex; // Set
 		SettingsManager.Save(); // Save changes
+	}
+
+	private async void CheckUpdateBtn_Click(object sender, RoutedEventArgs e)
+	{
+		string lastVersion = await Update.GetLastVersionAsync(Global.LastVersionLink);
+		if (Update.IsAvailable(Global.Version, lastVersion))
+		{
+			UpdateTxt.Text = Properties.Resources.UpdatesAvailableShort;
+
+			if (MessageBox.Show(Properties.Resources.UpdatesAvailable, $"{Properties.Resources.InstallVersion} {lastVersion}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.No)
+			{
+				return;
+			}
+			SettingsManager.Save();
+
+			Sys.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
+			Application.Current.Shutdown(); // Close
+		}
+		else
+		{
+			UpdateTxt.Text = Properties.Resources.UpToDate;
+			CheckUpdateBtn.Content = Properties.Resources.CheckUpdate;
+		}
 	}
 }

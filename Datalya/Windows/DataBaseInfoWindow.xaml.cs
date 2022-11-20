@@ -22,8 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using Datalya.Classes;
-using LeoCorpLibrary;
-using LeoCorpLibrary.Enums;
+using PeyrSharp.Enums;
 using System;
 using System.Windows;
 
@@ -49,23 +48,23 @@ public partial class DataBaseInfoWindow : Window
 
 			// Size
 
-			Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out double size, out UnitType unitType);
+			Global.ConvertByteToCorrectSize(Global.CurrentDataBase.DataBaseInfo.Size, out double size, out StorageUnits unitType);
 			string unit = unitType switch
 			{
-				UnitType.Byte => Properties.Resources.Bytes, // Set text
-				UnitType.Kilobyte => Properties.Resources.Ko, // Set text
-				UnitType.Megabyte => Properties.Resources.Mo, // Set text
+				StorageUnits.Byte => Properties.Resources.Bytes, // Set text
+				StorageUnits.Kilobyte => Properties.Resources.Ko, // Set text
+				StorageUnits.Megabyte => Properties.Resources.Mo, // Set text
 				_ => Properties.Resources.Ko // Set text
 			}; // Set unit text
 
 			SizeTxt.Text = $"{Math.Round(size)} {unit}"; // Set text: ex: 10 KB
 
 			// Last Edit
-			var date = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
+			var date = Global.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.LastEditTime); // Get date
 			LastEditTxt.Text = date.ToString("g"); // Set text
 
 			// Creation time
-			var date1 = Env.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
+			var date1 = Global.UnixTimeToDateTime(Global.CurrentDataBase.DataBaseInfo.CreationTime); // Get date
 			CreationTxt.Text = date1.ToString("g"); // Set text
 
 			// Authors

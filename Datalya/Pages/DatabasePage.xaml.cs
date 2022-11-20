@@ -25,8 +25,8 @@ using ClosedXML.Excel;
 using Datalya.Classes;
 using Datalya.Enums;
 using Datalya.Windows;
-using LeoCorpLibrary;
 using Microsoft.Win32;
+using PeyrSharp.Env;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -269,7 +269,7 @@ public partial class DatabasePage : Page
 			var dialogResult = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
 			if (dialogResult == MessageBoxResult.Yes)
 			{
-				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime;
+				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Sys.UnixTime;
 				if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
 				{
 					DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
@@ -300,7 +300,7 @@ public partial class DatabasePage : Page
 
 			Global.DataBaseFilePath = ""; // Reset
 
-			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
+			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Sys.UnixTime, LastEditTime = Sys.UnixTime, Size = 0 };
 			dbi.Authors.Add(Environment.UserName); // Add
 			dbi.Name = Properties.Resources.DatalyaDataBase; // Set
 
@@ -385,7 +385,7 @@ public partial class DatabasePage : Page
 
 	private void AboutBtn_Click(object sender, RoutedEventArgs e)
 	{
-		new AboutWindow().Show(); // Show about window
+		Global.MainWindow.SettingsBtn_Click(sender, e);
 	}
 
 	private void GetHelpBtn_Click(object sender, RoutedEventArgs e)

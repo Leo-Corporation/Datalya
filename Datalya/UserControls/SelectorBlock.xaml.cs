@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Datalya.UserControls;
@@ -52,5 +53,15 @@ public partial class SelectorBlock : UserControl
 		}
 
 		ItemComboBox.SelectedItem = ContentTxt; // Set
+	}
+
+	private void ItemComboBox_TextChanged(object sender, TextChangedEventArgs e)
+	{
+		ItemComboBox.IsDropDownOpen = true;
+	}
+
+	private void ItemComboBox_GotFocus(object sender, RoutedEventArgs e)
+	{
+		ItemComboBox.IsDropDownOpen = true;
 	}
 }
