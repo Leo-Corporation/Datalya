@@ -23,7 +23,7 @@ SOFTWARE.
 */
 using Datalya.Classes;
 using Datalya.Windows;
-using LeoCorpLibrary;
+using PeyrSharp.Env;
 using System;
 using System.IO;
 using System.Windows;
@@ -123,7 +123,7 @@ public partial class App : Application
 			{
 				if (MessageBox.Show(Datalya.Properties.Resources.UpdatesAvailable, $"{Datalya.Properties.Resources.InstallVersion} {lastVer}", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
 				{
-					Env.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
+					Sys.ExecuteAsAdmin(Directory.GetCurrentDirectory() + @"\Xalyus Updater.exe"); // Start the updater
 					Environment.Exit(0); // Close
 				}
 			};

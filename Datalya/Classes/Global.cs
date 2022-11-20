@@ -25,9 +25,9 @@ using Datalya.Enums;
 using Datalya.Pages;
 using Datalya.UserControls;
 using Datalya.Windows;
-using LeoCorpLibrary;
-using LeoCorpLibrary.Enums;
-using LeoCorpLibrary.Extensions;
+using PeyrSharp.Env;
+using PeyrSharp.Enums;
+using PeyrSharp.Extensions;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -198,22 +198,22 @@ public static class Global
 	/// <param name="size">The initial size.</param>
 	/// <param name="converted">The converted size.</param>
 	/// <param name="unitType">The final unit.</param>
-	public static void ConvertByteToCorrectSize(int size, out double converted, out UnitType unitType)
+	public static void ConvertByteToCorrectSize(int size, out double converted, out StorageUnits unitType)
 	{
 		if (size > 1000000)
 		{
 			converted = size / 1000000d; // Return
-			unitType = UnitType.Megabyte; // Return
+			unitType = StorageUnits.Megabyte; // Return
 		}
 		else if (size > 1000)
 		{
 			converted = size / 1000d; // Return
-			unitType = UnitType.Kilobyte; // Return
+			unitType = StorageUnits.Kilobyte; // Return
 		}
 		else
 		{
 			converted = size; // Return
-			unitType = UnitType.Byte; // Return
+			unitType = StorageUnits.Byte; // Return
 		}
 	}
 
@@ -262,7 +262,7 @@ public static class Global
 
 	public static bool IsSystemThemeDark()
 	{
-		if (Env.WindowsVersion != WindowsVersion.Windows10 && Env.WindowsVersion != WindowsVersion.Windows11)
+		if (Sys.CurrentWindowsVersion != WindowsVersion.Windows10 && Sys.CurrentWindowsVersion != WindowsVersion.Windows11)
 		{
 			return false; // Avoid errors on older OSs
 		}
@@ -328,6 +328,36 @@ public static class Global
 		jumpList.ShowRecentCategory = true;
 
 		JumpList.SetJumpList(Application.Current, jumpList);
+	}
+
+	public static string UnSplit(this string[] array, string separator)
+	{
+		if (array.Length <= 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(array), "The length of an array must be higher than zero");
+		}
+
+		string unsplitted = ""; // Final result
+
+		for (int i = 0; i < array.Length; i++) // For each element
+		{
+			string s = (i == array.Length - 1) ? "" : separator;
+			unsplitted += array[i] + s;
+		}
+
+		return unsplitted; // Return
+	}
+
+	/// <summary>
+	/// Converts Unix Time to a <see cref="DateTime"/>.
+	/// </summary>
+	/// <param name="unixTime">The Unix Time.</param>
+	/// <returns>A <see cref="DateTime"/> value.</returns>
+	public static DateTime UnixTimeToDateTime(int unixTime)
+	{
+		DateTime dtDateTime = new(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc); // Create a date
+		dtDateTime = dtDateTime.AddSeconds(unixTime).ToLocalTime(); // Add the seconds
+		return dtDateTime; // Return the result
 	}
 
 	public static bool IsVersionGreaterThanActual(string version)

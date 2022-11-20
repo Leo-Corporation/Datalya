@@ -25,7 +25,7 @@ using ClosedXML.Excel;
 using Datalya.Classes;
 using Datalya.Enums;
 using Datalya.Windows;
-using LeoCorpLibrary;
+using PeyrSharp.Env;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -269,7 +269,7 @@ public partial class DatabasePage : Page
 			var dialogResult = MessageBox.Show(Properties.Resources.CloseDBConfirmMsg, Properties.Resources.Datalya, MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
 			if (dialogResult == MessageBoxResult.Yes)
 			{
-				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Env.UnixTime;
+				Global.CurrentDataBase.DataBaseInfo.LastEditTime = Sys.UnixTime;
 				if (!string.IsNullOrEmpty(Global.DataBaseFilePath))
 				{
 					DataBaseManager.Save(Global.CurrentDataBase, Global.DataBaseFilePath); // Save
@@ -300,7 +300,7 @@ public partial class DatabasePage : Page
 
 			Global.DataBaseFilePath = ""; // Reset
 
-			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Env.UnixTime, LastEditTime = Env.UnixTime, Size = 0 };
+			DataBaseInfo dbi = new() { Authors = new(), CreationTime = Sys.UnixTime, LastEditTime = Sys.UnixTime, Size = 0 };
 			dbi.Authors.Add(Environment.UserName); // Add
 			dbi.Name = Properties.Resources.DatalyaDataBase; // Set
 
