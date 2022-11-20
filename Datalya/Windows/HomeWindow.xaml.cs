@@ -339,9 +339,9 @@ public partial class HomeWindow : Window
 				{
 					dataBaseItem.Visibility = Visibility.Visible;
 					continue;
-				}				
+				}
 				dataBaseItem.Visibility = !dataBaseItem.DataBaseInfo.Name.ToLower().Contains(SearchTxt.Text.ToLower()) ?
-					Visibility.Collapsed : Visibility.Visible;				
+					Visibility.Collapsed : Visibility.Visible;
 			}
 		}
 	}

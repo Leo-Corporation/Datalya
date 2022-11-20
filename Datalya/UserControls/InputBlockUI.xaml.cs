@@ -59,7 +59,7 @@ public partial class InputBlockUI : UserControl
 			ValueTxt.Text = InputBlock.PlaceHolder; // Set text
 			isPlaceholderShown = true; // Set to true
 			ValueTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
-		}	
+		}
 	}
 
 	private void ValueTxt_GotFocus(object sender, RoutedEventArgs e)
