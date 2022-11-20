@@ -37,7 +37,7 @@ namespace Datalya.UserControls;
 /// </summary>
 public partial class HomeDataBaseItem : UserControl
 {
-	DataBaseInfo DataBaseInfo { get; init; }
+	internal DataBaseInfo DataBaseInfo { get; init; }
 	public HomeDataBaseItem(DataBaseInfo dataBase)
 	{
 		InitializeComponent();

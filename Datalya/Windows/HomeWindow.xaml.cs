@@ -124,6 +124,11 @@ public partial class HomeWindow : Window
 
 		// Settings
 		SettingsFrame.Navigate(Global.HomeSettingsPage);
+
+		// Search box
+		isPlaceholderShown = true; // Set to true
+		SearchTxt.Text = Properties.Resources.Search; // Set text
+		SearchTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
 	}
 
 	private void HideAllTabs()
@@ -299,5 +304,45 @@ public partial class HomeWindow : Window
 			HomeGrid.Visibility = Visibility.Visible;
 		}
 		toggled = !toggled;
+	}
+
+	bool isPlaceholderShown;
+	private void SearchTxt_LostFocus(object sender, RoutedEventArgs e)
+	{
+		if (SearchTxt.Text == string.Empty)
+		{
+			isPlaceholderShown = true; // Set to true
+			SearchTxt.Text = Properties.Resources.Search; // Set text
+			SearchTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
+		}
+	}
+
+	private void SearchTxt_GotFocus(object sender, RoutedEventArgs e)
+	{
+		if (isPlaceholderShown)
+		{
+			isPlaceholderShown = false; // Set to false
+			SearchTxt.Text = ""; // Clear
+			SearchTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["Foreground1"].ToString()) }; // Set foreground
+		}
+	}
+
+	private void SearchTxt_TextChanged(object sender, TextChangedEventArgs e)
+	{
+		if (isPlaceholderShown) return;
+
+		for (int i = 0; i < RecentItemDisplayer.Children.Count; i++)
+		{
+			if (RecentItemDisplayer.Children[i] is HomeDataBaseItem dataBaseItem)
+			{
+				if (string.IsNullOrEmpty(SearchTxt.Text))
+				{
+					dataBaseItem.Visibility = Visibility.Visible;
+					continue;
+				}				
+				dataBaseItem.Visibility = !dataBaseItem.DataBaseInfo.Name.ToLower().Contains(SearchTxt.Text.ToLower()) ?
+					Visibility.Collapsed : Visibility.Visible;				
+			}
+		}
 	}
 }
