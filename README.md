@@ -2,7 +2,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/Leo-Corporation/Datalya)
 ![GitHub issues](https://img.shields.io/github/issues/Leo-Corporation/Datalya)
 ![GitHub](https://img.shields.io/github/license/Leo-Corporation/Datalya)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Leo-Corporation/Datalya/.NET%20Core%20Desktop)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Leo-Corporation/Datalya/dotnet-core-desktop.yml?branch=main)
 ![Using PeyrSharp](https://img.shields.io/badge/using-PeyrSharp-DD00FF?logo=nuget)
 <br />
 <p align="center">
