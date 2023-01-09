@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.97.0" />
-    <PackageReference Include="PeyrSharp" Version="1.0.0.2211" />
+    <PackageReference Include="PeyrSharp" Version="1.2.0.2301" />
   </ItemGroup>
 
   <ItemGroup>
