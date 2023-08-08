@@ -228,4 +228,9 @@ public partial class CreatorPage : Page
 		new TemplateWindow(true).Show(); // Open template window
 		ImportPopup.IsOpen = false; // Close the popup so that other interactions aren't "blocked"
 	}
+
+	private void MoreBtn_Click(object sender, RoutedEventArgs e)
+	{
+		MorePopup.IsOpen = !MorePopup.IsOpen;
+	}
 }
