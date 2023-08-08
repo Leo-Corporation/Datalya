@@ -204,8 +204,8 @@ public partial class HomeWindow : Window
 
 		double factor = scaling / 100d; // Calculate factor
 
-		MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
-		MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
+		MaxHeight = currentScreen.WorkingArea.Height / factor + 7; // Set max size
+		MaxWidth = currentScreen.WorkingArea.Width / factor + 7; // Set max size
 	}
 
 	private void RefreshState()
@@ -214,7 +214,8 @@ public partial class HomeWindow : Window
 		MaximizeToolTip.Content = WindowState == WindowState.Maximized ? Properties.Resources.Restore : Properties.Resources.Maximize; // Set
 		DefineMaximumSize(); // Avoid taskbar overflow
 
-		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(10, 10, 0, 0) : new(10); // Set
+		WindowBorder.CornerRadius = WindowState == WindowState.Maximized ? new(0) : new(5);
+		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(5, 5, 0, 0) : new(10); // Set
 	}
 
 	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
