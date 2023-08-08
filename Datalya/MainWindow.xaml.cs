@@ -49,12 +49,23 @@ public partial class MainWindow : Window
 		StateChanged += (o, e) => RefreshState();
 		Loaded += (o, e) => RefreshState();
 		LocationChanged += (o, e) => RefreshState();
+		SizeChanged += (o, e) =>
+		{
+			Global.Settings.MainWindowSize = (ActualWidth, ActualHeight);
+		};
 
 		// UI
 		WindowContent.Content = Global.DatabasePage; // Set content
 		CheckButton(DatabaseBtn); // Check
 		DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 		EditNameTextBox.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
+
+		// Restore the previous size
+		if (!Global.Settings.IsMaximized)
+		{
+			Width = Global.Settings.MainWindowSize?.Item1 ?? 1100;
+			Height = Global.Settings.MainWindowSize?.Item2 ?? 600;
+		}
 	}
 
 	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)

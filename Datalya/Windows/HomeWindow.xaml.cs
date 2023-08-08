@@ -58,6 +58,10 @@ public partial class HomeWindow : Window
 		StateChanged += (o, e) => RefreshState();
 		Loaded += (o, e) => RefreshState();
 		LocationChanged += (o, e) => RefreshState();
+		SizeChanged += (o, e) =>
+		{
+			Global.Settings.MainWindowSize = (ActualWidth, ActualHeight);
+		};
 
 		// Check & Display default tab
 		if (PageId == 0)
@@ -129,6 +133,13 @@ public partial class HomeWindow : Window
 		isPlaceholderShown = true; // Set to true
 		SearchTxt.Text = Properties.Resources.Search; // Set text
 		SearchTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
+
+		// Restore the previous size
+		if (!Global.Settings.IsMaximized)
+		{
+			Width = Global.Settings.MainWindowSize?.Item1 ?? 1100;
+			Height = Global.Settings.MainWindowSize?.Item2 ?? 600;
+		}
 	}
 
 	private void HideAllTabs()
