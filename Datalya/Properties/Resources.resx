@@ -569,6 +569,7 @@ Note: You cannot save an empty database.
 - SingleChoice Block: A Block with checkboxes, but only one can be checked.
 - Selector Block: A dropdown with different choices.
 - Date Block: A Block with a date picker.
+- Number Block: Similar to the Input Block but only accepts digits.
 You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an item to your database.
 You can delete a Block by clicking the “Trash” icon next to the “Configure” button.
 </value>
