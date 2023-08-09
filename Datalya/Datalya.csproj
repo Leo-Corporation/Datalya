@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,13 +6,13 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Datalya.ico</ApplicationIcon>
-    <Version>1.7.0.2211</Version>
+    <Version>1.8.0.2308</Version>
     <Authors>Léo Corporation</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Leo-Corporation/Datalya</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Leo-Corporation/Datalya</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Copyright>© 2022</Copyright>
+    <Copyright>© 2023</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.97.0" />
-    <PackageReference Include="PeyrSharp" Version="1.0.0.2211" />
+    <PackageReference Include="ClosedXML" Version="0.102.0" />
+    <PackageReference Include="PeyrSharp" Version="1.8.0.2308" />
   </ItemGroup>
 
   <ItemGroup>

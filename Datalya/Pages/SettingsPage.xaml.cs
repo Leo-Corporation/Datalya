@@ -278,8 +278,8 @@ public partial class SettingsPage : Page
 		MessageBox.Show($"{Properties.Resources.Licenses}\n\n" +
 			"Fluent System Icons - MIT License - © 2020 Microsoft Corporation\n" +
 			"ClosedXML - MIT License - © 2016 ClosedXML\n" +
-			"LeoCorpLibrary - MIT License - © 2020-2022 Léo Corporation\n" +
-			"Datalya - MIT License - © 2021-2022 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
+			"PeyrSharp - MIT License - © 2022-2023 Devyus\n" +
+			"Datalya - MIT License - © 2021-2023 Léo Corporation", Properties.Resources.Datalya, MessageBoxButton.OK, MessageBoxImage.Information);
 	}
 
 	private void DefaultTabComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

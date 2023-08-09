@@ -63,6 +63,7 @@ public partial class EditWindow : Window
 					BlockType.Selector => new UserControls.SelectorBlock((Classes.SelectorBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					BlockType.SingleChoice => new SingleChoiceBlockUI((SingleChoiceBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					BlockType.Date => new DateBlockUI((DateBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
+					BlockType.Number => new NumberBlockUI((NumberBlock)Global.CurrentDataBase.Blocks[i], Item[i]), // Add block
 					_ => new InputBlockUI((InputBlock)Global.CurrentDataBase.Blocks[i]) // Add block
 				}); // Add
 			}
@@ -136,6 +137,20 @@ public partial class EditWindow : Window
 					DateBlock dateBlock = new() { Name = dateBlockUI.DateBlock.Name };
 					dateBlock.BlockValue = dateBlockUI.DateDisplayerPicker.SelectedDate.Value.ToString("d"); // Set					
 					blocks.Add(dateBlock);
+				}
+				else if (uIElement is NumberBlockUI numberBlockUI)
+				{
+					NumberBlock numberBlock = new() { Name = numberBlockUI.NumberBlock.Name };
+					var val = numberBlockUI.NumberBlock.UseComboBox ? numberBlockUI.ItemComboBox.Text : numberBlockUI.ValueTxt.Text;
+					if (!string.IsNullOrEmpty(val))
+					{
+						double parsed = double.Parse(val);
+						if (numberBlockUI.NumberBlock.UseRange && parsed >= numberBlockUI.NumberBlock.Range.Value.Item1 && parsed <= numberBlockUI.NumberBlock.Range.Value.Item2)
+							numberBlock.BlockValue = val; // Set
+						else if (!numberBlockUI.NumberBlock.UseRange)
+							numberBlock.BlockValue = val; // Set
+					}
+					blocks.Add(numberBlock);
 				}
 			}
 

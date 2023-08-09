@@ -32,6 +32,7 @@ namespace Datalya.Classes;
 [XmlInclude(typeof(SingleChoiceBlock))]
 [XmlInclude(typeof(SelectorBlock))]
 [XmlInclude(typeof(DateBlock))]
+[XmlInclude(typeof(NumberBlock))]
 [Serializable]
 public class Block
 {

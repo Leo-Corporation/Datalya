@@ -76,9 +76,14 @@ public class Settings
 	public bool? DisplayDeleteBlockMessage { get; set; }
 
 	/// <summary>
-	/// The efault tab that sould be selected when opening Datalya.
+	/// The default tab that sould be selected when opening Datalya.
 	/// </summary>
 	public DatabaseMenuTabs? DefaultMenuTab { get; set; }
+
+	/// <summary>
+	/// The default size that should be used when launching the app.
+	/// </summary>
+	public (double, double)? MainWindowSize { get; set; }
 }
 
 public static class SettingsManager
@@ -96,7 +101,7 @@ public static class SettingsManager
 			StreamReader streamReader = new(path); // Where the file is going to be read
 
 			Global.Settings = (Settings)xmlSerializer.Deserialize(streamReader); // Read
-
+			Global.Settings.MainWindowSize ??= (650, 1100);
 			streamReader.Dispose();
 		}
 		else

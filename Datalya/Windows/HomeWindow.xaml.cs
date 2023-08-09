@@ -58,6 +58,10 @@ public partial class HomeWindow : Window
 		StateChanged += (o, e) => RefreshState();
 		Loaded += (o, e) => RefreshState();
 		LocationChanged += (o, e) => RefreshState();
+		SizeChanged += (o, e) =>
+		{
+			Global.Settings.MainWindowSize = (ActualWidth, ActualHeight);
+		};
 
 		// Check & Display default tab
 		if (PageId == 0)
@@ -129,6 +133,13 @@ public partial class HomeWindow : Window
 		isPlaceholderShown = true; // Set to true
 		SearchTxt.Text = Properties.Resources.Search; // Set text
 		SearchTxt.Foreground = new SolidColorBrush() { Color = (Color)ColorConverter.ConvertFromString(App.Current.Resources["DarkGray"].ToString()) }; // Set foreground
+
+		// Restore the previous size
+		if (!Global.Settings.IsMaximized)
+		{
+			Width = Global.Settings.MainWindowSize?.Item1 ?? 1100;
+			Height = Global.Settings.MainWindowSize?.Item2 ?? 600;
+		}
 	}
 
 	private void HideAllTabs()
@@ -204,8 +215,8 @@ public partial class HomeWindow : Window
 
 		double factor = scaling / 100d; // Calculate factor
 
-		MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
-		MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
+		MaxHeight = currentScreen.WorkingArea.Height / factor + 7; // Set max size
+		MaxWidth = currentScreen.WorkingArea.Width / factor + 7; // Set max size
 	}
 
 	private void RefreshState()
@@ -214,7 +225,8 @@ public partial class HomeWindow : Window
 		MaximizeToolTip.Content = WindowState == WindowState.Maximized ? Properties.Resources.Restore : Properties.Resources.Maximize; // Set
 		DefineMaximumSize(); // Avoid taskbar overflow
 
-		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(10, 10, 0, 0) : new(10); // Set
+		WindowBorder.CornerRadius = WindowState == WindowState.Maximized ? new(0) : new(5);
+		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(5, 5, 0, 0) : new(10); // Set
 	}
 
 	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)

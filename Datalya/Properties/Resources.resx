@@ -569,6 +569,7 @@ Note: You cannot save an empty database.
 - SingleChoice Block: A Block with checkboxes, but only one can be checked.
 - Selector Block: A dropdown with different choices.
 - Date Block: A Block with a date picker.
+- Number Block: Similar to the Input Block but only accepts digits.
 You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will act as title of the field when adding an item to your database.
 You can delete a Block by clicking the “Trash” icon next to the “Configure” button.
 </value>
@@ -1257,5 +1258,20 @@ Europe</value>
   </data>
   <data name="UpdatesDesc" xml:space="preserve">
     <value>Update settings.</value>
+  </data>
+  <data name="NumberInput" xml:space="preserve">
+    <value>Number input</value>
+  </data>
+  <data name="SpecificRange" xml:space="preserve">
+    <value>Use a specific range</value>
+  </data>
+  <data name="UseComboBox" xml:space="preserve">
+    <value>Use a drop-down</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
   </data>
 </root>

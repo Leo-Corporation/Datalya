@@ -1030,7 +1030,8 @@ namespace Datalya.Properties {
         ///- SingleChoice Block: A Block with checkboxes, but only one can be checked.
         ///- Selector Block: A dropdown with different choices.
         ///- Date Block: A Block with a date picker.
-        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure” button once you have added one. All Blocks require a name. It will  [rest of string was truncated]&quot;;.
+        ///- Number Block: Similar to the Input Block but only accepts digits.
+        ///You can add Blocks in the Creator. You can give configure a Block by clicking the “Configure [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HelpGetStartedBlocks {
             get {
@@ -1225,6 +1226,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max.
+        /// </summary>
+        public static string Max {
+            get {
+                return ResourceManager.GetString("Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximize.
         /// </summary>
         public static string Maximize {
@@ -1248,6 +1258,15 @@ namespace Datalya.Properties {
         public static string MessagesDesc {
             get {
                 return ResourceManager.GetString("MessagesDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min.
+        /// </summary>
+        public static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
             }
         }
         
@@ -1401,6 +1420,15 @@ namespace Datalya.Properties {
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number input.
+        /// </summary>
+        public static string NumberInput {
+            get {
+                return ResourceManager.GetString("NumberInput", resourceCulture);
             }
         }
         
@@ -1828,6 +1856,15 @@ namespace Datalya.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use a specific range.
+        /// </summary>
+        public static string SpecificRange {
+            get {
+                return ResourceManager.GetString("SpecificRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to System.
         /// </summary>
         public static string System {
@@ -1941,6 +1978,15 @@ namespace Datalya.Properties {
         public static string UpToDate {
             get {
                 return ResourceManager.GetString("UpToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a drop-down.
+        /// </summary>
+        public static string UseComboBox {
+            get {
+                return ResourceManager.GetString("UseComboBox", resourceCulture);
             }
         }
         

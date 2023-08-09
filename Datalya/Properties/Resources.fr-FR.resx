@@ -589,6 +589,7 @@ Note : Vous ne pouvez pas enregistrer une base de données vide.
 - Block Choix unique : Un Block avec des cases à cocher, mais une seule peut être cochée.
 - Block Sélecteur : Un menu déroulant avec différent choix.
 - Block Date : Un Block avec un sélecteur de date.
+- Bloc d'Entrée Numérique : Semblable au bloc d'entrée, mais il n'accepte que des chiffres.
 Vous pouvez ajouter des Blocks dans le Creator. Vous pouvez configurer un Block en cliquant sur le bouton « Configurer » une fois que vous en avez ajouté un. Tous les Blocks ont besoins d’un nom. Il agira en tant que titre du champ lors d’un ajout d’élément à votre base de données.
 Vous pouvez supprimer un Block en cliquant sur l’icône « Poubelle » à côté du bouton « Configurer ».
 </value>
@@ -1330,5 +1331,20 @@ Europe</value>
   </data>
   <data name="UpdatesDesc" xml:space="preserve">
     <value>Paramètres de mise à jour.</value>
+  </data>
+  <data name="NumberInput" xml:space="preserve">
+    <value>Entrée numérique</value>
+  </data>
+  <data name="SpecificRange" xml:space="preserve">
+    <value>Utiliser une intervalle spécifique</value>
+  </data>
+  <data name="UseComboBox" xml:space="preserve">
+    <value>Utiliser un menu déroulant</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Maxi</value>
   </data>
 </root>

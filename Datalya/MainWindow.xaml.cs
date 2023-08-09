@@ -49,12 +49,23 @@ public partial class MainWindow : Window
 		StateChanged += (o, e) => RefreshState();
 		Loaded += (o, e) => RefreshState();
 		LocationChanged += (o, e) => RefreshState();
+		SizeChanged += (o, e) =>
+		{
+			Global.Settings.MainWindowSize = (ActualWidth, ActualHeight);
+		};
 
 		// UI
 		WindowContent.Content = Global.DatabasePage; // Set content
 		CheckButton(DatabaseBtn); // Check
 		DataBaseNameTxt.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
 		EditNameTextBox.Text = Global.CurrentDataBase.DataBaseInfo.Name; // Set text
+
+		// Restore the previous size
+		if (!Global.Settings.IsMaximized)
+		{
+			Width = Global.Settings.MainWindowSize?.Item1 ?? 1100;
+			Height = Global.Settings.MainWindowSize?.Item2 ?? 600;
+		}
 	}
 
 	private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -122,7 +133,8 @@ public partial class MainWindow : Window
 		MaximizeToolTip.Content = WindowState == WindowState.Maximized ? Properties.Resources.Restore : Properties.Resources.Maximize; // Set
 		DefineMaximumSize(); // Avoid taskbar overflow
 
-		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(10, 10, 0, 0) : new(10); // Set
+		WindowBorder.CornerRadius = WindowState == WindowState.Maximized ? new(0) : new(5);
+		WindowBorder.Margin = WindowState == WindowState.Maximized ? new(5, 5, 0, 0) : new(10); // Set
 	}
 
 	private void TabEnter(object sender, MouseEventArgs e)
@@ -216,8 +228,8 @@ public partial class MainWindow : Window
 
 		double factor = scaling / 100d; // Calculate factor
 
-		MaxHeight = currentScreen.WorkingArea.Height / factor + 5; // Set max size
-		MaxWidth = currentScreen.WorkingArea.Width / factor + 5; // Set max size
+		MaxHeight = currentScreen.WorkingArea.Height / factor + 7; // Set max size
+		MaxWidth = currentScreen.WorkingArea.Width / factor + 7; // Set max size
 	}
 
 	internal void SettingsBtn_Click(object sender, RoutedEventArgs e)
