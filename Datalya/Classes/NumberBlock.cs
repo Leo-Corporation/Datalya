@@ -21,38 +21,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Datalya.Enums;
+namespace Datalya.Classes;
 
-public enum BlockType
+[Serializable]
+public class NumberBlock : Block
 {
-	/// <summary>
-	/// A text field.
-	/// </summary>
-	Input,
+	public bool UseRange { get; set; }
 
-	/// <summary>
-	/// Choices with checkboxes.
-	/// </summary>
-	Multichoices,
+	public bool UseComboBox { get; set; }
 
-	/// <summary>
-	/// Choicess with radiobuttons.
-	/// </summary>
-	SingleChoice,
+	public (int, int)? Range { get; set; }
 
-	/// <summary>
-	/// Choices within a ComboBox.
-	/// </summary>
-	Selector,
+	public string BlockValue { get; set; }
 
-	/// <summary>
-	/// A date field.
-	/// </summary>
-	Date,
+    public NumberBlock()
+    {
+		BlockType = Enums.BlockType.Number;
+    }
 
-	/// <summary>
-	/// A number field.
-	/// </summary>
-	Number
+    public void ChangeName(string name) => Name = name;
+
+	public override string ToString() => BlockValue;
 }
