@@ -1331,4 +1331,19 @@ Europe</value>
   <data name="UpdatesDesc" xml:space="preserve">
     <value>Paramètres de mise à jour.</value>
   </data>
+  <data name="NumberInput" xml:space="preserve">
+    <value>Entrée numérique</value>
+  </data>
+  <data name="SpecificRange" xml:space="preserve">
+    <value>Utiliser une intervalle spécifique</value>
+  </data>
+  <data name="UseComboBox" xml:space="preserve">
+    <value>Utiliser un menu déroulant</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Maxi</value>
+  </data>
 </root>
