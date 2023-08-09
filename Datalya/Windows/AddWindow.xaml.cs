@@ -143,7 +143,7 @@ public partial class AddWindow : Window
 			}
 			else if (uIElement is NumberBlockUI numberBlockUI)
 			{
-				NumberBlock	numberBlock = new() { Name = numberBlockUI.NumberBlock.Name };
+				NumberBlock numberBlock = new() { Name = numberBlockUI.NumberBlock.Name };
 				var val = numberBlockUI.NumberBlock.UseComboBox ? numberBlockUI.ItemComboBox.Text : numberBlockUI.ValueTxt.Text;
 				if (!string.IsNullOrEmpty(val))
 				{

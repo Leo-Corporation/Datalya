@@ -22,10 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datalya.Classes;
 
@@ -40,12 +36,12 @@ public class NumberBlock : Block
 
 	public string BlockValue { get; set; }
 
-    public NumberBlock()
-    {
+	public NumberBlock()
+	{
 		BlockType = Enums.BlockType.Number;
-    }
+	}
 
-    public void ChangeName(string name) => Name = name;
+	public void ChangeName(string name) => Name = name;
 
 	public override string ToString() => BlockValue;
 }
